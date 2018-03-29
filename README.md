@@ -29,6 +29,7 @@ __Note: These images are intended for DSpace development purposes and are not ap
 - dspace-janitor-angular
 
 ## Planned Docker Compose Configurations
+_The management of docker compose images is TBD_
 - dspace6-postgres
 - dspace6-oracle
 - dspace7-postgres
