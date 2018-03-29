@@ -7,10 +7,8 @@ __Note: These images are intended for DSpace development purposes and are not ap
 
 ## Planned Images
 
-- dspace-postgres-pgcrypto
-  - built from the postgres image.  
-  - Data is persisted by setting env PGDATA.
-  - Includes pgcrypto (for DSpace 6 or later)
+- [dspace-postgres-pgcrypto](dspace-postgres-pgcrypto)
+  - [dspace/dspace-postgres-pgcrypto](https://hub.docker.com/r/dspace/dspace-postgres-pgcrypto/)
 - dspace-oracle
 - dspace-tomcat
   - built on image with java, maven, tomcat
