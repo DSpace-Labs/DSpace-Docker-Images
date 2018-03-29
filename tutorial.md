@@ -42,8 +42,8 @@ _This volume will persist you database data even if you stop the database server
 
 _Start the database service - this must be done before deployment_
 
-    docker run -it -d --network dspacenet -p 5432:5432 --name dspacedb -v pgdataD6:/var/lib/postgresql/data dspace/dspace-postgres-pgcrypto
-
+    docker run -it -d --network dspacenet -p 5432:5432 --name dspacedb -v pgdataD6:/pgdata -e PGDATA=/pgdata dspace/dspace-postgres-pgcrypto
+    
 _Attach to the database server to query directly_
 
     docker exec -it --detach-keys "ctrl-p" dspacedb psql -U dspace
@@ -57,11 +57,11 @@ _This volume will persist the DSpace assetstore and solr content between runs_
 
 #### Windows Flavor
 
-    docker run -it --rm --network dspacenet -v ${PWD}/dspace/target/dspace-installer:/installer -v dspaceD6:/dspace -w /installer terrywbrady/dspace-docker-ant ant update clean_backups
+    docker run -it --rm --network dspacenet -v ${PWD}/dspace/target/dspace-installer:/installer -v dspaceD6:/dspace -w /installer dspace/dspace-tomcat ant update clean_backups
 
 #### MacOS Flavor
 
-    docker run -it --rm --network dspacenet -v "$(pwd)"/dspace/target/dspace-installer:/installer -v dspaceD6:/dspace -w /installer terrywbrady/dspace-docker-ant ant update clean_backups
+    docker run -it --rm --network dspacenet -v "$(pwd)"/dspace/target/dspace-installer:/installer -v dspaceD6:/dspace -w /installer dspace/dspace-tomcat ant update clean_backups
 
 ### Start tomcat 
 
