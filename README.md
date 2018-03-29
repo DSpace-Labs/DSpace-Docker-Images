@@ -18,6 +18,10 @@ __Note: These images are intended for DSpace development purposes and are not ap
   - Optimized for rapid build/test
 - dspace-angular
 
+## Tutorial
+
+See [DSpace Docker Tutorial](tutorial.md)
+
 ### Demo Runtime Images (Experimental)
 - dspace-runtime
   - a version of dpsace-tomcat with DSPACE_INSTALL already built and populated
