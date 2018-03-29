@@ -3,7 +3,7 @@ Repository for developing and managing published Docker images (https://hub.dock
 
 __This project is under development__
 
-__Note: These images are intended for DSpace development purposes and are not appropriate for production use __
+__Note: These images are intended for DSpace development purposes and are not appropriate for production use.__
 
 ## Planned Images
 
