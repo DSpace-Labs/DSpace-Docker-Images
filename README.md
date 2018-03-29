@@ -3,6 +3,8 @@ Repository for developing and managing published Docker images (https://hub.dock
 
 __This project is under development__
 
+__Note: These images are intended for DSpace development purposes and are not appropriate for production use __
+
 ## Planned Images
 
 - dspace-postgres-pgcrypto
@@ -16,14 +18,20 @@ __This project is under development__
   - has assumptions based on env DSPACE_INSTALL
 - dspace-dev
   - Optimized for rapid build/test
+- dspace-angular
+
+### Demo Runtime Images (Experimental)
+- dspace-runtime
+  - a version of dpsace-tomcat with DSPACE_INSTALL already built and populated
 
 ### Service Specific Images
 - dspace-codenvy-tomcat
-- dspace-janitor
+- dspace-janitor-angular
 
 ## Planned Docker Compose Configurations
-
-- Could we build an image with dspace-install already populated and ready to go?
+- dspace6-postgres
+- dspace6-oracle
+- dspace7-postgres
 
 ## Other Ideas
 
