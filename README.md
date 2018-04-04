@@ -10,7 +10,8 @@ __Note: These images are intended for DSpace development purposes and are not ap
 - [dspace-postgres-pgcrypto](dspace-postgres-pgcrypto)
   - [dspace/dspace-postgres-pgcrypto](https://hub.docker.com/r/dspace/dspace-postgres-pgcrypto/)
 - dspace-oracle
-- dspace-tomcat
+- [dspace-tomcat](dspace-tomcat)
+  - [dspace/dspace-tomcat](https://hub.docker.com/r/dspace/dspace-tomcat/)
   - built on image with java, maven, tomcat
   - ant is added
   - has assumptions based on env DSPACE_INSTALL
@@ -27,7 +28,8 @@ See [DSpace Docker Tutorial](tutorial.md)
   - a version of dpsace-tomcat with DSPACE_INSTALL already built and populated
 
 ### Service Specific Images
-- dspace-codenvy-tomcat
+- [dspace-codenvy-tomcat](dspace-codenvy-tomcat)
+  - [dspace/dspace-codenvy-tomcat](https://hub.docker.com/r/dspace/dspace-codenvy-tomcat/)
 - dspace-janitor-angular
 
 ## Planned Docker Compose Configurations
