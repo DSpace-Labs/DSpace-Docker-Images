@@ -30,7 +30,7 @@ See [DSpace Docker Tutorial](tutorial.md)
 ### Service Specific Images
 - [dspace-codenvy-tomcat](dspace-codenvy-tomcat)
   - [dspace/dspace-codenvy-tomcat](https://hub.docker.com/r/dspace/dspace-codenvy-tomcat/)
-- dspace-janitor-angular
+- [dspace-janitor-angular](dspace-janitor-angular)
 
 ## Planned Docker Compose Configurations
 _The management of docker compose images is TBD_
