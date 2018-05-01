@@ -11,7 +11,7 @@
         "proxy": "none"
       },
       "3000": {
-        "label": "Web",
+        "label": "DSpace Web Preview",
         "proxy": "https",
         "preview": true
       },
@@ -23,7 +23,11 @@
       "8089": {
         "label": "Cloud9",
         "proxy": "https"
-      }
+      },
+	  "8090": {
+	  	"label": "Theia",
+		"proxy": "https"
+	  }
     },
     "scripts": {
       "Run server": {

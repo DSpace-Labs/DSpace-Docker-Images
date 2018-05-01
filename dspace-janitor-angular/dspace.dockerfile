@@ -5,8 +5,7 @@ RUN git clone https://github.com/dspace/dspace-angular /home/user/dspace-angular
 WORKDIR /home/user/dspace-angular/
 
 # Add server configuration
-COPY environment.prod.js /home/user/dspace-angular/config/
-RUN sudo chown user:user /home/user/dspace-angular/config/environment.prod.js
+COPY --chown=user:user environment.prod.js /home/user/dspace-angular/config/
 
 # Install dependencies
 RUN yarn run global \
@@ -14,8 +13,7 @@ RUN yarn run global \
   && yarn prestart
 
 # Add Janitor configurations
-COPY janitor.json /home/user/
-RUN sudo chown user:user /home/user/janitor.json
+COPY --chown=user:user janitor.json /home/user/
 
 # Configure the IDEs to use Janitor's source directory as workspace.
 ENV WORKSPACE /home/user/dspace-angular/
