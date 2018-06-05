@@ -1,0 +1,6 @@
+[user]
+# please add your name and email address here
+#    name = DSpace 7 UI Developer
+#	email = dspacedemo+admin@gmail.com
+[push]
+	default = simple

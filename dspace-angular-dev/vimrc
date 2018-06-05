@@ -1,0 +1,93 @@
+if v:version > 700
+    set nocp
+
+    " EDIT
+    " Erlaubt Backspace über Zeilenumbrüche und automatischen Texteinzug
+    set backspace=indent,eol,start
+    set encoding=utf-8
+
+    " BACKUP
+    set backupdir=~/.vimbackup//
+    set nobackup
+    " If using sudo, the backupdir might not be writable. Suppress warnings:
+    if filewritable(&backupdir) == 2
+        set backup
+    endif
+    
+    " SWAP-Dateien im ersten möglichen Ordner aus folgender Liste ablegen
+    set dir=~/.vimbackup//,./
+
+    set encoding=utf-8
+
+    " SEARCH
+    set ignorecase
+    " ausser der gesuchte Text enthaelt grossbuchstaben
+    set smartcase
+    " bei der eingabe suchen
+    set incsearch
+    " Map Ctrl+l to clear highlighted searches
+    nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
+
+    " VIEW
+    " set number
+    " zeichen bei umgebrochenen zeilen
+    "set showbreak=\ \#
+    " zeilen die zwischen cursor und rand sein muessen damit gescrollt wird
+    set scrolloff=2
+    " und horizontal
+    set sidescroll=5
+
+    " STATUSZEILE
+    set laststatus=2
+    set report=0
+    set ruler
+    set shortmess=fixoO
+    set showcmd
+    set showmode
+    "set statusline=%<%f\ [%Y,%{&fileencoding},%{&fileformat}]%m%r%=%([%{Tlist_Get_Tagname_By_Line()}]%)\ #%n\ %-14.(%l/%L,%c%V%)\ %P
+    set statusline=%<%f\ [%Y,%{&fileencoding},%{&fileformat}]%m%r%=%n\ %-14.(%l/%L,%c%V%)\ %P
+
+    " SYNTAX and FOLDING
+    let g:is_bash=1
+    "let g:sh_fold_enabled=1
+    "let g:perl_fold=1
+    "let g:perl_fold_blocks=2
+    "let g:php_folding=1
+    "let g:tex_fold_enabled=1
+    "set foldmethod=syntax
+    set foldmethod=indent
+    set foldminlines=5
+    set nofoldenable "zu beginn alle folds offen
+    syntax enable
+    syntax sync fromstart
+
+    " INDENT und TABS
+    set autoindent
+    set smartindent
+    " ersetzen von tabulatoren durch spaces
+    set expandtab
+    " Anzahl der Leerstellen bei automatischem Texteinzug, nur sinnvoll in Verbindung mit softtabstop
+    set shiftwidth=4
+    " angezeigte Tabulatorweite = 4 spaces
+    set softtabstop=4
+    " Anzahl der Leerzeichen als die ein Tab interprtiert wird
+    set tabstop=4
+    filetype on
+    filetype indent on
+    filetype plugin on
+    " indent xml files using xlint
+    au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
+
+    set bg=dark
+    " detect OS X
+    if has("unix")
+	    let s:uname = system("uname -s")
+	    if s:uname == "Darwin\n"
+            set bg=light
+		    " to avoid problems with arrow/cursor keys 
+            set notimeout
+		    set ttimeout
+		    set timeoutlen=100
+	    endif
+    endif
+endif

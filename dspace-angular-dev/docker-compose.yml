@@ -1,0 +1,22 @@
+version: '3'
+services:
+  angular:
+    build: .
+    ports:
+      - 3000:3000
+      - 8080:8080
+      - 9876:9876
+    environment:
+      - DSPACE_SSL=false
+      - DSPACE_HOST=0.0.0.0
+      - DSPACE_PORT=8080
+      - DSPACE_REST_HOST=dspace7.4science.it
+      - DSPACE_REST_SSL=true
+      - DSPACE_REST_NAMESPACE=/dspace-spring-rest/
+      - DSPACE_REST_PORT=443
+    volumes:
+      # Path on the host, relative to the Compose file
+      - ./dspace-angular:/dspace-angular:cached
+    command: /bin/bash
+    tty: true
+    stdin_open: true

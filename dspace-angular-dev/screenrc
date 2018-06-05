@@ -1,0 +1,7 @@
+caption always "%{= kw}%c  %{= ky}%-w%{= kr}%50>%n-%t%{-}%+w  %{= kW}%-9= %{= km}%H"
+escape ^oO
+defscrollback	10000
+startup_message	off
+vbellwait	1
+# angepasste status messages
+nethack		off
