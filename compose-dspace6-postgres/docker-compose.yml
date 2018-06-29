@@ -6,8 +6,6 @@ services:
     container_name: dspacedb
     environment:
       - PGDATA=/pgdata
-    ports:
-      - 5432:5432
     volumes:
        - pgdataD6:/pgdata
     networks:
@@ -24,6 +22,7 @@ services:
       - 8080:8080
     volumes:
        - dspaceD6:/dspace
+       - ${DSPACE_SRC}/dspace/target/dspace-installer:/dspace-src
     networks:
        - dspacenet
     depends_on:

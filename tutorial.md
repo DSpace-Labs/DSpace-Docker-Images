@@ -17,15 +17,20 @@ _This file is already in the .gitignore file, it is intended to be localized_
 - dspace.hostname = dspacetomcat
 - dspace.baseUrl = http://dspacetomcat:8080
 
-## Note on passing working directory to Docker
+### Note on passing working directory to Docker
 - Windows 10 Powershell: ${PWD}
 - MacOS: "$(pwd)"
 
-## Create network for our DSpace components
+---
+## Option 1: Using the Docker Command
+---
+
+### Create network for our DSpace components
 
     docker network create dspacenet
 
-## Build DSpace
+### Build DSpace
+_It is not necessary to run this step using Docker. The following instructions illustrate how Docker can be used to run Docker._
 
 #### Windows Flavor
 
@@ -35,7 +40,7 @@ _This file is already in the .gitignore file, it is intended to be localized_
 
     docker run -it --rm -v "$(home)":/root/.m2 -v "$(pwd)":/opt/maven -w /opt/maven maven mvn clean install
 
-## Create DSpace Database
+### Create DSpace Database
 _This volume will persist you database data even if you stop the database server_
 
     docker volume create pgdataD6
@@ -48,22 +53,22 @@ _Attach to the database server to query directly_
 
     docker exec -it --detach-keys "ctrl-p" dspacedb psql -U dspace
 
-## Create DSpace Deployment
+### Create DSpace Deployment
 _This volume will persist the DSpace assetstore and solr content between runs_
 
     docker volume create dspaceD6
 
-### Deploy/install DSpace_
+#### Deploy/install DSpace_
 
-#### Windows Flavor
+Windows Flavor
 
     docker run -it --rm --network dspacenet -v ${PWD}/dspace/target/dspace-installer:/installer -v dspaceD6:/dspace -w /installer dspace/dspace-tomcat ant update clean_backups
 
-#### MacOS Flavor
+MacOS Flavor
 
     docker run -it --rm --network dspacenet -v "$(pwd)"/dspace/target/dspace-installer:/installer -v dspaceD6:/dspace -w /installer dspace/dspace-tomcat ant update clean_backups
 
-### Start tomcat
+#### Start tomcat
 
     docker run -it --network dspacenet -v dspaceD6:/dspace -p 8080:8080 --name dspacetomcat -e DSPACE_INSTALL=/dspace dspace/dspace-tomcat
 
@@ -72,9 +77,35 @@ _Note that ctrl-P is used to terminate the terminal session_
 
     docker exec -it --detach-keys "ctrl-p" dspacetomcat /bin/bash
 
+---
+## Option 2: Using Docker Compose
+---
+
+Setup
+- Set **DSPACE_SRC** to the root directory for your DSpace code.
+- Run the maven build
+- cd to the **compose-dspace6-postgres** directory
+
+Run Docker compose
+
+    docker-compose up -d
+
+### Deploy DSpace
+
+    docker exec -w /dspace-src dspacetomcat ant update clean_backups
+
+If necessary, you can start and stop tomcat with the following commands.
+
+    docker-compose restart
+---
 ## Configuring DSpace Admin and Content
+---
 
 #### Use the tomcat bash terminal to configure the DSpace administrator
+
+    docker exec -it --detach-keys "ctrl-p" dspacetomcat /bin/bash
+
+Bash Command
 ```
 /dspace/bin/dspace create-administrator -e test@test.edu -f Admin -l User -p admin -c en
 ```
@@ -112,6 +143,9 @@ It is a long standing issue with AIP import files that necessitates reseting seq
 
 In the **dspacedb psql terminal**, run the following SQL to reset the database sequences.
 
+    docker exec -it --detach-keys "ctrl-p" dspacedb psql -U dspace
+
+SQL
     SELECT
       setval(
         'handle_seq',
@@ -128,11 +162,8 @@ In the **dspacedb psql terminal**, run the following SQL to reset the database s
     FROM handle
     WHERE handle SIMILAR TO '%/[0123456789]*';
 
-## Open in a Browser
+---
+## Open DSpace in a Browser
+---
 - DSpace 6: http://localhost:8080/xmlui
 - DSpace 7: http://localhost:8080/spring-rest
-
-## Using the docker-compose.yml file
-_This is not yet working -- under development_
-
-    docker-compose up -d
