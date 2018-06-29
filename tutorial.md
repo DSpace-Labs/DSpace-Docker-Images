@@ -100,8 +100,7 @@ If necessary, you can start and stop tomcat with the following commands.
 
     docker-compose restart
 ---
-## Configuring DSpace Admin and Content
----
+## 3. Configuring DSpace Admin and Content
 
 #### Use the tomcat bash terminal to configure the DSpace administrator
 
@@ -113,13 +112,13 @@ Bash Command
 ```
 
 ---
-## 3. Create User and Load AIP Files into DSpace
+### Load AIP Files into DSpace
 
 Identify a set of AIP files to use for testing.
 
 A sample set is located [here](https://github.com/DSpace-Labs/DSpace-codenvy/tree/master/TestData).
 
-### Copy the AIP files to the Docker Image
+#### Copy the AIP files to the Docker Image
 
 In the **dspacetomcat bash terminal**, create an input directory
 
@@ -129,7 +128,7 @@ To facilitate the data import, use docker cp.
 
     docker cp **yourSourceDir** dspacetomcat:/tmp/testdata
 
-### Load the AIP Files into DSpace
+#### Load the AIP Files into DSpace
 
 In the dspacetomcat bash window, run the following command to import data.
 ```
@@ -140,7 +139,7 @@ do
 done
 ```
 
-### Update the sequences in the DSpace database
+#### Update the sequences in the DSpace database
 
 It is a long standing issue with AIP import files that necessitates reseting sequences after importing content from AIP Files.
 
