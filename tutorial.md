@@ -42,7 +42,7 @@ _This volume will persist you database data even if you stop the database server
 
 _Start the database service - this must be done before deployment_
 
-    docker run -it -d --network dspacenet -p 5432:5432 --name dspacedb -v pgdataD6:/pgdata -e PGDATA=/pgdata dspace/dspace-postgres-pgcrypto
+    docker run -it -d --network dspacenet --name dspacedb -v pgdataD6:/pgdata -e PGDATA=/pgdata dspace/dspace-postgres-pgcrypto
     
 _Attach to the database server to query directly_
 
