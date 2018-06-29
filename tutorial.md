@@ -1,4 +1,4 @@
-## Pre-requisites
+## 1. Pre-requisites
 
 ### Before cloning the DSpace repo on Windows
 
@@ -21,9 +21,12 @@ _This file is already in the .gitignore file, it is intended to be localized_
 - Windows 10 Powershell: ${PWD}
 - MacOS: "$(pwd)"
 
+Note: There are 2 options for starting your Docker images.
+- Option 1: will build Docker images individually (good for learning)
+- Option 2: using Docker Compose (this is easier)
 ---
-## Option 1: Using the Docker Command
----
+## 2A: Option 1: Using the Docker Command
+
 
 ### Create network for our DSpace components
 
@@ -78,8 +81,7 @@ _Note that ctrl-P is used to terminate the terminal session_
     docker exec -it --detach-keys "ctrl-p" dspacetomcat /bin/bash
 
 ---
-## Option 2: Using Docker Compose
----
+## 2B: Option 2: Using Docker Compose
 
 Setup
 - Set **DSPACE_SRC** to the root directory for your DSpace code.
@@ -110,7 +112,8 @@ Bash Command
 /dspace/bin/dspace create-administrator -e test@test.edu -f Admin -l User -p admin -c en
 ```
 
-## Load AIP Files into DSpace
+---
+## 3. Create User and Load AIP Files into DSpace
 
 Identify a set of AIP files to use for testing.
 
@@ -163,7 +166,6 @@ SQL
     WHERE handle SIMILAR TO '%/[0123456789]*';
 
 ---
-## Open DSpace in a Browser
----
+## 4. Open DSpace in a Browser
 - DSpace 6: http://localhost:8080/xmlui
 - DSpace 7: http://localhost:8080/spring-rest
