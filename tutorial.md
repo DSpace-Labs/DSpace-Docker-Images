@@ -89,22 +89,27 @@ Setup
 - cd to the **compose-dspace6-postgres** directory
 
 Run Docker compose
+_In the following example, "d6" is being passed as a "compose project name".  This will be used to prefix the name of the network and volumes created by Docker.  This will permit you to maintain multiple variants of a DSpace install (ie DSpace 5 and DSpace 6)._
 
-    docker-compose up -d
+    docker-compose -p d6 up -d
 
 ### Deploy DSpace
 
-    docker exec -w /dspace-src dspacetomcat ant update clean_backups
+    docker exec -w /dspace-src/dspace/target/dspace-installer  d6_dspacetomcat_1 ant update clean_backups
 
 If necessary, you can start and stop tomcat with the following commands.
 
-    docker-compose restart
+    docker-compose -p d6 restart
 ---
 ## 3. Configuring DSpace Admin and Content
+_If you started the images with docker-compose, replace the image **dspacetomcat** with the qualified image name such as **D6_dspacetomcat_1**_
+
 
 #### Use the tomcat bash terminal to configure the DSpace administrator
 
     docker exec -it --detach-keys "ctrl-p" dspacetomcat /bin/bash
+
+    docker exec -it --detach-keys "ctrl-p" d6_dspacetomcat_1 /bin/bash
 
 Bash Command
 ```
@@ -128,11 +133,16 @@ To facilitate the data import, use docker cp.
 
     docker cp **yourSourceDir** dspacetomcat:/tmp/testdata
 
+    docker cp **yourSourceDir** d6_dspacetomcat_1:/tmp/testdata
+
 #### Load the AIP Files into DSpace
 
-In the dspacetomcat bash window, run the following command to import data.
+In the bash window created above, run the following command to import data.
 ```
 cd /tmp/testdata
+```
+
+```
 for file in COMM* COLL* ITEM*;
 do
   /dspace/bin/dspace packager -r -t AIP -e test@test.edu -f -u $file
@@ -147,24 +157,63 @@ In the **dspacedb psql terminal**, run the following SQL to reset the database s
 
     docker exec -it --detach-keys "ctrl-p" dspacedb psql -U dspace
 
+    docker exec -it --detach-keys "ctrl-p" d6_dspacedb_1 psql -U dspace
+
 SQL
-    SELECT
-      setval(
-        'handle_seq',
-        CAST (
-          max(
-            to_number(
-              regexp_replace(handle, '.*/', ''),
-              '999999999999'
-            )
-          )
-          AS BIGINT
+```
+SELECT
+  setval(
+    'handle_seq',
+    CAST (
+      max(
+      to_number(
+          regexp_replace(handle, '.*/', ''),
+          '999999999999'
         )
       )
-    FROM handle
-    WHERE handle SIMILAR TO '%/[0123456789]*';
+      AS BIGINT
+    )
+  )
+FROM handle
+WHERE handle SIMILAR TO '%/[0123456789]*';
+```
 
 ---
 ## 4. Open DSpace in a Browser
 - DSpace 6: http://localhost:8080/xmlui
 - DSpace 7: http://localhost:8080/spring-rest
+
+## 5. Stopping DSpace
+
+If you started the instances with the docker command...
+
+    docker stop dspacetomcat
+    docker stop dspacedb
+
+If you started the instances with docker-Compose
+
+    docker-compose -p d6 stop
+
+After stopping your instances, note that the volumes have persisted.
+
+    docker volume ls
+
+Sample Output
+```
+DRIVER              VOLUME NAME
+local               269bb301cec95f0bcb1c6f0b5e0947c33308d59628185856eb727a08f654980e
+local               d6_dspace
+local               d6_pgdata
+```
+
+## 6. Restarting DSpace
+_When DSpace is restarted, the contents of your volumes will be restored_
+
+If you started the instances with the docker command...
+
+    docker start dspacetomcat
+    docker start dspacedb
+
+If you started the instances with docker-Compose
+
+    docker-compose -p d6 start
