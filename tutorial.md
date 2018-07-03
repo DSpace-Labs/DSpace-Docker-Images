@@ -31,13 +31,7 @@ _This volume will persist the DSpace assetstore and solr content between runs_
 
 ## Deploy/install DSpace_
 
-Windows Flavor
-
-    docker run -it --rm --network dspacenet -v ${DSPACE_SRC}/dspace/target/dspace-installer:/installer -v dspaceD6:/dspace -w /installer dspace/dspace-tomcat ant update clean_backups
-
-MacOS Flavor
-
-    docker run -it --rm --network dspacenet -v "$(pwd)"/dspace/target/dspace-installer:/installer -v dspaceD6:/dspace -w /installer dspace/dspace-tomcat ant update clean_backups
+    docker run -it --rm --network dspacenet -v ${DSPACE_SRC}:/dspace-src -v dspaceD6:/dspace -w /dspace-src/dspace/target/dspace-installer dspace/dspace-tomcat ant update clean_backups
 
 #### Start tomcat
 
