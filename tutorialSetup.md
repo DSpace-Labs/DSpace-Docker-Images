@@ -24,7 +24,3 @@ _This file is already in the .gitignore file, it is intended to be localized_
 - dspace.baseUrl = http://dspacetomcat:8080
 
 If you are building DSpace 5, these changes must be made in the build.properties file
-
-### Note on passing working directory to Docker
-- Windows 10 Powershell: ${PWD}
-- MacOS: "$(pwd)"
