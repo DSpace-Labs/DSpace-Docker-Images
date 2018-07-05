@@ -2,7 +2,7 @@
 
 ## 1. Using Docker Compose
 
-- cd to the **compose-dspace6-postgres** directory
+- cd to the **dspace-compose** directory
 
 Run Docker compose
 _In the following example, "d6" is being passed as a "compose project name".  This will be used to prefix the name of the network and volumes created by Docker.  This will permit you to maintain multiple variants of a DSpace install (ie DSpace 5 and DSpace 6)._

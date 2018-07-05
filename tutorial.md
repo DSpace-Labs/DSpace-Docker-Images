@@ -1,5 +1,5 @@
 # Deploying DSpace to Docker Manually
-_This tutorial describes the individual steps for deploying DSpace to Docker using the docker command.  See [compose-dspace6-postgres](compose-dspace6-postgres) for an automated setup using Docker compose.  This tutorial is useful for understanding how Docker manages DSpace components._
+_This tutorial describes the individual steps for deploying DSpace to Docker using the docker command.  See [dspace-dev-compose](dspace-dev-compose) for an automated setup using Docker compose.  This tutorial is useful for understanding how Docker manages DSpace components._
 
 
 ## Pre-requisites
