@@ -12,7 +12,7 @@ services:
     tty: true
     stdin_open: true
 
-  dspacetomcat:
+  dspace:
     image: dspace/dspace6
     environment:
       - DSPACE_INSTALL=/dspace
@@ -20,7 +20,6 @@ services:
       - 8080:8080
     volumes:
        - "dspace:/dspace"
-       - "${DSPACE_SRC}:/dspace-src"
     networks:
        - dspacenet
     depends_on:
