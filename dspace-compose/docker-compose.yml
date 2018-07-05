@@ -1,0 +1,35 @@
+version: "3.3"
+
+services:
+  dspacedb:
+    image: dspace/dspace-postgres-pgcrypto
+    environment:
+      - PGDATA=/pgdata
+    volumes:
+       - pgdata:/pgdata
+    networks:
+      - dspacenet
+    tty: true
+    stdin_open: true
+
+  dspace:
+    image: dspace/dspace6
+    environment:
+      - DSPACE_INSTALL=/dspace
+    ports:
+      - 8080:8080
+    volumes:
+       - "dspace:/dspace"
+    networks:
+       - dspacenet
+    depends_on:
+      - dspacedb
+    tty: true
+    stdin_open: true
+
+volumes:
+  pgdata:
+  dspace:
+
+networks:
+  dspacenet:

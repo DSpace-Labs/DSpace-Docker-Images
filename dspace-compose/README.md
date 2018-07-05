@@ -1,28 +1,15 @@
 # Running DSpace with Docker compose
 
-## 1. Pre-requisites
-- [Setup](../tutorialSetup.md)
-- [Building DSpace](../tutorialBuild.md)
-- Make sure that the environment variable **DSPACE_SRC** is set to the directory containing your cloned DSpace repo
+## 1. Using Docker Compose
 
-## 2: Using Docker Compose
-
-- cd to the **compose-dspace6-postgres** directory
+- cd to the **dspace-compose** directory
 
 Run Docker compose
 _In the following example, "d6" is being passed as a "compose project name".  This will be used to prefix the name of the network and volumes created by Docker.  This will permit you to maintain multiple variants of a DSpace install (ie DSpace 5 and DSpace 6)._
 
     docker-compose -p d6 up -d
 
-### Deploy DSpace
-
-    docker exec -w /dspace-src/dspace/target/dspace-installer  d6_dspacetomcat_1 ant update clean_backups
-
-If necessary, you can start and stop tomcat with the following commands.
-
-    docker-compose -p d6 restart
----
-## 3. Configuring DSpace Admin and Content
+## 2. Configuring DSpace Admin and Content
 
 #### Use the tomcat bash terminal to configure the DSpace administrator
 
@@ -90,11 +77,11 @@ FROM handle
 WHERE handle SIMILAR TO '%/[0123456789]*';
 ```
 
-## 4. Open DSpace in a Browser
+## 3. Open DSpace in a Browser
 - DSpace 5 or 6: http://localhost:8080/xmlui
 - DSpace 7: http://localhost:8080/spring-rest
 
-## 5. Stopping DSpace
+## 4. Stopping DSpace
 
     docker-compose -p d6 stop
 
@@ -110,7 +97,7 @@ local               d6_dspace
 local               d6_pgdata
 ```
 
-## 6. Restarting DSpace
+## 5. Restarting DSpace
 _When DSpace is restarted, the contents of your volumes will be restored_
 
     docker-compose -p d6 start

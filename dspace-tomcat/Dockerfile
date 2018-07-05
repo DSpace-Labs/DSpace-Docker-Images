@@ -1,4 +1,12 @@
 FROM tomcat:8
+EXPOSE 8080 8009
+
+ENV ANT_VERSION 1.10.4
+ENV ANT_HOME /tmp/ant-$ANT_VERSION
+ENV PATH $ANT_HOME/bin:$PATH
+
+RUN mkdir $ANT_HOME && \
+    wget -qO- "https://www.apache.org/dist/ant/binaries/apache-ant-$ANT_VERSION-bin.tar.gz" | tar -zx --strip-components=1 -C $ANT_HOME
 
 ENV DSPACE_INSTALL=/dspace
 ENV JAVA_OPTS=-Xmx2000m
