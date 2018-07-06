@@ -7,20 +7,27 @@ services:
       - PGDATA=/pgdata
     volumes:
        - pgdata:/pgdata
+       # Set the following variable for ingest tools
+       # Set this varible to the folder mount_ingest_tools within this project
+       - "${INGEST_TOOLS}:/ingest-tools"
     networks:
       - dspacenet
     tty: true
     stdin_open: true
 
   dspace:
-    image: dspace/dspace-tomcat
+    image: dspace/dspace6
     environment:
       - DSPACE_INSTALL=/dspace
     ports:
       - 8080:8080
     volumes:
        - "dspace:/dspace"
-       - "${DSPACE_SRC}:/dspace-src"
+       # Set the following variable to a path containing AIP zip files
+       - "${AIP_DIR}:/aip-dir"
+       # Set the following variable for ingest tools
+       # Set this varible to the folder mount_ingest_tools within this project
+       - "${INGEST_TOOLS}:/ingest-tools"
     networks:
        - dspacenet
     depends_on:

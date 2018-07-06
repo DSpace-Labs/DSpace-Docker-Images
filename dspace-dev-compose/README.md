@@ -16,78 +16,19 @@ _In the following example, "d6" is being passed as a "compose project name".  Th
 
 ### Deploy DSpace
 
-    docker exec -w /dspace-src/dspace/target/dspace-installer  d6_dspacetomcat_1 ant update clean_backups
+    docker exec -w /dspace-src/dspace/target/dspace-installer  d6_dspace_1 ant update clean_backups
 
 If necessary, you can start and stop tomcat with the following commands.
 
     docker-compose -p d6 restart
----
-## 3. Configuring DSpace Admin and Content
 
-#### Use the tomcat bash terminal to configure the DSpace administrator
+## 3. Accessing the command line
 
-    docker exec -it --detach-keys "ctrl-p" d6_dspacetomcat_1 /bin/bash
+    docker exec -it --detach-keys "ctrl-p" d6_dspace_1 /bin/bash
 
 Bash Command
 ```
-/dspace/bin/dspace create-administrator -e test@test.edu -f Admin -l User -p admin -c en
-```
-
-### Load AIP Files into DSpace
-
-Identify a set of AIP files to use for testing.
-
-A sample set is located [here](https://github.com/DSpace-Labs/DSpace-codenvy/tree/master/TestData).
-
-#### Copy the AIP files to the Docker Image
-
-In the **dspacetomcat bash terminal**, create an input directory
-
-    mkdir /tmp/testdata
-
-To facilitate the data import, use docker cp.
-
-    docker cp **yourLocalTestDataDir** d6_dspacetomcat_1:/tmp/testdata
-
-#### Load the AIP Files into DSpace
-
-In the bash window created above, run the following command to import data.
-```
-cd /tmp/testdata
-```
-
-```
-for file in COMM* COLL* ITEM*;
-do
-  /dspace/bin/dspace packager -r -t AIP -e test@test.edu -f -u $file
-done
-```
-
-#### Update the sequences in the DSpace database
-
-It is a long standing issue with AIP import files that necessitates reseting sequences after importing content from AIP Files.
-
-In the **dspacedb psql terminal**, run the following SQL to reset the database sequences.
-
-    docker exec -it --detach-keys "ctrl-p" d6_dspacedb_1 psql -U dspace
-
-SQL
-```
-SELECT
-  setval(
-    'handle_seq',
-    CAST (
-      max(
-      to_number(
-          regexp_replace(handle, '.*/', ''),
-          '999999999999'
-        )
-      )
-      AS BIGINT
-    )
-  )
-FROM handle
-WHERE handle SIMILAR TO '%/[0123456789]*';
+/dspace/bin/dspace version
 ```
 
 ## 4. Open DSpace in a Browser
@@ -114,3 +55,8 @@ local               d6_pgdata
 _When DSpace is restarted, the contents of your volumes will be restored_
 
     docker-compose -p d6 start
+
+## 7. Ingest content
+To ingest content into this DSpace instance see [dspace-ingest-compose](../dspace-ingest-compose).
+
+This compose file will hep you to ingest content into the docker volumes that you just created.
