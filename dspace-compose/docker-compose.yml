@@ -3,27 +3,23 @@ version: "3.3"
 services:
   dspacedb:
     image: dspace/dspace-postgres-pgcrypto
-    container_name: dspacedb
     environment:
       - PGDATA=/pgdata
-    ports:
-      - 5432:5432
     volumes:
-       - pgdataD6:/pgdata
+       - pgdata:/pgdata
     networks:
       - dspacenet
     tty: true
     stdin_open: true
 
-  dspacetomcat:
-    image: dspace/dspace-tomcat
-    container_name: dspacetomcat
+  dspace:
+    image: dspace/dspace6
     environment:
       - DSPACE_INSTALL=/dspace
     ports:
       - 8080:8080
     volumes:
-       - dspaceD6:/dspace
+       - "dspace:/dspace"
     networks:
        - dspacenet
     depends_on:
@@ -32,8 +28,8 @@ services:
     stdin_open: true
 
 volumes:
-  pgdataD6:
-  dspaceD6:
+  pgdata:
+  dspace:
 
 networks:
   dspacenet:
