@@ -4,7 +4,7 @@
 
 - Set the environment variable **AIP_DIR** to the directory containing your AIP files.
   - A sample set is located [here](https://github.com/DSpace-Labs/DSpace-codenvy/tree/master/TestData).
-- Set the environment variable **INGEST_TOOLS** to the **[mount_ingest_tools](../mount_ingest_tools)** folder within this project.
+- Set the environment variable **INGEST_TOOLS** to the **[mount_ingest_tools](../../add-ons/mount_ingest_tools)** folder within this project.
 
 ## 2. Using Docker Compose
 
