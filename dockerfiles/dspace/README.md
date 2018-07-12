@@ -10,5 +10,5 @@ docker run -it -d --network dspacenetwork --name dspacedb -v dspacedbvol:/pgdata
 Build the dspace docker
 
 ```
-docker build .  --network dspacenetwork -t dspace/dspace6:dspace-6_x
+docker build .  --network dspacenetwork -t dspace/dspace:dspace-6_x
 ```
