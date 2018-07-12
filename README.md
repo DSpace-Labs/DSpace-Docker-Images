@@ -20,10 +20,16 @@ __Note: These images are intended for DSpace development purposes and are not ap
 | [dspace-postgres-pgcrypto](dockerfiles/dspace-postgres-pgcrypto) | Published |  [dspace/dspace-postgres-pgcrypto](https://hub.docker.com/r/dspace/dspace-postgres-pgcrypto/) | latest | dspace-compose <br/><br/>dspace-dev-compose<br/><br/>dspace-ingest-compose | Postgres image for DSpace 6+.  Also suitable for DSpace 5.|
 | [dspace-tomcat](dockerfiles/dspace-tomcat) | Published | [dspace/dspace-tomcat](https://hub.docker.com/r/dspace/dspace-tomcat/) | latest | dspace-dev-compose | Tomcat + Ant image configured for DSpace. <br/>Requires an ant deploy to become usable (otherwise tomcat will start with no DSpace webapps). <br/> User must mount DSPACE_SRC in order to deploy. |
 | [dspace](dockerfiles/dspace) | Not yet published || master<br/><br/>dspace-6_x<br/><br/>dspace-6.3 |dspace-compose <br/><br/>dspace-ingest-compose | Tomcat + Ant with populated dspace-install directory. <br/>DSpace code will be cloned and built during image build. <br/>Image contains local.cfg and build.properties file suitable for the container. |
-| dspace-angular | Not yet developed || | dspace7-compose | Containerized Angular UI |
 | [dspace-angular-dev](dockerfiles/dspace-angular-dev) | In progress ||| in project dir | Designed for Angular development, relies on an external REST API |
+| dspace-angular | Not yet developed || | dspace7-compose | Containerized Angular UI |
 | dspace-oracle | Not yet developed ||| dspace-oracle-compose | For DSpace / Oracle testing |
-| [dspace-codenvy-tomcat](dockerfiles/dspace-codenvy-tomcat)|Published|[dspace-codenvy-tomcat](https://hub.docker.com/r/dspace/dspace-codenvy-tomcat/) |latest||Referenced by the Codenvy service|
+
+## Published Images For Cloud Environments
+These images have been designed to run in specific cloud environments.
+
+| Image Name | Status | DockerHub | Labels | Compose Files | Comments |
+| ---------- | ------ | --------- | ------ | ------------- | -------- |
+| [dspace-codenvy-tomcat](dockerfiles/dspace-codenvy-tomcat) |Published|[dspace-codenvy-tomcat](https://hub.docker.com/r/dspace/dspace-codenvy-tomcat/) |latest||Referenced by the [Codenvy service](https://codenvy.io)|
 | [dspace-janitor-angular](dockerfiles/dspace-janitor-angular)|Developed|||Referenced by the Janitor Service|
 
 ## Development Images (Source Code Only)
