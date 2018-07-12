@@ -16,11 +16,13 @@ WORKDIR /app
 COPY --from=clone /app/DSpace /app
 RUN mvn package
 
-FROM dspace/dspace-tomcat
+FROM dspace/dspace-tomcat as ant_build
 
 COPY --from=build /app /dspace-src
 WORKDIR /dspace-src/dspace/target/dspace-installer
 
 RUN ant update clean_backups
 
+FROM dspace/dspace-tomcat
+COPY --from=ant_build /dspace /dspace
 RUN /dspace/bin/dspace version
