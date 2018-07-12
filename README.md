@@ -28,9 +28,10 @@ __Note: These images are intended for DSpace development purposes and are not ap
 
 ## Development Images (Source Code Only)
 Developers interested in these images should build them locally.
+
 | Image Name | Status | Compose Files | Comments |
 | ---------- | ------ | ------------- | -------- |
-| [dspace-angular-dev](dockerfiles/dspace-angular-dev) | In progress ||| in project dir | Designed for Angular development, relies on an external REST API |
+| [dspace-angular-dev](dockerfiles/dspace-angular-dev) | In progress | in project dir | Designed for Angular development, relies on an external REST API |
 
 
 ## Compose files
@@ -38,7 +39,7 @@ Developers interested in these images should build them locally.
 | ------------ | ------ | ------- |
 | [dspace-dev-compose](docker-compose-files/dspace-dev-compose) |Developed|Runtime DSpace container.  User will manually deploy code into the container.|
 | [dspace-compose](docker-compose-files/dspace-compose) | Developed | Running a pre-built DSpace Image for testing purposes|
-| [dspace-ingest-compose](docker-compose-files/dspace-ingest-compose) ||Compose file designed to assist a user with repository configuration and data ingest.|
+| [dspace-ingest-compose](docker-compose-files/dspace-ingest-compose) |Developed|Compose file designed to assist a user with repository configuration and data ingest.|
 | dspace7-compose|To be created|Compose file to run the DSpace 7 REST API and Angular UI|
 | dspace-oracle-compose |To be created|Compose file for testing DSpace code with Oracle|
 
