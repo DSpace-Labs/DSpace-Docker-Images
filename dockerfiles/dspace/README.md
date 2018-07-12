@@ -1,7 +1,5 @@
 In order to build this, you must start the database
 
-    --network dspacenetwork --name dspacedb dspace/dspace-postgres-pgcrypto
-
 ```
 docker volume create dspacedbvol
 docker network create dspacenetwork
