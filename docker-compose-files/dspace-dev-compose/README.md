@@ -1,8 +1,8 @@
 # Running DSpace with Docker compose
 
 ## 1. Pre-requisites
-- [Setup](../tutorialSetup.md)
-- [Building DSpace](../tutorialBuild.md)
+- [Setup](../../documentation/tutorialSetup.md)
+- [Building DSpace](../../documentation/tutorialBuild.md)
 - Make sure that the environment variable **DSPACE_SRC** is set to the directory containing your cloned DSpace repo
 
 ## 2: Using Docker Compose
