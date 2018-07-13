@@ -18,3 +18,7 @@ To build a specific branch or tag, you can pass in the branch/tag name
 ```
 docker build .  --build-arg DSPACE_BRANCH=dspace-6.3 --network dspacenetwork -t dspace/dspace:dspace-6.3
 ```
+
+```
+docker build .  --build-arg DSPACE_BRANCH=dspace-5.9 --network dspacenetwork -t dspace/dspace:dspace-5.9
+```
