@@ -17,8 +17,10 @@ COPY --from=clone /app/DSpace /app
 RUN mvn package
 
 FROM dspace/dspace-tomcat as ant_build
+# Set TARGET_DIR to "dspace-build" for dspace-4_x
+ARG TARGET_DIR=dspace-installer
 COPY --from=build /app /dspace-src
-WORKDIR /dspace-src/dspace/target/dspace-installer
+WORKDIR /dspace-src/dspace/target/${TARGET_DIR}
 RUN ant update clean_backups
 
 FROM dspace/dspace-tomcat
