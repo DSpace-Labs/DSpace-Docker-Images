@@ -13,12 +13,25 @@ Build dspace docker (note dspace-6_x will build by default)
 docker build .  --network dspacenetwork -t dspace/dspace:dspace-6_x
 ```
 
+### Building a specific release
 To build a specific branch or tag, you can pass in the branch/tag name
 
+#### DSpace 6.3
 ```
-docker build .  --build-arg DSPACE_BRANCH=dspace-6.3 --network dspacenetwork -t dspace/dspace:dspace-6.3
+docker build .  --build-arg DSPACE_BRANCH=dspace-6.3 --network dspacenetwork -t dspace/dspace:dspace-6.3 --no-cache
 ```
 
+You can verify the version after your build by Running
 ```
-docker build .  --build-arg DSPACE_BRANCH=dspace-5.9 --network dspacenetwork -t dspace/dspace:dspace-5.9
+docker exec -it --detach-keys "ctrl-p" --network dspacenetwork dspace/dspace:dspace-6.3 /dspace/bin/dspace version
+```
+
+#### DSpace 5.9
+```
+docker build .  --build-arg DSPACE_BRANCH=dspace-5.9 --network dspacenetwork -t dspace/dspace:dspace-5.9 --no-cache
+```
+
+You can verify the version after your build by Running
+```
+docker exec -it --detach-keys "ctrl-p" --network dspacenetwork dspace/dspace:dspace-5.9 /dspace/bin/dspace version
 ```
