@@ -13,7 +13,7 @@ services:
     stdin_open: true
 
   dspace:
-    image: dspace/dspace6
+    image: dspace/dspace:dspace-6.3
     environment:
       - DSPACE_INSTALL=/dspace
     ports:
