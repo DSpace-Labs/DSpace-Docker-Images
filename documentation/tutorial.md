@@ -29,7 +29,7 @@ _This volume will persist the DSpace assetstore and solr content between runs_
 
     docker volume create dspaceD6
 
-## Deploy/install DSpace_
+## Deploy/install DSpace
 
     docker run -it --rm --network dspacenet -v ${DSPACE_SRC}:/dspace-src -v dspaceD6:/dspace -w /dspace-src/dspace/target/dspace-installer dspace/dspace-tomcat ant update clean_backups
 
