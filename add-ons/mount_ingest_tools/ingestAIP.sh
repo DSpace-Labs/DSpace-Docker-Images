@@ -1,3 +1,4 @@
+#!/bin/sh
 cd /aip-dir
 for file in COMM* COLL* ITEM*;
 do
