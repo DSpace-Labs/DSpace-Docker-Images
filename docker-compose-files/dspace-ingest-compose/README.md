@@ -2,6 +2,10 @@
 
 ## 1. Pre-requisites
 
+- Set the environment variable DSPACE_VER to the DSpace image version you would like to use.
+  - master, dspace-6_x, dspace-6.3, dspace-5.9, dspace-4.9
+- Set the environment variable DPROJ to a shorthand version of the version of DSpace you are running (this needs to be distinct for each database schema version)
+  - d7, d6, d5, d4
 - Set the environment variable **AIP_DIR** to the directory containing your AIP files.
   - A sample set is located [here](https://github.com/DSpace-Labs/DSpace-codenvy/tree/master/TestData).
 - Set the environment variable **INGEST_TOOLS** to the **[mount_ingest_tools](../../add-ons/mount_ingest_tools)** folder within this project.
@@ -15,18 +19,17 @@ _In the following example, "d6" is being passed as a "compose project name".  Th
 
 _If a compose project is already running, stop it first with `dspace-compose -p d6 stop`._
 
-    docker-compose -p d6 up -d
+```
+docker-compose -p $DPROJ up -d
+```
 
 ## 2. Configuring DSpace Admin and Content
 
 #### Use the tomcat bash terminal to configure the DSpace administrator
 
-    docker exec -it --detach-keys "ctrl-p" d6_dspace_1 /bin/bash
-
-Bash Command
 ```
-/ingest-tools/createAdmin.sh
-/ingest-tools/ingestAIP.sh
+docker exec ${DPROJ}_dspace_1 //ingest-tools/createAdmin.sh
+docker exec ${DPROJ}_dspace_1 //ingest-tools/ingestAIP.sh
 ```
 
 #### Update the sequences in the DSpace database
@@ -35,7 +38,9 @@ It is a long standing issue with AIP import files that necessitates reseting seq
 
 In the **dspacedb psql terminal**, run the following SQL to reset the database sequences.
 
-    docker exec -it --detach-keys "ctrl-p" d6_dspacedb_1 psql -U dspace -f /ingest-tools/updateSequences.sql
+```
+docker exec ${DPROJ}_dspacedb_1 psql -U dspace -f //ingest-tools/updateSequences.sql
+```
 
 ## 3. Open DSpace in a Browser
 - DSpace 5 or 6: http://localhost:8080/xmlui
@@ -43,4 +48,6 @@ In the **dspacedb psql terminal**, run the following SQL to reset the database s
 
 ## 4. Stopping DSpace
 
-    docker-compose -p d6 stop
+```
+docker-compose -p $DPROJ stop
+```

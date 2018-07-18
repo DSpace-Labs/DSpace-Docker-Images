@@ -23,7 +23,7 @@ docker build .  --build-arg DSPACE_BRANCH=master --network dspace-build -t dspac
 
 You can verify the version after your build by Running
 ```
-docker exrun --rm --network dspace-build dspace/dspace:master /dspace/bin/dspace version
+docker run --rm --network dspace-build dspace/dspace:master /dspace/bin/dspace version
 ```
 
 #### DSpace 6.3
@@ -33,7 +33,7 @@ docker build .  --build-arg DSPACE_BRANCH=dspace-6.3 --network dspace-build -t d
 
 You can verify the version after your build by Running
 ```
-docker exrun --rm --network dspace-build dspace/dspace:dspace-6.3 /dspace/bin/dspace version
+docker run --rm --network dspace-build dspace/dspace:dspace-6.3 /dspace/bin/dspace version
 ```
 
 #### DSpace 5.9
@@ -62,4 +62,30 @@ In order to ensure that your next build starts from a clean environment, remove 
 docker network rm dspace-build
 docker stop dspacedb
 docker rm dspacedb
+```
+
+## Full Build Script (for pushing to Dockerhub)
+Note: the docker push step in this script requires admin access to the DSpace repository on Dockerhub.
+
+The images generated when building DSpace images can be quite large.  If multiple versions of DSpace are built, it is possible to exceed the storage allocated for Docker.
+
+To prevent running out of space when building, this process removes all orphan images during the build process.
+```
+export DTAG=master
+export DDIR=dspace-installer
+# export DDIR=dspace-build
+
+docker network rm dspace-build
+docker stop dspacedb
+docker rm dspacedb
+docker image prune -f
+
+docker network create dspace-build
+docker run -it -d --network dspace-build --name dspacedb dspace/dspace-postgres-pgcrypto
+
+docker build .  --build-arg DSPACE_BRANCH=$DTAG --build-arg TARGET_DIR=$DDIR --network dspace-build -t dspace/dspace:$DTAG --no-cache
+
+docker push dspace/dspace:$DTAG
+docker run --rm --network dspace-build dspace/dspace:$DTAG //dspace/bin/dspace version
+
 ```
