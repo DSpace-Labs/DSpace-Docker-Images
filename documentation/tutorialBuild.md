@@ -63,5 +63,5 @@ winpty docker run -it --rm -v ${HOME}/.m2:/root/.m2 -v /${DSPACE_SRC}:/opt/maven
 Run the following command from your DSPACE_SRC directory.
 
 ```
-mvn clean package
+mvn clean install
 ```
