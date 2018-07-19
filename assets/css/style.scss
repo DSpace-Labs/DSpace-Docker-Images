@@ -1,0 +1,12 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+.main-content {
+  max-width: unset;
+}
+
+body section.page-header {
+    padding: 0px;
+}

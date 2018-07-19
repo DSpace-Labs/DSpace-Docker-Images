@@ -1,4 +1,4 @@
-theme: jekyll-theme-slate
+theme: jekyll-theme-cayman
 title: Docker for DSpace Testing and Development
 description: "Optimize Your DSpace Development Processes using Docker"
 baseurl: "/DSpace-Docker-Images"
