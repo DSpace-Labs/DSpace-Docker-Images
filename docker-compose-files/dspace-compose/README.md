@@ -65,7 +65,7 @@ _When DSpace is restarted, the contents of your volumes will be restored_
 docker-compose -p $DPROJ up -d
 ```
 
-## 7. Ingesting content or updating Codenvy
+## 7. Ingesting content or updating code within an image
 To ingest content into this DSpace instance see [dspace-ingest-compose](../dspace-ingest-compose).  This compose file will help you to ingest content into the docker volumes that you just created.
 
 To deploy new code within your image, see [dspace-dev-compose](../dspace-dev-compose).
