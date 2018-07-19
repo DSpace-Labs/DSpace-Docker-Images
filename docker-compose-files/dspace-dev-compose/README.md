@@ -41,12 +41,12 @@ docker-compose -p ${DPROJ} up -d
 
 #### Bash
 ```
-docker exec -w /dspace-src/dspace/target/dspace-installer  ${DPROJ}_dspace_1 ant update clean_backups
+docker exec -w /dspace-src/dspace/target/dspace-installer ${DPROJ}_dspace_1 ant update clean_backups
 ```
 
 #### Git-Bash Windows
 ```
-winpty docker exec -w //dspace-src/dspace/target/dspace-installer  ${DPROJ}_dspace_1 ant update clean_backups
+winpty docker exec -w //dspace-src/dspace/target/dspace-installer ${DPROJ}_dspace_1 ant update clean_backups
 ```
 
 If necessary, you can start and stop tomcat with the following commands.
