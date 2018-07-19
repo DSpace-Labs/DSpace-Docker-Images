@@ -1,1 +1,6 @@
 theme: jekyll-theme-slate
+title: Docker for DSpace Testing and Development
+description: "Optimize Your DSpace Development Processes using Docker"
+baseurl: "/DSpace-Docker-Images"
+url: "http://dspace-labs.github.io/DSpace-Docker-Images"
+show_downloads: false
