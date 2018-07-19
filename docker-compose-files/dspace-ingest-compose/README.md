@@ -4,11 +4,30 @@
 
 - Set the environment variable DSPACE_VER to the DSpace image version you would like to use.
   - master, dspace-6_x, dspace-6.3, dspace-5.9, dspace-4.9
+
+```
+export DSPACE_VER=dspace-6_x
+```
+
 - Set the environment variable DPROJ to a shorthand version of the version of DSpace you are running (this needs to be distinct for each database schema version). Docker will name the network, images, and persistent volumes with this value.  This will allow you to host multiple DSpace configurations through Docker.
   - d7, d6, d5, d4
+
+```
+export DPROJ=d6
+```
+
 - Set the environment variable **AIP_DIR** to the directory containing your AIP files.
   - A sample set is located [here](https://github.com/DSpace-Labs/DSpace-codenvy/tree/master/TestData).
+
+```
+export AIP_DIR=...
+```
+
 - Set the environment variable **INGEST_TOOLS** to the **[mount_ingest_tools](../../add-ons/mount_ingest_tools)** folder within this project.
+
+```
+export INGEST_TOOLS=../../add-ons/mount_ingest_tools
+```
 
 ## 2. Using Docker Compose
 
@@ -16,18 +35,6 @@
 
 Run Docker compose
 
-```
-export DSPACE_VER=dspace-6_x
-```
-```
-export DPROJ=d6
-```
-```
-export AIP_DIR=...
-```
-```
-export INGEST_TOOLS=../../add-ons/mount_ingest_tools
-```
 ```
 docker-compose -p $DPROJ up -d
 ```
