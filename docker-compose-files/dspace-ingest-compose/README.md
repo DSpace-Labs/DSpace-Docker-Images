@@ -18,7 +18,17 @@ Run Docker compose
 
 ```
 export DSPACE_VER=dspace-6_x
+```
+```
 export DPROJ=d6
+```
+```
+export AIP_DIR=...
+```
+```
+export INGEST_TOOLS=../../add-ons/mount_ingest_tools
+```
+```
 docker-compose -p $DPROJ up -d
 ```
 

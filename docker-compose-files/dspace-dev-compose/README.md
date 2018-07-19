@@ -20,7 +20,14 @@ Run Docker compose
 
 ```
 export DSPACE_VER=dspace-6_x
+```
+```
 export DPROJ=d6
+```
+```
+export DSPACE_SRC=...
+```
+```
 docker-compose -p ${DPROJ} up -d
 ```
 
