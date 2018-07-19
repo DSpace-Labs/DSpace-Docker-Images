@@ -187,8 +187,8 @@ docker stop dspacedb
 _When DSpace is restarted, the contents of your volumes will be restored_
 
 ```
-docker start dspacetomcat
 docker start dspacedb
+docker start dspacetomcat
 ```
 
 ## 7. Cleanup
