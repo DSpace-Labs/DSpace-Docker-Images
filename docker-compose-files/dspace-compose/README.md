@@ -3,7 +3,7 @@
 ## 1. Pre-requisites
 - Set the environment variable DSPACE_VER to the DSpace image version you would like to use.
   - master, dspace-6_x, dspace-6.3, dspace-5.9, dspace-4.9
-- Set the environment variable DPROJ to a shorthand version of the version of DSpace you are running (this needs to be distinct for each database schema version)
+- Set the environment variable DPROJ to a shorthand version of the version of DSpace you are running (this needs to be distinct for each database schema version). Docker will name the network, images, and persistent volumes with this value.  This will allow you to host multiple DSpace configurations through Docker.
   - d7, d6, d5, d4
 
 ## 2. Using Docker Compose
@@ -11,9 +11,10 @@
 - cd to the **dspace-compose** directory
 
 Run Docker compose
-_In the following example, "d6" is being passed as a "compose project name".  This will be used to prefix the name of the network and volumes created by Docker.  This will permit you to maintain multiple variants of a DSpace install (ie DSpace 5 and DSpace 6)._
 
-    docker-compose -p $DPROJ up -d
+```
+docker-compose -p $DPROJ up -d
+```
 
 ## 3. Accessing the command line
 
@@ -29,12 +30,25 @@ Bash Command
 - DSpace 7: http://localhost:8080/spring-rest
 
 ## 5. Stopping DSpace
+To stop DSpace, the following command can be run.  The image will be retained in a stopped state.
+```
+docker-compose -p $DPROJ stop
+```
 
-    docker-compose -p $DPROJ stop
+You can destroy the images with the following command.  This command will be necessary to run if you change the compose file that you are using.
 
-After stopping your instances, note that the volumes have persisted.
+```
+docker-compose -p $DPROJ down
+```
 
-    docker volume ls
+After stopping or destroying your instances, note that the volumes have persisted.
+- The XX_dspace volume contains the contents of your [dspace-install] directory
+- The XX_pgdata contains the contents of your database
+
+
+```
+docker volume ls
+```
 
 Sample Output
 ```
@@ -47,9 +61,24 @@ local               d6_pgdata
 ## 6. Restarting DSpace
 _When DSpace is restarted, the contents of your volumes will be restored_
 
-    docker-compose -p $DPROJ up -d
+```
+docker-compose -p $DPROJ up -d
+```
 
-## 7. Ingest content
-To ingest content into this DSpace instance see [dspace-ingest-compose](../dspace-ingest-compose).
+## 7. Ingesting content or updating Codenvy
+To ingest content into this DSpace instance see [dspace-ingest-compose](../dspace-ingest-compose).  This compose file will help you to ingest content into the docker volumes that you just created.
 
-This compose file will hep you to ingest content into the docker volumes that you just created.
+To deploy new code within your image, see [dspace-dev-compose](../dspace-dev-compose).
+
+### Note: Switching Compose File Settings
+Remember that you will need to run the following command if you use an alternate compose file.  When you recreate the images, your volume content will be retained.
+```
+docker-compose -p $DPROJ down
+```
+
+## 8. Destroying Docker Resources
+If you no longer need to retain your Docker volumes, run  the following commands.
+
+```
+docker volume rm ${DPROJ}_dspace_1 ${DPROJ}_pgdata_1
+```

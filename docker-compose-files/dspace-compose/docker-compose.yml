@@ -6,7 +6,7 @@ services:
     environment:
       - PGDATA=/pgdata
     volumes:
-       - pgdata:/pgdata
+      - pgdata:/pgdata
     networks:
       - dspacenet
     tty: true
@@ -19,10 +19,10 @@ services:
     ports:
       - 8080:8080
     volumes:
-       - "dspace:/dspace"
+      - "dspace:/dspace"
     networks:
-       - dspacenet
-    depends_on:
+      - dspacenet
+    deends_on:
       - dspacedb
     tty: true
     stdin_open: true
