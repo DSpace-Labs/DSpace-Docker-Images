@@ -1,6 +1,7 @@
 # Running DSpace with Docker compose
 
 ## 1. Pre-requisites
+- [Setting Up Docker for DSpace](../../documentation/tutorialSetup.md)
 - Set the environment variable DSPACE_VER to the DSpace image version you would like to use.
   - master, dspace-6_x, dspace-6.3, dspace-5.9, dspace-4.9
 
@@ -43,8 +44,8 @@ Bash Command
 ```
 
 ## 4. Open DSpace in a Browser
-- DSpace 5 or 6: http://localhost:8080/xmlui
-- DSpace 7: http://localhost:8080/spring-rest
+- DSpace 5 or 6: [http://localhost:8080/xmlui](http://localhost:8080/xmlui)
+- DSpace 7: [http://localhost:8080/spring-rest](http://localhost:8080/spring-rest)
 
 ## 5. Stopping DSpace
 To stop DSpace, the following command can be run.  The image will be retained in a stopped state.

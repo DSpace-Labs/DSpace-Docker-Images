@@ -2,8 +2,8 @@
 
 ## 1. Building DSpace
 See the following pages for instructions on building DSpace from source code.
-- [Setup](../../documentation/tutorialSetup.md)
-- [Building DSpace](../../documentation/tutorialBuild.md)
+- [Setting Up Docker for DSpace](../../documentation/tutorialSetup.md)
+- [Building DSpace for Docker](../../documentation/tutorialBuild.md)
 
 ## 2. Pre-requisites
 - Make sure that the environment variable **DSPACE_SRC** is set to the directory containing your cloned DSpace repo
@@ -57,3 +57,6 @@ docker-compose -p ${DPROJ} restart
 
 ## 4. Open the DSpace Web App
 Confirm that your changes have taken effect.
+
+- DSpace 5 or 6: [http://localhost:8080/xmlui](http://localhost:8080/xmlui)
+- DSpace 7: [http://localhost:8080/spring-rest](http://localhost:8080/spring-rest)

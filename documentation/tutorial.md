@@ -3,8 +3,8 @@ _This tutorial describes the individual steps for deploying DSpace to Docker usi
 
 
 ## Pre-requisites
-- [Setup](tutorialSetup.md)
-- [Building DSpace](tutorialBuild.md)
+- [Setting Up Docker for DSpace](tutorialSetup.md)
+- [Building DSpace for Docker](tutorialBuild.md)
 - Make sure that the environment variable **DSPACE_SRC** is set to the directory containing your cloned DSpace repo
 
 ```
@@ -173,8 +173,8 @@ WHERE handle SIMILAR TO '%/[0123456789]*';
 ```
 
 ## 4. Open DSpace in a Browser
-- DSpace 6: http://localhost:8080/xmlui
-- DSpace 7: http://localhost:8080/spring-rest
+- DSpace 5 or 6: [http://localhost:8080/xmlui](http://localhost:8080/xmlui)
+- DSpace 7: [http://localhost:8080/spring-rest](http://localhost:8080/spring-rest)
 
 ## 5. Stopping DSpace
 

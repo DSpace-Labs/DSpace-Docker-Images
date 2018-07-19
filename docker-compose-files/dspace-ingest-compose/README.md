@@ -1,7 +1,7 @@
 # Running DSpace with Docker compose
 
 ## 1. Pre-requisites
-
+- See [Setting Up Docker for DSpace](../../documentation/tutorialSetup.md)
 - Set the environment variable DSPACE_VER to the DSpace image version you would like to use.
   - master, dspace-6_x, dspace-6.3, dspace-5.9, dspace-4.9
 
@@ -17,13 +17,14 @@ export DPROJ=d6
 ```
 
 - Set the environment variable **AIP_DIR** to the directory containing your AIP files.
+  - [DSpace AIP Files - Archival Ingest Packages](https://wiki.duraspace.org/display/DSDOC6x/DSpace+AIP+Format)
   - A sample set is located [here](https://github.com/DSpace-Labs/DSpace-codenvy/tree/master/TestData).
 
 ```
 export AIP_DIR=...
 ```
 
-- Set the environment variable **INGEST_TOOLS** to the **[mount_ingest_tools](../../add-ons/mount_ingest_tools)** folder within this project.
+- Set the environment variable **INGEST_TOOLS** to the **[mount_ingest_tools](https://dspace-labs/DSpace-Docker-Images/tree/master/add-ons/mount_ingest_tools)** folder within this project.
 
 ```
 export INGEST_TOOLS=../../add-ons/mount_ingest_tools
@@ -73,7 +74,11 @@ docker exec ${DPROJ}_dspacedb_1 psql -U dspace -f /ingest-tools/updateSequences.
 docker exec ${DPROJ}_dspacedb_1 psql -U dspace -f //ingest-tools/updateSequences.sql
 ```
 
-## 4. Stopping DSpace
+## 4. Open DSpace in a Browser to View Your content
+- DSpace 5 or 6: http://localhost:8080/xmlui
+- DSpace 7: http://localhost:8080/spring-rest
+
+## 5. Stopping DSpace
 
 ```
 docker-compose -p $DPROJ stop
