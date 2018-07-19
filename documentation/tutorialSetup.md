@@ -6,7 +6,7 @@
 ## If you are running Docker for Windows
 _You must manage your line endings for files that will be deployed to Docker_
 
-TODO: should this config setting be localized to just the DSpace Repo?
+TODO: these settings may introduce issues in non-DSpace repositories.  This guidance may should be localized to the DSpace repo.
 
 ```
 git config --global core.autocrlf false

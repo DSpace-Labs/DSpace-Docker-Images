@@ -1,10 +1,10 @@
 # DSpace-Docker-Images
-Repository for developing and managing published Docker images (https://hub.docker.com/u/dspace/) for DSpace development
+Repository for developing and managing published Docker images [https://hub.docker.com/u/dspace/](https://hub.docker.com/u/dspace/) for DSpace development
 
 __Note: These images are intended for DSpace development purposes and are not appropriate for production use.__
 
 ## DSpace Docker Overview
-![Diagram](documentation/DSpaceDocker.jpg)
+![DSpace Docker Overview Diagram](documentation/DSpaceDockerFlow.png)
 
 ## Tutorials
 
