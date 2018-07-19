@@ -1,7 +1,7 @@
 # Running DSpace with Docker compose
 
 ## 1. Pre-requisites
-
+- See [Setting Up Docker for DSpace](../../documentation/tutorialSetup.md)
 - Set the environment variable DSPACE_VER to the DSpace image version you would like to use.
   - master, dspace-6_x, dspace-6.3, dspace-5.9, dspace-4.9
 

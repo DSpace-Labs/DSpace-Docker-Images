@@ -3,7 +3,7 @@ _This tutorial describes the individual steps for deploying DSpace to Docker usi
 
 
 ## Pre-requisites
-- [Setup](tutorialSetup.md)
+- [Setting Up Docker for DSpace](tutorialSetup.md)
 - [Building DSpace](tutorialBuild.md)
 - Make sure that the environment variable **DSPACE_SRC** is set to the directory containing your cloned DSpace repo
 

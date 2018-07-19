@@ -2,8 +2,8 @@
 
 ## 1. Building DSpace
 See the following pages for instructions on building DSpace from source code.
-- [Setup](../../documentation/tutorialSetup.md)
-- [Building DSpace](../../documentation/tutorialBuild.md)
+- [Setting Up Docker for DSpace](../../documentation/tutorialSetup.md)
+- [Building DSpace for Docker](../../documentation/tutorialBuild.md)
 
 ## 2. Pre-requisites
 - Make sure that the environment variable **DSPACE_SRC** is set to the directory containing your cloned DSpace repo
