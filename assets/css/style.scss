@@ -1,0 +1,8 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+.main-content, #main_content {
+  max-width: unset;
+}
