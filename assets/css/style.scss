@@ -14,3 +14,11 @@ table {
 body section.page-header {
     padding: 0px;
 }
+
+.main-content table th, .main-content table td {
+    border: 1px solid black;
+}
+
+.main-content table tr:hover th, .main-content tr:hover table td {
+    background-color: yellow;
+}
