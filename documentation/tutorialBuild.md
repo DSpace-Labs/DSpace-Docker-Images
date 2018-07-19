@@ -28,7 +28,7 @@ Before building DSpace, you must configure the local installation properties.  B
 ### Configure the __dspace-install__ directory for your Container
 When building DSpace, you need to specify the install location and the hostname of the database.
 
-Create [local.cfg](../dockerfiles/dspace/local.cfg) for the Docker image in the DSpace root directory.  Because this file is already in the  DSpace .gitignore file, it will not appear as a change in your GitHub repository.
+Create [local.cfg](https://github.com/DSpace-Labs/DSpace-Docker-Images/tree/master/dockerfiles/dspace/local.cfg) for the Docker image in the DSpace root directory.  Because this file is already in the  DSpace .gitignore file, it will not appear as a change in your GitHub repository.
 
 ```
 dspace.dir=/dspace
@@ -37,7 +37,7 @@ dspace.hostname = dspacetomcat
 dspace.baseUrl = http://dspacetomcat:8080
 ```
 
-If you are building DSpace 4 or 5, these changes must be made in the [build.properties](../dockerfiles/dspace/build.properties) file
+If you are building DSpace 4 or 5, these changes must be made in the [build.properties](https://github.com/DSpace-Labs/DSpace-Docker-Images/tree/master/dockerfiles/dspace/build.properties) file
 
 ### Building DSpace Using Docker
 _It is not necessary to run this step using Docker. The following instructions illustrate how Docker can be used to run Docker._

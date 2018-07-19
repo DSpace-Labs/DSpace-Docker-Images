@@ -24,7 +24,7 @@ export DPROJ=d6
 export AIP_DIR=...
 ```
 
-- Set the environment variable **INGEST_TOOLS** to the **[mount_ingest_tools](../../add-ons/mount_ingest_tools)** folder within this project.
+- Set the environment variable **INGEST_TOOLS** to the **[mount_ingest_tools](https://dspace-labs/DSpace-Docker-Images/tree/master/add-ons/mount_ingest_tools)** folder within this project.
 
 ```
 export INGEST_TOOLS=../../add-ons/mount_ingest_tools

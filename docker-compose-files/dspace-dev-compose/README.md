@@ -58,5 +58,5 @@ docker-compose -p ${DPROJ} restart
 ## 4. Open the DSpace Web App
 Confirm that your changes have taken effect.
 
-- DSpace 5 or 6: http://localhost:8080/xmlui
-- DSpace 7: http://localhost:8080/spring-rest
+- DSpace 5 or 6: [http://localhost:8080/xmlui](http://localhost:8080/xmlui)
+- DSpace 7: [http://localhost:8080/spring-rest](http://localhost:8080/spring-rest)
