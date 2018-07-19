@@ -20,3 +20,6 @@ docker run -it --rm -v ${HOME}/.m2:/root/.m2 -v ${DSPACE_SRC}:/opt/maven -w /opt
 export DSPACE_SRC=$(pwd)
 winpty docker run -it --rm -v ${HOME}/.m2:/root/.m2 -v /${DSPACE_SRC}:/opt/maven -w //opt/maven maven mvn clean install
 ```
+
+## DSpace Development With Git
+See https://wiki.duraspace.org/display/DSPACE/Development+with+Git for instructions on using Git with the DSpace code base.
