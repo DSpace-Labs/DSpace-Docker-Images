@@ -7,10 +7,25 @@ See the following pages for instructions on building DSpace from source code.
 
 ## 2. Pre-requisites
 - Make sure that the environment variable **DSPACE_SRC** is set to the directory containing your cloned DSpace repo
+
+```
+export DSPACE_SRC=$(pwd)
+```
+
 - Set the environment variable DSPACE_VER to the DSpace image version you would like to use.
   - master, dspace-6_x, dspace-6.3, dspace-5.9, dspace-4.9
+
+```
+export DSPACE_VER=dspace-6_x
+```
+
 - Set the environment variable DPROJ to a shorthand version of the version of DSpace you are running (this needs to be distinct for each database schema version). Docker will name the network, images, and persistent volumes with this value.  This will allow you to host multiple DSpace configurations through Docker.
   - d7, d6, d5, d4
+
+```
+export DPROJ=d6
+```
+
 
 ## 3: Using Docker Compose
 
@@ -24,8 +39,14 @@ docker-compose -p ${DPROJ} up -d
 
 ### Deploy DSpace
 
+#### Bash
 ```
-docker exec -w //dspace-src/dspace/target/dspace-installer  ${DPROJ}_dspace_1 ant update clean_backups
+docker exec -w /dspace-src/dspace/target/dspace-installer  ${DPROJ}_dspace_1 ant update clean_backups
+```
+
+#### Git-Bash Windows
+```
+winpty docker exec -w //dspace-src/dspace/target/dspace-installer  ${DPROJ}_dspace_1 ant update clean_backups
 ```
 
 If necessary, you can start and stop tomcat with the following commands.

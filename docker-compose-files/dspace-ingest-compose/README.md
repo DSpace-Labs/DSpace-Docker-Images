@@ -4,11 +4,30 @@
 
 - Set the environment variable DSPACE_VER to the DSpace image version you would like to use.
   - master, dspace-6_x, dspace-6.3, dspace-5.9, dspace-4.9
+
+```
+export DSPACE_VER=dspace-6_x
+```
+
 - Set the environment variable DPROJ to a shorthand version of the version of DSpace you are running (this needs to be distinct for each database schema version). Docker will name the network, images, and persistent volumes with this value.  This will allow you to host multiple DSpace configurations through Docker.
   - d7, d6, d5, d4
+
+```
+export DPROJ=d6
+```
+
 - Set the environment variable **AIP_DIR** to the directory containing your AIP files.
   - A sample set is located [here](https://github.com/DSpace-Labs/DSpace-codenvy/tree/master/TestData).
+
+```
+export AIP_DIR=...
+```
+
 - Set the environment variable **INGEST_TOOLS** to the **[mount_ingest_tools](../../add-ons/mount_ingest_tools)** folder within this project.
+
+```
+export INGEST_TOOLS=../../add-ons/mount_ingest_tools
+```
 
 ## 2. Using Docker Compose
 
@@ -22,8 +41,15 @@ docker-compose -p $DPROJ up -d
 
 ## 2. Configuring DSpace Admin and Content
 
-#### Use the tomcat bash terminal to configure the DSpace administrator
+### Use the tomcat bash terminal to configure the DSpace administrator
 
+#### Bash
+```
+docker exec ${DPROJ}_dspace_1 /ingest-tools/createAdmin.sh
+docker exec ${DPROJ}_dspace_1 /ingest-tools/ingestAIP.sh
+```
+
+#### Git-Bash Windows
 ```
 docker exec ${DPROJ}_dspace_1 //ingest-tools/createAdmin.sh
 docker exec ${DPROJ}_dspace_1 //ingest-tools/ingestAIP.sh
@@ -35,6 +61,12 @@ It is a long standing issue with AIP import files that necessitates reseting seq
 
 In the **dspacedb psql terminal**, run the following SQL to reset the database sequences.
 
+#### Bash
+```
+docker exec ${DPROJ}_dspacedb_1 psql -U dspace -f /ingest-tools/updateSequences.sql
+```
+
+#### Git-Bash Windows
 ```
 docker exec ${DPROJ}_dspacedb_1 psql -U dspace -f //ingest-tools/updateSequences.sql
 ```

@@ -3,8 +3,17 @@
 ## 1. Pre-requisites
 - Set the environment variable DSPACE_VER to the DSpace image version you would like to use.
   - master, dspace-6_x, dspace-6.3, dspace-5.9, dspace-4.9
+
+```
+export DSPACE_VER=dspace-6_x
+```
+
 - Set the environment variable DPROJ to a shorthand version of the version of DSpace you are running (this needs to be distinct for each database schema version). Docker will name the network, images, and persistent volumes with this value.  This will allow you to host multiple DSpace configurations through Docker.
   - d7, d6, d5, d4
+
+```
+export DPROJ=d6
+```
 
 ## 2. Using Docker Compose
 
@@ -18,7 +27,15 @@ docker-compose -p $DPROJ up -d
 
 ## 3. Accessing the command line
 
-    docker exec -it --detach-keys "ctrl-p" ${DPROJ}_dspace_1 /bin/bash
+#### Bash
+```
+docker exec -it --detach-keys "ctrl-p" ${DPROJ}_dspace_1 /bin/bash
+```
+
+#### Git-Bash Windows
+```
+winpty docker exec -it --detach-keys "ctrl-p" ${DPROJ}_dspace_1 //bin/bash
+```
 
 Bash Command
 ```
@@ -42,8 +59,8 @@ docker-compose -p $DPROJ down
 ```
 
 After stopping or destroying your instances, note that the volumes have persisted.
-- The XX_dspace volume contains the contents of your [dspace-install] directory
-- The XX_pgdata contains the contents of your database
+- The ${DPROJ}_dspace volume contains the contents of your [dspace-install] directory
+- The ${DPROJ}_pgdata contains the contents of your database
 
 
 ```
