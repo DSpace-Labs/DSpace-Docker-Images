@@ -6,23 +6,23 @@ services:
     environment:
       - PGDATA=/pgdata
     volumes:
-       - pgdata:/pgdata
+      - pgdata:/pgdata
     networks:
       - dspacenet
     tty: true
     stdin_open: true
 
   dspace:
-    image: dspace/dspace-tomcat
+    image: "dspace/dspace:${DSPACE_VER:-dspace-6_x}"
     environment:
       - DSPACE_INSTALL=/dspace
     ports:
       - 8080:8080
     volumes:
-       - "dspace:/dspace"
-       - "${DSPACE_SRC}:/dspace-src"
+      - "dspace:/dspace"
+      - "${DSPACE_SRC}:/dspace-src"
     networks:
-       - dspacenet
+      - dspacenet
     depends_on:
       - dspacedb
     tty: true

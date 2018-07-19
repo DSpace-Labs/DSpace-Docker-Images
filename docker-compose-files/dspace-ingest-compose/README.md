@@ -4,7 +4,7 @@
 
 - Set the environment variable DSPACE_VER to the DSpace image version you would like to use.
   - master, dspace-6_x, dspace-6.3, dspace-5.9, dspace-4.9
-- Set the environment variable DPROJ to a shorthand version of the version of DSpace you are running (this needs to be distinct for each database schema version)
+- Set the environment variable DPROJ to a shorthand version of the version of DSpace you are running (this needs to be distinct for each database schema version). Docker will name the network, images, and persistent volumes with this value.  This will allow you to host multiple DSpace configurations through Docker.
   - d7, d6, d5, d4
 - Set the environment variable **AIP_DIR** to the directory containing your AIP files.
   - A sample set is located [here](https://github.com/DSpace-Labs/DSpace-codenvy/tree/master/TestData).
@@ -15,9 +15,6 @@
 - cd to the **dspace-ingest-compose** directory
 
 Run Docker compose
-_In the following example, "d6" is being passed as a "compose project name".  This will be used to prefix the name of the network and volumes created by Docker.  This will permit you to maintain multiple variants of a DSpace install (ie DSpace 5 and DSpace 6)._
-
-_If a compose project is already running, stop it first with `dspace-compose -p d6 stop`._
 
 ```
 docker-compose -p $DPROJ up -d
@@ -42,12 +39,18 @@ In the **dspacedb psql terminal**, run the following SQL to reset the database s
 docker exec ${DPROJ}_dspacedb_1 psql -U dspace -f //ingest-tools/updateSequences.sql
 ```
 
-## 3. Open DSpace in a Browser
-- DSpace 5 or 6: http://localhost:8080/xmlui
-- DSpace 7: http://localhost:8080/spring-rest
-
 ## 4. Stopping DSpace
 
 ```
 docker-compose -p $DPROJ stop
+```
+
+Now that your data has been loaded, you can use the [dspace-compose](../dspace-compose) file for regular execution of your image.
+
+To deploy new code within your image, see [dspace-dev-compose](../dspace-dev-compose).
+
+### Note: Switching Compose File Settings
+Remember that you will need to run the following command if you use an alternate compose file.  When you recreate the images, your volume content will be retained.
+```
+docker-compose -p $DPROJ down
 ```
