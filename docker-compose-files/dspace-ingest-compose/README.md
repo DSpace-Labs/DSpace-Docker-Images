@@ -45,6 +45,8 @@ docker-compose -p $DPROJ up -d
 
 #### Bash
 ```
+docker exec ${DPROJ}_dspace_1 chmod o+x /ingest-tools/createAdmin.sh
+docker exec ${DPROJ}_dspace_1 chmod o+x /ingest-tools/ingestAIP.sh
 docker exec ${DPROJ}_dspace_1 /ingest-tools/createAdmin.sh
 docker exec ${DPROJ}_dspace_1 /ingest-tools/ingestAIP.sh
 ```
