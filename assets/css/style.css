@@ -3,6 +3,6 @@
 
 @import "{{ site.theme }}";
 
-.main-content, #main-content {
+.main-content, #main-content.inner {
   max-width: unset;
 }
