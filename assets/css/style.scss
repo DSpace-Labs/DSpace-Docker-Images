@@ -3,6 +3,7 @@
 
 @import "{{ site.theme }}";
 
-.main-content, #main_content {
+#header_wrap header.inner, #main_content {
   max-width: unset;
+  text-align: center;
 }
