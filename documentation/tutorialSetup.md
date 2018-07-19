@@ -22,7 +22,7 @@ docker run -it --rm ubuntu ls /
 
 #### Git-Bash Windows
 
-The Git Bash Shell attempts to convert a starting slash to a windows host directory.  Use a double slash if you are running in Git Bash.  If you expect to see command line output from a docker command, prefix the command with `winpty`/
+The Git Bash Shell attempts to convert a starting slash to a windows host directory.  Use a double slash if you are running in Git Bash.  If you expect to see command line output from a docker command, prefix the command with `winpty`.
 
 ```
 winpty docker run -it --rm ubuntu ls //

@@ -74,7 +74,11 @@ docker exec ${DPROJ}_dspacedb_1 psql -U dspace -f /ingest-tools/updateSequences.
 docker exec ${DPROJ}_dspacedb_1 psql -U dspace -f //ingest-tools/updateSequences.sql
 ```
 
-## 4. Stopping DSpace
+## 4. Open DSpace in a Browser to View Your content
+- DSpace 5 or 6: http://localhost:8080/xmlui
+- DSpace 7: http://localhost:8080/spring-rest
+
+## 5. Stopping DSpace
 
 ```
 docker-compose -p $DPROJ stop

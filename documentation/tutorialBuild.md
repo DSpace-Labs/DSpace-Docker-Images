@@ -1,11 +1,11 @@
 # Building DSpace for Docker
 
-If you simply want to run an image of DSpace in Docker, a build is not necessary.  See [../docker-compose-files/dspace-compose].
+If you simply want to run an image of DSpace in Docker, a build is not necessary.  See [Running DSpace with Docker Compose](../docker-compose-files/dspace-compose).
 
 If you want to build a specific branch of DSpace code, you will need to clone the DSpace code base using Git.
 
 ## DSpace Development With Git
-See https://wiki.duraspace.org/display/DSPACE/Development+with+Git for instructions on using Git with the DSpace code base.
+See [DSpace Development with Git](https://wiki.duraspace.org/display/DSPACE/Development+with+Git) for instructions on using Git with the DSpace code base.
 
 ## If you are running Docker for Windows
 If you plan to deploy code from Windows into a Docker container, the files that you deploy must have linux-style line endings.
@@ -30,10 +30,12 @@ When building DSpace, you need to specify the install location and the hostname 
 
 Create [local.cfg](../dockerfiles/dspace/local.cfg) for the Docker image in the DSpace root directory.  Because this file is already in the  DSpace .gitignore file, it will not appear as a change in your GitHub repository.
 
-- dspace.dir=/dspace
-- db.url = jdbc:postgresql://dspacedb:5432/dspace
-- dspace.hostname = dspacetomcat
-- dspace.baseUrl = http://dspacetomcat:8080
+```
+dspace.dir=/dspace
+db.url = jdbc:postgresql://dspacedb:5432/dspace
+dspace.hostname = dspacetomcat
+dspace.baseUrl = http://dspacetomcat:8080
+```
 
 If you are building DSpace 4 or 5, these changes must be made in the [build.properties](../dockerfiles/dspace/build.properties) file
 
