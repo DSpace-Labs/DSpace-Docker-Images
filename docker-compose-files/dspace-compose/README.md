@@ -13,12 +13,22 @@
 Run Docker compose
 
 ```
+export DSPACE_VER=dspace-6_x
+export DPROJ=d6
 docker-compose -p $DPROJ up -d
 ```
 
 ## 3. Accessing the command line
 
-    docker exec -it --detach-keys "ctrl-p" ${DPROJ}_dspace_1 /bin/bash
+#### Bash
+```
+docker exec -it --detach-keys "ctrl-p" ${DPROJ}_dspace_1 /bin/bash
+```
+
+#### Git-Bash Windows
+```
+winpty docker exec -it --detach-keys "ctrl-p" ${DPROJ}_dspace_1 //bin/bash
+```
 
 Bash Command
 ```
@@ -42,8 +52,8 @@ docker-compose -p $DPROJ down
 ```
 
 After stopping or destroying your instances, note that the volumes have persisted.
-- The XX_dspace volume contains the contents of your [dspace-install] directory
-- The XX_pgdata contains the contents of your database
+- The ${DPROJ}_dspace volume contains the contents of your [dspace-install] directory
+- The ${DPROJ}_pgdata contains the contents of your database
 
 
 ```

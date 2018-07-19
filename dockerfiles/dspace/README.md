@@ -32,8 +32,15 @@ docker build .  --build-arg DSPACE_BRANCH=dspace-6.3 --network dspace-build -t d
 ```
 
 You can verify the version after your build by Running
+
+##### Bash
 ```
 docker run --rm --network dspace-build dspace/dspace:dspace-6.3 /dspace/bin/dspace version
+```
+
+##### Git-Bash Windows
+```
+docker run --rm --network dspace-build dspace/dspace:dspace-6.3 //dspace/bin/dspace version
 ```
 
 #### DSpace 5.9
@@ -42,15 +49,29 @@ docker build .  --build-arg DSPACE_BRANCH=dspace-5.9 --network dspace-build -t d
 ```
 
 You can verify the version after your build by Running
+
+##### Bash
 ```
 docker run --rm --network dspace-build dspace/dspace:dspace-5.9 /dspace/bin/dspace version
 ```
+
+##### Git-Bash Windows
+```
+docker run --rm --network dspace-build dspace/dspace:dspace-5.9 //dspace/bin/dspace version
+```
+
 #### DSpace 4.9
 ```
 docker build .  --build-arg DSPACE_BRANCH=dspace-4.9 --build-arg TARGET_DIR=dspace-build --network dspace-build -t dspace/dspace:dspace-4.9 --no-cache
 ```
 
 You can verify the version after your build by Running
+##### Bash
+```
+docker run --rm --network dspace-build dspace/dspace:dspace-4.9 /dspace/bin/dspace version
+```
+
+##### Git-Bash Windows
 ```
 docker run --rm --network dspace-build dspace/dspace:dspace-4.9 /dspace/bin/dspace version
 ```

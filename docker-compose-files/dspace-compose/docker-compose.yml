@@ -22,7 +22,7 @@ services:
       - "dspace:/dspace"
     networks:
       - dspacenet
-    deends_on:
+    depends_on:
       - dspacedb
     tty: true
     stdin_open: true

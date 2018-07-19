@@ -19,13 +19,21 @@ See the following pages for instructions on building DSpace from source code.
 Run Docker compose
 
 ```
+export DSPACE_VER=dspace-6_x
+export DPROJ=d6
 docker-compose -p ${DPROJ} up -d
 ```
 
 ### Deploy DSpace
 
+#### Bash
 ```
-docker exec -w //dspace-src/dspace/target/dspace-installer  ${DPROJ}_dspace_1 ant update clean_backups
+docker exec -w /dspace-src/dspace/target/dspace-installer  ${DPROJ}_dspace_1 ant update clean_backups
+```
+
+#### Git-Bash Windows
+```
+winpty docker exec -w //dspace-src/dspace/target/dspace-installer  ${DPROJ}_dspace_1 ant update clean_backups
 ```
 
 If necessary, you can start and stop tomcat with the following commands.

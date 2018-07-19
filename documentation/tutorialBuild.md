@@ -7,10 +7,16 @@ _If you have maven installed locally, it is probably preferable to run the maven
 
 Set the environment variable **DSPACE_SRC** to the root directory of your cloned DSpace repository.
 
-- MacOS or bash: `export DSPACE_SRC=$(pwd)`
-- Windows CMD: `set DSPACE_SRC=%cd%`
-- Windows Powershell: ???
+#### Bash
 
-### Run Maven in Docker
+```
+export DSPACE_SRC=$(pwd)
+docker run -it --rm -v ${HOME}/.m2:/root/.m2 -v ${DSPACE_SRC}:/opt/maven -w /opt/maven maven mvn clean install
+```
 
-    docker run -it --rm -v ${HOME}/.m2:/root/.m2 -v ${DSPACE_SRC}:/opt/maven -w /opt/maven maven mvn clean install
+#### Git-Bash Windows
+
+```
+export DSPACE_SRC=$(pwd)
+winpty docker run -it --rm -v ${HOME}/.m2:/root/.m2 -v /${DSPACE_SRC}:/opt/maven -w //opt/maven maven mvn clean install
+```

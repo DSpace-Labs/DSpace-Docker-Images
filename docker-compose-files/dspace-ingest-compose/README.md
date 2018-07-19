@@ -17,13 +17,22 @@
 Run Docker compose
 
 ```
+export DSPACE_VER=dspace-6_x
+export DPROJ=d6
 docker-compose -p $DPROJ up -d
 ```
 
 ## 2. Configuring DSpace Admin and Content
 
-#### Use the tomcat bash terminal to configure the DSpace administrator
+### Use the tomcat bash terminal to configure the DSpace administrator
 
+#### Bash
+```
+docker exec ${DPROJ}_dspace_1 /ingest-tools/createAdmin.sh
+docker exec ${DPROJ}_dspace_1 /ingest-tools/ingestAIP.sh
+```
+
+#### Git-Bash Windows
 ```
 docker exec ${DPROJ}_dspace_1 //ingest-tools/createAdmin.sh
 docker exec ${DPROJ}_dspace_1 //ingest-tools/ingestAIP.sh
@@ -35,6 +44,12 @@ It is a long standing issue with AIP import files that necessitates reseting seq
 
 In the **dspacedb psql terminal**, run the following SQL to reset the database sequences.
 
+#### Bash
+```
+docker exec ${DPROJ}_dspacedb_1 psql -U dspace -f /ingest-tools/updateSequences.sql
+```
+
+#### Git-Bash Windows
 ```
 docker exec ${DPROJ}_dspacedb_1 psql -U dspace -f //ingest-tools/updateSequences.sql
 ```
