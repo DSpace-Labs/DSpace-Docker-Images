@@ -1,0 +1,34 @@
+version: "3.3"
+
+services:
+  dspacedb:
+    image: atmire/dspace-oracle:11g2
+    volumes:
+      - oracledata:/u01/app/oracle
+    networks:
+      - dspacenet
+    tty: true
+    stdin_open: true
+
+  dspace:
+    image: "dspace/dspace:${DSPACE_VER:-dspace-6_x}"
+    environment:
+      - DSPACE_INSTALL=/dspace
+    ports:
+      - 8080:8080
+    volumes:
+      - "dspace:/dspace"
+      - "./local.cfg.oracle:/dspace/config/local.cfg"
+    networks:
+      - dspacenet
+    depends_on:
+      - dspacedb
+    tty: true
+    stdin_open: true
+
+volumes:
+  oracledata:
+  dspace:
+
+networks:
+  dspacenet:

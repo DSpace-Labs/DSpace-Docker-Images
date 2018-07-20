@@ -1,0 +1,9 @@
+dspace.dir = /dspace
+dspace.hostname = dspacetomcat
+dspace.baseUrl = http://dspacetomcat:8080
+
+db.dialect = org.hibernate.dialect.Oracle10gDialect
+db.schema = dspace
+db.name = oracle
+db.driver = oracle.jdbc.OracleDriver
+db.url = jdbc:oracle:thin:@//dspacedb:1521/XE
