@@ -75,8 +75,8 @@ docker exec ${DPROJ}_dspacedb_1 psql -U dspace -f //ingest-tools/updateSequences
 ```
 
 ## 4. Open DSpace in a Browser to View Your content
-- DSpace 5 or 6: http://localhost:8080/xmlui
-- DSpace 7: http://localhost:8080/spring-rest
+- DSpace 5 or 6: [http://localhost:8080/xmlui](http://localhost:8080/xmlui)
+- DSpace 7: [http://localhost:8080/spring-rest](http://localhost:8080/spring-rest)
 
 ## 5. Stopping DSpace
 
