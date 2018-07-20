@@ -1,1 +1,1 @@
-## ENV DSPACE7-SPRING-REST https://dspace7.4science.it/dspace-spring-rest/
+## This will be published as dspace/dsapce-angular
