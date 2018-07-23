@@ -30,7 +30,7 @@ These images have been designed to run in specific cloud environments.
 | Image Name | Status | DockerHub | Labels | Compose Files | Comments |
 | ---------- | ------ | --------- | ------ | ------------- | -------- |
 | [dspace-codenvy-tomcat](dockerfiles/dspace-codenvy-tomcat) |Published|[dspace-codenvy-tomcat](https://hub.docker.com/r/dspace/dspace-codenvy-tomcat/) |latest||Referenced by the [Codenvy service](https://codenvy.io)|
-| [dspace-janitor-angular](dockerfiles/dspace-janitor-angular)|Developed||||Referenced by the [Janitor](https://janitor.technology) service]|
+| [dspace-janitor-angular](dockerfiles/dspace-janitor-angular)|Developed||||Referenced by the [Janitor](https://janitor.technology) service|
 
 ## Development Images (Source Code Only)
 Developers interested in these images should build them locally.
