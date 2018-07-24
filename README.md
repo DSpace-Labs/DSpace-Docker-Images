@@ -26,11 +26,14 @@ The following tutorials have been designed to help DSpace users to understand ho
 - [Ingesting Content into a Docker Container](docker-compose-files/dspace-ingest-compose/README.md)
 - [Manually deploying DSpace with Docker](documentation/tutorial.md)
 
+---
+
 ## How is this Code Repository Organized?
 The following overview diagram describes how the Dockerfiles and Docker Compose files in this repository relate to each other.
 
 ![DSpace Docker Overview Diagram](documentation/DSpaceDockerFlow.png)
 
+---
 
 ## Published Images
 This table lists the general purpose docker images supported by the DSpace project.  These images are intended to support the testing and development of DSpace from a user's desktop.
@@ -45,6 +48,7 @@ This table lists the general purpose docker images supported by the DSpace proje
 | dspace-oracle | Not yet developed ||| dspace-oracle-compose | For DSpace / Oracle testing |
 
 ## DSpace Docker Compose files
+The following Docker Compose files can be used to simplify the management of DSpace components allowing a user to run an end-to-end DSpace instance from their desktop.
 
 | Compose File | Status | Purpose |
 | ------------ | ------ | ------- |
@@ -53,6 +57,8 @@ This table lists the general purpose docker images supported by the DSpace proje
 | [dspace-ingest-compose](docker-compose-files/dspace-ingest-compose) | Developed |Compose file designed to assist a user with repository configuration and data ingest. |
 | dspace7-compose | To be created | Compose file to run the DSpace 7 REST API and Angular UI |
 | dspace-oracle-compose | To be created| Compose file for testing DSpace code with Oracle |
+
+---
 
 ## Special Purpose Images
 
