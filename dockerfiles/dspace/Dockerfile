@@ -21,8 +21,7 @@ FROM dspace/dspace-tomcat as ant_build
 ARG TARGET_DIR=dspace-installer
 COPY --from=build /app /dspace-src
 WORKDIR /dspace-src/dspace/target/${TARGET_DIR}
-RUN ant update clean_backups
+RUN ant update_configs update_code update_webapps update_solr_indexes
 
 FROM dspace/dspace-tomcat
 COPY --from=ant_build /dspace /dspace
-RUN /dspace/bin/dspace version
