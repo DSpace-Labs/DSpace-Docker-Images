@@ -25,4 +25,3 @@ RUN ant update_configs update_code update_webapps update_solr_indexes
 
 FROM dspace/dspace-tomcat
 COPY --from=ant_build /dspace /dspace
-RUN /dspace/bin/dspace version
