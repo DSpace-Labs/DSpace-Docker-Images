@@ -15,4 +15,4 @@ EXPOSE 3000
 
 RUN cd /app
 RUN yarn install
-CMD yarn start
+CMD yarn run watch
