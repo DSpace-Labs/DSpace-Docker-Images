@@ -1,4 +1,4 @@
-# Running DSpace with Docker compose
+# Ingesting Content into DSpace with Docker compose
 
 ## 1. Pre-requisites
 - See [Setting Up Docker for DSpace](../../documentation/tutorialSetup.md)
