@@ -24,6 +24,8 @@ Run Docker compose
 docker-compose -p $DPROJ up -d
 ```
 
+This will start 3 containers: (1) database (2) tomcat - REST (3) Node - Angular. 
+
 ## 3. Accessing the command line
 
 #### Bash
