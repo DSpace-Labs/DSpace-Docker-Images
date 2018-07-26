@@ -39,7 +39,7 @@ services:
       - DSPACE_PORT=3000
       - DSPACE_REST_HOST=dspace
       - DSPACE_REST_SSL=false
-      - DSPACE_REST_NAMESPACE=/spring-rest/
+      - DSPACE_REST_NAMESPACE=/spring-rest/api
       - DSPACE_REST_PORT=8080
     networks:
       - dspacenet
