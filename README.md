@@ -45,11 +45,11 @@ Developers interested in these images should build them locally.
 
 | Compose File | Status | Purpose |
 | ------------ | ------ | ------- |
-| [dspace-dev-compose](https://github.com/DSpace-Labs/DSpace-Docker-Images/tree/master/docker-compose-files/dspace-dev-compose) | Developed | Runtime DSpace container.  User will manually deploy code into the container. |
 | [dspace-compose](https://github.com/DSpace-Labs/DSpace-Docker-Images/tree/master/docker-compose-files/dspace-compose) | Developed | Running a pre-built DSpace Image for testing purposes |
-| [dspace-ingest-compose](docker-compose-files/dspace-ingest-compose) | Developed |Compose file designed to assist a user with repository configuration and data ingest. |
 | [dspace7-compose](https://github.com/DSpace-Labs/DSpace-Docker-Images/tree/master/docker-compose-files/dspace7-compose) | Developed | Compose file to run the DSpace 7 REST API and Angular UI |
 | [angular-compose](docker-compose-files/angular-compose) | Developed | Compose file to run the DSpace 7 Angular UI with an External REST Service |
+| [dspace-ingest-compose](docker-compose-files/dspace-ingest-compose) | Developed |Compose file designed to assist a user with repository configuration and data ingest. |
+| [dspace-dev-compose](https://github.com/DSpace-Labs/DSpace-Docker-Images/tree/master/docker-compose-files/dspace-dev-compose) | Developed | Runtime DSpace container.  User will manually deploy code into the container. |
 | dspace-oracle-compose | In Progress | Compose file for testing DSpace code with Oracle |
 
 ## More information
