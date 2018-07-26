@@ -1,4 +1,4 @@
-## Running Standalone DSpace Angular connected to 4science REST service
+## Running Standalone DSpace Angular connected to an External REST service
 
 ## 1. Pre-requisites
 - [Setting Up Docker for DSpace](../../documentation/tutorialSetup.md)
