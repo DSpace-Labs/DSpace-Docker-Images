@@ -1,0 +1,22 @@
+version: "3.3"
+
+services:
+  dspace-angular:
+    image: dspace/dspace-angular-bare
+    ports:
+      - 3000:3000
+      - 9876:9876
+    environment:
+      - DSPACE_SSL=false
+      - DSPACE_HOST=dspace-angular
+      - DSPACE_PORT=3000
+      - DSPACE_REST_HOST=dspace7.4science.it
+      - DSPACE_REST_SSL=true
+        # DSPACE_REST_NAMESPACE=/spring-rest/api
+      - DSPACE_REST_NAMESPACE=/dspace-spring-rest/api
+      - DSPACE_REST_PORT=443
+    volumes:
+      - "${ANGULAR_SRC}:/app"
+      - "./environment.dev.js:/app/config/environment.dev.js"
+    tty: true
+    stdin_open: true
