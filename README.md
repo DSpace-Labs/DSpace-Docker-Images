@@ -47,9 +47,9 @@ This table lists the general purpose docker images supported by the DSpace proje
 ## Compose files
 The following Docker Compose files can be used to simplify the management of DSpace components allowing a user to run an end-to-end DSpace instance from their desktop.
 
-| Compose File | Status | Purpose | Overview |
-| ------------ | ------ | ------- | -------- |
-| [dspace-compose](https://github.com/DSpace-Labs/DSpace-Docker-Images/tree/master/docker-compose-files/dspace-compose) | Developed | Running a pre-built DSpace Image for testing purposes | dspacedb - vol:pgdata<br/>dspace - vol:dspace|
+| Compose File | Status | Purpose |
+| ------------ | ------ | ------- |
+| [dspace-compose](https://github.com/DSpace-Labs/DSpace-Docker-Images/tree/master/docker-compose-files/dspace-compose) | Developed | Running a pre-built DSpace Image for testing purposes | 
 | [dspace-ingest-compose](https://github.com/DSpace-Labs/DSpace-Docker-Images/tree/master/docker-compose-files/dspace-ingest-compose) | Developed |Compose file designed to assist a user with repository configuration and data ingest. |
 | [dspace-dev-compose](https://github.com/DSpace-Labs/DSpace-Docker-Images/tree/master/docker-compose-files/dspace-dev-compose) | Developed | Runtime DSpace container.  User will manually deploy code into the container. |
 | [dspace7-compose](https://github.com/DSpace-Labs/DSpace-Docker-Images/tree/master/docker-compose-files/dspace7-compose) | Developed | Compose file to run the DSpace 7 REST API and Angular UI |
