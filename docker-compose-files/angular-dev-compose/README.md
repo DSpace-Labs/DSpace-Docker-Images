@@ -1,5 +1,5 @@
 {% include nav.html %}
-## Running Standalone DSpace Angular connected to an External REST service
+## Developing Standalone DSpace Angular connected to an External REST service
 
 The DSpace Angular UI has a client (js) and a server component (Node js).  Each component needs to point to the proper REST API.
 - js client - this is defined in environment.dev.js
@@ -8,6 +8,11 @@ The DSpace Angular UI has a client (js) and a server component (Node js).  Each 
 ## 1. Pre-requisites
 - [Setting Up Docker for DSpace](../../documentation/tutorialSetup.md)
 
+- Make sure that the environment variable **ANGULAR_SRC** is set to the directory containing your cloned DSpace-angular repo
+
+```
+export ANGULAR_SRC=$(pwd)
+```
 - Set the environment variable DPROJ to a shorthand version of the version of DSpace you are running (this needs to be distinct for each database schema version). Docker will name the network, images, and persistent volumes with this value.  This will allow you to host multiple DSpace configurations through Docker.
 
 ```
