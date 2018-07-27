@@ -1,3 +1,4 @@
+{% include nav.html %}
 # Building DSpace for Docker
 
 If you simply want to run an image of DSpace in Docker, a build is not necessary.  See [Running DSpace with Docker Compose](../docker-compose-files/dspace-compose).
