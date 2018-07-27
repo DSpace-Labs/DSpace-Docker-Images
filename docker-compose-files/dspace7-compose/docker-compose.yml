@@ -41,6 +41,8 @@ services:
       - DSPACE_REST_SSL=false
       - DSPACE_REST_NAMESPACE=/spring-rest/api
       - DSPACE_REST_PORT=8080
+    volumes:
+      - "./environment.dev.js:/app/config/environment.dev.js"
     networks:
       - dspacenet
     depends_on:

@@ -1,5 +1,11 @@
 # Running DSpace7 (Angular + REST) with Docker compose
 
+The DSpace Angular UI has a client (js) and a server component (Node js).  Each component needs to point to the proper REST API.
+- js client - the REST api is located on localhost:8080
+  - this is defined in environment.dev.js
+- Node js server - the REST api is located at dspace:8080
+  - this is defined in the docker-compose.yml file
+  
 ## 1. Pre-requisites
 - [Setting Up Docker for DSpace](../../documentation/tutorialSetup.md)
 - Set the environment variable DSPACE_VER to the DSpace image version you would like to use.
@@ -24,7 +30,7 @@ Run Docker compose
 docker-compose -p $DPROJ up -d
 ```
 
-This will start 3 containers: (1) database (2) tomcat - REST (3) Node - Angular. 
+This will start 3 containers: (1) database (2) tomcat - REST (3) Node - Angular.
 
 ## 3. Accessing the command line
 
