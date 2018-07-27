@@ -1,3 +1,4 @@
+{% include nav.html %}
 # Ingesting Content into DSpace with Docker compose
 
 ## 1. Pre-requisites
