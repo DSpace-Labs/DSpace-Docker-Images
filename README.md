@@ -58,6 +58,26 @@ The following Docker Compose files can be used to simplify the management of DSp
 | dspace-oracle-compose | In Progress | Compose file for testing DSpace code with Oracle |
 
 ---
+## Compose file contents
+| Compose File | Host  | Image | Volume | Notes |
+| ------------ | ----- | ----- | ------ | ----- |
+| dspace-compose | dspacedb | dspace/dspace-postgres-pgcrypto | vol:/pgdata ||
+|                | dspace   | dspace/dspace                   | vol:/dspace ||
+| dspace-ingest-compose | dspacedb | dspace/dspace-postgres-pgcrypto | vol:/pgdata ||
+|                       | dspace   | dspace/dspace                   | vol:/dspace ||
+|                       |          |                                 | mount:/ingest-tools ||
+|                       |          |                                 | mount:/aip-dir | AIP files mounted for ingest|
+| dspace-dev-compose    | dspacedb | dspace/dspace-postgres-pgcrypto | vol:/pgdata ||
+|                       | dspace   | dspace/dspace                   | vol:/dspace ||
+|                       |          |                                 | mount:/dspace-src | Source code is mounted|
+| dspace7-compose | dspacedb       | dspace/dspace-postgres-pgcrypto | vol:/pgdata ||
+|                 | dspace         | dspace/dspace                   | vol:/dspace ||
+|                 | dspace-angular | dspace/dspace-angular           | mount:/app/config/environment.dev.js | REST API in Docker|
+| angular-compose | dspace-angular | dspace/dspace-angular           | mount:/app/config/environment.dev.js | REST API is external |
+| angular-dev-compose | dspace-angular | dspace/dspace-angular-bare  | mount:/app | Source code is mounted |
+|                     |                |                             | mount:app/config/environment.dev.js | REST API is external |
+
+---
 
 ## Special Purpose Images
 
