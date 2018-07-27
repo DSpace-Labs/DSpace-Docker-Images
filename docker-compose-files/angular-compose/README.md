@@ -1,5 +1,9 @@
 ## Running Standalone DSpace Angular connected to an External REST service
 
+The DSpace Angular UI has a client (js) and a server component (Node js).  Each component needs to point to the proper REST API.
+- js client - this is defined in environment.dev.js
+- Node js server - this is defined in the docker-compose.yml file
+
 ## 1. Pre-requisites
 - [Setting Up Docker for DSpace](../../documentation/tutorialSetup.md)
 
