@@ -1,3 +1,4 @@
+{% include nav.html %}
 # Setting Up DSpace on Docker
 
 ## Install Docker
