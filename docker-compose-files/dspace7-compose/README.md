@@ -1,4 +1,3 @@
-{% include nav.html %}
 # Running DSpace7 (Angular + REST) with Docker compose
 
 The DSpace Angular UI has a client (js) and a server component (Node js).  Each component needs to point to the proper REST API.
