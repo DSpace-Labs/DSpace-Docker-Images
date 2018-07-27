@@ -1,3 +1,4 @@
+{% include nav.html %}
 # Deploying DSpace to Docker Manually
 _This tutorial describes the individual steps for deploying DSpace to Docker using the docker command.  See [dspace-dev-compose](dspace-dev-compose) for an automated setup using Docker compose.  This tutorial is useful for understanding how Docker manages DSpace components._
 
