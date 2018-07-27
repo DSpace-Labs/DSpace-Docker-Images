@@ -47,35 +47,30 @@ This table lists the general purpose docker images supported by the DSpace proje
 ## Compose files
 The following Docker Compose files can be used to simplify the management of DSpace components allowing a user to run an end-to-end DSpace instance from their desktop.
 
-| Compose File | Status | Purpose |
-| ------------ | ------ | ------- |
-| [dspace-compose](https://github.com/DSpace-Labs/DSpace-Docker-Images/tree/master/docker-compose-files/dspace-compose) | Developed | Running a pre-built DSpace Image for testing purposes | 
-| [dspace-ingest-compose](https://github.com/DSpace-Labs/DSpace-Docker-Images/tree/master/docker-compose-files/dspace-ingest-compose) | Developed |Compose file designed to assist a user with repository configuration and data ingest. |
-| [dspace-dev-compose](https://github.com/DSpace-Labs/DSpace-Docker-Images/tree/master/docker-compose-files/dspace-dev-compose) | Developed | Runtime DSpace container.  User will manually deploy code into the container. |
-| [dspace7-compose](https://github.com/DSpace-Labs/DSpace-Docker-Images/tree/master/docker-compose-files/dspace7-compose) | Developed | Compose file to run the DSpace 7 REST API and Angular UI |
-| [angular-compose](https://github.com/DSpace-Labs/DSpace-Docker-Images/tree/master/docker-compose-files/angular-compose) | Developed | Compose file to run the DSpace 7 Angular UI with an External REST Service |
-[angular-dev-compose](https://github.com/DSpace-Labs/DSpace-Docker-Images/tree/master/docker-compose-files/angular-dev-compose) | Developed | Compose file to develop the DSpace 7 Angular UI with an External REST Service |
-| dspace-oracle-compose | In Progress | Compose file for testing DSpace code with Oracle |
-
----
-## Compose file contents
 | Compose File | Host  | Image | Volume | Notes |
 | ------------ | ----- | ----- | ------ | ----- |
-| dspace-compose | dspacedb | dspace/dspace-postgres-pgcrypto | vol:/pgdata ||
-|                | dspace   | dspace/dspace                   | vol:/dspace ||
-| dspace-ingest-compose | dspacedb | dspace/dspace-postgres-pgcrypto | vol:/pgdata ||
-|                       | dspace   | dspace/dspace                   | vol:/dspace ||
-|                       |          |                                 | mount:/ingest-tools ||
-|                       |          |                                 | mount:/aip-dir | AIP files mounted for ingest|
-| dspace-dev-compose    | dspacedb | dspace/dspace-postgres-pgcrypto | vol:/pgdata ||
-|                       | dspace   | dspace/dspace                   | vol:/dspace ||
-|                       |          |                                 | mount:/dspace-src | Source code is mounted|
-| dspace7-compose | dspacedb       | dspace/dspace-postgres-pgcrypto | vol:/pgdata ||
-|                 | dspace         | dspace/dspace                   | vol:/dspace ||
-|                 | dspace-angular | dspace/dspace-angular           | mount:/app/config/environment.dev.js | REST API in Docker|
-| angular-compose | dspace-angular | dspace/dspace-angular           | mount:/app/config/environment.dev.js | REST API is external |
-| angular-dev-compose | dspace-angular | dspace/dspace-angular-bare  | mount:/app | Source code is mounted |
-|                     |                |                             | mount:app/config/environment.dev.js | REST API is external |
+| [dspace-compose](https://github.com/DSpace-Labs/DSpace-Docker-Images/tree/master/docker-compose-files/dspace-compose) | | | | Running a pre-built DSpace Image for testing purposes | 
+| | dspacedb | dspace/dspace-postgres-pgcrypto | vol:/pgdata ||
+| | dspace   | dspace/dspace                   | vol:/dspace ||
+| [dspace-ingest-compose](https://github.com/DSpace-Labs/DSpace-Docker-Images/tree/master/docker-compose-files/dspace-ingest-compose) | | | |Compose file designed to assist a user with repository configuration and data ingest. |
+| | dspacedb | dspace/dspace-postgres-pgcrypto | vol:/pgdata ||
+| | dspace   | dspace/dspace                   | vol:/dspace ||
+| |          |                                 | mount:/ingest-tools ||
+| |          |                                 | mount:/aip-dir | AIP files mounted for ingest|
+| [dspace-dev-compose](https://github.com/DSpace-Labs/DSpace-Docker-Images/tree/master/docker-compose-files/dspace-dev-compose) | | | | Runtime DSpace container.  User will manually deploy code into the container. |
+| | dspacedb | dspace/dspace-postgres-pgcrypto | vol:/pgdata ||
+| | dspace   | dspace/dspace                   | vol:/dspace ||
+| |          |                                 | mount:/dspace-src | Source code is mounted|
+| [dspace7-compose](https://github.com/DSpace-Labs/DSpace-Docker-Images/tree/master/docker-compose-files/dspace7-compose) | | | | Compose file to run the DSpace 7 REST API and Angular UI |
+| | dspacedb       | dspace/dspace-postgres-pgcrypto | vol:/pgdata ||
+| | dspace         | dspace/dspace                   | vol:/dspace ||
+| | dspace-angular | dspace/dspace-angular           | mount:/app/config/environment.dev.js | REST API in Docker|
+| [angular-compose](https://github.com/DSpace-Labs/DSpace-Docker-Images/tree/master/docker-compose-files/angular-compose) | | | | Compose file to run the DSpace 7 Angular UI with an External REST Service |
+| | dspace-angular | dspace/dspace-angular           | mount:/app/config/environment.dev.js | REST API is external |
+| [angular-dev-compose](https://github.com/DSpace-Labs/DSpace-Docker-Images/tree/master/docker-compose-files/angular-dev-compose) | | | | Compose file to develop the DSpace 7 Angular UI with an External REST Service |
+| | dspace-angular | dspace/dspace-angular-bare  | mount:/app | Source code is mounted |
+| |                |                             | mount:app/config/environment.dev.js | REST API is external |
+| dspace-oracle-compose | | | | Compose file for testing DSpace code with Oracle |
 
 ---
 
