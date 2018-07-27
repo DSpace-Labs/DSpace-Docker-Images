@@ -1,3 +1,4 @@
+{% include nav.html %}
 ## Running Standalone DSpace Angular connected to an External REST service
 
 The DSpace Angular UI has a client (js) and a server component (Node js).  Each component needs to point to the proper REST API.
