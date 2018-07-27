@@ -1,4 +1,3 @@
-{% include nav.html %}
 # Running DSpace with Docker compose
 
 ## 1. Building DSpace
