@@ -31,9 +31,19 @@ Run Docker compose
 docker-compose -p $DPROJ up -d
 ```
 
-This will start 3 containers: (1) database (2) tomcat - REST (3) Node - Angular.
+### This will start 3 containers: (1) database (2) tomcat - REST (3) Node - Angular.
 
-## 3. Accessing the command line
+```
+$ docker ps -a
+CONTAINER ID        IMAGE                             COMMAND                  CREATED             STATUS              PORTS                                            NAMES
+7d6532ef898f        dspace/dspace-angular             "/bin/sh -c 'yarn ru…"   25 seconds ago      Up 24 seconds       0.0.0.0:3000->3000/tcp, 0.0.0.0:9876->9876/tcp   d7_dspace-angular_1
+9d2a514f9c38        dspace/dspace:master              "catalina.sh run"        26 seconds ago      Up 24 seconds       8009/tcp, 0.0.0.0:8080->8080/tcp                 d7_dspace_1
+d3c80bc6c2e4        dspace/dspace-postgres-pgcrypto   "docker-entrypoint.s…"   26 seconds ago      Up 25 seconds       5432/tcp                                         d7_dspacedb_1
+```
+
+## 3. Accessing the Command Line
+
+### Tomcat Command Line
 
 #### Bash
 ```
@@ -49,6 +59,19 @@ Bash Command
 ```
 /dspace/bin/dspace version
 ```
+
+### Angular Command Line
+
+#### Bash
+```
+docker exec -it --detach-keys "ctrl-p" ${DPROJ}_dspace-angular_1 /bin/bash
+```
+
+#### Git-Bash Windows
+```
+winpty docker exec -it --detach-keys "ctrl-p" ${DPROJ}_dspace-angular_1 //bin/bash
+```
+
 
 ## 4. Open DSpace in a Browser
 - DSpace 7 REST: [http://localhost:8080/spring-rest](http://localhost:8080/spring-rest)
