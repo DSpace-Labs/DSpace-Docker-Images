@@ -14,6 +14,30 @@ The DSpace Angular UI has a client (js) and a server component (Node js).  Each 
 export DPROJ=d7
 ```
 
+- Modify the Docker Compose file to point to the external REST API that you would like to use.  The development instance at 4Science is configured by default.
+
+```
+      - DSPACE_REST_HOST=dspace7.4science.it
+      - DSPACE_REST_SSL=true
+        # DSPACE_REST_NAMESPACE=/spring-rest/api
+      - DSPACE_REST_NAMESPACE=/dspace-spring-rest/api
+      - DSPACE_REST_PORT=443
+```
+- Modify the environment.js file to point to the external REST API that you would like to use. The development instance at 4Science is configured by default.
+
+```
+module.exports = {
+  rest: {
+    ssl: true,
+    host: 'dspace7.4science.it',
+    port: 443,
+    // NOTE: Space is capitalized because 'namespace' is a reserved string in TypeScript
+    //nameSpace: '/spring-rest/api'
+    nameSpace: '/dspace-spring-rest/api'
+  }
+};
+```
+
 ## 2. Using Docker Compose
 
 - cd to the **dspace-compose** directory
