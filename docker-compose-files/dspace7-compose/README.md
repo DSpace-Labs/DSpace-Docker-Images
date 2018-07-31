@@ -41,6 +41,15 @@ CONTAINER ID        IMAGE                             COMMAND                  C
 d3c80bc6c2e4        dspace/dspace-postgres-pgcrypto   "docker-entrypoint.s…"   26 seconds ago      Up 25 seconds       5432/tcp                                         d7_dspacedb_1
 ```
 
+The dspace container and the dspacedb container will persist data in a docker volume.
+
+```
+$ docker volume ls -f "label=com.docker.compose.project=$DPROJ"
+DRIVER              VOLUME NAME
+local               d7_dspace
+local               d7_pgdata
+```
+
 ## 3. Accessing the Command Line
 
 ### 3a. Tomcat Command Line
@@ -90,20 +99,12 @@ docker-compose -p $DPROJ down
 ```
 
 After stopping or destroying your instances, note that the volumes have persisted.
-- The ${DPROJ}_dspace volume contains the contents of your [dspace-install] directory
-- The ${DPROJ}_pgdata contains the contents of your database
-
 
 ```
-docker volume ls
-```
-
-Sample Output
-```
+$ docker volume ls -f "label=com.docker.compose.project=$DPROJ"
 DRIVER              VOLUME NAME
-local               269bb301cec95f0bcb1c6f0b5e0947c33308d59628185856eb727a08f654980e
-local               d6_dspace
-local               d6_pgdata
+local               d7_dspace
+local               d7_pgdata
 ```
 
 ## 6. Restarting DSpace
