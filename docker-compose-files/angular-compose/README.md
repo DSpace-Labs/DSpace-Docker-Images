@@ -26,21 +26,32 @@ docker-compose -p $DPROJ up -d
 
 This will start 1 container: Node - Angular.
 
-## 3. Open DSpace in a Browser
+```
+$ docker ps -a
+CONTAINER ID        IMAGE                             COMMAND                  CREATED             STATUS              PORTS                                            NAMES
+7d6532ef898f        dspace/dspace-angular             "/bin/sh -c 'yarn ru…"   25 seconds ago      Up 24 seconds       0.0.0.0:3000->3000/tcp, 0.0.0.0:9876->9876/tcp   d7_dspace-angular_1
+```
+
+## 3. Accessing the Command Line
+
+#### Bash
+```
+docker exec -it --detach-keys "ctrl-p" ${DPROJ}_dspace-angular_1 /bin/bash
+```
+
+#### Git-Bash Windows
+```
+winpty docker exec -it --detach-keys "ctrl-p" ${DPROJ}_dspace-angular_1 //bin/bash
+```
+
+## 4. Open DSpace in a Browser
 - DSpace 7 UI: [http://localhost:3000](http://localhost:3000)
 
-## 4. Stopping DSpace
+## 5. Stopping DSpace
 To stop DSpace, the following command can be run.  The image will be retained in a stopped state.
 ```
 docker-compose -p $DPROJ stop
 ```
-
-You can destroy the images with the following command.  This command will be necessary to run if you change the compose file that you are using.
-
-```
-docker-compose -p $DPROJ down
-```
-
 
 ## 6. Restarting DSpace
 
