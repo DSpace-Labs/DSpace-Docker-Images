@@ -58,3 +58,7 @@ docker-compose -p $DPROJ up -d
 ```
 docker-compose -p $DPROJ down
 ```
+
+## 8. Updating Code within an Angular Image
+
+To deploy new code within your image, see [angular-dev-compose](../angular-dev-compose).
