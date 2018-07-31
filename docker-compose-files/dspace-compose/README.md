@@ -3,7 +3,7 @@
 
 ## 1. Pre-requisites
 - [Setting Up Docker for DSpace](../../documentation/tutorialSetup.md)
-- Set the environment variable DSPACE_VER to the DSpace image version you would like to use.
+- Set the environment variable DSPACE_VER to the [DSpace image version](https://hub.docker.com/r/dspace/dspace/tags/) you would like to use.
   - master, dspace-6_x, dspace-6.3, dspace-5.9, dspace-4.9
 
 ```
@@ -27,7 +27,19 @@ Run Docker compose
 docker-compose -p $DPROJ up -d
 ```
 
-## 3. Accessing the command line
+## 3. Verify DSpace Version
+
+#### Bash
+```
+docker exec -it ${DPROJ}_dspace_1 /dspace/bin/dspace version
+```
+
+#### Git-Bash Windows
+```
+winpty docker exec -it ${DPROJ}_dspace_1 //dspace/bin/dspace version
+```
+
+## 4. Accessing the Command Line
 
 #### Bash
 ```
@@ -44,11 +56,11 @@ Bash Command
 /dspace/bin/dspace version
 ```
 
-## 4. Open DSpace in a Browser
+## 5. Open DSpace in a Browser
 - DSpace 5 or 6: [http://localhost:8080/xmlui](http://localhost:8080/xmlui)
 - DSpace 7: [http://localhost:8080/spring-rest](http://localhost:8080/spring-rest)
 
-## 5. Stopping DSpace
+## 6. Stopping DSpace
 To stop DSpace, the following command can be run.  The image will be retained in a stopped state.
 ```
 docker-compose -p $DPROJ stop
@@ -77,14 +89,14 @@ local               d6_dspace
 local               d6_pgdata
 ```
 
-## 6. Restarting DSpace
+## 7. Restarting DSpace
 _When DSpace is restarted, the contents of your volumes will be restored_
 
 ```
 docker-compose -p $DPROJ up -d
 ```
 
-## 7. Ingesting content or updating code within an image
+## 8. Ingesting content or updating code within an image
 To ingest content into this DSpace instance see [dspace-ingest-compose](../dspace-ingest-compose).  This compose file will help you to ingest content into the docker volumes that you just created.
 
 To deploy new code within your image, see [dspace-dev-compose](../dspace-dev-compose).
@@ -95,7 +107,7 @@ Remember that you will need to run the following command if you use an alternate
 docker-compose -p $DPROJ down
 ```
 
-## 8. Destroying Docker Resources
+## 9. Destroying Docker Resources
 If you no longer need to retain your Docker volumes, run  the following commands.
 
 ```
