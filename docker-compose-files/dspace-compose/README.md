@@ -27,7 +27,27 @@ Run Docker compose
 docker-compose -p $DPROJ up -d
 ```
 
-## 3. Verify DSpace Version
+This will start 3 containers: (1) database (2) tomcat.
+
+```
+$ docker ps -a
+CONTAINER ID        IMAGE                             COMMAND                  CREATED              STATUS              PORTS                              NAMES
+98677e1cde3b        dspace/dspace:dspace-6_x          "catalina.sh run"        About a minute ago   Up About a minute   8009/tcp, 0.0.0.0:8080->8080/tcp   d6_dspace_1
+5186cf451eff        dspace/dspace-postgres-pgcrypto   "docker-entrypoint.s…"   About a minute ago   Up About a minute   5432/tcp                           d6_dspacedb_1
+```
+
+The dspace container and the dspacedb container will persist data in a docker volume.
+
+```
+$ docker volume ls -f "label=com.docker.compose.project=$DPROJ"
+DRIVER              VOLUME NAME
+local               d6_dspace
+local               d6_pgdata
+```
+
+## 3. Verify Install
+
+### 3a. Verify DSpace Version
 
 #### Bash
 ```
@@ -39,7 +59,21 @@ docker exec -it ${DPROJ}_dspace_1 /dspace/bin/dspace version
 winpty docker exec -it ${DPROJ}_dspace_1 //dspace/bin/dspace version
 ```
 
+### 3b. Verify Database Schema
+
+#### Bash
+```
+docker exec -it ${DPROJ}_dspacedb_1 psql -U dspace -c "select * from schema_version order by installed_rank desc limit 1"
+```
+
+#### Git-Bash Windows
+```
+winpty docker exec -it ${DPROJ}_dspacedb_1 psql -U dspace -c "select * from schema_version order by installed_rank desc limit 1"
+```
+
 ## 4. Accessing the Command Line
+
+### 4a. Tomcat
 
 #### Bash
 ```
@@ -54,6 +88,18 @@ winpty docker exec -it --detach-keys "ctrl-p" ${DPROJ}_dspace_1 //bin/bash
 Bash Command
 ```
 /dspace/bin/dspace version
+```
+
+### Database
+
+#### Bash
+```
+docker exec -it -detach-keys "ctrl-p" ${DPROJ}_dspacedb_1 psql -U dspace 
+```
+
+#### Git-Bash Windows
+```
+winpty docker exec -it -detach-keys "ctrl-p" ${DPROJ}_dspacedb_1 psql -U dspace 
 ```
 
 ## 5. Open DSpace in a Browser
@@ -73,18 +119,9 @@ docker-compose -p $DPROJ down
 ```
 
 After stopping or destroying your instances, note that the volumes have persisted.
-- The ${DPROJ}_dspace volume contains the contents of your [dspace-install] directory
-- The ${DPROJ}_pgdata contains the contents of your database
-
-
 ```
-docker volume ls
-```
-
-Sample Output
-```
+$ docker volume ls -f "label=com.docker.compose.project=$DPROJ"
 DRIVER              VOLUME NAME
-local               269bb301cec95f0bcb1c6f0b5e0947c33308d59628185856eb727a08f654980e
 local               d6_dspace
 local               d6_pgdata
 ```
