@@ -21,10 +21,11 @@ This repository contains the source code for Docker Images for the [DSpace](http
 ## Tutorials
 
 - [Running DSpace with Docker Compose](docker-compose-files/dspace-compose/README.md)
+  - [Ingesting Content into a Docker Container](docker-compose-files/dspace-ingest-compose/README.md)
+  - [Building and Running DSpace with Docker Compose](docker-compose-files/dspace-dev-compose/README.md)
 - [Running DSpace 7 (Angular+REST) with Docker Compose](docker-compose-files/dspace7-compose/README.md)
 - [Running DSpace 7 (Angular Only) with Docker Compose](docker-compose-files/angular-compose/README.md)
-- [Building and Running DSpace with Docker Compose](docker-compose-files/dspace-dev-compose/README.md)
-- [Ingesting Content into a Docker Container](docker-compose-files/dspace-ingest-compose/README.md)
+  - [Testing DSpace 7 Angular Code with Docker Compose](docker-compose-files/angular-dev-compose/README.md)
 - [Manually deploying DSpace with Docker](documentation/tutorial.md)
 
 ---
