@@ -31,7 +31,7 @@ Run Docker compose
 docker-compose -p $DPROJ up -d
 ```
 
-### This will start 3 containers: (1) database (2) tomcat - REST (3) Node - Angular.
+This will start 3 containers: (1) database (2) tomcat - REST (3) Node - Angular.
 
 ```
 $ docker ps -a
@@ -43,7 +43,7 @@ d3c80bc6c2e4        dspace/dspace-postgres-pgcrypto   "docker-entrypoint.s…"  
 
 ## 3. Accessing the Command Line
 
-### Tomcat Command Line
+### 3a. Tomcat Command Line
 
 #### Bash
 ```
@@ -60,7 +60,7 @@ Bash Command
 /dspace/bin/dspace version
 ```
 
-### Angular Command Line
+### 3b. Angular Command Line
 
 #### Bash
 ```
