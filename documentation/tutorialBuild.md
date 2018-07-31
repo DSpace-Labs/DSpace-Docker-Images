@@ -68,3 +68,52 @@ Run the following command from your DSPACE_SRC directory.
 ```
 mvn clean install
 ```
+
+## Building a Tagged DSpace Image
+_This assumes that the PR's associated with [Jira DS-3967](https://jira.duraspace.org/browse/DS-3967) have been merged._
+
+### Branch Build
+
+```
+cd $DSPACE_SRC
+git checkout myBranch
+```
+
+To build the image
+
+```
+docker build -t dspace/dspace:myBranch .
+```
+
+To push the image to DockerHub (if you have permission)
+```
+docker push dspace/dspace:myBranch
+```
+
+### PR Build
+
+```
+cd $DSPACE_SRC
+git fetch --all
+
+#delete any local changes
+git checkout -- .
+
+#pull PR updates
+git fetch DSpace
+
+#Get branch to which the PR will be merged
+git checkout dspace-6_x
+git pull DSpace dspace-6_x
+git clean -df
+
+#delete testing branch
+git branch -D test-prs
+
+#recreate testing branch
+git checkout -b test-prs
+
+git merge origin/pr/XXXX
+
+git build -t dspace/dspace:prXXXX .
+```
