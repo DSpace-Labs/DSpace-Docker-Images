@@ -92,6 +92,12 @@ docker push dspace/dspace:myBranch
 
 ### PR Build
 
+Configure your repo to recognize DSpace pull requests
+```
+git config --add remote.DSpace.fetch "+refs/pull/*/head:refs/remotes/origin/pr/*"
+```
+
+Merge a pull request into a branch of your local repo
 ```
 cd $DSPACE_SRC
 git fetch --all
