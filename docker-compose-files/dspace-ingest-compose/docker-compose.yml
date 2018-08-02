@@ -6,10 +6,10 @@ services:
     environment:
       - PGDATA=/pgdata
     volumes:
-       - pgdata:/pgdata
-       # Set the following variable for ingest tools
-       # Set this varible to the folder mount_ingest_tools within this project
-       - "${INGEST_TOOLS}:/ingest-tools"
+      - pgdata:/pgdata
+      # Set the following variable for ingest tools
+      # Set this varible to the folder mount_ingest_tools within this project
+      - "${INGEST_TOOLS}:/ingest-tools"
     networks:
       - dspacenet
     tty: true
@@ -22,14 +22,15 @@ services:
     ports:
       - 8080:8080
     volumes:
-       - "dspace:/dspace"
-       # Set the following variable to a path containing AIP zip files
-       - "${AIP_DIR}:/aip-dir"
-       # Set the following variable for ingest tools
-       # Set this varible to the folder mount_ingest_tools within this project
-       - "${INGEST_TOOLS}:/ingest-tools"
+      - "assetstore:/dspace/assetstore"
+      - "solr:/dspace/solr"
+      # Set the following variable to a path containing AIP zip files
+      - "${AIP_DIR}:/aip-dir"
+      # Set the following variable for ingest tools
+      # Set this varible to the folder mount_ingest_tools within this project
+      - "${INGEST_TOOLS}:/ingest-tools"
     networks:
-       - dspacenet
+      - dspacenet
     depends_on:
       - dspacedb
     tty: true
@@ -37,7 +38,8 @@ services:
 
 volumes:
   pgdata:
-  dspace:
+  assetstore:
+  solr:
 
 networks:
   dspacenet:

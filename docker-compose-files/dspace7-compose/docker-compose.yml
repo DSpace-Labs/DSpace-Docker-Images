@@ -20,7 +20,8 @@ services:
     ports:
       - 8080:8080
     volumes:
-      - "dspace:/dspace"
+      - "assetstore:/dspace/assetstore"
+      - "solr:/dspace/solr"
     networks:
       - dspacenet
     depends_on:
@@ -52,7 +53,8 @@ services:
 
 volumes:
   pgdata:
-  dspace:
+  assetstore:
+  solr:
 
 networks:
   dspacenet:
