@@ -122,5 +122,5 @@ docker-compose -p $DPROJ down
 ```
 
 ```
-docker volume rm ${DPROJ}_dspace_1 ${DPROJ}_pgdata_1
+docker volume rm ${DPROJ}_dspace ${DPROJ}_pgdata
 ```
