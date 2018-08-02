@@ -41,8 +41,9 @@ The dspace container and the dspacedb container will persist data in a docker vo
 ```
 $ docker volume ls -f "label=com.docker.compose.project=$DPROJ"
 DRIVER              VOLUME NAME
-local               d6_dspace
+local               d6_assetstore
 local               d6_pgdata
+local               d6_solr
 ```
 
 ## 3. Verify Install
@@ -94,12 +95,12 @@ Bash Command
 
 #### Bash
 ```
-docker exec -it --detach-keys "ctrl-p" ${DPROJ}_dspacedb_1 psql -U dspace 
+docker exec -it --detach-keys "ctrl-p" ${DPROJ}_dspacedb_1 psql -U dspace
 ```
 
 #### Git-Bash Windows
 ```
-winpty docker exec -it --detach-keys "ctrl-p" ${DPROJ}_dspacedb_1 psql -U dspace 
+winpty docker exec -it --detach-keys "ctrl-p" ${DPROJ}_dspacedb_1 psql -U dspace
 ```
 
 ## 5. Open DSpace in a Browser
@@ -122,8 +123,9 @@ After stopping or destroying your instances, note that the volumes have persiste
 ```
 $ docker volume ls -f "label=com.docker.compose.project=$DPROJ"
 DRIVER              VOLUME NAME
-local               d6_dspace
+local               d6_assetstore
 local               d6_pgdata
+local               d6_solr
 ```
 
 ## 7. Restarting DSpace
@@ -148,5 +150,5 @@ docker-compose -p $DPROJ down
 If you no longer need to retain your Docker volumes, run  the following commands.
 
 ```
-docker volume rm ${DPROJ}_dspace ${DPROJ}_pgdata
+docker volume rm ${DPROJ}_assetstore ${DPROJ}_pgdata ${DPROJ}_solr
 ```

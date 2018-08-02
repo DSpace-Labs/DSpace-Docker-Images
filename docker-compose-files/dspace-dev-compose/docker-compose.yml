@@ -19,7 +19,8 @@ services:
     ports:
       - 8080:8080
     volumes:
-      - "dspace:/dspace"
+      - "assetstore:/dspace/assetstore"
+      - "solr:/dspace/solr"
       - "${DSPACE_SRC}:/dspace-src"
     networks:
       - dspacenet
@@ -30,7 +31,8 @@ services:
 
 volumes:
   pgdata:
-  dspace:
+  assetstore:
+  solr:
 
 networks:
   dspacenet:

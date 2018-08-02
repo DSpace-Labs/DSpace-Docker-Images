@@ -6,7 +6,7 @@ The DSpace Angular UI has a client (js) and a server component (Node js).  Each 
   - this is defined in environment.dev.js
 - Node js server - the REST api is located at dspace:8080
   - this is defined in the docker-compose.yml file
-  
+
 ## 1. Pre-requisites
 - [Setting Up Docker for DSpace](../../documentation/tutorialSetup.md)
 - Set the environment variable DSPACE_VER to the DSpace image version you would like to use.
@@ -46,8 +46,9 @@ The dspace container and the dspacedb container will persist data in a docker vo
 ```
 $ docker volume ls -f "label=com.docker.compose.project=$DPROJ"
 DRIVER              VOLUME NAME
-local               d7_dspace
+local               d7_assetstore
 local               d7_pgdata
+local               d7_solr
 ```
 
 ## 3. Accessing the Command Line
@@ -103,8 +104,9 @@ After stopping or destroying your instances, note that the volumes have persiste
 ```
 $ docker volume ls -f "label=com.docker.compose.project=$DPROJ"
 DRIVER              VOLUME NAME
-local               d7_dspace
+local               d7_assetstore
 local               d7_pgdata
+local               d7_solr
 ```
 
 ## 6. Restarting DSpace
@@ -122,5 +124,5 @@ docker-compose -p $DPROJ down
 ```
 
 ```
-docker volume rm ${DPROJ}_dspace ${DPROJ}_pgdata
+docker volume rm ${DPROJ}_assetstore ${DPROJ}_pgdata ${DPROJ}_solr
 ```
