@@ -148,5 +148,5 @@ docker-compose -p $DPROJ down
 If you no longer need to retain your Docker volumes, run  the following commands.
 
 ```
-docker volume rm ${DPROJ}_dspace_1 ${DPROJ}_pgdata_1
+docker volume rm ${DPROJ}_dspace ${DPROJ}_pgdata
 ```
