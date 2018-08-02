@@ -94,12 +94,12 @@ Bash Command
 
 #### Bash
 ```
-docker exec -it -detach-keys "ctrl-p" ${DPROJ}_dspacedb_1 psql -U dspace 
+docker exec -it --detach-keys "ctrl-p" ${DPROJ}_dspacedb_1 psql -U dspace 
 ```
 
 #### Git-Bash Windows
 ```
-winpty docker exec -it -detach-keys "ctrl-p" ${DPROJ}_dspacedb_1 psql -U dspace 
+winpty docker exec -it --detach-keys "ctrl-p" ${DPROJ}_dspacedb_1 psql -U dspace 
 ```
 
 ## 5. Open DSpace in a Browser
