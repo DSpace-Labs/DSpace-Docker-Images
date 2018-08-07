@@ -1,6 +1,8 @@
 {% include nav.html %}
 # Setting Up Docker
 
+[![Demonstration Video](https://i.ytimg.com/vi/4mgVtB0t8aM/hqdefault.jpg)](https://www.youtube.com/watch?v=4mgVtB0t8aM)
+
 ## Install Docker
 - Docker is supported on the following platforms
   - Linux
