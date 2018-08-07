@@ -2,13 +2,19 @@
 # Setting Up Docker
 
 ## Install Docker
+- Docker is supported on the following platforms
+  - Linus
+  - MacOS
+  - Windows 10
 - [Docker Install](https://docs.docker.com/install/)
 
-### GitHub for windows
-In GitHub for Windows, you can set your default shell to "Git Bash".  ([Screenshot: git-bash options](git-bash.png))
+## Command Line Access
+Most of your interaction with Docker will take place from the command line.  The terminal/shell that you use for command line access will alter the syntax of your docker commands.
 
-### Shell Variations
-If you are running Docker from Windows, some actions will vary based on the shell that you are using.  Notes about these variations are described below.
+For simplicity, this tutorial will document the syntax needed for each of the following shell environments. 
+- Linux and MacOS --> Use Bash Shell
+- Windows 10 --> Use Git-Bash
+  - If you run GitHub for windows, there is an option to enable the "Git Bash" shell.  ([Screenshot: git-bash options](git-bash.png))
 
 ## Running a Docker Image
 
