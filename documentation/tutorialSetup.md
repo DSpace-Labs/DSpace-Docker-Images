@@ -1,5 +1,5 @@
 {% include nav.html %}
-# Setting Up DSpace on Docker
+# Setting Up Docker
 
 ## Install Docker
 - [Docker Install](https://docs.docker.com/install/)
