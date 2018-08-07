@@ -20,6 +20,7 @@ This repository contains the source code for Docker Images for the [DSpace](http
 
 ## Tutorials
 
+- [Setting Up Docker](documentation/tutorialSetup.md)
 - [Running DSpace with Docker Compose](docker-compose-files/dspace-compose/README.md)
   - [Ingesting Content into a Docker Container](docker-compose-files/dspace-ingest-compose/README.md)
   - [Building and Running DSpace with Docker Compose](docker-compose-files/dspace-dev-compose/README.md)
