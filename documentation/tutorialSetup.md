@@ -43,7 +43,7 @@ The docker __run__ command starts a docker container using a specific image.
 ### Example: run tomcat within docker
 The following command will start a [tomcat](https://hub.docker.com/_/tomcat/) server within docker.
 ```
-docker run --name myContainer tomcat
+docker run --name myContainer -d tomcat
 ```
 
 #### View the running process
