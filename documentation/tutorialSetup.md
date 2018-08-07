@@ -15,17 +15,17 @@ For simplicity, this tutorial will document the syntax needed for each of the fo
 - ### Linux and MacOS --> Use Bash Shell
 - ### Windows 10 --> Use Git-Bash
   - If you run GitHub for windows, there is an option to enable the "Git Bash" shell.  ([Screenshot: git-bash options](git-bash.png))
+  - This shell environment was chosen because it is the most similar to the Bash shell environment.
 
 ## Running a Docker Image
 
-The docker __run__ command starts a docker container using a specific image.
-- The __-it__ option enables terminal output.
+The docker __run__ command starts a docker container using a published or compiled docker image.  
 - The __--rm__ option will clean up container resources when the process completes.
 
-### Example: List the contents of the root directory
-The following command will list the root directory for a container.
+Published images can be discovered on [Docker Hub](https://hub.docker.com/explore/).
 
-The [ubuntu](https://hub.docker.com/_/ubuntu/) linux image will be used in this example.
+### Example: List the contents of the root directory
+The following command will list the root directory (`ls -l`) for the [ubuntu](https://hub.docker.com/_/ubuntu/) linux image.
 
 #### Bash
 ```
@@ -40,7 +40,7 @@ docker run --rm ubuntu ls //
 ```
 
 ### Example: Run a bash shell on ubuntu
-The following command will run a bash shell on ubnuntu.  This requires terminal input/output.
+The following command will run a bash shell on ubnuntu.  This requires terminal input/output; therefore the command is run with the __-it__ option.
 
 #### Bash
 ```
@@ -49,7 +49,8 @@ docker run -it --rm ubuntu /bin/bash
 
 #### Git-Bash Windows
 
-The Git Bash Shell attempts to convert a starting slash to a windows host directory.  Use a double slash if you are running in Git Bash.  In order to interact with the terminal from Git-Bash, you must prefix the command with `winpty`.
+The Git Bash Shell attempts to convert a starting slash to a windows host directory.  Use a double slash if you are running in Git Bash.  
+In order to interact with the terminal from Git-Bash, you must prefix the command with `winpty`.
 
 ```
 winpty docker run -it --rm ubuntu ls //bin/bash
