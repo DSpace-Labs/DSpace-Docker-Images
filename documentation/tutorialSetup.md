@@ -5,10 +5,7 @@
 - [Docker Install](https://docs.docker.com/install/)
 
 ### GitHub for windows
-In GitHub for Windows, you can set your default shell to "Git Bash".
-
-![git-bash options](git-bash.png)
-
+In GitHub for Windows, you can set your default shell to "Git Bash".  [Screenshot: git-bash options](git-bash.png)
 
 ### Shell Variations
 If you are running Docker from Windows, some actions will vary based on the shell that you are using.
