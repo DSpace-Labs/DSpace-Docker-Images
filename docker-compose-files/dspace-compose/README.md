@@ -25,7 +25,7 @@ export DPROJ=d6
 
 ## 2. Using Docker Compose
 
-- cd to the **dspace-compose** directory
+- cd to the **[dspace-compose](https://github.com/DSpace-Labs/DSpace-Docker-Images/tree/master/docker-compose-files/dspace-compose)** directory
 
 Run Docker compose
 
