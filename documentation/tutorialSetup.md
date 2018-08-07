@@ -5,10 +5,10 @@
 - [Docker Install](https://docs.docker.com/install/)
 
 ### GitHub for windows
-In GitHub for Windows, you can set your default shell to "Git Bash".  [Screenshot: git-bash options](git-bash.png)
+In GitHub for Windows, you can set your default shell to "Git Bash".  ([Screenshot: git-bash options](git-bash.png))
 
 ### Shell Variations
-If you are running Docker from Windows, some actions will vary based on the shell that you are using.
+If you are running Docker from Windows, some actions will vary based on the shell that you are using.  Notes about these variations are described below.
 
 ## Running a Docker Image
 
@@ -79,7 +79,6 @@ If you run `docker ps -a` you will see that the container is stopped.
 ```
 docker rm myContainer
 ```
-
 
 ## Setting Environment Variables
 This tutorial will focus on the syntax for Bash on Linux/MacOS and Git-Bash on Windows 10.
