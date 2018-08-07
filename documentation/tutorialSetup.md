@@ -23,15 +23,30 @@ The [ubuntu](https://hub.docker.com/_/ubuntu/) linux image will be used in this 
 
 #### Bash
 ```
-docker run -it --rm ubuntu ls /
+docker run --rm ubuntu ls /
 ```
 
 #### Git-Bash Windows
 
-The Git Bash Shell attempts to convert a starting slash to a windows host directory.  Use a double slash if you are running in Git Bash.  If you expect to see command line output from a docker command, prefix the command with `winpty`.
+The Git Bash Shell attempts to convert a starting slash to a windows host directory.  Use a double slash if you are running in Git Bash.  
+```
+docker run --rm ubuntu ls //
+```
+
+### Example: Run a bash shell on ubuntu
+The following command will run a bash shell on ubnuntu.  This requires terminal input/output.
+
+#### Bash
+```
+docker run -it --rm ubuntu /bin/bash
+```
+
+#### Git-Bash Windows
+
+The Git Bash Shell attempts to convert a starting slash to a windows host directory.  Use a double slash if you are running in Git Bash.  In order to interact with the terminal from Git-Bash, you must prefix the command with `winpty`.
 
 ```
-winpty docker run -it --rm ubuntu ls //
+winpty docker run -it --rm ubuntu ls //bin/bash
 ```
 
 ## Executing a process within a running container
