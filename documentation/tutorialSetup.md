@@ -53,7 +53,7 @@ The Git Bash Shell attempts to convert a starting slash to a windows host direct
 In order to interact with the terminal from Git-Bash, you must prefix the command with `winpty`.
 
 ```
-winpty docker run -it --rm ubuntu ls //bin/bash
+winpty docker run -it --rm ubuntu //bin/bash
 ```
 
 ## Executing a process within a running container
