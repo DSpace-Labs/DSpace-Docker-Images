@@ -1,6 +1,8 @@
 {% include nav.html %}
 # Ingesting Content into DSpace with Docker compose
 
+[![Demonstration Video](https://i.ytimg.com/vi/rdtdLZetZW0/hqdefault.jpg)](https://www.youtube.com/watch?v=rdtdLZetZW0)
+
 ## 1. Pre-requisites
 - See [Setting Up Docker for DSpace](../../documentation/tutorialSetup.md)
 - Set the environment variable DSPACE_VER to the DSpace image version you would like to use.
