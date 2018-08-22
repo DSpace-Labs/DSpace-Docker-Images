@@ -23,7 +23,7 @@ export DPROJ=d7
 
 ## 2. Using Docker Compose
 
-- cd to the **dspace-compose** directory
+- cd to the **dspace7-compose** directory
 
 Run Docker compose
 
@@ -74,12 +74,12 @@ Bash Command
 
 #### Bash
 ```
-docker exec -it --detach-keys "ctrl-p" ${DPROJ}_dspace-angular_1 /bin/bash
+docker exec -it --detach-keys "ctrl-p" ${DPROJ}_dspace-angular_1 /bin/sh
 ```
 
 #### Git-Bash Windows
 ```
-winpty docker exec -it --detach-keys "ctrl-p" ${DPROJ}_dspace-angular_1 //bin/bash
+winpty docker exec -it --detach-keys "ctrl-p" ${DPROJ}_dspace-angular_1 //bin/sh
 ```
 
 
