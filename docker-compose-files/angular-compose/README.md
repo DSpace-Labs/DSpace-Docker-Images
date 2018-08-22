@@ -60,12 +60,12 @@ CONTAINER ID        IMAGE                             COMMAND                  C
 
 #### Bash
 ```
-docker exec -it --detach-keys "ctrl-p" ${DPROJ}_dspace-angular_1 /bin/bash
+docker exec -it --detach-keys "ctrl-p" ${DPROJ}_dspace-angular_1 pwd
 ```
 
 #### Git-Bash Windows
 ```
-winpty docker exec -it --detach-keys "ctrl-p" ${DPROJ}_dspace-angular_1 //bin/bash
+winpty docker exec -it --detach-keys "ctrl-p" ${DPROJ}_dspace-angular_1 pwd
 ```
 
 ## 4. Open DSpace in a Browser
