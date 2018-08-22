@@ -4,7 +4,7 @@ This repository contains the source code for Docker Images for the [DSpace](http
 - [Docker](https://docs.docker.com/get-started/) simplifies the installation requirements for hosting an application by running an application image (_docker image_) within a containerized environment (_docker container_).
 - [Docker Hub](https://dockerhub.com) is a registry of published application images.
 - The DSpace project has published a set of [DSpace Images on DockerHub](https://hub.docker.com/u/dspace/) to simplify testing and development of the DSpace platform.
-  - The project hopes to automate the build of Docker Images for each of the supported branches of the DSpace code base.
+  - The project has automated the build of Docker Images for each of the supported branches of the DSpace code base ([build details](https://hub.docker.com/r/terrywbrady/dspace/builds/)).
 - A [Docker compose](https://docs.docker.com/compose/overview/) file is used to orchestrate the launch of interdependent containers.  
   - For DSpace 4, 5 and 6, those containers are the database and tomcat (xmlui, jspui)
   - For DSpace 7, the containers are the database, tomcat (for the REST api), and Node (running the Angular UI)
