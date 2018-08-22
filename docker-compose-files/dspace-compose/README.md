@@ -20,9 +20,10 @@ export DPROJ=d6
 ```
 
 - The following line within the docker-compose.yml file can be uncommented to enable the Mirage2 theme within the site.
+
 ```
-      # Uncomment the following to enable Mirage2 (DSpace 5x or 6x only)
-      # - "../../add-ons/mirage2/xmlui.xconf:/dspace/config/xmlui.xconf"
+# Uncomment the following to enable Mirage2 (DSpace 5x or 6x only)
+# - "../../add-ons/mirage2/xmlui.xconf:/dspace/config/xmlui.xconf"
 ```
 
 ## 2. Using Docker Compose
