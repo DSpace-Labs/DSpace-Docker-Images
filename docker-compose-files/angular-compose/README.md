@@ -40,7 +40,7 @@ module.exports = {
 
 ## 2. Using Docker Compose
 
-- cd to the **dspace-compose** directory
+- cd to the **angular-compose** directory
 
 Run Docker compose
 
