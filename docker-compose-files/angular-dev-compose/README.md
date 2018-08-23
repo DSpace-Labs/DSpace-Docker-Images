@@ -21,7 +21,7 @@ export DPROJ=d7
 
 ## 2. Using Docker Compose
 
-- cd to the **dspace-compose** directory
+- cd to the **angular-dev-compose** directory
 
 Run Docker compose
 
