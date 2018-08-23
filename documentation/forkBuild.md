@@ -30,7 +30,9 @@ Note, with an unpaid account on DockerHub, builds will queue up. You can choose 
 
 ![screenshot](auto3.png)
 
+#### Push a new branch named "Test-Build" to your repo  
+
 #### Go to Build Details
-Note the status of the builds that are running.
+Note the status of the builds that are running.  You should see a build for branch "Test-Build".
 
 ![screenshot](auto4.png)
