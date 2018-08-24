@@ -17,7 +17,21 @@ services:
     ports:
       - 8080:8080
     volumes:
-      - "dspace:/dspace"
+      - "assetstore:/dspace/assetstore"
+      - "solr:/dspace/solr"
+      # export ORADRIVER=<directory containing Oracle JDBC drvier>
+      # you must accept the license agreement and download the file from
+      # https://www.oracle.com/technetwork/
+      - "${ORADRIVER}/ojdbc6.jar:/dspace/lib/ojdbc6.jar"
+      - "${ORADRIVER}/ojdbc6.jar:/dspace/webapps/jspui/WEB-INF/lib/ojdbc6.jar"
+      - "${ORADRIVER}/ojdbc6.jar:/dspace/webapps/oai/WEB-INF/lib/ojdbc6.jar"
+      - "${ORADRIVER}/ojdbc6.jar:/dspace/webapps/rdf/WEB-INF/lib/ojdbc6.jar"
+      - "${ORADRIVER}/ojdbc6.jar:/dspace/webapps/rest/WEB-INF/lib/ojdbc6.jar"
+      - "${ORADRIVER}/ojdbc6.jar:/dspace/webapps/solr/WEB-INF/lib/ojdbc6.jar"
+      - "${ORADRIVER}/ojdbc6.jar:/dspace/webapps/sword/WEB-INF/lib/ojdbc6.jar"
+      - "${ORADRIVER}/ojdbc6.jar:/dspace/webapps/swordv2/WEB-INF/lib/ojdbc6.jar"
+      - "${ORADRIVER}/ojdbc6.jar:/dspace/webapps/xmlui/WEB-INF/lib/ojdbc6.jar"
+      # Override local.cfg to use the oracle driver
       - "./local.cfg.oracle:/dspace/config/local.cfg"
     networks:
       - dspacenet
@@ -28,7 +42,8 @@ services:
 
 volumes:
   oracledata:
-  dspace:
+  assetstore:
+  solr:
 
 networks:
   dspacenet:
