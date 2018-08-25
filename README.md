@@ -28,6 +28,7 @@ This repository contains the source code for Docker Images for the [DSpace](http
 - [Running DSpace 7 (Angular Only) with Docker Compose](docker-compose-files/angular-compose/README.md)
   - [Testing DSpace 7 Angular Code with Docker Compose](docker-compose-files/angular-dev-compose/README.md)
 - [Manually deploying DSpace with Docker](documentation/tutorial.md)
+- [Running DSpace + Oracle with Docker compose](docker-compose-files/dspace-oracle-compose/README.md)
 - [Creating automated builds for your DSpace contributions](documentation/forkBuild.md)
 
 ---
@@ -77,7 +78,7 @@ The following Docker Compose files can be used to simplify the management of DSp
 | [angular-dev-compose](https://github.com/DSpace-Labs/DSpace-Docker-Images/tree/master/docker-compose-files/angular-dev-compose) | | | | Compose file to develop the DSpace 7 Angular UI with an External REST Service |
 | | dspace-angular | dspace/dspace-angular-bare  | mount:/app | Source code is mounted |
 | |                |                             | mount: environment.dev.js | REST API is external |
-| dspace-oracle-compose | | | | Compose file for testing DSpace code with Oracle |
+| [dspace-oracle-compose](https://github.com/DSpace-Labs/DSpace-Docker-Images/tree/master/docker-compose-files/dspace-oracle-compose) | | | | Compose file for testing DSpace code with Oracle |
 
 ---
 
