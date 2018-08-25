@@ -36,7 +36,7 @@ Run Docker compose
 docker-compose -p $DPROJ up -d
 ```
 
-This will start 3 containers: (1) database (2) tomcat.
+This will start 2 containers: (1) database (2) tomcat.
 
 ```
 $ docker ps -a
