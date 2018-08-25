@@ -46,7 +46,6 @@ This table lists the general purpose docker images supported by the DSpace proje
 | [dspace](https://github.com/DSpace-Labs/DSpace-Docker-Images/tree/master/dockerfiles/dspace/) | Published |[dspace/dspace](https://hub.docker.com/r/dspace/dspace/)| master<br/><br/>dspace-6_x<br/><br/>dspace-6.3 | Tomcat + Ant with populated dspace-install directory. <br/>DSpace code will be cloned and built during image build. <br/>Image contains local.cfg and build.properties file suitable for the container.|
 | [dspace-angular](https://github.com/terrywbrady/dspace-angular/blob/docker/Dockerfile) | Published |[dspace/dspace-angular](https://hub.docker.com/r/dspace/dspace-angular/)| latest| Containerized Angular UI |
 | [dspace-angular-bare](https://github.com/DSpace-Labs/DSpace-Docker-Images/tree/master/dockerfiles/dspace-angular-bare/) | Provisionally Published  |[dspace/dspace-angular-bare](https://hub.docker.com/r/dspace/dspace-angular-bare/)| latest|  Containerized Angular UI which allows you to mount a source directory_|
-| dspace-oracle | In Progress |||  For DSpace / Oracle testing |
 
 ## Compose files
 The following Docker Compose files can be used to simplify the management of DSpace components allowing a user to run an end-to-end DSpace instance from their desktop.
@@ -79,6 +78,11 @@ The following Docker Compose files can be used to simplify the management of DSp
 | | dspace-angular | dspace/dspace-angular-bare  | mount:/app | Source code is mounted |
 | |                |                             | mount: environment.dev.js | REST API is external |
 | [dspace-oracle-compose](https://github.com/DSpace-Labs/DSpace-Docker-Images/tree/master/docker-compose-files/dspace-oracle-compose) | | | | Compose file for testing DSpace code with Oracle |
+| | dspacedb | atmire/dspace-oracle            | vol:/oracledata ||
+| | dspace   | dspace/dspace                   | vol:/assetstore||
+| |          |                                 | vol:/solr||
+| |          |                                 | mount:ojdbc6.jar | /dspace/lib/ojdbc6.jar|
+| |          |                                 | mount:ojdbc6.jar | /dspace/webapps/*/WEB-INF/ojdbc6.jar|
 
 ---
 
