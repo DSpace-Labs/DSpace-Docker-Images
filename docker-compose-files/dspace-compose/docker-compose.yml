@@ -25,11 +25,11 @@ services:
       # - "../../add-ons/mirage2/xmlui.xconf:/dspace/config/xmlui.xconf"
       # Uncomment the following to enable non https access to the rest servcie
       # - "../../add-ons/rest_http/web5.xml:/dspace/webapps/rest/WEB-INF/web.xml"
-      - "../../add-ons/rest_http/web6.xml:/dspace/webapps/rest/WEB-INF/web.xml"
+      # - "../../add-ons/rest_http/web6.xml:/dspace/webapps/rest/WEB-INF/web.xml"
       # - "../../add-ons/rest_http/web7.xml:/dspace/webapps/rest/WEB-INF/web.xml"
       # Uncomment the following to enable non localhost access to the solr service
       # - "../../add-ons/solr_localhost/web5.xml:/dspace/webapps/solr/WEB-INF/web.xml"
-      - "../../add-ons/solr_localhost/web6.xml:/dspace/webapps/solr/WEB-INF/web.xml"
+      # - "../../add-ons/solr_localhost/web6.xml:/dspace/webapps/solr/WEB-INF/web.xml"
       # - "../../add-ons/solr_localhost/web7.xml:/dspace/webapps/solr/WEB-INF/web.xml"
     networks:
       - dspacenet

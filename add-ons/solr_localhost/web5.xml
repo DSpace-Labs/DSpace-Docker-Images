@@ -36,7 +36,7 @@
 
   <context-param>
       <param-name>log4j.configuration</param-name>
-      <param-value>${dspace.dir}/config/log4j-solr.properties</param-value>
+      <param-value>/dspace/config/log4j-solr.properties</param-value>
       <description>URL locating a Log4J configuration file (properties or XML).</description>
   </context-param>
 
@@ -197,7 +197,7 @@
    -->
     <env-entry>
         <env-entry-name>solr/home</env-entry-name>
-        <env-entry-value>${dspace.dir}/solr</env-entry-value>
+        <env-entry-value>/dspace/solr</env-entry-value>
         <env-entry-type>java.lang.String</env-entry-type>
     </env-entry>
 
