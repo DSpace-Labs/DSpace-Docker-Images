@@ -4,7 +4,7 @@ _DSpace 4x does not contain the Flyway DB software which automatically updates t
 
 #### Save the following file as **schema.sql**
 
-https://github.com/DSpace/DSpace/blob/dspace-4_x/dspace/etc/postgres/database_schema.sql
+- [DSpace 4x Schema File](https://github.com/DSpace/DSpace/blob/dspace-4_x/dspace/etc/postgres/database_schema.sql)
 
 #### Update Database Schema
 ```
