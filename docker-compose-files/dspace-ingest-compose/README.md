@@ -13,7 +13,7 @@ export DSPACE_VER=dspace-6_x
 ```
 
 - Set the environment variable DPROJ to a shorthand version of the version of DSpace you are running (this needs to be distinct for each database schema version). Docker will name the network, images, and persistent volumes with this value.  This will allow you to host multiple DSpace configurations through Docker.
-  - d7, d6, d5, d4[*](../documentation/tutorial4x)
+  - d7, d6, d5, d4[*](../../documentation/tutorial4x)
 
 ```
 export DPROJ=d6
