@@ -1,9 +1,3 @@
-NOTE: This code will more to DSpace/DSpace
-- https://github.com/DSpace/DSpace/pull/2134 - 6x 
-- https://github.com/DSpace/DSpace/pull/2137 - 4x
-- https://github.com/DSpace/DSpace/pull/2136 - 5x 
-- https://github.com/DSpace/DSpace/pull/2135 - 7x 
-
 
 ## Configure the Build Environment
 In order to build this, you must start the database
