@@ -3,6 +3,8 @@ version: "3.3"
 services:
   dspacedb:
     image: dspace/dspace-postgres-pgcrypto
+    # Note that a separate image exists for DSpace 4x
+    # image: dspace/dspace-postgres-4x
     environment:
       - PGDATA=/pgdata
     volumes:
