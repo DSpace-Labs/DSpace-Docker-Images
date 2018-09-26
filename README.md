@@ -69,6 +69,11 @@ The following Docker Compose files can be used to simplify the management of DSp
 | | dspace   | dspace/dspace                   | vol:/assetstore||
 | |          |                                 | vol:/solr||
 | |          |                                 | mount:/dspace-src | Source code is mounted|
+| [rdf-compose](https://github.com/DSpace-Labs/DSpace-Docker-Images/tree/master/docker-compose-files/rdf-compose) | | | | Running a pre-built DSpace Image with RDF Triplestore |
+| | dspacedb | dspace/dspace-postgres-pgcrypto | vol:/pgdata ||
+| | dspace   | dspace/dspace                   | vol:/assetstore||
+| |          |                                 | vol:/solr||
+| | fuseki   | stain/jena-fuseki               | ||
 | [dspace7-compose](https://github.com/DSpace-Labs/DSpace-Docker-Images/tree/master/docker-compose-files/dspace7-compose) | | | | Compose file to run the DSpace 7 REST API and Angular UI |
 | | dspacedb       | dspace/dspace-postgres-pgcrypto | vol:/pgdata ||
 | | dspace         | dspace/dspace                   | vol:/assetstore||
