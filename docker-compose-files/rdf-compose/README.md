@@ -48,17 +48,6 @@ CONTAINER ID        IMAGE                             COMMAND                  C
 cace7b646cc8        stain/jena-fuseki                 "/docker-entrypoint.…"   15 minutes ago      Up 15 minutes       0.0.0.0:3030->3030/tcp             d6_fuseki_1
 ```
 
-The dspace container and the dspacedb container will persist data in a docker volume.
-
-```
-$  docker volume ls -f "label=com.docker.compose.project=d6"
-DRIVER              VOLUME NAME
-local               d6_assetstore
-local               d6_fuseki
-local               d6_pgdata
-local               d6_solr
-```
-
 ## 4. Create Dataset in d6_fuseki
 
 - http://localhost:3030
