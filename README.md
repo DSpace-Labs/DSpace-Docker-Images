@@ -24,6 +24,7 @@ This repository contains the source code for Docker Images for the [DSpace](http
 - [Running DSpace with Docker Compose](docker-compose-files/dspace-compose/README.md)
   - [Ingesting Content into a Docker Container](docker-compose-files/dspace-ingest-compose/README.md)
   - [Building and Running DSpace with Docker Compose](docker-compose-files/dspace-dev-compose/README.md)
+  - [Running DSpace with an RDF Triplestore](docker-compose-files/rdf-compose/README.md)
 - [Running DSpace 7 (Angular+REST) with Docker Compose](docker-compose-files/dspace7-compose/README.md)
 - [Running DSpace 7 (Angular Only) with Docker Compose](docker-compose-files/angular-compose/README.md)
   - [Testing DSpace 7 Angular Code with Docker Compose](docker-compose-files/angular-dev-compose/README.md)
@@ -67,6 +68,11 @@ The following Docker Compose files can be used to simplify the management of DSp
 | | dspace   | dspace/dspace                   | vol:/assetstore||
 | |          |                                 | vol:/solr||
 | |          |                                 | mount:/dspace-src | Source code is mounted|
+| [rdf-compose](https://github.com/DSpace-Labs/DSpace-Docker-Images/tree/master/docker-compose-files/rdf-compose) | | | | Running a pre-built DSpace Image with RDF Triplestore |
+| | dspacedb | dspace/dspace-postgres-pgcrypto | vol:/pgdata ||
+| | dspace   | dspace/dspace                   | vol:/assetstore||
+| |          |                                 | vol:/solr||
+| | fuseki   | stain/jena-fuseki               | ||
 | [dspace7-compose](https://github.com/DSpace-Labs/DSpace-Docker-Images/tree/master/docker-compose-files/dspace7-compose) | | | | Compose file to run the DSpace 7 REST API and Angular UI |
 | | dspacedb       | dspace/dspace-postgres-pgcrypto | vol:/pgdata ||
 | | dspace         | dspace/dspace                   | vol:/assetstore||
