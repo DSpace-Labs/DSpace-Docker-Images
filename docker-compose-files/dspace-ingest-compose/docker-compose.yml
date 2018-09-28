@@ -9,7 +9,9 @@ services:
       - pgdata:/pgdata
       # Set the following variable for ingest tools
       # Set this varible to the folder mount_ingest_tools within this project
-      - "${INGEST_TOOLS}:/ingest-tools"
+      # - "${INGEST_TOOLS}:/ingest-tools"
+      - "../../add-ons/mount_ingest_tools:/ingest-tools"
+
     networks:
       - dspacenet
     tty: true
@@ -24,11 +26,10 @@ services:
     volumes:
       - "assetstore:/dspace/assetstore"
       - "solr:/dspace/solr"
-      # Set the following variable to a path containing AIP zip files
-      - "${AIP_DIR}:/aip-dir"
       # Set the following variable for ingest tools
       # Set this varible to the folder mount_ingest_tools within this project
-      - "${INGEST_TOOLS}:/ingest-tools"
+      # - "${INGEST_TOOLS}:/ingest-tools"
+      - "../../add-ons/mount_ingest_tools:/ingest-tools"
     networks:
       - dspacenet
     depends_on:

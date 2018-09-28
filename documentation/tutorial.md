@@ -109,7 +109,7 @@ Bash Command
 
 Identify a set of AIP files to use for testing.
 
-A sample set is located [here](https://github.com/DSpace-Labs/DSpace-codenvy/tree/master/TestData).
+A sample set is located [here](https://github.com/DSpace-Labs/AIP-Files).
 
 #### Copy the AIP files to the Docker Image
 

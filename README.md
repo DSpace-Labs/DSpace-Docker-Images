@@ -62,7 +62,6 @@ The following Docker Compose files can be used to simplify the management of DSp
 | | dspace   | dspace/dspace                   | vol:/assetstore||
 | |          |                                 | vol:/solr||
 | |          |                                 | mount:/ingest-tools ||
-| |          |                                 | mount:/aip-dir | AIP files mounted for ingest|
 | [dspace-dev-compose](https://github.com/DSpace-Labs/DSpace-Docker-Images/tree/master/docker-compose-files/dspace-dev-compose) | | | | Runtime DSpace container.  User will manually deploy code into the container. |
 | | dspacedb | dspace/dspace-postgres-pgcrypto | vol:/pgdata ||
 | | dspace   | dspace/dspace                   | vol:/assetstore||
@@ -94,7 +93,6 @@ This table lists DSpace Docker images that have been designed to  run in specifi
 
 | Image Name | Status | DockerHub | Labels | Compose Files | Comments |
 | ---------- | ------ | --------- | ------ | ------------- | -------- |
-| [dspace-codenvy-tomcat](https://github.com/DSpace-Labs/DSpace-Docker-Images/tree/master/dockerfiles/dspace-codenvy-tomcat) |Published|[dspace-codenvy-tomcat](https://hub.docker.com/r/dspace/dspace-codenvy-tomcat/) |latest||Referenced by the [Codenvy service](https://codenvy.io)|
 | [dspace-janitor-angular](https://github.com/DSpace-Labs/DSpace-Docker-Images/tree/master/dockerfiles/dspace-janitor-angular)|Developed||||Referenced by the [Janitor](https://janitor.technology) service|
 
 ### Development Images (Source Code Only)
