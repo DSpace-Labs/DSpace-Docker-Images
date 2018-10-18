@@ -12,7 +12,7 @@ The DSpace Angular UI has a client (js) and a server component (Node js).  Each 
 - Set the environment variable DSPACE_VER to the DSpace image version you would like to use.
 
 ```
-export DSPACE_VER=master
+export DSPACE_VER=dspace-7_x-jdk8-test
 ```
 
 - Set the environment variable DPROJ to a shorthand version of the version of DSpace you are running (this needs to be distinct for each database schema version). Docker will name the network, images, and persistent volumes with this value.  This will allow you to host multiple DSpace configurations through Docker.

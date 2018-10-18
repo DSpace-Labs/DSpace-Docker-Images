@@ -13,8 +13,8 @@ services:
     stdin_open: true
 
   dspace:
-    #image: "dspace/dspace:${DSPACE_VER:-master}"
-    image: dspace/dspace:master
+    #image: "dspace/dspace:${DSPACE_VER:-dspace-7_x-jdk8-test}"
+    image: dspace/dspace:dspace-7_x-jdk8-test
     environment:
       - DSPACE_INSTALL=/dspace
     ports:
