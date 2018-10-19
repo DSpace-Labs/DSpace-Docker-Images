@@ -19,10 +19,10 @@ The Codenvy IDE (Che) requires at least 3G of RAM to manage the full DSpace Code
 ## Try out Codenvy Using this Pre-Built Factory
 The following [link](https://codenvy.io/dashboard/#/load-factory/factorycv7vosz66cgk1ly3) to a Codenvy factory will build a 3GB workspace running the latest DSpace 5x published Docker Image.
 
-![Codenvy Screenshot](documentation/codenvy1.png)
+![Codenvy Screenshot](../../documentation/codenvy1.png)
 
 After the server starts, you will see a URL for the tomcat service.  (Codenvy is fussy about reloading this information, so you may need to navigate away from the page to force a refresh.)
-![Codenvy Screenshot](documentation/codenvy1.png)
+![Codenvy Screenshot](../../documentation/codenvy1.png)
 
 Note about the dspace/tomcat container
 The tomcat instance (container named dspace) cannot be stopped or restarted.  If you wish to reload a webapp, you should modify the webapp web.xml file in `/dspace/webapps/*/WEB-INF/web.xml`
