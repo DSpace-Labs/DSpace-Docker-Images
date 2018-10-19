@@ -102,7 +102,7 @@ This table lists DSpace Docker images that have been designed to  run in specifi
 | [dspace-janitor-angular](https://github.com/DSpace-Labs/DSpace-Docker-Images/tree/master/dockerfiles/dspace-janitor-angular)|Developed||||Referenced by the [Janitor](https://janitor.technology) service|
 
 #### Codenvy Service
-The DSpace Wiki contains [instructions for using DSpace Images in Codenvy](https://wiki.duraspace.org/display/~terrywbrady/Using+Published+DSpace+Images+in+Codenvy).
+The DSpace Wiki contains [instructions for using DSpace Images in Codenvy](add-ons/codenvy-scripts/README.md).
 
 ### Development Images (Source Code Only)
 This table lists docker images that have been optimized for DSpace software development.  These images may be more complex to utilize.  These images require a local build from source code.
