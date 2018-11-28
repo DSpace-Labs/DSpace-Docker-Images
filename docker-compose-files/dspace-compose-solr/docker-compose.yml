@@ -40,8 +40,8 @@ services:
     container_name: dspacesolr
     ports:
      - "8983:8983"
-    volumes:
-      - solr:/opt/solr/server/solr/dspace-cores
+#    volumes:
+#      - solrext:/opt/solr/server/solr/dspace-cores
     networks:
       - dspacenet
     tty: true
@@ -50,7 +50,7 @@ services:
 volumes:
   pgdata:
   assetstore:
-  solr:
+#  solrext:
 
 networks:
   dspacenet:
