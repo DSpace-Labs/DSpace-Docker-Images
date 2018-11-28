@@ -5,7 +5,6 @@ services:
     image: dspace/dspace-postgres-pgcrypto
     # Note that a separate image exists for DSpace 4x
     # image: dspace/dspace-postgres-4x
-    container_name: dspacedb
     environment:
       - PGDATA=/pgdata
     volumes:
@@ -17,14 +16,12 @@ services:
 
   dspace:
     image: "${DOCKER_OWNER:-dspace}/dspace:${DSPACE_VER:-dspace-6_x-jdk8-test}"
-    container_name: dspace
     environment:
       - DSPACE_INSTALL=/dspace
     ports:
       - 8080:8080
     volumes:
       - "assetstore:/dspace/assetstore"
-      - "solr:/dspace/solr"
       # Uncomment the following to enable Mirage2 (DSpace 5x or 6x only)
       # - "../../add-ons/mirage2/xmlui.xconf:/dspace/config/xmlui.xconf"
     networks:
@@ -33,6 +30,13 @@ services:
       - dspacedb
     tty: true
     stdin_open: true
+
+  dspacesolr:
+    image: dspace/dspace-solr
+    ports:
+     - "8983:8983"
+    volumes:
+      - solr:/opt/solr/server/solr/dspace-cores
 
 volumes:
   pgdata:
