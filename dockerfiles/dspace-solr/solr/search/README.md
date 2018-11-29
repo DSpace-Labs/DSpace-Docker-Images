@@ -1,32 +1,29 @@
 | Field | Type | Multi | New Type | Note |
 | --- | --- | --- | --- | --- |
-| `_version_` | long | false | | |
-| search_text | text | true | | |  
-| fulltext | text | true | | |  
-| search.resourceid | true | | | |
-| search.resourcetype | sint | | | |
-| search.uniqueid | true | | | |
-| handle | string | | | |
-| withdrawn | string | | | |
-| discoverable | string | | | |
-| read | string | | | |
-| has_content_in_original_bundle | string | true | | |
-| handle | string | | | |
-| location | lowerCaseSort | true | | |
-| location.comm | lowerCaseSort | true | | |
-| location.coll | lowerCaseSort | true | | |
-| a_spell | textSpell | | | Note copyField directive|
-| SolrIndexer.lastIndexed | date | | | |
-| lastModified | date | | | |
-| *_stored | dspaceMetadataProjection | true | | |
-| *_ac | keywordFilter |  true | | |
-| *_acid | keywordFilter |  true | | |
-| *_filter| keywordFilter |  true | | |
-| *_authority | keywordFilter |  true | | |
-| *_keyword | keywordFilter |  true | | |
-| *_partial | text |  true | | |
-| *_hl | text |  true | | |
-| *_sort | lowerCaseSort | | | |
-| *_mlt | text | true | | |
-| *_year | sint | true | | |
-| *_dt | date | | | |
+| search_text | text | true | text_general | |  
+| fulltext | text | true | text_general | |  
+| search.resourceid | true | false | pint | |
+| search.resourcetype | sint | false | pint | |
+| search.uniqueid | string | true | string | |
+| handle | string | false | | |
+| withdrawn | string | false | | |
+| discoverable | string | false | | |
+| read | string | true | string | |
+| has_content_in_original_bundle | string | true | string | |
+| location | lowerCaseSort | true | string | New type needed? |
+| location.comm | lowerCaseSort | true | string | New type needed? |
+| location.coll | lowerCaseSort | true | string | New type needed? |
+| a_spell | textSpell | false | string | Note copyField directive|
+| SolrIndexer.lastIndexed | date | false | pdate | |
+| lastModified | date | false | pdate| |
+| *_stored | dspaceMetadataProjection | true | string | New type needed? |
+| *_ac | keywordFilter |  true | string | New type needed? |
+| *_acid | keywordFilter |  true | string | New type needed? |
+| *_filter| keywordFilter |  true | string | New type needed? |
+| *_authority | keywordFilter |  true | string | New type needed? |
+| *_keyword | keywordFilter |  true | string | New type needed? |
+| *_partial | text |  true | text_general | |
+| *_hl | text |  true | text_general  | |
+| *_sort | lowerCaseSort | false | string | New type needed?  |
+| *_mlt | text | true | text_general | |
+| *_year | sint | true | pint | |
