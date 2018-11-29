@@ -3,6 +3,7 @@ version: "3.3"
 services:
   dspacedb:
     image: dspace/dspace-postgres-pgcrypto
+    container_name: dspacedb
     environment:
       - PGDATA=/pgdata
     volumes:
@@ -19,6 +20,7 @@ services:
 
   dspace:
     image: "dspace/dspace:${DSPACE_VER:-dspace-6_x-jdk8-test}"
+    container_name: dspace
     environment:
       - DSPACE_INSTALL=/dspace
     ports:

@@ -3,6 +3,7 @@ version: "3.3"
 services:
   dspace-angular:
     image: dspace/dspace-angular
+    container_name: dspace-angular
     ports:
       - 3000:3000
       - 9876:9876
