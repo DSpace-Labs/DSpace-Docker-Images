@@ -25,7 +25,7 @@ function checkImage {
   export STAT_REST=$7
   docker-compose -p $DPROJ up -d > /dev/null 2> /dev/null
   echo " ===== ${DSPACE_VER} ===== "
-  docker exec ${DPROJ}_dspace_1 //dspace/bin/dspace version | egrep "DSpace version:|JRE:" > /tmp/out.txt
+  docker exec dspace //dspace/bin/dspace version | egrep "DSpace version:|JRE:" > /tmp/out.txt
   cat /tmp/out.txt
   checkOutput ${DSPACE_REGEX} "Unexpected DSpace Version - Expected ${DSPACE_REGEX}"
   checkOutput ${JRE_REGEX} "Unexpected JRE Version - Expected ${JRE_REGEX}"

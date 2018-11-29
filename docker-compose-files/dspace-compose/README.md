@@ -60,24 +60,24 @@ local               d6_solr
 
 #### Bash
 ```
-docker exec -it ${DPROJ}_dspace_1 /dspace/bin/dspace version
+docker exec -it dspace /dspace/bin/dspace version
 ```
 
 #### Git-Bash Windows
 ```
-winpty docker exec -it ${DPROJ}_dspace_1 //dspace/bin/dspace version
+winpty docker exec -it dspace //dspace/bin/dspace version
 ```
 
 ### 3b. Verify Database Schema
 
 #### Bash
 ```
-docker exec -it ${DPROJ}_dspacedb_1 psql -U dspace -c "select * from schema_version order by installed_rank desc limit 1"
+docker exec -it dspacedb psql -U dspace -c "select * from schema_version order by installed_rank desc limit 1"
 ```
 
 #### Git-Bash Windows
 ```
-winpty docker exec -it ${DPROJ}_dspacedb_1 psql -U dspace -c "select * from schema_version order by installed_rank desc limit 1"
+winpty docker exec -it dspacedb psql -U dspace -c "select * from schema_version order by installed_rank desc limit 1"
 ```
 
 ## 4. Accessing the Command Line
@@ -86,12 +86,12 @@ winpty docker exec -it ${DPROJ}_dspacedb_1 psql -U dspace -c "select * from sche
 
 #### Bash
 ```
-docker exec -it --detach-keys "ctrl-p" ${DPROJ}_dspace_1 /bin/bash
+docker exec -it --detach-keys "ctrl-p" dspace /bin/bash
 ```
 
 #### Git-Bash Windows
 ```
-winpty docker exec -it --detach-keys "ctrl-p" ${DPROJ}_dspace_1 //bin/bash
+winpty docker exec -it --detach-keys "ctrl-p" dspace //bin/bash
 ```
 
 Bash Command
@@ -103,12 +103,12 @@ Bash Command
 
 #### Bash
 ```
-docker exec -it --detach-keys "ctrl-p" ${DPROJ}_dspacedb_1 psql -U dspace
+docker exec -it --detach-keys "ctrl-p" dspacedb psql -U dspace
 ```
 
 #### Git-Bash Windows
 ```
-winpty docker exec -it --detach-keys "ctrl-p" ${DPROJ}_dspacedb_1 psql -U dspace
+winpty docker exec -it --detach-keys "ctrl-p" dspacedb psql -U dspace
 ```
 
 ## 5. Open DSpace in a Browser

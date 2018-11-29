@@ -5,6 +5,7 @@ services:
     image: dspace/dspace-postgres-pgcrypto
     # Note that a separate image exists for DSpace 4x
     # image: dspace/dspace-postgres-4x
+    container_name: dspacedb
     environment:
       - PGDATA=/pgdata
     volumes:
@@ -16,6 +17,7 @@ services:
 
   fuseki:
     image: "stain/jena-fuseki"
+    container_name: fuseki
     ports:
       - 3030:3030
     environment:
@@ -25,6 +27,7 @@ services:
 
   dspace:
     image: "dspace/dspace:${DSPACE_VER:-dspace-6_x-jdk8-test}"
+    container_name: dspace
     environment:
       - DSPACE_INSTALL=/dspace
     ports:
