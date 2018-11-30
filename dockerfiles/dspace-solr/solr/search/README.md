@@ -26,4 +26,4 @@
 | *_hl | text |  true | text_general  | |
 | *_sort | lowerCaseSort | false | string | New type needed?  |
 | *_mlt | text | true | text_general | |
-| *_year | sint | true | pint | |
+| *.year | sint | true | pint | |
