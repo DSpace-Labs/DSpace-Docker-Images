@@ -20,11 +20,11 @@ services:
     container_name: dspace
     environment:
       - DSPACE_INSTALL=/dspace
-      - solr.server=http://dspacesolr:8983/solr
     ports:
       - 8080:8080
     volumes:
       - "assetstore:/dspace/assetstore"
+      - "./local.cfg:/dspace/config/local.cfg"
       # Uncomment the following to enable Mirage2 (DSpace 5x or 6x only)
       # - "../../add-ons/mirage2/xmlui.xconf:/dspace/config/xmlui.xconf"
     networks:
