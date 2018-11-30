@@ -13,7 +13,7 @@
 | location | lowerCaseSort | true | string | New type needed? |
 | location.comm | lowerCaseSort | true | string | New type needed? |
 | location.coll | lowerCaseSort | true | string | New type needed? |
-| a_spell | textSpell | false | string | Note copyField directive|
+| a_spell | textSpell | n/a | string | Note copyField directive, set multiValued=true |
 | SolrIndexer.lastIndexed | date | false | pdate | |
 | lastModified | date | false | pdate| |
 | *_stored | dspaceMetadataProjection | true | string | New type needed? |
