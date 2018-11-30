@@ -224,7 +224,7 @@
       <!--Dynamic field used for related item searches-->
       <dynamicField name="*_mlt" type="text_general" indexed="true" stored="true" multiValued="true" omitNorms="true" termVectors="true" termPositions="true" termOffsets="true"/>
 
-      <dynamicField name="*_year" type="pint" indexed="true" stored="true" multiValued="true" omitNorms="true" />
+      <dynamicField name="*.year" type="pint" indexed="true" stored="true" multiValued="true" omitNorms="true" />
       <!-- Field to use to determine and enforce document uniqueness.
       Unless this field is marked with required="false", it will be a required field
     -->
