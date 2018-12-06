@@ -40,8 +40,10 @@ services:
     container_name: dspacesolr
     ports:
      - "8983:8983"
-#    volumes:
-#      - solrext:/opt/solr/server/solr/dspace-cores
+    # Uncomment the following line to trigger the init of DSpace solr repos
+    entrypoint: "/dspaceInit-entrypoint.sh"
+    # volumes:
+    #  - solrext:/opt/solr/server/solr/dspace-cores
     networks:
       - dspacenet
     tty: true
