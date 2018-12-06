@@ -1,0 +1,259 @@
+{
+    "add-field": {
+      "name": "type",
+      "type": "pint",
+      "indexed": "true",
+      "stored": "true",
+      "required": "false"
+    },
+    "add-field": {
+      "name": "ip",
+      "type": "string",
+      "indexed": "true",
+      "stored": "true",
+      "required": "false",
+      "docValues": "true"
+    },
+    "add-field": {
+      "name": "time",
+      "type": "pdate",
+      "indexed": "true",
+      "stored": "true",
+      "required": "true"
+    },
+    "add-field": {
+      "name": "epersonid",
+      "type": "string",
+      "indexed": "true",
+      "stored": "true",
+      "required": "false"
+    },
+    "add-field": {
+      "name": "continent",
+      "type": "string",
+      "indexed": "true",
+      "stored": "true",
+      "required": "false",
+      "docValues": "true"
+    },
+    "add-field": {
+      "name": "country",
+      "type": "string",
+      "indexed": "true",
+      "stored": "true",
+      "required": "false",
+      "docValues": "true"
+    },
+    "add-field": {
+      "name": "countryCode",
+      "type": "string",
+      "indexed": "true",
+      "stored": "true",
+      "required": "false",
+      "docValues": "true"
+    },
+    "add-field": {
+      "name": "city",
+      "type": "string",
+      "indexed": "true",
+      "stored": "true",
+      "required": "false",
+      "docValues": "true"
+    },
+    "add-field": {
+      "name": "longitude",
+      "type": "pfloat",
+      "indexed": "true",
+      "stored": "true",
+      "required": "false"
+    },
+    "add-field": {
+      "name": "latitude",
+      "type": "pfloat",
+      "indexed": "true",
+      "stored": "true",
+      "required": "false"
+    },
+    "add-field": {
+      "name": "owningComm",
+      "type": "string",
+      "indexed": "true",
+      "stored": "true",
+      "required": "false",
+      "multiValued": "true"
+    },
+    "add-field": {
+      "name": "owningColl",
+      "type": "string",
+      "indexed": "true",
+      "stored": "true",
+      "required": "false",
+      "multiValued": "true"
+    },
+    "add-field":   {
+      "name": "owningItem",
+      "type": "string",
+      "indexed": "true",
+      "stored": "true",
+      "required": "false",
+      "multiValued": "true"
+    },
+    "add-field": {
+      "name": "dns",
+      "type": "string",
+      "indexed": "true",
+      "stored": "true",
+      "required": "false",
+      "docValues": "true"
+    },
+    "add-field": {
+      "name": "userAgent",
+      "type": "string",
+      "indexed": "true",
+      "stored": "true",
+      "required": "false",
+      "docValues": "true"
+    },
+    "add-field": {
+      "name": "isBot",
+      "type": "boolean",
+      "indexed": "true",
+      "stored": "true",
+      "required": "false"
+    },
+    "add-field": {
+      "name": "bundleName",
+      "type": "string",
+      "indexed": "true",
+      "stored": "true",
+      "required": "false",
+      "multiValued": "true",
+      "docValues": "true"
+    },
+    "add-field": {
+      "name": "referrer",
+      "type": "string",
+      "indexed": "true",
+      "stored": "true",
+      "required": "false",
+      "docValues": "true"
+    },
+    "add-field": {
+      "name": "uid",
+      "type": "string",
+      "indexed": "true",
+      "stored": "true",
+      "required": "true",
+      "docValues": "true"
+    },
+    "add-field": {
+      "name": "statistics_type",
+      "type": "string",
+      "indexed": "true",
+      "stored": "true",
+      "required": "true",
+      "default": "view",
+      "docValues": "true"
+    },
+    "add-field": {
+      "name": "query",
+      "type": "string",
+      "indexed": "true",
+      "stored": "true",
+      "required": "false",
+      "multiValued": "true",
+      "docValues": "true"
+    },
+    "add-field": {
+      "name": "scopeType",
+      "type": "pint",
+      "indexed": "true",
+      "stored": "true",
+      "required": "false"
+    },
+    "add-field": {
+      "name": "scopeId",
+      "type": "string",
+      "indexed": "true",
+      "stored": "true",
+      "required": "false"
+    },
+    "add-field": {
+      "name": "rpp",
+      "type": "pint",
+      "indexed": "true",
+      "stored": "true",
+      "required": "false"
+    },
+    "add-field": {
+      "name": "sortBy",
+      "type": "string",
+      "indexed": "true",
+      "stored": "true",
+      "required": "false",
+      "docValues": "true"
+    },
+    "add-field": {
+      "name": "sortOrder",
+      "type": "string",
+      "indexed": "true",
+      "stored": "true",
+      "required": "false",
+      "docValues": "true"
+    },
+    "add-field": {
+      "name": "page",
+      "type": "pint",
+      "indexed": "true",
+      "stored": "true",
+      "required": "false"
+    },
+    "add-field": {
+      "name": "workflowStep",
+      "type": "string",
+      "indexed": "true",
+      "stored": "true",
+      "required": "false",
+      "multiValued": "true",
+      "docValues": "true"
+    },
+    "add-field": {
+      "name": "previousWorkflowStep",
+      "type": "string",
+      "indexed": "true",
+      "stored": "true",
+      "required": "false",
+      "multiValued": "true",
+      "docValues": "true"
+    },
+    "add-field": {
+      "name": "owner",
+      "type": "string",
+      "indexed": "true",
+      "stored": "true",
+      "required": "false",
+      "multiValued": "true",
+      "docValues": "true"
+    },
+    "add-field": {
+      "name": "submitter",
+      "type": "string",
+      "indexed": "true",
+      "stored": "true",
+      "required": "false"
+    },
+    "add-field": {
+      "name": "actor",
+      "type": "string",
+      "indexed": "true",
+      "stored": "true",
+      "required": "false"
+    },
+    "add-field": {
+      "name": "workflowItemId",
+      "type": "pint",
+      "indexed": "true",
+      "stored": "true",
+      "required": "false"
+    }
+}

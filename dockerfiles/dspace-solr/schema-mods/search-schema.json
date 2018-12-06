@@ -1,0 +1,224 @@
+{
+  "add-field": {
+    "name": "search_text",
+    "type": "text_general",
+    "indexed": "true",
+    "stored": "false",
+    "multiValued": "true"
+  },
+  "add-field": {
+    "name": "fulltext",
+    "type": "text_general",
+    "indexed": "true",
+    "stored": "true",
+    "multiValued": "true"
+  },
+  "add-field": {
+    "name": "search.resourceid",
+    "type": "string",
+    "indexed": "true",
+    "stored": "true",
+    "required": "true",
+    "omitNorms": "true"
+  },
+  "add-field": {
+    "name": "search.resourcetype",
+    "type": "pint",
+    "indexed": "true",
+    "stored": "true",
+    "required": "true",
+    "omitNorms": "true"
+  },
+  "add-field": {
+    "name": "search.uniqueid",
+    "type": "string",
+    "indexed": "true",
+    "stored": "true",
+    "required": "true",
+    "omitNorms": "true",
+    "docValues": "true"
+  },
+  "add-field": {
+    "name": "handle",
+    "type": "string",
+    "indexed": "true",
+    "stored": "true",
+    "omitNorms": "true",
+    "docValues": "true"
+  },
+  "add-field": {
+    "name": "withdrawn",
+    "type": "string",
+    "indexed": "true",
+    "stored": "true",
+    "omitNorms": "true",
+    "docValues": "true"
+  },
+"add-field":   {
+    "name": "discoverable",
+    "type": "string",
+    "indexed": "true",
+    "stored": "true",
+    "omitNorms": "true",
+    "docValues": "true"
+  },
+  "add-field": {
+    "name": "read",
+    "type": "string",
+    "indexed": "true",
+    "stored": "true",
+    "omitNorms": "true",
+    "multiValued": "true",
+    "docValues": "true"
+  },
+  "add-field": {
+    "name": "has_content_in_original_bundle",
+    "type": "string",
+    "indexed": "true",
+    "stored": "true",
+    "omitNorms": "true",
+    "multiValued": "true",
+    "docValues": "true"
+  },
+  "add-field": {
+    "name": "location",
+    "type": "string",
+    "indexed": "true",
+    "stored": "true",
+    "multiValued": "true",
+    "required": "false",
+    "omitNorms": "true"
+  },
+  "add-field": {
+    "name": "location.comm",
+    "type": "string",
+    "indexed": "true",
+    "stored": "true",
+    "multiValued": "true",
+    "required": "false",
+    "omitNorms": "true"
+  },
+  "add-field": {
+    "name": "location.coll",
+    "type": "string",
+    "indexed": "true",
+    "stored": "true",
+    "multiValued": "true",
+    "required": "false",
+    "omitNorms": "true"
+  },
+  "add-field": {
+    "name": "a_spell",
+    "type": "string",
+    "multiValued": "true"
+  },
+  "add-field": {
+    "name": "SolrIndexer.lastIndexed",
+    "type": "pdate",
+    "indexed": "true",
+    "stored": "true",
+    "default": "NOW",
+    "multiValued": "false",
+    "omitNorms": "true"
+  },
+  "add-field": {
+    "name": "lastModified",
+    "type": "pdate",
+    "indexed": "true",
+    "stored": "true",
+    "default": "NOW",
+    "multiValued": "false",
+    "omitNorms": "true"
+  },
+  "add-dynamic-field": {
+    "name": "*_stored",
+    "type": "string",
+    "indexed": "false",
+    "stored": "true",
+    "multiValued": "true"
+  },
+  "add-dynamic-field": {
+    "name": "*_ac",
+    "type": "string",
+    "indexed": "true",
+    "stored": "true",
+    "omitNorms": "true",
+    "multiValued": "true"
+  },
+  "add-dynamic-field": {
+    "name": "*_acid",
+    "type": "string",
+    "indexed": "true",
+    "stored": "true",
+    "omitNorms": "true",
+    "multiValued": "true"
+  },
+  "add-dynamic-field": {
+    "name": "*_filter",
+    "type": "string",
+    "indexed": "true",
+    "stored": "true",
+    "multiValued": "true",
+    "omitNorms": "true"
+  },
+  "add-dynamic-field": {
+    "name": "*_authority",
+    "type": "string",
+    "indexed": "true",
+    "stored": "true",
+    "multiValued": "true",
+    "omitNorms": "true"
+  },
+  "add-dynamic-field": {
+    "name": "*_keyword",
+    "type": "string",
+    "indexed": "true",
+    "stored": "true",
+    "multiValued": "true",
+    "omitNorms": "true"
+  },
+  "add-dynamic-field": {
+    "name": "*_partial",
+    "type": "text_general",
+    "indexed": "true",
+    "stored": "true",
+    "multiValued": "true",
+    "omitNorms": "true"
+  },
+  "add-dynamic-field": {
+    "name": "*_hl",
+    "type": "text_general",
+    "indexed": "true",
+    "stored": "true",
+    "multiValued": "true",
+    "omitNorms": "true"
+  },
+  "add-dynamic-field": {
+    "name": "*_sort",
+    "type": "string",
+    "indexed": "true",
+    "stored": "true",
+    "multiValued": "false",
+    "omitNorms": "true"
+  },
+  "add-dynamic-field": {
+    "name": "*_mlt",
+    "type": "text_general",
+    "indexed": "true",
+    "stored": "true",
+    "multiValued": "true",
+    "omitNorms": "true",
+    "termVectors": "true",
+    "termPositions": "true",
+    "termOffsets": "true"
+  },
+  "add-dynamic-field": {
+    "name": "*.year",
+    "type": "pint",
+    "indexed": "true",
+    "stored": "true",
+    "multiValued": "true",
+    "omitNorms": "true"
+  }
+
+}

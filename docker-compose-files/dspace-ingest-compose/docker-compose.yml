@@ -34,6 +34,12 @@ services:
       - dspacenet
     depends_on:
       - dspacedb
+    command: >
+        bash -c "
+          chmod o+w /ingest-tools/*.sh &&
+          /ingest-tools/createAdmin.sh &&
+          catalina.sh run
+        "
     tty: true
     stdin_open: true
 

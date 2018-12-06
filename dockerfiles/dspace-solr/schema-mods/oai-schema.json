@@ -1,0 +1,79 @@
+{
+    "add-field": {
+      "name": "item.id",
+      "type": "string",
+      "indexed": "true",
+      "stored": "true",
+      "multiValued": "false"
+    },
+    "add-field": {
+      "name": "item.public",
+      "type": "boolean",
+      "indexed": "true",
+      "stored": "true",
+      "multiValued": "false"
+    },
+    "add-field": {
+      "name": "item.handle",
+      "type": "string",
+      "indexed": "true",
+      "stored": "true",
+      "multiValued": "false"
+    },
+    "add-field": {
+      "name": "item.collections",
+      "type": "string",
+      "indexed": "true",
+      "stored": "true",
+      "multiValued": "true"
+    },
+    "add-field": {
+      "name": "item.communities",
+      "type": "string",
+      "indexed": "true",
+      "stored": "true",
+      "multiValued": "true"
+    },
+    "add-field": {
+      "name": "item.lastmodified",
+      "type": "pdate",
+      "indexed": "true",
+      "stored": "true",
+      "multiValued": "false"
+    },
+    "add-field": {
+      "name": "item.submitter",
+      "type": "string",
+      "indexed": "true",
+      "stored": "true",
+      "multiValued": "false"
+    },
+    "add-field": {
+      "name": "item.deleted",
+      "type": "boolean",
+      "indexed": "true",
+      "stored": "true",
+      "multiValued": "false"
+    },
+    "add-field": {
+      "name": "item.willChangeStatus",
+      "type": "boolean",
+      "indexed": "true",
+      "stored": "true",
+      "multiValued": "false"
+    },
+    "add-field": {
+      "name": "item.compile",
+      "type": "string",
+      "indexed": "false",
+      "stored": "true",
+      "multiValued": "false"
+    },
+    "add-dynamic-field": {
+      "name": "metadata.*",
+      "type": "text_general",
+      "indexed": "true",
+      "stored": "true",
+      "multiValued": "true"
+    }
+}

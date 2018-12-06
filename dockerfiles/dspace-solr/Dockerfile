@@ -3,6 +3,5 @@ EXPOSE 8983 8983
 
 WORKDIR /opt/solr
 
-COPY --chown=solr:solr dspaceInit.sh .
-
-CMD ./dspaceInit.sh
+COPY ./dspaceInit-entrypoint.sh /
+COPY ./schema-mods/ /tmp/

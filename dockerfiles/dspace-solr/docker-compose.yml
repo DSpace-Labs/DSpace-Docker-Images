@@ -6,3 +6,5 @@ services:
     container_name: solr
     ports:
      - "8983:8983"
+    # Uncomment the following line to trigger the init of DSpace solr repos
+    entrypoint: "/dspaceInit-entrypoint.sh"

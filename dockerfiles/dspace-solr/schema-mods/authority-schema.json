@@ -1,0 +1,112 @@
+{
+  "add-field": {
+    "name": "field",
+    "type": "string",
+    "multiValued": "false",
+    "indexed": "true",
+    "stored": "true",
+    "required": "true"
+  },
+  "add-field": {
+    "name": "email",
+    "type": "string",
+    "multiValued": "true",
+    "indexed": "true",
+    "stored": "true",
+    "required": "false"
+  },
+  "add-field": {
+    "name": "institution",
+    "type": "string",
+    "multiValued": "false",
+    "indexed": "true",
+    "stored": "true",
+    "required": "false"
+  },
+  "add-field": {
+    "name": "value",
+    "type": "text_general",
+    "multiValued": "false",
+    "indexed": "true",
+    "stored": "true",
+    "required": "false"
+  },
+  "add-field": {
+    "name": "orcid_id",
+    "type": "string",
+    "multiValued": "false",
+    "indexed": "true",
+    "stored": "true",
+    "required": "false"
+  },
+  "add-field": {
+    "name": "first_name",
+    "type": "text_general",
+    "multiValued": "false",
+    "indexed": "true",
+    "stored": "true",
+    "required": "false"
+  },
+  "add-field": {
+    "name": "last_name",
+    "type": "text_general",
+    "multiValued": "false",
+    "indexed": "true",
+    "stored": "true",
+    "required": "false"
+  },
+  "add-field": {
+    "name": "name_variant",
+    "type": "text_general",
+    "multiValued": "true",
+    "indexed": "true",
+    "stored": "true",
+    "required": "false"
+  },
+  "add-field": {
+    "name": "all_labels",
+    "type": "text_general",
+    "multiValued": "true",
+    "indexed": "true",
+    "stored": "true",
+    "required": "false"
+  },
+  "add-field": {
+    "name": "deleted",
+    "type": "boolean",
+    "multiValued": "false",
+    "indexed": "true",
+    "stored": "true",
+    "required": "false"
+  },
+  "add-field": {
+    "name": "last_modified_date",
+    "type": "pdate",
+    "indexed": "true",
+    "stored": "true",
+    "required": "true"
+  },
+  "add-field": {
+    "name": "creation_date",
+    "type": "pdate",
+    "indexed": "true",
+    "stored": "true",
+    "required": "true"
+  },
+  "add-field": {
+    "name": "authority_type",
+    "type": "string",
+    "multiValued": "false",
+    "indexed": "true",
+    "stored": "true",
+    "required": "false"
+  },
+  "add-dynamic-field": {
+    "name": "label_*",
+    "type": "text_general",
+    "multiValued": "true",
+    "indexed": "true",
+    "stored": "true",
+    "required": "false"
+  }
+}
