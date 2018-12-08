@@ -16,10 +16,15 @@ services:
     stdin_open: true
 
   dspace:
-    image: "${DOCKER_OWNER:-dspace}/dspace:${DSPACE_VER:-dspace-6_x-jdk8-test}"
     container_name: dspace
+    #    image: "${DOCKER_OWNER:-dspace}/dspace:${DSPACE_VER:-dspace-6_x-jdk8-test}"
+    image: "terrywbrady/dspace:latest"
     environment:
       - DSPACE_INSTALL=/dspace
+      - ADMIN_EMAIL=test@test.edu
+      - ADMIN_PASS=admin
+      - ADMIN_FNAME=Admin
+      - ADMIN_LNAME=User
     ports:
       - 8080:8080
     volumes:
@@ -27,10 +32,17 @@ services:
       - "solr:/dspace/solr"
       # Uncomment the following to enable Mirage2 (DSpace 5x or 6x only)
       # - "../../add-ons/mirage2/xmlui.xconf:/dspace/config/xmlui.xconf"
+      - "../../add-ons/mount_ingest_tools/entrypoint-init.sh:/entrypoint-init.sh"
     networks:
       - dspacenet
     depends_on:
       - dspacedb
+    entrypoint: /entrypoint-init.sh
+    deploy:
+      resources:
+        reservations:
+          cpus: '0.5'
+          memory: 1500M
     tty: true
     stdin_open: true
 
