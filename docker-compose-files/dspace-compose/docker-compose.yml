@@ -17,14 +17,14 @@ services:
 
   dspace:
     container_name: dspace
-    #    image: "${DOCKER_OWNER:-dspace}/dspace:${DSPACE_VER:-dspace-6_x-jdk8-test}"
-    image: "terrywbrady/dspace:latest"
+    image: "${DOCKER_OWNER:-dspace}/dspace:${DSPACE_VER:-dspace-6_x-jdk8-test}"
     environment:
       - DSPACE_INSTALL=/dspace
       - ADMIN_EMAIL=test@test.edu
       - ADMIN_PASS=admin
       - ADMIN_FNAME=Admin
       - ADMIN_LNAME=User
+      - AIPZIP=https://github.com/DSpace-Labs/AIP-Files/raw/master/DogPhotosAIP.zip
     ports:
       - 8080:8080
     volumes:
