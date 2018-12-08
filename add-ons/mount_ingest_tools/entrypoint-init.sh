@@ -19,13 +19,10 @@ then
   unzip aip.zip
 
   export JAVA_OPTS="-Xmx1500m -Dupload.temp.dir=/tmp"
-  catalina.sh start
-
   cd ${AIPDIR}
   /dspace/bin/dspace packager -r -a -t AIP -e test@test.edu -f -u SITE*.zip
-
-  catalina.sh stop
-  sleep 10
+  touch /dspace/solr/search/conf/reindex.flag
 fi
 
+export JAVA_OPTS="-Xmx1500m"
 catalina.sh run
