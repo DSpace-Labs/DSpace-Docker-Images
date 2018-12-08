@@ -16,8 +16,8 @@ services:
     stdin_open: true
 
   dspace:
-    container_name: dspace
     image: "${DOCKER_OWNER:-dspace}/dspace:${DSPACE_VER:-dspace-6_x-jdk8-test}"
+    container_name: dspace
     environment:
       - DSPACE_INSTALL=/dspace
       - ADMIN_EMAIL=test@test.edu
@@ -32,11 +32,13 @@ services:
       - "solr:/dspace/solr"
       # Uncomment the following to enable Mirage2 (DSpace 5x or 6x only)
       # - "../../add-ons/mirage2/xmlui.xconf:/dspace/config/xmlui.xconf"
+      # uncomment the following to supply an alternate entrypoint script
       - "../../add-ons/mount_ingest_tools/entrypoint-init.sh:/entrypoint-init.sh"
     networks:
       - dspacenet
     depends_on:
       - dspacedb
+    # uncomment the following command to trigger ingest tools
     command: /entrypoint-init.sh
     tty: true
     stdin_open: true
