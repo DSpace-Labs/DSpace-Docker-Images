@@ -18,16 +18,14 @@ then
   curl ${AIPZIP} -L -s --output aip.zip
   unzip aip.zip
 
-  export JAVA_OPTS=-Xmx1500m
+  export JAVA_OPTS="-Xmx1500m -Dupload.temp.dir=/tmp"
   catalina.sh start
 
   cd ${AIPDIR}
-  for file in COMM* COLL* ITEM*;
-  do
-    /dspace/bin/dspace packager -r -t AIP -e test@test.edu -f -u $file
-  done
+  /dspace/bin/dspace packager -r -a -t AIP -e test@test.edu -f -u SITE*.zip
 
   catalina.sh stop
+  sleep 10
 fi
 
 catalina.sh run

@@ -38,11 +38,6 @@ services:
     depends_on:
       - dspacedb
     entrypoint: /entrypoint-init.sh
-    deploy:
-      resources:
-        reservations:
-          cpus: '0.5'
-          memory: 1500M
     tty: true
     stdin_open: true
 
