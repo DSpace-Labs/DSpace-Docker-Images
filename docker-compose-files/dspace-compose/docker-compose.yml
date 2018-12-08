@@ -37,7 +37,7 @@ services:
       - dspacenet
     depends_on:
       - dspacedb
-    entrypoint: /entrypoint-init.sh
+    command: /entrypoint-init.sh
     tty: true
     stdin_open: true
 
