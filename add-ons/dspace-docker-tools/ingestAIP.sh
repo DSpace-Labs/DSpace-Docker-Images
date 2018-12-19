@@ -1,6 +1,6 @@
 #!/bin/sh
 # AIPZIP=${AIPZIP:-https://github.com/DSpace-Labs/AIP-Files/raw/master/DogPhotosAIP.zip}
-CHECKFILE=/dspace/ingest.flag
+CHECKFILE=/dspace/assetstore/ingest.hasrun.flag
 if [ ! -f $CHECKFILE ]
 then
   /dspace-docker-tools/createAdmin.sh
