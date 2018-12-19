@@ -10,7 +10,7 @@ services:
       - PGDATA=/pgdata
     volumes:
       - pgdata:/pgdata
-      - "../../add-ons/mount_ingest_tools:/ingest-tools"
+      - "../../add-ons/dspace-docker-tools:/dspace-docker-tools"
     networks:
       - dspacenet
     tty: true
@@ -21,14 +21,20 @@ services:
     container_name: dspace
     environment:
       - DSPACE_INSTALL=/dspace
+      - ADMIN_EMAIL=${ADMIN_EMAIL:-test@test.edu}
+      - ADMIN_PASS=${ADMIN_PASS:-admin}
+      - ADMIN_FNAME=${ADMIN_FNAME:-AdminFirst}
+      - ADMIN_LNAME=${ADMIN_LNAME:-AdminLast}
+      - AIPZIP=${AIPZIP:-https://github.com/DSpace-Labs/AIP-Files/raw/master/dogAndReport.zip}
     ports:
       - 8080:8080
     volumes:
       - "assetstore:/dspace/assetstore"
       - "solr:/dspace/solr"
-      - "../../add-ons/mount_ingest_tools:/ingest-tools"
+      - "../../add-ons/dspace-docker-tools:/dspace-docker-tools"
       # Uncomment the following to enable Mirage2 (DSpace 5x or 6x only)
       # - "../../add-ons/mirage2/xmlui.xconf:/dspace/config/xmlui.xconf"
+    entrypoint: /dspace-docker-tools/ingestAIP.sh
     networks:
       - dspacenet
     depends_on:
