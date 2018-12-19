@@ -125,11 +125,6 @@ _When DSpace is restarted, the contents of your volumes will be restored_
 docker-compose -p $DPROJ up -d
 ```
 
-## 8. Ingesting content or updating code within an image
-To ingest content into this DSpace instance see [dspace-ingest-compose](../dspace-ingest-compose).  This compose file will help you to ingest content into the docker volumes that you just created.
-
-To deploy new code within your image, see [dspace-dev-compose](../dspace-dev-compose).
-
 ### Note: Switching Compose File Settings
 Remember that you will need to run the following command if you use an alternate compose file.  When you recreate the images, your volume content will be retained.
 ```

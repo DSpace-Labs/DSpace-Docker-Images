@@ -22,7 +22,6 @@ This repository contains the source code for Docker Images for the [DSpace](http
 
 - [Setting Up Docker](documentation/tutorialSetup.md)
 - [Running DSpace with Docker Compose](docker-compose-files/dspace-compose/README.md)
-  - [Ingesting Content into a Docker Container](docker-compose-files/dspace-ingest-compose/README.md)
   - [Building and Running DSpace with Docker Compose](docker-compose-files/dspace-dev-compose/README.md)
   - [Running DSpace with an RDF Triplestore](docker-compose-files/rdf-compose/README.md)
 - [Running DSpace 7 (Angular+REST) with Docker Compose](docker-compose-files/dspace7-compose/README.md)
@@ -58,11 +57,7 @@ The following Docker Compose files can be used to simplify the management of DSp
 | | dspacedb | dspace/dspace-postgres-pgcrypto | vol:/pgdata ||
 | | dspace   | dspace/dspace                   | vol:/assetstore||
 | |          |                                 | vol:/solr||
-| [dspace-ingest-compose](https://github.com/DSpace-Labs/DSpace-Docker-Images/tree/master/docker-compose-files/dspace-ingest-compose) | | | |Compose file designed to assist a user with repository configuration and data ingest. |
-| | dspacedb | dspace/dspace-postgres-pgcrypto | vol:/pgdata ||
-| | dspace   | dspace/dspace                   | vol:/assetstore||
-| |          |                                 | vol:/solr||
-| |          |                                 | mount:/ingest-tools ||
+| |          |                                 | mount:/dspace-docker-tools ||
 | [dspace-dev-compose](https://github.com/DSpace-Labs/DSpace-Docker-Images/tree/master/docker-compose-files/dspace-dev-compose) | | | | Runtime DSpace container.  User will manually deploy code into the container. |
 | | dspacedb | dspace/dspace-postgres-pgcrypto | vol:/pgdata ||
 | | dspace   | dspace/dspace                   | vol:/assetstore||
