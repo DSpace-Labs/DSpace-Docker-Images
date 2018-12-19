@@ -1,5 +1,6 @@
 #!/bin/sh
-AIPZIP=${AIPZIP:-https://github.com/DSpace-Labs/AIP-Files/raw/master/DogPhotosAIP.zip}
+# AIPZIP=${AIPZIP:-https://github.com/DSpace-Labs/AIP-Files/raw/master/DogPhotosAIP.zip}
+AIPZIP=${AIPZIP:-https://github.com/DSpace-Labs/AIP-Files/raw/master/dogAndReport.zip}
 AIPDIR=/tmp/aip-dir
 rm -rf ${AIPDIR}
 mkdir ${AIPDIR}
