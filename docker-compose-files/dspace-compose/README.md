@@ -102,12 +102,15 @@ winpty docker exec -it --detach-keys "ctrl-p" dspacedb psql -U dspace
 - DSpace 7: [http://localhost:8080/spring-rest](http://localhost:8080/spring-rest)
 
 ## 6. Stopping DSpace
-To stop DSpace, the following command can be run.  The image will be retained in a stopped state.
+To stop DSpace, the following command can be run.  The containers will be retained in a stopped state.
+Any code or configuration changes that you made to your containers will be retained.
 ```
 docker-compose -p d6 stop
 ```
 
-You can destroy the images with the following command.  This command will be necessary to run if you change the compose file that you are using.
+You can destroy the images with the following command.  Any code changes that you have made within the containers will be lost.
+The code directories will be refreshed from the docker images on recreation.  
+Note that the contents of the assetstore, database, and solr repositories will be persisted as docker volumes.
 
 ```
 docker-compose -p d6 down
