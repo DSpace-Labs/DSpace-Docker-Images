@@ -11,3 +11,4 @@ services:
   dspace:
     volumes:
       - "${DSPACE_SRC}:/dspace-src"
+    entrypoint: /dspace-docker-tools/redeploy.sh

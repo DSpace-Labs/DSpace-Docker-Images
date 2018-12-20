@@ -4,4 +4,4 @@ services:
   dspace:
     image: "${DOCKER_OWNER:-dspace}/dspace:${DSPACE_VER:-dspace-6_x-jdk8-test}"
     volumes:
-     - "../../add-ons/mirage2/xmlui.xconf:/dspace/config/xmlui.xconf"
+      - "../../add-ons/mirage2/xmlui.xconf:/dspace/config/xmlui.xconf"
