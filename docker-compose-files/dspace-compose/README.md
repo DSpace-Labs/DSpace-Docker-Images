@@ -131,7 +131,7 @@ docker-compose -p d6 up -d
 
 ## 8. Updating code within an image
 
-To deploy new code within your image, see [dspace-dev-compose](../dspace-dev-compose).
+To deploy new code within your image, see [trigger ant redeploy](ComposeFiles.md#trigger-ant-re-deploy).
 
 ### Note: Switching Compose File Settings
 Remember that you will need to run the following command if you use an alternate compose file.  When you recreate the images, your volume content will be retained.
