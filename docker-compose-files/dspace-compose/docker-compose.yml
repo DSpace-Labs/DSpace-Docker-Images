@@ -32,8 +32,6 @@ services:
       - "assetstore:/dspace/assetstore"
       - "solr:/dspace/solr"
       - "../../add-ons/dspace-docker-tools:/dspace-docker-tools"
-      # Uncomment the following to enable Mirage2 (DSpace 5x or 6x only)
-      # - "../../add-ons/mirage2/xmlui.xconf:/dspace/config/xmlui.xconf"
     entrypoint: /dspace-docker-tools/ingestAIP.sh
     networks:
       - dspacenet

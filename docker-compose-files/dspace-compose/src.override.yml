@@ -1,0 +1,13 @@
+version: "3.7"
+
+# To build changes
+# cd to DSpace source directory
+# export DSPACE_SRC=${PWD}
+# mvn package
+# cd back to this directory
+# docker exec -it -w //dspace-src/dspace/target/dspace-installer dspace ant update clean_backups
+
+services:
+  dspace:
+    volumes:
+      - "${DSPACE_SRC}:/dspace-src"

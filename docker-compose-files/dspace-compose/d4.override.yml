@@ -1,0 +1,9 @@
+version: "3.7"
+
+services:
+  dspacedb:
+    image: dspace/dspace-postgres-4x
+
+  dspace:
+    image: "${DOCKER_OWNER:-dspace}/dspace:${DSPACE_VER:-dspace-4_x-jdk7-test}"
+    entrypoint: /dspace-docker-tools/ingestAIPd4.sh

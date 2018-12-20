@@ -18,6 +18,10 @@ then
     export JAVA_OPTS="${JAVA_OPTS} -Xmx1500m -Dupload.temp.dir=/dspace/upload -Djava.io.tmpdir=/tmp"
     cd ${AIPDIR}
 
+    # Needed for dspace 4
+    /dspace/bin/dspace registry-loader -dc /dspace/config/registries/dublin-core-types.xml
+    /dspace/bin/dspace registry-loader -bitstream /dspace/config/registries/bitstream-formats.xml
+
     /dspace/bin/dspace packager -r -a -t AIP -e ${ADMIN_EMAIL} -f -u SITE*.zip
     # touch /dspace/solr/search/conf/reindex.flag
     echo "Run \n\tdocker exec -it dspacedb /dspace-docker/tools/updateSequences.sql"

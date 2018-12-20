@@ -1,6 +1,14 @@
 {% include nav.html %}
 # Running DSpace with Docker compose
 
+## New changes
+```
+docker-compose -p d6 -f docker-compose.yml -f d6.override.yml up -d
+docker-compose -p d5 -f docker-compose.yml -f d5.override.yml up -d
+docker-compose -p d4 -f docker-compose.yml -f d4.override.yml up -d
+```
+
+
 [![Demonstration Video](https://i.ytimg.com/vi/ovJ8sJk1Apg/hqdefault.jpg)](https://www.youtube.com/watch?v=ovJ8sJk1Apg)
 
 ## 1. Pre-requisites
