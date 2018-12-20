@@ -19,10 +19,13 @@ docker-compose -p d5 -f docker-compose.yml -f d5.override.yml up -d
 docker-compose -p d4 -f docker-compose.yml -f d4.override.yml up -d
 ```
 
-### Content Ingest
-Set AIPZIP to point to a zip file of AIP files that will be ingested on startup.
+### Override the default branch/pr to use.
 
-After ingest, `/dspace/assetstore/ingest.hasrun.flag` will be created.  This will prevent additional ingest on subsequent startup.
+Each compose file points to a specific [tagged DSpace Docker image](https://hub.docker.com/r/dspace/dspace/tags).
+- Set the DOCKER_OWNER environment variable to change the dockerhub repository
+- Set the DSPACE_VER environment variable to change the DSpace tagged version
+- Set the AIPZIP environment variable to point to a zip file of AIP files that will be ingested on startup.
+  - After ingest, `/dspace/assetstore/ingest.hasrun.flag` will be created.  This will prevent additional ingest on subsequent startup.
 
 ## Trigger ant re-deploy
 Set DSPACE_SRC to your source branch.  Run `mvn package` locally.

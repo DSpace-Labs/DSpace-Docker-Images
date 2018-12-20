@@ -22,7 +22,6 @@ This repository contains the source code for Docker Images for the [DSpace](http
 
 - [Setting Up Docker](documentation/tutorialSetup.md)
 - [Running DSpace with Docker Compose](docker-compose-files/dspace-compose/README.md)
-  - [Building and Running DSpace with Docker Compose](docker-compose-files/dspace-dev-compose/README.md)
 - [Running DSpace 7 (Angular Only) with Docker Compose](docker-compose-files/angular-compose/README.md)
   - [Testing DSpace 7 Angular Code with Docker Compose](docker-compose-files/angular-dev-compose/README.md)
 - [Running DSpace + Oracle with Docker compose](docker-compose-files/dspace-oracle-compose/README.md)

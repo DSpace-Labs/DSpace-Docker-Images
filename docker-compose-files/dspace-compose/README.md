@@ -4,26 +4,10 @@
 [![Demonstration Video](https://i.ytimg.com/vi/ovJ8sJk1Apg/hqdefault.jpg)](https://www.youtube.com/watch?v=ovJ8sJk1Apg)
 
 ## 1. Pre-requisites
-- [Setting Up Docker for DSpace](../../documentation/tutorialSetup.md)
-- Set the environment variable DSPACE_VER to the [DSpace image version](https://hub.docker.com/r/dspace/dspace/tags/) you would like to use.
 
-```
-export DSPACE_VER=dspace-6_x-jdk8-test
-```
+See [Setting Up Docker for DSpace](../../documentation/tutorialSetup.md).
 
-- Set the environment variable DPROJ to a shorthand version of the version of DSpace you are running (this needs to be distinct for each database schema version). Docker will name the network, images, and persistent volumes with this value.  This will allow you to host multiple DSpace configurations through Docker.
-  - d7, d6, d5, d4[*](../../documentation/tutorial4x)
-
-```
-export DPROJ=d6
-```
-
-- The following line within the docker-compose.yml file can be uncommented to enable the Mirage2 theme within the site.
-
-```
-# Uncomment the following to enable Mirage2 (DSpace 5x or 6x only)
-# - "../../add-ons/mirage2/xmlui.xconf:/dspace/config/xmlui.xconf"
-```
+For purposes of this tutorial, the latest changes to the DSpace 6x branch will be used.  See [Compose File Options](ComposeFiles.md) available.
 
 ## 2. Using Docker Compose
 
@@ -32,22 +16,24 @@ export DPROJ=d6
 Run Docker compose
 
 ```
-docker-compose -p $DPROJ up -d
+docker-compose -p d6 -f docker-compose.yml -f d6.override.yml up -d
 ```
 
-This will start 2 containers: (1) database (2) tomcat.
+This will start 2 containers: (1) dspacedb - postgres (2) dspace - tomcat.
+The `-p d6` argument creates a "project" named d6.  This will create project-specific volumes that can be isolated from other run configurations.  
+If a different version of DSpace (DSpace 5, DSpace 7) is started, a different project name should be used.
 
 ```
 $ docker ps -a
 CONTAINER ID        IMAGE                             COMMAND                  CREATED              STATUS              PORTS                              NAMES
-98677e1cde3b        dspace/dspace:dspace-6_x          "catalina.sh run"        About a minute ago   Up About a minute   8009/tcp, 0.0.0.0:8080->8080/tcp   d6_dspace_1
-5186cf451eff        dspace/dspace-postgres-pgcrypto   "docker-entrypoint.s…"   About a minute ago   Up About a minute   5432/tcp                           d6_dspacedb_1
+98677e1cde3b        dspace/dspace:dspace-6_x          "catalina.sh run"        About a minute ago   Up About a minute   8009/tcp, 0.0.0.0:8080->8080/tcp   dspace
+5186cf451eff        dspace/dspace-postgres-pgcrypto   "docker-entrypoint.s…"   About a minute ago   Up About a minute   5432/tcp                           dspacedb
 ```
 
 The dspace container and the dspacedb container will persist data in a docker volume.
 
 ```
-$ docker volume ls -f "label=com.docker.compose.project=$DPROJ"
+$ docker volume ls -f "label=com.docker.compose.project=d6"
 DRIVER              VOLUME NAME
 local               d6_assetstore
 local               d6_pgdata
@@ -118,18 +104,18 @@ winpty docker exec -it --detach-keys "ctrl-p" dspacedb psql -U dspace
 ## 6. Stopping DSpace
 To stop DSpace, the following command can be run.  The image will be retained in a stopped state.
 ```
-docker-compose -p $DPROJ stop
+docker-compose -p d6 stop
 ```
 
 You can destroy the images with the following command.  This command will be necessary to run if you change the compose file that you are using.
 
 ```
-docker-compose -p $DPROJ down
+docker-compose -p d6 down
 ```
 
 After stopping or destroying your instances, note that the volumes have persisted.
 ```
-$ docker volume ls -f "label=com.docker.compose.project=$DPROJ"
+$ docker volume ls -f "label=com.docker.compose.project=d6"
 DRIVER              VOLUME NAME
 local               d6_assetstore
 local               d6_pgdata
@@ -140,7 +126,7 @@ local               d6_solr
 _When DSpace is restarted, the contents of your volumes will be restored_
 
 ```
-docker-compose -p $DPROJ up -d
+docker-compose -p d6 up -d
 ```
 
 ## 8. Updating code within an image
@@ -150,12 +136,17 @@ To deploy new code within your image, see [dspace-dev-compose](../dspace-dev-com
 ### Note: Switching Compose File Settings
 Remember that you will need to run the following command if you use an alternate compose file.  When you recreate the images, your volume content will be retained.
 ```
-docker-compose -p $DPROJ down
+docker-compose -p d6 down
 ```
 
 ## 9. Destroying Docker Resources
 If you no longer need to retain your Docker volumes, run  the following commands.
 
 ```
-docker volume rm ${DPROJ}_assetstore ${DPROJ}_pgdata ${DPROJ}_solr
+docker volume rm d6_assetstore d6_pgdata d6_solr
+```
+A helper script exists in this repository to remove volumes.
+
+```
+../../removeVols.sh d6
 ```

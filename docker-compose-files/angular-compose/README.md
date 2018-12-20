@@ -53,7 +53,7 @@ This will start 1 container: Node - Angular.
 ```
 $ docker ps -a
 CONTAINER ID        IMAGE                             COMMAND                  CREATED             STATUS              PORTS                                            NAMES
-7d6532ef898f        dspace/dspace-angular             "/bin/sh -c 'yarn ru…"   25 seconds ago      Up 24 seconds       0.0.0.0:3000->3000/tcp, 0.0.0.0:9876->9876/tcp   d7_dspace-angular_1
+7d6532ef898f        dspace/dspace-angular             "/bin/sh -c 'yarn ru…"   25 seconds ago      Up 24 seconds       0.0.0.0:3000->3000/tcp, 0.0.0.0:9876->9876/tcp   dspace-angular
 ```
 
 ## 3. Accessing the Command Line
