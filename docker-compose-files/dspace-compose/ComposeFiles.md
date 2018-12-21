@@ -28,12 +28,22 @@ Each compose file points to a specific [tagged DSpace Docker image](https://hub.
   - After ingest, `/dspace/assetstore/ingest.hasrun.flag` will be created.  This will prevent additional ingest on subsequent startup.
 
 ## Trigger ant re-deploy
-Set DSPACE_SRC to your source branch.  Run `mvn package` locally.
+Adding the `-f src.override.yml` to your startup command will allow you to buid a local image `dspace/dspace:local-build`.
 
-Add `-f src.override.yml` to your startup command to trigger an ant re-deploy.
+Set DSPACE_SRC to your source directory for DSpace.
 
+Run the build
 ```
-docker-compose -p d6 -f docker-compose.yml -f d6.override.yml -f src.override.yml restart
+# docker-compose -p d6 -f docker-compose.yml -f d6.override.yml -f src.override.yml build
+```
+
+10 GB of temporary images will be retained from the build process.  Run the following to free space.
+```
+docker image prune
+```
+Start the application with the following command.
+```
+docker-compose -p d6 -f docker-compose.yml -f d6.override.yml -f src.override.yml up -d
 ```
 
 ## Add the RDF Service (DSpace6 and DSpace7)
