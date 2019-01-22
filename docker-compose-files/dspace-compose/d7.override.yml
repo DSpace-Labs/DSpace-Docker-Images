@@ -3,6 +3,10 @@ version: "3.7"
 services:
   dspace:
     image: "${DOCKER_OWNER:-dspace}/dspace:${DSPACE_VER:-dspace-7_x-jdk8-test}"
+    volumes:
+      # This is needed until the default value for dspace.restUrl matches the running spring-rest
+      # See https://jira.duraspace.org/browse/DS-4150
+      - "./local.cfg:/dspace/config/local.cfg"
 
   dspace-angular:
     image: dspace/dspace-angular
@@ -14,9 +18,10 @@ services:
       - DSPACE_SSL=false
       - DSPACE_HOST=dspace-angular
       - DSPACE_PORT=3000
+      - DSPACE_NAMESPACE=/
       - DSPACE_REST_HOST=dspace
       - DSPACE_REST_SSL=false
-      - DSPACE_REST_NAMESPACE=/spring-rest/api
+      - DSPACE_REST_NAMESPACE=/
       - DSPACE_REST_PORT=8080
     volumes:
       - "../../add-ons/angular-tools/environment.dev.js:/app/config/environment.dev.js"

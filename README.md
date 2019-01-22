@@ -1,3 +1,5 @@
+[![GitPitch](https://gitpitch.com/assets/badge.svg)](https://gitpitch.com/DSpace-Labs/DSpace-Docker-Images/helper_cmds_gp?grs=github&t=white)
+
 # DSpace-Docker-Images
 
 This repository contains the source code for Docker Images for the [DSpace](https://dspace.org) project.
