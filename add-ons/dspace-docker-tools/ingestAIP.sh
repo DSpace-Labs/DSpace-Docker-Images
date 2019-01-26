@@ -1,6 +1,9 @@
 #!/bin/sh
 # AIPZIP=${AIPZIP:-https://github.com/DSpace-Labs/AIP-Files/raw/master/DogPhotosAIP.zip}
 CHECKFILE=/dspace/assetstore/ingest.hasrun.flag
+
+export JAVA_OPTS="${JAVA_OPTS} -Xmx2500m -Dupload.temp.dir=/dspace/upload -Djava.io.tmpdir=/tmp"
+
 if [ ! -f $CHECKFILE ]
 then
   /dspace-docker-tools/createAdmin.sh
@@ -15,7 +18,6 @@ then
     pwd
     curl ${AIPZIP} -L -s --output aip.zip
     unzip aip.zip
-    export JAVA_OPTS="${JAVA_OPTS} -Xmx1500m -Dupload.temp.dir=/dspace/upload -Djava.io.tmpdir=/tmp"
     cd ${AIPDIR}
 
     /dspace/bin/dspace packager -r -a -t AIP -e ${ADMIN_EMAIL} -f -u SITE*.zip
