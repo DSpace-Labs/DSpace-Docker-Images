@@ -12,7 +12,7 @@
 
 ## Basic Startup Commands
 _Note: only one compose file should be running at a given time.  
-Run `docker-compose -p dX down` to stop one instance before starting another.  Each instance will persist data in a separate volume._
+Because each version of DSpace reuses the same ports and container names, you must run `docker-compose -p dX down` to stop one instance before starting another.  Each instance will persist data in a separate volume._
 
 ```
 docker-compose -p d7 -f docker-compose.yml -f d7.override.yml up -d

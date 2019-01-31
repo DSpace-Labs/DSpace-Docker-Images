@@ -20,9 +20,10 @@ docker-compose -p d6 -f docker-compose.yml -f d6.override.yml up -d
 ```
 
 This will start 2 containers: (1) dspacedb - postgres (2) dspace - tomcat.
-The `-p d6` argument creates a "project" named d6.  This will create project-specific volumes that can be isolated from other run configurations.  
-If a different version of DSpace (DSpace 5, DSpace 7) is started, a different project name should be used.
 
+The `-p d6` argument creates a "project" named d6.  This will create project-specific volumes that can be isolated from other run configurations.  
+
+If a different version of DSpace (DSpace 5, DSpace 7) is started, a different project name should be used.  As currently designed, only one version of DSpace can be running at a time because each version uses the same port numbers and container names.
 ```
 $ docker ps -a
 CONTAINER ID        IMAGE                             COMMAND                  CREATED              STATUS              PORTS                              NAMES
