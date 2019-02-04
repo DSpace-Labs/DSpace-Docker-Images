@@ -41,6 +41,15 @@ Webinar attendees will learn
 - Repository Managers who want to become more involved in DSpace development
 - Potential DSpace contributors who want to learn how they can get started with the project
 
++++
+
+### Logistics
+
+- 1 hour
+- 10 min will be saved for Questions
+- Terry and Pascal will want to screen share
+- March 5th, 8am pt, 11am ET, 5pm CET
+
 ---
 
 ### About the presenters
