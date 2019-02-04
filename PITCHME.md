@@ -17,12 +17,13 @@ _This information will be shared with Kristi for marketing_
 
 ### Background
 
-@size[10pt](In 2018, the DSpace development team packaged DSpace to be run with Docker.  This makes it possible to start any version of DSpace from your desktop with a simple command line call.)
-
-@size[10pt](The use of Docker has created a more flexible development environment for DSpace contributors.)
-
-@size[10pt](Docker also offers great potential for repository managers. That is the focus of this webinar.)
-
+<div style="font-size:12px">
+In 2018, the DSpace development team packaged DSpace to be run with Docker.  This makes it possible to start any version of DSpace from your desktop with a simple command line call.
+<br/><br/>
+The use of Docker has created a more flexible development environment for DSpace contributors.
+<br/><br/>
+Docker also offers great potential for repository managers. That is the focus of this webinar.
+</div>
 +++
 
 ### Webinar Objectives
