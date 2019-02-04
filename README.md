@@ -1,4 +1,4 @@
-[![GitPitch](https://gitpitch.com/assets/badge.svg)](https://gitpitch.com/DSpace-Labs/DSpace-Docker-Images/helper_cmds_gp?grs=github&t=white)
+[![GitPitch](https://gitpitch.com/assets/badge.svg)](https://gitpitch.com/DSpace-Labs/DSpace-Docker-Images/webinar?grs=github&t=white)
 
 # DSpace-Docker-Images
 
