@@ -1,10 +1,9 @@
-## DSpace Docker for Repository Managers - Running Any Version of DSpace from your Desktop
+### DSpace Docker for Repository Managers - Running Any Version of DSpace from your Desktop
 
-Terry Brady, Georgetown University Library
-- https://github.com/terrywbrady/info
-- ![](https://www.library.georgetown.edu/sites/default/files/library-logo.png)
-Pascal Becker, The Library Code
-
+- Terry Brady, Georgetown University Library
+  - https://github.com/terrywbrady/info
+- Pascal Becker, The Library Code
+  - https://www.the-library-code.de/
 ---
 
 ### Webinar Marketing Details
@@ -18,13 +17,11 @@ _This information will be shared with Kristi for marketing_
 
 ### Background
 
-In 2018, the DSpace development team packaged DSpace to be run with Docker.  
-This makes it possible to start any version of DSpace from your desktop with a simple command line call.
+@size[10pt](In 2018, the DSpace development team packaged DSpace to be run with Docker.  This makes it possible to start any version of DSpace from your desktop with a simple command line call.)
 
-The use of Docker has created a more flexible development environment for DSpace contributors.
+@size[10pt](The use of Docker has created a more flexible development environment for DSpace contributors.)
 
-Docker also offers great potential for repository managers.
-That is the focus of this webinar.
+@size[10pt](Docker also offers great potential for repository managers. That is the focus of this webinar.)
 
 +++
 
@@ -34,15 +31,15 @@ Webinar attendees will learn
 - What is a *Docker image* and what images have been published for DSpace
 - How to install Docker
 - How to launch DSpace 6 and DSpace 7 using Docker
-- How Docker images could be used by repository managers to participate in DSpace development and testing
+- How to participate in DSpace testing using Docker
 
 +++
 
 ### Target Audience
 
-- Repository Managers who have want to be able to preview new DSpace functionality
+- Repository Managers who want to preview new DSpace functionality
 - Repository Managers who want to become more involved in DSpace development
-- Potential DSpace contributors who want to learn how they can get started with teh project
+- Potential DSpace contributors who want to learn how they can get started with the project
 
 ---
 ### Background
