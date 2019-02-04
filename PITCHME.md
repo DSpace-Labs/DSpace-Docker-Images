@@ -1,9 +1,7 @@
 ### DSpace Docker for Repository Managers - Running Any Version of DSpace from your Desktop
 
 - Terry Brady, Georgetown University Library
-  - https://github.com/terrywbrady/info
 - Pascal Becker, The Library Code
-  - https://www.the-library-code.de/
 ---
 
 ### Webinar Marketing Details
@@ -44,58 +42,127 @@ Webinar attendees will learn
 - Potential DSpace contributors who want to learn how they can get started with the project
 
 ---
-### Background
 
-- [DSpace Docker Tutorial Overview](https://dspace-labs.github.io/DSpace-Docker-Images/)
+### About the presenters
+
++++
+
+### Terry Brady
+
+- Software Developer, Georgetown University Library
+- DSpace Committer
+- https://github.com/terrywbrady/info
+![](https://www.library.georgetown.edu/sites/default/files/library-logo.png)
+
++++
+
+### Pascal Becker
+
+- DSpace Committer
+- https://www.the-library-code.de/
+
+---
+
+### What is Possible?
+
++++
+
+### Lauch DSpace 7 from the command Line
+
+```
+docker-compose -p d7 -f docker-compose.yml -f d7.override.yml up -d
+```
+
+---
+
+### What is Docker?
+
+- Explain Docker images
+- Explain DSpace Docker images
+- Maybe explain docker volumes
+
+---
+
+### What is possible with Docker?
+
+- Try out a DSpace feature without impacting your existing instance
+- Preview an enhancement **before** it is released
+  - Give input on the implementation
+- Verify a bug fix **before** it is released
+- Onboard new developers and repository managers to the project
+
+---
+
+### Another Example - Launch DSpace 6
+
+```
+docker-compose -p d6 -f docker-compose.yml -f d6.override.yml up -d
+```
+
+---
+
+### Step by step instructions
+
++++
+
+### Install Docker
 - [Docker Installation and Setup](https://dspace-labs.github.io/DSpace-Docker-Images/documentation/tutorialSetup.html)
-- _This presentation assumes the following [pull request](https://github.com/DSpace-Labs/DSpace-Docker-Images/pull/68) has been adopted_
+
++++
+
+### Other recommended installs
+
+- On windows, bash is Needed
+
++++
+
+### Install DSpace project
+
+```
+docker run --rm  -v $(pwd)://git alpine/git clone https://github.com/DSpace-Labs/DSpace-Docker-Images.git
+```
 
 ---
 
-### Sample Docker Commands
+### Running Docker Command
+_Time permitting, we will do this on MacOS and on Windows 10_
 
-Run an ubuntu Linux and ask what OS it is running
-
-```
-winpty docker run --rm ubuntu uname
-```
-Run an ubuntu Linux and ask for the current time
-
-```
-winpty docker run --rm ubuntu date
-```
-
-+++
-
-### Run a service
-
-A more compelling example is to run a web server through Docker.
-
-```
-docker run -dit --name my-apache-app -p 8080:80 httpd:2.4
-```
-
-- http://localhost:8080
-
-+++
-
-### Copy some data to the page
-
-```
-echo "<html><h2>Hi DSpace</h2></html>" > index.html
-docker cp index.html my-apache-app://usr/local/apache2/htdocs/
-```
-
-+++
-
-### Clean Up
-
-```
-docker stop my-apache-app
-docker rm my-apache-app
-```
+- docker version
+- docker run --rm ubuntu date
+- start dspace 6
+  - stop dspace 6
+- start dspace 7
+  - stop dspace 7
 
 ---
+
+### Help needed
+
+- Try it yourself, give us feedback on the documentation
+- Help us assemble public domain assets to distribute in AIP files
+  - with great Metadata
+
++++
+
+### What ideas do you have?
+
+---
+
+### Reference Links
+
+- compile useful resources here
+- [DSpace Docker Tutorial Overview](https://dspace-labs.github.io/DSpace-Docker-Images/)
+
+---
+
+### Questions?
+
+
+---
+
+## Prior Slides -- If useful to include
+
++++
 
 ### Docker Volumes
 
