@@ -17,7 +17,7 @@ _This information will be shared with Kristi for marketing_
 
 ### Background
 
-<div style="font-size:12px">
+<div style="font-size:16px; text-align: left">
 In 2018, the DSpace development team packaged DSpace to be run with Docker.  This makes it possible to start any version of DSpace from your desktop with a simple command line call.
 <br/><br/>
 The use of Docker has created a more flexible development environment for DSpace contributors.
