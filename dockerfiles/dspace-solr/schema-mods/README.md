@@ -35,7 +35,7 @@
 ## Migrate Data Types
 - integer --> pint
 - float --> pfloat
-- date --> float
+- date --> pdate
 
 ## Set uid to be the uniqueid field
 
@@ -76,4 +76,4 @@ java.lang.NullPointerException
 Note that these changes are untested.
 
 - text --> text_general
-- date --> float
+- date --> pdate
