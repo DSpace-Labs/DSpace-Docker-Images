@@ -32,7 +32,7 @@ services:
       - "assetstore:/dspace/assetstore"
       - "solr:/dspace/solr"
       - "../../add-ons/dspace-docker-tools:/dspace-docker-tools"
-    entrypoint: /dspace-docker-tools/ingestAIP.sh
+    entrypoint: chmod 755 /dspace-docker-tools/*.sh && /dspace-docker-tools/ingestAIP.sh
     networks:
       - dspacenet
     depends_on:
