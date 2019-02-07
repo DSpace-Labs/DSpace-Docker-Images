@@ -85,16 +85,9 @@ Webinar attendees will learn
 
 +++
 
-### Lauch DSpace 7 from the command Line
+### Lauch DSpace 7
 
-```
-docker-compose -p d7 -f docker-compose.yml -f d7.override.yml up -d
-```
-
-Note:
-For speed, the images should already be downloaded.  The volumes should be created.
-
-Demonstrate
+- `docker-compose -p d7 -f docker-compose.yml -f d7.override.yml up -d`
 - http://localhost:3000
 - http://localhost:8080/spring-rest
 
@@ -118,16 +111,9 @@ Demonstrate
 
 ---
 
-### Another Example - Launch DSpace 6
+### Launch DSpace 6
 
-```
-docker-compose -p d6 -f docker-compose.yml -f d6.override.yml up -d
-```
-
-Note:
-For speed, the images should already be downloaded.  The volumes should be created.
-
-Demonstrate
+- `docker-compose -p d6 -f docker-compose.yml -f d6.override.yml up -d`
 - http://localhost:8080/xmlui
 - http://localhost:8080/rest/static/reports/query.html
 
