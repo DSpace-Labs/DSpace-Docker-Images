@@ -18,6 +18,7 @@ For simplicity, this tutorial will document the syntax needed for each of the fo
 - ### Windows 10 --> Use Git-Bash
   - If you run GitHub for windows, there is an option to enable the "Git Bash" shell.  ([Screenshot: git-bash options](git-bash.png))
   - This shell environment was chosen because it is the most similar to the Bash shell environment.
+  - Otherwise, you can [install Git-Bash](https://git-scm.com/downloads).
 
 ## Running a Docker Image
 
