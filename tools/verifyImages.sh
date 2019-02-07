@@ -1,6 +1,6 @@
 #!/bin/sh
 # CD to docker-compose dir
-export DOCKER_OWNER=dspace
+export DOCKER_OWNER=${DOCKER_OWNER:-dspace}
 export DPROJ=test-image
 
 function checkOutput {
@@ -23,8 +23,8 @@ function checkImage {
   export STAT_OAI=$5
   export STAT_SOLR=$6
   export STAT_REST=$7
-  docker-compose -p $DPROJ up -d > /dev/null 2> /dev/null
-  echo " ===== ${DSPACE_VER} ===== "
+  docker-compose -p $DPROJ -f docker-compose.yml -f verify.yml up -d > /dev/null 2> /dev/null
+  echo " ===== ${DOCKER_OWNER}/dspace:${DSPACE_VER} ===== "
   docker exec dspace //dspace/bin/dspace version | egrep "DSpace version:|JRE:" > /tmp/out.txt
   cat /tmp/out.txt
   checkOutput ${DSPACE_REGEX} "Unexpected DSpace Version - Expected ${DSPACE_REGEX}"
@@ -58,6 +58,9 @@ function removeVols {
     docker volume rm $vol
   done
 }
+
+checkImage dspace-4_x-jdk7-test 4.10-SNAPSHOT "version 1.7" 500 200 200 200
+exit
 
 #
 # Default Images - SOLR and REST* are inaccessible
