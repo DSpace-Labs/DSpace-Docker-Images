@@ -1,0 +1,25 @@
+# suitable for DSpace 6 and 7
+version: "3.7"
+
+services:
+  dspace:
+    environment:
+      - rdf.contextPath = http://dspace:8080/rdf
+      - rdf.public.sparql.endpoint = http://fuseki:3030/dspace/sparql
+      - rdf.storage.graphstore.endpoint = http://fuseki:3030/dspace/data
+      - rdf.storage.graphstore.authentication = yes
+      - rdf.storage.graphstore.login = admin
+      - rdf.storage.graphstore.password = dspace
+      - rdf.storage.sparql.authentication = yes
+      - rdf.storage.sparql.login = admin
+      - rdf.storage.sparql.password = dspace
+
+  fuseki:
+    image: "stain/jena-fuseki"
+    container_name: fuseki
+    ports:
+      - 3030:3030
+    environment:
+      - ADMIN_PASSWORD=dspace
+    networks:
+      - dspacenet

@@ -49,24 +49,24 @@ The dspace container and the dspacedb container will persist data in a docker vo
 
 #### Bash
 ```
-docker exec -it ${DPROJ}_dspace_1 /dspace/bin/dspace version
+docker exec -it dspace /dspace/bin/dspace version
 ```
 
 #### Git-Bash Windows
 ```
-winpty docker exec -it ${DPROJ}_dspace_1 //dspace/bin/dspace version
+winpty docker exec -it dspace //dspace/bin/dspace version
 ```
 
 ### 3b. Verify Database Schema
 
 #### Bash
 ```
-docker exec -it ${DPROJ}_dspacedb_1 psql -U dspace -c "select * from schema_version order by installed_rank desc limit 1"
+docker exec -it dspacedb psql -U dspace -c "select * from schema_version order by installed_rank desc limit 1"
 ```
 
 #### Git-Bash Windows
 ```
-winpty docker exec -it ${DPROJ}_dspacedb_1 psql -U dspace -c "select * from schema_version order by installed_rank desc limit 1"
+winpty docker exec -it dspacedb psql -U dspace -c "select * from schema_version order by installed_rank desc limit 1"
 ```
 
 ## 4. Accessing the Command Line
@@ -75,12 +75,12 @@ winpty docker exec -it ${DPROJ}_dspacedb_1 psql -U dspace -c "select * from sche
 
 #### Bash
 ```
-docker exec -it --detach-keys "ctrl-p" ${DPROJ}_dspace_1 /bin/bash
+docker exec -it --detach-keys "ctrl-p" dspace /bin/bash
 ```
 
 #### Git-Bash Windows
 ```
-winpty docker exec -it --detach-keys "ctrl-p" ${DPROJ}_dspace_1 //bin/bash
+winpty docker exec -it --detach-keys "ctrl-p" dspace //bin/bash
 ```
 
 Bash Command
@@ -92,12 +92,12 @@ Bash Command
 
 #### Bash
 ```
-docker exec -it --detach-keys "ctrl-p" ${DPROJ}_dspacedb_1 psql -U dspace
+docker exec -it --detach-keys "ctrl-p" dspacedb psql -U dspace
 ```
 
 #### Git-Bash Windows
 ```
-winpty docker exec -it --detach-keys "ctrl-p" ${DPROJ}_dspacedb_1 psql -U dspace
+winpty docker exec -it --detach-keys "ctrl-p" dspacedb psql -U dspace
 ```
 
 ## 5. Open DSpace in a Browser
@@ -124,11 +124,6 @@ _When DSpace is restarted, the contents of your volumes will be restored_
 ```
 docker-compose -p $DPROJ up -d
 ```
-
-## 8. Ingesting content or updating code within an image
-To ingest content into this DSpace instance see [dspace-ingest-compose](../dspace-ingest-compose).  This compose file will help you to ingest content into the docker volumes that you just created.
-
-To deploy new code within your image, see [dspace-dev-compose](../dspace-dev-compose).
 
 ### Note: Switching Compose File Settings
 Remember that you will need to run the following command if you use an alternate compose file.  When you recreate the images, your volume content will be retained.

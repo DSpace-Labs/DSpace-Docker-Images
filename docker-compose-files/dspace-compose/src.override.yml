@@ -1,0 +1,17 @@
+version: "3.7"
+
+# To build changes
+# docker-compose -p d6 -f docker-compose.yml -f d6.override.yml -f src.override.yml build
+# docker image prune
+#   (the build process will create 10GB in iterim images... run this command to clean up iterim images)
+# docker-compose -p d6 -f docker-compose.yml -f d6.override.yml -f src.override.yml up -d
+
+services:
+  dspace:
+    image: dspace/dspace:local-build
+    build:
+      context: ${DSPACE_SRC}
+      dockerfile: Dockerfile.jdk8-test
+#    volumes:
+#      - "${DSPACE_SRC}:/dspace-src"
+#    entrypoint: /dspace-docker-tools/redeploy.sh

@@ -34,7 +34,7 @@ This will start 1 container: Node - Angular.
 ```
 $ docker ps -a
 CONTAINER ID        IMAGE                        COMMAND                  CREATED             STATUS              PORTS                                            NAMES
-a987d9a6fb2a        dspace/dspace-angular-bare   "/bin/sh -c /tmp/sta…"   13 minutes ago      Up 5 minutes        0.0.0.0:3000->3000/tcp, 0.0.0.0:9876->9876/tcp   d7_dspace-angular_1
+a987d9a6fb2a        dspace/dspace-angular-bare   "/bin/sh -c /tmp/sta…"   13 minutes ago      Up 5 minutes        0.0.0.0:3000->3000/tcp, 0.0.0.0:9876->9876/tcp   dspace-angular
 ```
 
 ## 3. Open DSpace in a Browser
@@ -64,4 +64,3 @@ docker-compose -p $DPROJ up -d
 ```
 docker-compose -p $DPROJ down
 ```
-
