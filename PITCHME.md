@@ -87,7 +87,8 @@ Webinar attendees will learn
 
 ### Lauch DSpace 7
 
-- `docker-compose -p d7 -f docker-compose.yml -f d7.override.yml up -d`
+`docker-compose -p d7 -f docker-compose.yml -f d7.override.yml up -d`
+
 - http://localhost:3000
 - http://localhost:8080/spring-rest
 
@@ -113,7 +114,8 @@ Webinar attendees will learn
 
 ### Launch DSpace 6
 
-- `docker-compose -p d6 -f docker-compose.yml -f d6.override.yml up -d`
+`docker-compose -p d6 -f docker-compose.yml -f d6.override.yml up -d`
+
 - http://localhost:8080/xmlui
 - http://localhost:8080/rest/static/reports/query.html
 
