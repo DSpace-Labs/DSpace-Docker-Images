@@ -1,0 +1,5 @@
+version: "3.7"
+
+services:
+  dspace:
+    entrypoint: catalina.sh run

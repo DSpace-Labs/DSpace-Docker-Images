@@ -1,6 +1,6 @@
 #!/bin/sh
 # CD to docker-compose dir
-export DOCKER_OWNER=dspace
+export DOCKER_OWNER=terrywbrady
 export DPROJ=test-image
 
 function checkOutput {
@@ -23,7 +23,7 @@ function checkImage {
   export STAT_OAI=$5
   export STAT_SOLR=$6
   export STAT_REST=$7
-  docker-compose -p $DPROJ up -d > /dev/null 2> /dev/null
+  docker-compose -p $DPROJ -f docker-compose.yml -f verify.yml up -d > /dev/null 2> /dev/null
   echo " ===== ${DSPACE_VER} ===== "
   docker exec dspace //dspace/bin/dspace version | egrep "DSpace version:|JRE:" > /tmp/out.txt
   cat /tmp/out.txt
