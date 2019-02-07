@@ -147,17 +147,23 @@ docker-compose -p d6 -f docker-compose.yml -f d6.override.yml up -d
 
 +++
 
-### Other recommended installs
+### Windows: Install Git-Bash
 
-- On windows, bash is Needed
+- https://git-scm.com/downloads
 
 +++
 
-### Install DSpace project
+### Linux Desktop: Install Git, Docker, Docker Compose
 
 ```
-docker run --rm  -v $(pwd)://git alpine/git clone https://github.com/DSpace-Labs/DSpace-Docker-Images.git
+sudo yum install git
+sudo yum install docker
 ```
+
+[Install Docker compose](https://docs.docker.com/compose/install/#install-compose)
+
+Note:
+- apt-get equivalents?
 
 ---
 
@@ -165,6 +171,7 @@ docker run --rm  -v $(pwd)://git alpine/git clone https://github.com/DSpace-Labs
 _Time permitting, we will do this on MacOS and on Windows 10_
 
 - docker version
+- docker-compose version
 - docker run --rm ubuntu date
 - start dspace 6
   - stop dspace 6
