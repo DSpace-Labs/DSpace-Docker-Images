@@ -84,9 +84,21 @@ Webinar attendees will learn
 
 ### What is Possible?
 
+Note:
+
+Assumption: since we recommend bash or git-bash, we will assume the repo has been cloned to ~/DSpace-Docker-Images.
+
+```
+cd
+git clone https://github.com/DSpace-Labs/DSpace-Docker-Images.git
+cd DSpace-Docker-Images/docker-compose-files/dspace-compose
+```
+
+Question: would it be helpful to show these files before invoking the up command?
+
 +++
 
-### Lauch DSpace 7
+### Launch DSpace 7
 
 ```
 docker-compose -p d7 -f docker-compose.yml -f d7.override.yml up -d
