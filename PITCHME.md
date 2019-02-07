@@ -23,6 +23,15 @@ The use of Docker has created a more flexible development environment for DSpace
 <br/><br/>
 Docker also offers great potential for repository managers. That is the focus of this webinar.
 </div>
+
+Note: 
+In 2018, the DSpace development team packaged DSpace to be run with Docker.  
+This made it possible to start any version of DSpace from your desktop with a simple command line call.
+
+The use of Docker has created a more flexible development environment for DSpace contributors.
+
+Docker also offers great potential for repository managers. That is the focus of this webinar.
+
 +++
 
 ### Webinar Objectives
@@ -82,6 +91,13 @@ Webinar attendees will learn
 docker-compose -p d7 -f docker-compose.yml -f d7.override.yml up -d
 ```
 
+Note:
+For speed, the images should already be downloaded.  The volumes should be created.
+
+Demonstrate
+- http://localhost:3000
+- http://localhost:8080/spring-rest
+
 ---
 
 ### What is Docker?
@@ -107,6 +123,13 @@ docker-compose -p d7 -f docker-compose.yml -f d7.override.yml up -d
 ```
 docker-compose -p d6 -f docker-compose.yml -f d6.override.yml up -d
 ```
+
+Note:
+For speed, the images should already be downloaded.  The volumes should be created.
+
+Demonstrate
+- http://localhost:8080/xmlui
+- http://localhost:8080/rest/static/reports/query.html
 
 ---
 
