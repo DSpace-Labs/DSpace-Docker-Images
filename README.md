@@ -31,9 +31,6 @@ This repository contains the source code for Docker Images for the [DSpace](http
 
 ---
 
-## How is this Code Repository Organized?
-![DSpace Docker Overview Diagram](documentation/DSpaceDockerFlow.png)
-
 ## Published Images
 This table lists the general purpose docker images supported by the DSpace project.  These images are intended to support the testing and development of DSpace from a user's desktop.
 
@@ -44,12 +41,20 @@ This table lists the general purpose docker images supported by the DSpace proje
 | [dspace](https://github.com/DSpace/DSpace/blob/master/Dockerfile) | Published |[dspace/dspace](https://hub.docker.com/r/dspace/dspace/)| dspace-7_x-jdk8<br/><br/>dspace-6_x-jdk8<br/><br/>dspace-5_x-jdk7<br/><br/>[tag notes](https://wiki.duraspace.org/display/DSPACE/DSpace+and+Docker) | Tomcat + Ant with populated dspace-install directory. <br/>DSpace code will be cloned and built during image build. <br/>Image contains local.cfg or build.properties file suitable for the container.<br/>Image variants for "test" exist to make it easier to access all web services.|
 | [dspace-angular](https://github.com/DSpace/dspace-angular/blob/docker/Dockerfile) | Published |[dspace/dspace-angular](https://hub.docker.com/r/dspace/dspace-angular/)| latest| Containerized Angular UI |
 | [dspace-angular-bare](https://github.com/DSpace-Labs/DSpace-Docker-Images/tree/master/dockerfiles/dspace-angular-bare/) | Provisionally Published  |[dspace/dspace-angular-bare](https://hub.docker.com/r/dspace/dspace-angular-bare/)| latest|  Containerized Angular UI which allows you to mount a source directory_|
+| [dspace-solr](https://github.com/DSpace/DSpace/blob/master/src/main/docker/solr/Dockerfile)* | Published | [dspace/dspace-solr](https://hub.docker.com/r/dspace/dspace-solr) | latest | External Solr Instance containing the 4 DSpace Solr repositories. *Depends on PR 2058 |
 
 ## Compose files
 The following Docker Compose files can be used to simplify the management of DSpace components allowing a user to run an end-to-end DSpace instance from their desktop.
 
 ### Main DSpace Compose Files
 [DSpace Compose Files](docker-compose-files/dspace-compose/ComposeFiles.md)
+- Base DSpace Compose File: docker-compose.yml
+- DSpace 7 Compose File: d7.override.yml (d7solr.override.yml - until PR 2058 is merged)
+- DSpace 6 Compose File: d6.override.yml
+- DSpace 5 Compose File: d5.override.yml
+- DSpace 4 Compose File: d4.override.yml
+- DSpace RDF Compose File: rdf.override.yml
+- DSpace Local Build Compose File: src.override.yml
 
 ### Special Purpose Compose files
 

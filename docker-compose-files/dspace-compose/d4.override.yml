@@ -7,3 +7,8 @@ services:
   dspace:
     image: "${DOCKER_OWNER:-dspace}/dspace:${DSPACE_VER:-dspace-4_x-jdk7-test}"
     entrypoint: /dspace-docker-tools/ingestAIPd4.sh
+    volumes:
+      - "solr_authority:/dspace/solr/authority/data"
+      - "solr_oai:/dspace/solr/oai/data"
+      - "solr_search:/dspace/solr/search/data"
+      - "solr_statistics:/dspace/solr/statistics/data"
