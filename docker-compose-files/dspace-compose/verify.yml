@@ -1,0 +1,9 @@
+version: "3.7"
+
+# This docker compose file will start up a minimal instance of DSpace.
+# This file is used by /tools/verify.yml to ensure that each published image is
+# configured as expected.
+
+services:
+  dspace:
+    entrypoint: catalina.sh run
