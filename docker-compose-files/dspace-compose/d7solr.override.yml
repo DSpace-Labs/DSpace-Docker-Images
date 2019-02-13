@@ -7,8 +7,6 @@ version: "3.7"
 services:
   dspace:
     image: "${DOCKER_OWNER:-dspace}/dspace:${DSPACE_VER:-dspace-7_x-jdk8-test}"
-    environment:
-      - "JAVA_OPTS=-Dsolr.server=http://dspacesolr:8983/solr"
 
   dspace-angular:
     image: dspace/dspace-angular
