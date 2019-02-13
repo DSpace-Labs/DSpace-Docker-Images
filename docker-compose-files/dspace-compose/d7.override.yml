@@ -3,6 +3,8 @@ version: "3.7"
 services:
   dspace:
     image: "${DOCKER_OWNER:-dspace}/dspace:${DSPACE_VER:-dspace-7_x-jdk8-test}"
+    environment:
+      - "JAVA_OPTS=-Dsolr.server=http://dspacesolr:8983/solr"
 
   dspace-angular:
     image: dspace/dspace-angular
@@ -25,5 +27,17 @@ services:
       - dspacenet
     depends_on:
       - dspace
+    tty: true
+    stdin_open: true
+
+  dspacesolr:
+    image: dspace/dspace-solr
+    container_name: dspacesolr
+    ports:
+     - "8983:8983"
+    networks:
+      - dspacenet
+    volumes:
+      - "solr:/opt/solr/server/solr"
     tty: true
     stdin_open: true

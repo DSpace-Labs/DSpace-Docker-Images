@@ -30,7 +30,6 @@ services:
       - 8080:8080
     volumes:
       - "assetstore:/dspace/assetstore"
-      - "solr:/dspace/solr"
       - "../../add-ons/dspace-docker-tools:/dspace-docker-tools"
     entrypoint: /dspace-docker-tools/ingestAIP.sh
     networks:
