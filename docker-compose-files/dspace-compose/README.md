@@ -31,14 +31,17 @@ CONTAINER ID        IMAGE                             COMMAND                  C
 5186cf451eff        dspace/dspace-postgres-pgcrypto   "docker-entrypoint.s…"   About a minute ago   Up About a minute   5432/tcp                           dspacedb
 ```
 
-The dspace container and the dspacedb container will persist data in a docker volume.
+The dspace container and the dspacedb container will persist data in a docker volume.  Each Solr repository will be saved to a docker volume.
 
 ```
 $ docker volume ls -f "label=com.docker.compose.project=d6"
 DRIVER              VOLUME NAME
 local               d6_assetstore
 local               d6_pgdata
-local               d6_solr
+local               d6_solr_authority
+local               d6_solr_oai
+local               d6_solr_search
+local               d6_solr_statistics
 ```
 
 ### 2a. Passing Variables and Properties to DSpace
@@ -131,7 +134,10 @@ $ docker volume ls -f "label=com.docker.compose.project=d6"
 DRIVER              VOLUME NAME
 local               d6_assetstore
 local               d6_pgdata
-local               d6_solr
+local               d6_solr_authority
+local               d6_solr_oai
+local               d6_solr_search
+local               d6_solr_statistics
 ```
 
 ## 7. Restarting DSpace
@@ -155,7 +161,7 @@ docker-compose -p d6 down
 If you no longer need to retain your Docker volumes, run  the following commands.
 
 ```
-docker volume rm d6_assetstore d6_pgdata d6_solr
+docker volume rm d6_assetstore d6_pgdata d6_solr_authority d6_solr_oai d6_solr_search d6_solr_statistics
 ```
 A helper script exists in this repository to remove volumes.
 

@@ -59,9 +59,6 @@ function removeVols {
   done
 }
 
-checkImage dspace-4_x-jdk7-test 4.10-SNAPSHOT "version 1.7" 500 200 200 200
-exit
-
 #
 # Default Images - SOLR and REST* are inaccessible
 # ------------------------------------------------
