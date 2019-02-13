@@ -5,4 +5,7 @@ services:
     image: "${DOCKER_OWNER:-dspace}/dspace:${DSPACE_VER:-dspace-6_x-jdk8-test}"
     volumes:
       - "../../add-ons/mirage2/xmlui.xconf:/dspace/config/xmlui.xconf"
-      - "solr:/dspace/solr"
+      - "solr_authority:/dspace/solr/authority/data"
+      - "solr_oai:/dspace/solr/oai/data"
+      - "solr_search:/dspace/solr/search/data"
+      - "solr_statistics:/dspace/solr/statistics/data"

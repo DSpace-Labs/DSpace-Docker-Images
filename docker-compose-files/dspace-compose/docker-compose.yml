@@ -42,7 +42,11 @@ services:
 volumes:
   pgdata:
   assetstore:
-  solr:
+  # The Solr volumes will be defined in one of the dX.override.yml files
+  solr_authority:
+  solr_oai:
+  solr_search:
+  solr_statistics:
 
 networks:
   dspacenet:
