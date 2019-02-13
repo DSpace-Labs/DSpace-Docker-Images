@@ -1,4 +1,5 @@
-### DSpace Docker for Repository Managers - Running Any Version of DSpace from your Desktop
+#### DSpace Docker for Repository Managers
+##### Running Any Version of DSpace from your Desktop
 
 - Terry Brady, Georgetown University Library
 - Pascal Becker, The Library Code
@@ -153,12 +154,6 @@ docker-compose -p d7 -f docker-compose.yml -f d7.override.yml up -d
 - Onboard new developers and repository managers to the project
 
 ---
-### Future possibilities
-
-- Test fixes for specific bugs
-- Test enhancement code _before_ it is part of a release
-
----
 
 ### Launch DSpace 6
 
@@ -182,6 +177,7 @@ docker-compose -p d6 -f docker-compose.yml -f d6.override.yml up -d
 
 ### MacOS
 
+- Install docker (above)
 - Open terminal (in Applications/Utilities)
 - Run `git version`
 - You will be prompted to install developer tools
@@ -190,6 +186,7 @@ docker-compose -p d6 -f docker-compose.yml -f d6.override.yml up -d
 
 ### Windows: Install Git-Bash
 
+- Install docker (above)
 - https://git-scm.com/downloads
 - Run `git version`
 
@@ -197,12 +194,10 @@ docker-compose -p d6 -f docker-compose.yml -f d6.override.yml up -d
 
 ### Linux Desktop: Install Git, Docker, Docker Compose
 
-```
-sudo yum install git
-sudo yum install docker
-```
-
-[Install Docker compose](https://docs.docker.com/compose/install/#install-compose)
+- Install docker (above)
+- `sudo yum install git`
+- `sudo yum install docker`
+- [Install Docker compose](https://docs.docker.com/compose/install/#install-compose)
 
 Note:
 - apt-get equivalents?
@@ -249,9 +244,9 @@ docker-compose -p d6 -f docker-compose.yml -f d6.override.yml down
 +++?code=docker-compose-files/dspace-compose/d7.override.yml&lang=yml
 DSpace 7 Overrides
 @[5](Default DSpace 7 Image)
-@[7-9](DSpace Angular Image)
-@[10-12](Ports for Angular)
-@[17-20](Location of the DSpace REST API)
+@[13-15](DSpace Angular Image)
+@[16-18](Ports for Angular)
+@[23-26](Location of the DSpace REST API)
 
 +++
 
