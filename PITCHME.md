@@ -222,11 +222,21 @@ Note:
 
 ---
 
-### Step by Step Instructions
+### Step by Step Demonstration
 
 +++
 
 ### Verify Installs
+
+```shell
+git version
+```
+```shell
+docker version
+```
+```shell
+docker-compose version
+```
 
 +++?image=documentation/webinar/win.versions.gif
 
@@ -241,23 +251,6 @@ cd DSpace-Docker-Images/docker-compose-files/dspace-compose
 ```
 
 +++?image=documentation/webinar/win.clone.gif
-
-+++
-
-### Running Docker Command
-
-```shell
-docker version
-```
-```shell
-docker-compose version
-```
-```shell
-docker run --rm ubuntu date
-```
-
-Note:
-Time permitting, we will do this on MacOS and on Windows 10
 
 +++
 
