@@ -79,7 +79,7 @@ cd DSpace-Docker-Images/docker-compose-files/dspace-compose
 
 ### Launch DSpace 7
 
-```
+```shell
 docker-compose -p d7 -f docker-compose.yml -f d7.override.yml up -d
 ```
 
@@ -156,7 +156,7 @@ docker-compose -p d7 -f docker-compose.yml -f d7.override.yml up -d
 
 ### Launch DSpace 6
 
-```
+```shell
 docker-compose -p d6 -f docker-compose.yml -f d6.override.yml up -d
 ```
 
@@ -190,7 +190,7 @@ docker-compose -p d6 -f docker-compose.yml -f d6.override.yml down
 
 - Install docker (above)
 - Open terminal (in Applications/Utilities)
-```
+```shell
 git version
 ```
 - You will be prompted to install developer tools

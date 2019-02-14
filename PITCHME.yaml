@@ -1,7 +1,5 @@
 slide-number: true
 
-highlight: sky
-
 background-size : contain
 
 theme-override : PITCHME.css
