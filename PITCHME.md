@@ -69,7 +69,7 @@ For the first demo, we have already
 
 Note:
 
-```
+```shell
 cd
 git clone https://github.com/DSpace-Labs/DSpace-Docker-Images.git
 cd DSpace-Docker-Images/docker-compose-files/dspace-compose
@@ -201,7 +201,7 @@ git version
 
 - Install docker (above)
 - https://git-scm.com/downloads
-```
+```shell
 git version
 ```
 
@@ -209,10 +209,10 @@ git version
 
 ### Linux Desktop: Install Git, Docker, Docker Compose
 
-```
+```shell
 sudo yum install git
 ```
-```
+```shell
 sudo yum install docker
 ```
 - [Install Docker compose](https://docs.docker.com/compose/install/#install-compose)
@@ -228,7 +228,7 @@ Note:
 
 ### Download DSpace Docker Compose Files
 
-```
+```shell
 cd
 git clone https://github.com/DSpace-Labs/DSpace-Docker-Images.git
 cd DSpace-Docker-Images/docker-compose-files/dspace-compose
@@ -238,13 +238,13 @@ cd DSpace-Docker-Images/docker-compose-files/dspace-compose
 
 ### Running Docker Command
 
-```
+```shell
 docker version
 ```
-```
+```shell
 docker-compose version
 ```
-```
+```shell
 docker run --rm ubuntu date
 ```
 
@@ -273,7 +273,7 @@ DSpace 6 Overrides
 
 ### Running DSpace 6
 
-```
+```shell
 docker-compose -p d6 -f docker-compose.yml -f d6.override.yml up -d
 ```
 
@@ -287,7 +287,7 @@ docker-compose -p d6 -f docker-compose.yml -f d6.override.yml up -d
 
 ### Stop DSpace 6
 
-```
+```shell
 docker-compose -p d6 -f docker-compose.yml -f d6.override.yml down
 ```
 
@@ -306,7 +306,7 @@ DSpace 7 Overrides
 
 ### Running DSpace 7
 
-```
+```shell
 docker-compose -p d7 -f docker-compose.yml -f d7.override.yml up -d
 ```
 
@@ -323,7 +323,7 @@ docker-compose -p d7 -f docker-compose.yml -f d7.override.yml up -d
 
 ### Stopping DSpace 7
 
-```
+```shell
 docker-compose -p d7 -f docker-compose.yml -f d7.override.yml down
 ```
 
