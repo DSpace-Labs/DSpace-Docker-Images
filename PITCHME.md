@@ -281,11 +281,17 @@ DSpace 6 Overrides
 docker-compose -p d6 -f docker-compose.yml -f d6.override.yml up -d
 ```
 
++++?image=documentation/webinar/win.d6.start.gif
+
++++?image=documentation/webinar/win.d6version.gif
+
 +++
 
 ### Test DSpace 6
 
 - [http://localhost:8080/xmlui](http://localhost:8080/xmlui)
+
++++?image=documentation/webinar/d6.web.gif
 
 +++
 
@@ -294,6 +300,8 @@ docker-compose -p d6 -f docker-compose.yml -f d6.override.yml up -d
 ```shell
 docker-compose -p d6 -f docker-compose.yml -f d6.override.yml down
 ```
+
++++?image=documentation/webinar/win.d6.down.gif
 
 +++
 
