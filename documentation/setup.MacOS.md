@@ -16,7 +16,6 @@ git version
 ```
 - If git is not yet installed, you will be prompted to install developer tools.  Proceed with the installation.
 
-
 ### Download DSpace Docker Compose Files
 
 ```shell

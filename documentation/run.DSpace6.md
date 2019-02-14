@@ -65,5 +65,5 @@ docker ps
 _This will allow you to build a fresh installation with new data._
 
 ```shell
-docker volume rm d6_assetstore d6_pgdata d6_solr_authority d6_solr_oai d6_solr_search d6_solr_statistic
+docker volume rm d6_assetstore d6_pgdata d6_solr_authority d6_solr_oai d6_solr_search d6_solr_statistics
 ```

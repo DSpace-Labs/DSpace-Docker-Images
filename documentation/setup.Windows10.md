@@ -9,6 +9,7 @@ _This shell most closely mirrors the user experience for MacOS and Linux users_
 
 https://git-scm.com/downloads
 
+Run the following command to verify your install
 ```shell
   git version
 ```
