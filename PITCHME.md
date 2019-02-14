@@ -171,7 +171,7 @@ docker-compose -p d6 -f docker-compose.yml -f d6.override.yml up -d
 
 ### Stop DSpace 6
 
-```
+```shell
 docker-compose -p d6 -f docker-compose.yml -f d6.override.yml down
 ```
 
