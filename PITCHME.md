@@ -55,7 +55,6 @@ Note:
 
 ### Webinar Objectives
 
-Webinar attendees will learn
 - What is a *Docker image* and what images have been published for DSpace
 - How to install Docker
 - How to launch DSpace 6 and DSpace 7 using Docker
@@ -168,7 +167,7 @@ docker-compose -p d6 -f docker-compose.yml -f d6.override.yml up -d
 
 ---
 
-### Step by step instructions
+### Install Instructions
 
 +++
 
@@ -181,7 +180,9 @@ docker-compose -p d6 -f docker-compose.yml -f d6.override.yml up -d
 
 - Install docker (above)
 - Open terminal (in Applications/Utilities)
-- Run `git version`
+```
+git version
+```
 - You will be prompted to install developer tools
 
 +++
@@ -190,15 +191,20 @@ docker-compose -p d6 -f docker-compose.yml -f d6.override.yml up -d
 
 - Install docker (above)
 - https://git-scm.com/downloads
-- Run `git version`
+```
+git version
+```
 
 +++
 
 ### Linux Desktop: Install Git, Docker, Docker Compose
 
-- Install docker (above)
-- `sudo yum install git`
-- `sudo yum install docker`
+```
+sudo yum install git
+```
+```
+sudo yum install docker
+```
 - [Install Docker compose](https://docs.docker.com/compose/install/#install-compose)
 
 Note:
@@ -206,11 +212,31 @@ Note:
 
 ---
 
+### Step by Step Instructions
+
++++
+
+### Download DSpace Docker Compose Files
+
+```
+cd
+git clone https://github.com/DSpace-Labs/DSpace-Docker-Images.git
+cd DSpace-Docker-Images/docker-compose-files/dspace-compose
+```
+
++++
+
 ### Running Docker Command
 
-- `docker version`
-- `docker-compose version`
-- `docker run --rm ubuntu date`
+```
+docker version
+```
+```
+docker-compose version
+```
+```
+docker run --rm ubuntu date
+```
 
 Note:
 Time permitting, we will do this on MacOS and on Windows 10
@@ -270,6 +296,7 @@ docker-compose -p d7 -f docker-compose.yml -f d7.override.yml down
 ### Help needed
 
 - Try it yourself, give us feedback on the documentation
+  - Join the **#dspace-docker** Slack Channel
 - Help us assemble assets to distribute in AIP files
 
 +++
@@ -292,6 +319,7 @@ docker-compose -p d7 -f docker-compose.yml -f d7.override.yml down
 - [DSpace Docker Tutorial Overview](https://dspace-labs.github.io/DSpace-Docker-Images/)
 - Docker tutorial
 - Docker compose tutorial
+- Join the **#dspace-docker** Slack Channel
 
 ---
 
