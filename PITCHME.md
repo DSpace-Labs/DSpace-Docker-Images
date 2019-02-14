@@ -4,9 +4,7 @@
 - Terry Brady, Georgetown University Library
 - Pascal Becker, The Library Code
 
-```
-https://github.com/DSpace-Labs/DSpace-Docker-Images
-```
+@size[18px](https://github.com/DSpace-Labs/DSpace-Docker-Images)
 
 Note:
 - March 5th, 8am pt, 11am ET, 5pm CET
@@ -376,6 +374,4 @@ docker-compose -p d7 -f docker-compose.yml -f d7.override.yml down
 - Terry Brady, Georgetown University Library
 - Pascal Becker, The Library Code
 
-```
-https://github.com/DSpace-Labs/DSpace-Docker-Images
-```
+@size[18px](https://github.com/DSpace-Labs/DSpace-Docker-Images)
