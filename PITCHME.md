@@ -205,6 +205,8 @@ git version
 git version
 ```
 
++++?image=documentation/webinar/win.versions.gif
+
 +++
 
 ### Linux Desktop: Install Git, Docker, Docker Compose
@@ -233,6 +235,8 @@ cd
 git clone https://github.com/DSpace-Labs/DSpace-Docker-Images.git
 cd DSpace-Docker-Images/docker-compose-files/dspace-compose
 ```
+
++++?image=documentation/webinar/win.clone.gif
 
 +++
 
