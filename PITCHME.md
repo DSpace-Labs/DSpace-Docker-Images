@@ -162,8 +162,20 @@ docker-compose -p d7 -f docker-compose.yml -f d7.override.yml up -d
 docker-compose -p d6 -f docker-compose.yml -f d6.override.yml up -d
 ```
 
++++
+
+### Test DSpace 6
+
 - http://localhost:8080/xmlui
 - http://localhost:8080/rest/static/reports/query.html
+
++++
+
+### Stop DSpace 6
+
+```
+docker-compose -p d6 -f docker-compose.yml -f d6.override.yml down
+```
 
 ---
 
@@ -245,6 +257,10 @@ Time permitting, we will do this on MacOS and on Windows 10
 
 ## Running DSpace
 
++++
+
+### A quick peek at the DSpace 6 compose files
+
 +++?code=docker-compose-files/dspace-compose/docker-compose.yml&lang=yml
 Docker Compose File
 @[4-8](DSpace Database Image Name)
@@ -263,11 +279,23 @@ DSpace 6 Overrides
 docker-compose -p d6 -f docker-compose.yml -f d6.override.yml up -d
 ```
 
++++
+
+### Test DSpace 6
+
 - [http://localhost:8080/xmlui](http://localhost:8080/xmlui)
+
++++
+
+### Stop DSpace 6
 
 ```
 docker-compose -p d6 -f docker-compose.yml -f d6.override.yml down
 ```
+
++++
+
+### A quick peek at the DSpace 7 compose files
 
 +++?code=docker-compose-files/dspace-compose/d7.override.yml&lang=yml
 DSpace 7 Overrides
@@ -284,8 +312,18 @@ DSpace 7 Overrides
 docker-compose -p d7 -f docker-compose.yml -f d7.override.yml up -d
 ```
 
-- [http://localhost:8080/spring-rest](http://localhost:8080/spring-rest)
-- [http://localhost:3000](http://localhost:3000)
++++
+
+### Testing DSpace 7
+
+- Back end url (REST API)
+  - [http://localhost:8080/spring-rest](http://localhost:8080/spring-rest)
+- Angular Front End
+  - [http://localhost:3000](http://localhost:3000)
+
++++
+
+### Stopping DSpace 7
 
 ```
 docker-compose -p d7 -f docker-compose.yml -f d7.override.yml down
@@ -293,7 +331,7 @@ docker-compose -p d7 -f docker-compose.yml -f d7.override.yml down
 
 ---
 
-### Help needed
+### We need **your** help
 
 - Try it yourself, give us feedback on the documentation
   - Join the **#dspace-docker** Slack Channel
