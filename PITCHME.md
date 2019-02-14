@@ -4,7 +4,9 @@
 - Terry Brady, Georgetown University Library
 - Pascal Becker, The Library Code
 
+```
 https://github.com/DSpace-Labs/DSpace-Docker-Images
+```
 
 Note:
 - March 5th, 8am pt, 11am ET, 5pm CET
@@ -28,7 +30,7 @@ Note:
 ### Pascal Becker
 
 - CEO and founder of The Library Code
-- senior software developer at Technische Universität Berlin
+- Senior Software Developer at Technische Universität Berlin
 - DSpace Committer
 - https://www.the-library-code.de/
 
@@ -308,4 +310,6 @@ docker-compose -p d7 -f docker-compose.yml -f d7.override.yml down
 - Terry Brady, Georgetown University Library
 - Pascal Becker, The Library Code
 
+```
 https://github.com/DSpace-Labs/DSpace-Docker-Images
+```
