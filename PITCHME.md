@@ -179,46 +179,18 @@ docker-compose -p d6 -f docker-compose.yml -f d6.override.yml down
 
 ### Install Instructions
 
-+++
-
-### Install Docker
-- [Docker Installation and Setup](https://dspace-labs.github.io/DSpace-Docker-Images/documentation/tutorialSetup.html)
-
-+++
-
-### MacOS
-
-- Install docker (above)
-- Open terminal (in Applications/Utilities)
-```shell
-git version
-```
-- You will be prompted to install developer tools
+- Install Docker Desktop
+- Install a terminal for running docker
+- Download DSpace Docker Compose files
 
 +++
 
-### Windows: Install Git-Bash
+### Installation instructions
 
-- Install docker (above)
-- https://git-scm.com/downloads
-```shell
-git version
-```
-
-+++
-
-### Linux Desktop: Install Git, Docker, Docker Compose
-
-```shell
-sudo yum install git
-```
-```shell
-sudo yum install docker
-```
-- [Install Docker compose](https://docs.docker.com/compose/install/#install-compose)
-
-Note:
-- apt-get equivalents?
+- [Windows 10 Setup](documentation/setup.Windows10.md)
+- [MacOS Setup](documentation/setup.MacOS.md)
+- [Linux Desktop Setup](documentation/setup.LinuxDesktop.md)
+  - If you run Linux desktop, we would like to work with you to document the necessary steps
 
 ---
 
