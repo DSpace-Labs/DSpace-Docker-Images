@@ -205,8 +205,6 @@ git version
 git version
 ```
 
-+++?image=documentation/webinar/win.versions.gif
-
 +++
 
 ### Linux Desktop: Install Git, Docker, Docker Compose
@@ -225,6 +223,12 @@ Note:
 ---
 
 ### Step by Step Instructions
+
++++
+
+### Verify Installs
+
++++?image=documentation/webinar/win.versions.gif
 
 +++
 
@@ -283,6 +287,14 @@ docker-compose -p d6 -f docker-compose.yml -f d6.override.yml up -d
 
 +++?image=documentation/webinar/win.d6.start.gif
 
++++
+
+### Running a DSpace command line task
+- dspace version
+- dspace index-discovery
+- dspace filter-media
+- dspace oai import
+
 +++?image=documentation/webinar/win.d6version.gif
 
 +++
@@ -322,14 +334,30 @@ DSpace 7 Overrides
 docker-compose -p d7 -f docker-compose.yml -f d7.override.yml up -d
 ```
 
++++?image=documentation/webinar/win.d7.start.gif
+
 +++
 
-### Testing DSpace 7
+### DSpace 7 REST API Back End
 
-- Back end url (REST API)
-  - [http://localhost:8080/spring-rest](http://localhost:8080/spring-rest)
-- Angular Front End
+-  [http://localhost:8080/spring-rest](http://localhost:8080/spring-rest)
+
++++?image=documentation/webinar/d7.rest.gif
+
++++
+
+### Manually Index DSpace 7 content
+
+```shell
+docker exec dspace //dspace/bin/dspace index-discovery
+```
+
++++
+### DSpace 7 Angular Front End
+
   - [http://localhost:3000](http://localhost:3000)
+
++++?image=documentation/webinar/d7.angular.gif
 
 +++
 
@@ -338,6 +366,8 @@ docker-compose -p d7 -f docker-compose.yml -f d7.override.yml up -d
 ```shell
 docker-compose -p d7 -f docker-compose.yml -f d7.override.yml down
 ```
+
++++?image=documentation/webinar/win.d7.down.gif
 
 ---
 
