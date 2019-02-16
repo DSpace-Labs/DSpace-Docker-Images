@@ -186,9 +186,9 @@ docker-compose -p d6 -f docker-compose.yml -f d6.override.yml down
 +++
 
 ### Installation instructions
-- [Windows 10 Setup](https://github.com/DSpace-Labs/DSpace-Docker-Images/blob/webinar/documentation/setup.Windows10.md)
-- [MacOS Setup](https://github.com/DSpace-Labs/DSpace-Docker-Images/blob/webinar/documentation/setup.MacOS.md)
-- [Linux Desktop Setup](https://github.com/DSpace-Labs/DSpace-Docker-Images/blob/webinar/documentation/setup.LinuxDesktop.md)
+- @gitlink[Windows 10 Setup](documentation/setup.Windows10.md)
+- @gitlink[MacOS Setup](documentation/setup.MacOS.md)
+- @gitlink[Linux Desktop Setup](documentation/setup.LinuxDesktop.md)
   - If you run Linux desktop, we would like to work with you to document the necessary steps
 
 ---
