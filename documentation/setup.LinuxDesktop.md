@@ -1,24 +1,34 @@
 ## Linux Desktop setup for Docker DSpace
 
-_These instructions are under construction._
-_apt-get equivalents need to be documented._
 
 ### Install Git
+
+_Instructions will vary based on your Linux distribution._
+_These instructions have not been tested.  Please report your results with these instructions._
+
+#### CentOS
 
 ```shell
 sudo yum install git
 ```
 
-### Install Docker
-
+#### Debian, Ubuntu
 
 ```shell
-sudo yum install docker
+sudo apt-get install git
 ```
 
-###  Docker Compose
+#### Debian
 
-- [Install Docker compose](https://docs.docker.com/compose/install/#install-compose)
+```shell
+sudo dnf install git
+```
+
+### Install Docker CE for your Linux distribution
+- [CentOS](https://docs.docker.com/install/linux/docker-ce/centos/)
+- [Debian](https://docs.docker.com/install/linux/docker-ce/debian/)
+- [Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
+- [Fedora](https://docs.docker.com/install/linux/docker-ce/fedora/)
 
 ### Download DSpace Docker Compose Files
 

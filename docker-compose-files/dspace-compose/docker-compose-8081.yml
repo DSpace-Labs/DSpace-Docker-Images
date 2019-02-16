@@ -1,11 +1,18 @@
 version: "3.7"
 
+# This file is a clone of docker-compose.yml with 2 changes.
+# This allows a second instance of DSpace to run on a separate port.
+# - The dspace port is 8081 instead of 8080
+# - Container names are suffixed with 8081
+# Overrides to container ports are merged rather then replaced, so it is impossible
+# to reset a port number in an override file.
+
 services:
   dspacedb:
     image: dspace/dspace-postgres-pgcrypto
     # Note that a separate image exists for DSpace 4x
     # image: dspace/dspace-postgres-4x
-    container_name: dspacedb
+    container_name: dspacedb81
     environment:
       - PGDATA=/pgdata
     volumes:
@@ -18,7 +25,7 @@ services:
 
   dspace:
     image: "${DOCKER_OWNER:-dspace}/dspace:${DSPACE_VER:-dspace-6_x-jdk8-test}"
-    container_name: dspace
+    container_name: dspace81
     environment:
       - DSPACE_INSTALL=/dspace
       - ADMIN_EMAIL=${ADMIN_EMAIL:-test@test.edu}
@@ -29,7 +36,7 @@ services:
       # export SKIPAIP=Y
       - SKIPAIP=${SKIPAIP}
     ports:
-      - 8080:8080
+      - 8081:8080
     volumes:
       - "assetstore:/dspace/assetstore"
       - "../../add-ons/dspace-docker-tools:/dspace-docker-tools"
