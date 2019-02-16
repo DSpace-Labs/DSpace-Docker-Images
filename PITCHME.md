@@ -187,11 +187,9 @@ docker-compose -p d6 -f docker-compose.yml -f d6.override.yml down
 
 ### Installation instructions
 
-@gitlink[Windows 10 Setup](documentation/setup.Windows10.md)
-
-@gitlink[MacOS Setup](documentation/setup.MacOS.md)
-
-@gitlink[Linux Desktop Setup](documentation/setup.LinuxDesktop.md)
+- @gitlink[Windows 10 Setup](documentation/setup.Windows10.md)
+- @gitlink[MacOS Setup](documentation/setup.MacOS.md)
+- @gitlink[Linux Desktop Setup](documentation/setup.LinuxDesktop.md)
 
 ---
 
