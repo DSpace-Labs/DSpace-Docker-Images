@@ -129,11 +129,15 @@ docker-compose -p d6 -f docker-compose.yml -f d6.override.yml -f src.override.ym
 
 ### Create a DSpace instance from a DSpace pull request
 
+You need 2 pieces of information
+- the BRANCH that this change will be applied to: master, dspace-6_x, dspace-5_x, dspace-4_x
+- the PR_NUM
+
 ```shell
 cd $DSPACE_SRC
+git checkout BRANCH --force
+curl -o /tmp/pr.patch -L https://github.com/DSpace/DSpace/pull/PR_NUM.diff
+git apply /tmp/pr.patch
 ```
-
-- _Question: is there an easy way to make this replicable for interested users?_
-- Committers can look at the pull request of interest on GitHub and expand the command line options to copy the clone instructions.  Is there a way to make this public for interested users?
 
 Follow the build instructions above to build the modified code.
