@@ -3,10 +3,12 @@
 | Compose File | Purpose |
 | -- | -- |
 | docker-compose.yml | Base image for DSpace 4, 5, 6, 7.  Ingests content (if needed) and starts tomcat. |
+| docker-compose-8081.yml | Variant base image that runs tomcat on port 8081 to allow 2 DSpace instances to run simultaneously |
 | d4.override.yml | Sets base image for DSpace4x.  <br/>Since Flyway is not supported in DSpace4x, a special 4x postgres image. |
 | d5.override.yml | Sets base image for DSpace5x.  Activates Mirage2. |
 | d6.override.yml | Sets base image for DSpace6x.  Activates Mirage2. |
-| d7.override.yml | Sets base image for DSpace7x.  <br/>Adds Angular UI to replace XMLUI and JSPUI. <br/>TBD: Add externalized SOLR service<br/> REST: http://localhost:8080/spring-rest <br/> Angular UI: http://localhost:3000 |
+| d7.override.yml | Sets base image for DSpace7x.  <br/>Adds Angular UI to replace XMLUI and JSPUI. <br/> REST: http://localhost:8080/spring-rest <br/> Angular UI: http://localhost:3000 |
+| d7solr.override.yml | Adds externalized solr to d7.override.yml <br/> Solr http://localhost:8983 |
 | src.override.yml | Optional add-on to trigger and redeploy and tomcat start. |
 | rdf.override.yml | Optional RDF Add-on for DSpace6x and DSpace7x. <br/>http://localhost:3030 |
 
@@ -28,8 +30,9 @@ Each compose file points to a specific [tagged DSpace Docker image](https://hub.
 - Set the DSPACE_VER environment variable to change the DSpace tagged version
 - Set the AIPZIP environment variable to point to a zip file of AIP files that will be ingested on startup.
   - After ingest, `/dspace/assetstore/ingest.hasrun.flag` will be created.  This will prevent additional ingest on subsequent startup.
+- Set the SKIPAIP=Y environment variable to skip AIP processing on startup.
 
-## Trigger ant re-deploy
+## Build DSpace Image Locally
 Adding the `-f src.override.yml` to your startup command will allow you to buid a local image `dspace/dspace:local-build`.
 
 Set DSPACE_SRC to your source directory for DSpace.
