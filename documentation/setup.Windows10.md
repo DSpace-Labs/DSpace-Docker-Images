@@ -22,6 +22,8 @@ git clone https://github.com/DSpace-Labs/DSpace-Docker-Images.git
 cd DSpace-Docker-Images/docker-compose-files/dspace-compose
 ```
 
+![](webinar/win.clone.gif)
+
 ### Note for Windows users running docker commands
 
 - When running a DSpace command that requires terminal interaction, prefix your docker command with `winpty`
