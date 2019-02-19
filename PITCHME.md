@@ -361,7 +361,7 @@ docker-compose -p d7 -f docker-compose.yml -f d7.override.yml down
 - [DSpace Docker Tutorial Overview](https://dspace-labs.github.io/DSpace-Docker-Images/)
 - Docker tutorial
 - Docker compose tutorial
-- Join the **#dspace-docker** Slack Channel
+- Join the [**#dspace-docker**](https://dspace-org.slack.com/messages/C9YD42PV3/) Slack Channel
 
 ---
 
