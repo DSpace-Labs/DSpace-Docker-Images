@@ -2,7 +2,7 @@
 
 ### Install Docker Desktop
 
-https://dspace-labs.github.io/DSpace-Docker-Images/documentation/tutorialSetup.html
+https://docs.docker.com/install/
 
 ### Install Git Bash as a terminal for running Docker
 _This shell most closely mirrors the user experience for MacOS and Linux users_
@@ -27,7 +27,7 @@ cd DSpace-Docker-Images/docker-compose-files/dspace-compose
 - When running a DSpace command that requires terminal interaction, prefix your docker command with `winpty`
 - When referencing a directory with a docker container, use `//` instead of `/`.  Example `//dspace`
 
-### Next Steps
+### Start using DSpace-Docker
 
 - [Run DSpace 6](run.DSpace6.md)
 - [Run DSpace 7](run.DSpace7.md)
