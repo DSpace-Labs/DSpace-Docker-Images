@@ -18,7 +18,7 @@ sudo yum install git
 sudo apt-get install git
 ```
 
-#### Debian
+#### Fedora
 
 ```shell
 sudo dnf install git
