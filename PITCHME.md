@@ -106,7 +106,14 @@ docker-compose -p d7 -f docker-compose.yml -f d7.override.yml up -d
 - Imagine you could install a complex application with its complete environment with one command
 - Imagine you'd have a possibility to pack a whole environment into one package
 
-Docker Images makes that possible. An Image is
+Docker Images makes that possible.
+
++++
+
+### Docker Images (continued)
+
+An Image is
+
 - A snapshot of an application and its complete environment
 - Published Online
   - On [docker hub](https://hub.docker.com/)
@@ -168,8 +175,8 @@ Docker Images makes that possible. An Image is
 ### What is possible with DSpace and Docker?
 
 - Try out a DSpace feature without impacting your existing instance
-- Preview an enhancement or new version **before** it is released
-  - Give input on the implementation
+- Preview an enhancement or new version
+- Give input on the implementation
 - Verify a bug fix **before** it is released
 - Onboard new developers and repository managers to the project
 
