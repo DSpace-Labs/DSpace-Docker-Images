@@ -9,6 +9,9 @@
 Note:
 - March 5th, 8am pt, 11am ET, 5pm CET
 - https://duraspace.org/webinar-registration-open-dspace-docker-for-repository-managers-running-any-version-of-dspace-from-your-desktop/
+
+Note:
+Kristi presents
 ---
 
 ### Who We Are
@@ -23,6 +26,9 @@ Note:
 
 ![](https://www.library.georgetown.edu/sites/default/files/library-logo.png)
 
+Note:
+Terry presents
+
 +++
 
 ### Pascal Becker
@@ -31,6 +37,9 @@ Note:
 - Senior Software Developer at Technische Universität Berlin
 - DSpace Committer
 - https://www.the-library-code.de/
+
+Note:
+Pascal presents
 
 ---
 
@@ -71,6 +80,7 @@ In our first demo, we want to show you how easy it is to get DSpace 7 runing. Fo
 - Downloaded some code to help us start DSpace
 
 Note:
+Terry presents
 
 ```shell
 cd
@@ -86,8 +96,8 @@ cd DSpace-Docker-Images/docker-compose-files/dspace-compose
 docker-compose -p d7 -f docker-compose.yml -f d7.override.yml up -d
 ```
 
-- http://localhost:3000
 - http://localhost:8080/spring-rest
+- http://localhost:3000
 
 ---
 
@@ -98,6 +108,9 @@ docker-compose -p d7 -f docker-compose.yml -f d7.override.yml up -d
 - Docker Containers
 - Docker Volumes
 - Docker compose
+
+Note:
+Pascal presents
 
 +++
 
@@ -182,34 +195,14 @@ An Image is
 
 ---
 
-### Launch DSpace 6
-
-```shell
-docker-compose -p d6 -f docker-compose.yml -f d6.override.yml up -d
-```
-
-+++
-
-### Test DSpace 6
-
-- http://localhost:8080/xmlui
-- http://localhost:8080/rest/static/reports/query.html
-
-+++
-
-### Stop DSpace 6
-
-```shell
-docker-compose -p d6 -f docker-compose.yml -f d6.override.yml down
-```
-
----
-
 ### Install Instructions
 
 - Install Docker Desktop
 - Install a terminal for running docker
 - Download DSpace Docker Compose files
+
+Note:
+Terry presents
 
 +++
 
@@ -387,8 +380,8 @@ docker-compose -p d7 -f docker-compose.yml -f d7.override.yml down
 ### Reference Links
 
 - [DSpace Docker Tutorial Overview](https://dspace-labs.github.io/DSpace-Docker-Images/)
-- Docker tutorial
-- Docker compose tutorial
+- [Docker Documentation](https://docs.docker.com/engine/reference/commandline/cli/)
+- [Docker Compose Documentation](https://docs.docker.com/compose/reference/overview/)
 - Join the [**#dspace-docker**](https://dspace-org.slack.com/messages/C9YD42PV3/) Slack Channel
 
 ---
