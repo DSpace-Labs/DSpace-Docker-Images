@@ -2,19 +2,18 @@
 
 ### Install Docker Desktop
 
-https://dspace-labs.github.io/DSpace-Docker-Images/documentation/tutorialSetup.html
+https://docs.docker.com/docker-for-mac/install/
 
 ### Open a terminal
 
 Open terminal (in Applications/Utilities)
 
 ### Install Git
-In your terminal, type the following command
+In your terminal, type the following command. If git is not yet installed, you will be prompted to install developer tools.  Proceed with the installation.
 
 ```shell
 git version
 ```
-- If git is not yet installed, you will be prompted to install developer tools.  Proceed with the installation.
 
 ### Download DSpace Docker Compose Files
 
@@ -24,7 +23,7 @@ git clone https://github.com/DSpace-Labs/DSpace-Docker-Images.git
 cd DSpace-Docker-Images/docker-compose-files/dspace-compose
 ```
 
-### Next Steps
+### Start using DSpace-Docker
 
 - [Run DSpace 6](run.DSpace6.md)
 - [Run DSpace 7](run.DSpace7.md)
