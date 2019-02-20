@@ -47,22 +47,25 @@ Note:
 
 - Repository Managers who want to preview new DSpace functionality
 - Repository Managers who want to become more involved in DSpace development
+- Repository Managers who want to test certain functionality of DSpace
 - Potential DSpace contributors who want to learn how they can get started with the project
+- Developers who wants to use DSpace within Docker as part of their development environment
 
 +++
 
 ### Webinar Objectives
 
-- What is a *Docker image* and what images have been published for DSpace
+- What is a *Docker image* and what are *Containers*
+- What Docker images have been published for DSpace
 - How to install Docker
 - How to launch DSpace 6 and DSpace 7 using Docker
 - How to participate in DSpace testing using Docker
 
 ---
 
-### Set Up
+### Motivation
 
-For the first demo, we have already
+In our first demo, we want to show you how easy it is to get DSpace 7 runing. For this demo, we have already
 - Installed Docker
 - Installed a command line tool
 - Downloaded some code to help us start DSpace
@@ -100,7 +103,11 @@ docker-compose -p d7 -f docker-compose.yml -f d7.override.yml up -d
 
 ### Docker Images
 
-- A snapshot of an application
+- Imagine you could install a complex application with its complete environment with one command
+- Imagine you'd have a possibility to pack a whole environment into one package
+
+Docker Images makes that possible. An Image is
+- A snapshot of an application and its complete environment
 - Published Online
   - On [docker hub](https://hub.docker.com/)
   - Or in a private repository
@@ -122,32 +129,44 @@ docker-compose -p d7 -f docker-compose.yml -f d7.override.yml up -d
 
 - A running version of a docker image
 - Like a small server running within your desktop
+- Containing a complete environment
+- Containing an application or service
 - Started and stopped by Docker
 - Runs independently of other applications
 
 +++
 
+### A container's livetime
+
+- Images package a complete environment
+- Images define a concrete state that is packaged and shall be run
+- The container should not differ from the state packed into its image
+- A container can be thrown away and recreated easily as the image defines it well
+- Containers are expected to be deleted when they stop
+
 ### Docker Volumes
 
-- Data saved by a Docker container
-- Can be re-used when a container is restarted
+- Can be (re-)used when a container starts
+- Volumes outlive the containers that uses them
 - Like a really small disk drive or network drive
+- All data a container wants to saved must be stored in a volume
 
 +++
 
 ### docker-compose
 
-- Docker compose is a command that can start one or more containers that work together
+- Docker compose is a command to control environments of multiple containers that work together
   - DSpace Database
   - DSpace Web Server
   - Angular UI (for DSpace 7)
+- Build, start, stop, ... all necessary containers for a service or application
 
 ---
 
 ### What is possible with DSpace and Docker?
 
 - Try out a DSpace feature without impacting your existing instance
-- Preview an enhancement **before** it is released
+- Preview an enhancement or new version **before** it is released
   - Give input on the implementation
 - Verify a bug fix **before** it is released
 - Onboard new developers and repository managers to the project
