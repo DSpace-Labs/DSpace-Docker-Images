@@ -38,7 +38,7 @@ git clone https://github.com/DSpace-Labs/DSpace-Docker-Images.git
 cd DSpace-Docker-Images/docker-compose-files/dspace-compose
 ```
 
-### Next Steps
+### Start Using DSpace-Docker
 
 - [Run DSpace 6](run.DSpace6.md)
 - [Run DSpace 7](run.DSpace7.md)
