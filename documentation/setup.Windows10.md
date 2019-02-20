@@ -2,7 +2,7 @@
 
 ### Install Docker Desktop
 
-https://docs.docker.com/install/
+https://docs.docker.com/docker-for-windows/install/
 
 ### Install Git Bash as a terminal for running Docker
 _This shell most closely mirrors the user experience for MacOS and Linux users_
