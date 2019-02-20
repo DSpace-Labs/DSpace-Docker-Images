@@ -136,13 +136,15 @@ Docker Images makes that possible. An Image is
 
 +++
 
-### A container's livetime
+### A container's lifetime
 
 - Images package a complete environment
 - Images define a concrete state that is packaged and shall be run
 - The container should not differ from the state packed into its image
 - A container can be thrown away and recreated easily as the image defines it well
 - Containers are expected to be deleted when they stop
+
++++
 
 ### Docker Volumes
 
