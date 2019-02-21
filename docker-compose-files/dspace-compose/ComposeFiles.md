@@ -41,7 +41,7 @@ Set DSPACE_SRC to your source directory for DSpace.
 
 Run the build
 ```
-# docker-compose -p d6 -f docker-compose.yml -f d6.override.yml -f src.override.yml build
+docker-compose -p d6 -f docker-compose.yml -f d6.override.yml -f src.override.yml build
 ```
 
 10 GB of temporary images will be retained from the build process.  Run the following to free space.
