@@ -7,11 +7,10 @@
 @size[18px](https://github.com/DSpace-Labs/DSpace-Docker-Images)
 
 Note:
+- Kristi presents
 - March 5th, 8am pt, 11am ET, 5pm CET
 - https://duraspace.org/webinar-registration-open-dspace-docker-for-repository-managers-running-any-version-of-dspace-from-your-desktop/
 
-Note:
-Kristi presents
 ---
 
 ### Who We Are
