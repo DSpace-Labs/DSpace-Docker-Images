@@ -381,9 +381,6 @@ docker-compose -p d7 -f docker-compose.yml -f d7.override.yml down
 - [Docker Compose Documentation](https://docs.docker.com/compose/reference/overview/)
 - Join the [**#dspace-docker**](https://dspace-org.slack.com/messages/C9YD42PV3/) Slack Channel
 
----
-
-### Questions?
 
 ---
 
@@ -391,6 +388,10 @@ docker-compose -p d7 -f docker-compose.yml -f d7.override.yml down
 
 - Could you imagine using this capability?
 - What would be needed to make this compelling for the repository manager community?
+
+---
+
+### Questions?
 
 ---
 ### Thank You
