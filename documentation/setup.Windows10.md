@@ -25,7 +25,8 @@ cd DSpace-Docker-Images/docker-compose-files/dspace-compose
 ### Note for Windows users running docker commands
 
 - When running a DSpace command that requires terminal interaction, prefix your docker command with `winpty`
-- When referencing a directory with a docker container, use `//` instead of `/`.  Example `//dspace`
+- When referencing a the root directory of a docker container, use `//` instead of `/`.  
+  - Example use `//dspace/bin/dspace` for `/dspace/bin/dspace`
 
 ### Start using DSpace-Docker
 

@@ -27,7 +27,7 @@ services:
       - ADMIN_LNAME=${ADMIN_LNAME:-AdminLast}
       - AIPZIP=${AIPZIP:-https://github.com/DSpace-Labs/AIP-Files/raw/master/dogAndReport.zip}
       # export SKIPAIP=Y
-      - SKIPAIP=${SKIPAIP}
+      - SKIPAIP=${SKIPAIP:-N}
     ports:
       - 8080:8080
     volumes:
