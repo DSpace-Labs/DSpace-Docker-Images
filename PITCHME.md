@@ -5,6 +5,7 @@
 - Pascal Becker, The Library Code
 
 @size[18px](https://github.com/DSpace-Labs/DSpace-Docker-Images)
+
 @size[18px](http://bit.ly/docker4rm)
 
 Note:
@@ -413,4 +414,5 @@ docker-compose -p d7 -f docker-compose.yml -f d7.override.yml down
 - Pascal Becker, The Library Code
 
 @size[18px](https://github.com/DSpace-Labs/DSpace-Docker-Images)
+
 @size[18px](http://bit.ly/docker4rm)
