@@ -1,67 +1,19 @@
-### DSpace Docker for Repository Managers - Running Any Version of DSpace from your Desktop
+#### DSpace Docker for Repository Managers
+##### Running Any Version of DSpace from your Desktop
 
 - Terry Brady, Georgetown University Library
 - Pascal Becker, The Library Code
----
 
-### Webinar Marketing Details
-_The information on the following 3 slides will be shared with Kristi for marketing.  It will not be part of the presentation._
+@size[18px](https://github.com/DSpace-Labs/DSpace-Docker-Images)
 
-- Background
-- Webinar Objectives
-- Target Audience
-
-+++
-
-### Background
-
-<div style="font-size:18px; text-align: left">
-In 2018, the DSpace development team packaged DSpace to be run with Docker.  
-This made it possible to start any version of DSpace from your desktop with a simple command line call.
-<br/><br/>
-The use of Docker has created a more flexible development environment for DSpace contributors.
-<br/><br/>
-Docker also offers great potential for repository managers. That is the focus of this webinar.
-</div>
-
-Note: 
-In 2018, the DSpace development team packaged DSpace to be run with Docker.  
-This made it possible to start any version of DSpace from your desktop with a simple command line call.
-
-The use of Docker has created a more flexible development environment for DSpace contributors.
-
-Docker also offers great potential for repository managers. That is the focus of this webinar.
-
-+++
-
-### Webinar Objectives
-
-Webinar attendees will learn
-- What is a *Docker image* and what images have been published for DSpace
-- How to install Docker
-- How to launch DSpace 6 and DSpace 7 using Docker
-- How to participate in DSpace testing using Docker
-
-+++
-
-### Target Audience
-
-- Repository Managers who want to preview new DSpace functionality
-- Repository Managers who want to become more involved in DSpace development
-- Potential DSpace contributors who want to learn how they can get started with the project
-
-+++
-
-### Logistics
-
-- 1 hour
-- 10 min will be saved for Questions
-- Terry and Pascal will want to screen share
+Note:
+- Kristi presents
 - March 5th, 8am pt, 11am ET, 5pm CET
+- https://duraspace.org/webinar-registration-open-dspace-docker-for-repository-managers-running-any-version-of-dspace-from-your-desktop/
 
 ---
 
-### About the presenters
+### Who We Are
 
 +++
 
@@ -73,149 +25,229 @@ Webinar attendees will learn
 
 ![](https://www.library.georgetown.edu/sites/default/files/library-logo.png)
 
+Note:
+Terry presents
+
 +++
 
 ### Pascal Becker
 
+- CEO and founder of The Library Code
+- Senior Software Developer at Technische Universität Berlin
 - DSpace Committer
 - https://www.the-library-code.de/
 
+Note:
+Pascal presents
+
 ---
 
-### What is Possible?
+### Background
+
+- 2018 the DSpace for Docker was created
+- Possible to start any version of DSpace from your desktop
+  - (Windows 10, MacOS, Linux)
+- Great potential for repository managers
+
++++
+
+### Who You Are (we think)
+
+- Repository Managers who want to preview new DSpace functionality
+- Repository Managers who want to become more involved in DSpace development
+- Repository Managers who want to test certain functionality of DSpace
+- Potential DSpace contributors who want to learn how they can get started with the project
+- Developers who wants to use DSpace within Docker as part of their development environment
+
++++
+
+### Webinar Objectives
+
+- What is a *Docker image* and what are *Containers*
+- What Docker images have been published for DSpace
+- How to install Docker
+- How to launch DSpace 6 and DSpace 7 using Docker
+- How to participate in DSpace testing using Docker
+
+---
+
+### Motivation
+
+In our first demo, we want to show you how easy it is to get DSpace 7 runing. For this demo, we have already
+- Installed Docker
+- Installed a command line tool
+- Downloaded some code to help us start DSpace
 
 Note:
+Terry presents
 
-Assumption: since we recommend bash or git-bash, we will assume the repo has been cloned to ~/DSpace-Docker-Images.
-
-```
+```shell
 cd
 git clone https://github.com/DSpace-Labs/DSpace-Docker-Images.git
 cd DSpace-Docker-Images/docker-compose-files/dspace-compose
 ```
 
-Question: would it be helpful to show these files before invoking the up command?
-
 +++
 
 ### Launch DSpace 7
 
-```
+```shell
 docker-compose -p d7 -f docker-compose.yml -f d7.override.yml up -d
 ```
 
-- http://localhost:3000
 - http://localhost:8080/spring-rest
+- http://localhost:3000
 
 ---
 
-### What is Docker?
+### 5 Quick Docker Concepts
 
-- Explain Docker images
-- Explain DSpace Docker images
-- Maybe explain docker volumes
-
----
-
-### What is possible with Docker?
-
-- Try out a DSpace feature without impacting your existing instance
-- Preview an enhancement **before** it is released
-  - Give input on the implementation
-- Verify a bug fix **before** it is released
-- Onboard new developers and repository managers to the project
-
----
-
-### Launch DSpace 6
-
-```
-docker-compose -p d6 -f docker-compose.yml -f d6.override.yml up -d
-```
-
-- http://localhost:8080/xmlui
-- http://localhost:8080/rest/static/reports/query.html
-
----
-
-### Step by step instructions
-
-+++
-
-### Install Docker
-- [Docker Installation and Setup](https://dspace-labs.github.io/DSpace-Docker-Images/documentation/tutorialSetup.html)
-
-+++
-
-### Windows: Install Git-Bash
-
-- https://git-scm.com/downloads
-
-+++
-
-### Linux Desktop: Install Git, Docker, Docker Compose
-
-```
-sudo yum install git
-sudo yum install docker
-```
-
-[Install Docker compose](https://docs.docker.com/compose/install/#install-compose)
+- Docker Images
+- DSpace Docker Images
+- Docker Containers
+- Docker Volumes
+- Docker compose
 
 Note:
-- apt-get equivalents?
-
----
-
-### Running Docker Command
-_Time permitting, we will do this on MacOS and on Windows 10_
-
-- docker version
-- docker-compose version
-- docker run --rm ubuntu date
-- start dspace 6
-  - stop dspace 6
-- start dspace 7
-  - stop dspace 7
-
----
-
-### Help needed
-
-- Try it yourself, give us feedback on the documentation
-- Help us assemble public domain assets to distribute in AIP files
-  - with great Metadata
+Pascal presents
 
 +++
 
-### What ideas do you have?
+### Docker Images
 
----
+- Imagine you could install a complex application with its complete environment with one command
+- Imagine you'd have a possibility to pack a whole environment into one package
 
-### Reference Links
+Docker Images makes that possible.
 
-- compile useful resources here
-- [DSpace Docker Tutorial Overview](https://dspace-labs.github.io/DSpace-Docker-Images/)
++++
 
----
+### Docker Images (continued)
 
-### Questions?
+An Image is
 
+- A snapshot of an application and its complete environment
+- Published Online
+  - On [docker hub](https://hub.docker.com/)
+  - Or in a private repository
+- Can be shared and downloaded
 
----
++++
 
-## Prior Slides -- If useful to include
+### DSpace Docker Images
+
+- DSpace 7x, DSpace 6x, DSpace 5x, DSpace 4x
+  - Install content from DSpace AIP files on creation
+- DSpace Database
+- DSpace Angular UI
+- Published to https://cloud.docker.com/u/dspace/repository/list
+
++++
+
+### Docker Containers
+
+- A running version of a docker image
+- Like a small server running within your desktop
+- Containing a complete environment
+- Containing an application or service
+- Started and stopped by Docker
+- Runs independently of other applications
+
++++
+
+### A container's lifetime
+
+- Images package a complete environment needed to run an application
+- Containers can be deleted when they are stopped
+- A container can be thrown away and recreated easily as the image defines it well
 
 +++
 
 ### Docker Volumes
 
-- If data is written to a __docker volume__ that data will be restored when a container is restarted.
-- When we run multiple versions of DSpace, we keep the data for each version of DSpace in a separate volume
+- Can be (re-)used when a container starts
+- Volumes outlive the containers that uses them
+- Like a really small disk drive or network drive
+- All data a container wants to saved must be stored in a volume
+
++++
+
+### docker-compose
+
+- Docker compose is a command to control environments of multiple containers that work together
+  - DSpace Database
+  - DSpace Web Server
+  - Angular UI (for DSpace 7)
+- Build, start, stop, ... all necessary containers for a service or application
 
 ---
 
+### What is possible with DSpace and Docker?
+
+- Try out a DSpace feature without impacting your existing instance
+- Preview an enhancement or new version
+- Give input on the implementation
+- Verify a bug fix **before** it is released
+- Onboard new developers and repository managers to the project
+
+---
+
+### Install Instructions
+
+- Install Docker Desktop
+- Install a terminal for running docker
+- Download DSpace Docker Compose files
+
+Note:
+Terry presents
+
++++
+
+### Installation instructions
+
+- @gitlink[Windows 10 Setup](documentation/setup.Windows10.md)
+- @gitlink[MacOS Setup](documentation/setup.MacOS.md)
+- @gitlink[Linux Desktop Setup](documentation/setup.LinuxDesktop.md)
+
+---
+
+### Step by Step Demonstration
+
++++
+
+### Verify Installs
+
+```shell
+git version
+```
+```shell
+docker version
+```
+```shell
+docker-compose version
+```
+
++++?image=documentation/webinar/win.versions.gif
+
++++
+
+### Download DSpace Docker Compose Files
+
+```shell
+cd
+git clone https://github.com/DSpace-Labs/DSpace-Docker-Images.git
+cd DSpace-Docker-Images/docker-compose-files/dspace-compose
+```
+
++++?image=documentation/webinar/win.clone.gif
+
++++
+
 ## Running DSpace
+
++++
+
+### A quick peek at the DSpace 6 compose files
 
 +++?code=docker-compose-files/dspace-compose/docker-compose.yml&lang=yml
 Docker Compose File
@@ -231,77 +263,126 @@ DSpace 6 Overrides
 
 ### Running DSpace 6
 
-```
+```shell
 docker-compose -p d6 -f docker-compose.yml -f d6.override.yml up -d
 ```
 
++++?image=documentation/webinar/win.d6.start.gif
+
++++
+
+### Running a DSpace command line task
+- dspace version
+- dspace index-discovery
+- dspace filter-media
+- dspace oai import
+
++++?image=documentation/webinar/win.d6version.gif
+
++++
+
+### Test DSpace 6
+
 - [http://localhost:8080/xmlui](http://localhost:8080/xmlui)
 
-```
++++?image=documentation/webinar/d6.web.gif
+
++++
+
+### Stop DSpace 6
+
+```shell
 docker-compose -p d6 -f docker-compose.yml -f d6.override.yml down
 ```
+
++++?image=documentation/webinar/win.d6.down.gif
+
++++
+
+### A quick peek at the DSpace 7 compose files
 
 +++?code=docker-compose-files/dspace-compose/d7.override.yml&lang=yml
 DSpace 7 Overrides
 @[5](Default DSpace 7 Image)
-@[7-9](DSpace Angular Image)
-@[10-12](Ports for Angular)
-@[17-20](Location of the DSpace REST API)
+@[13-15](DSpace Angular Image)
+@[16-18](Ports for Angular)
+@[23-26](Location of the DSpace REST API)
 
 +++
 
 ### Running DSpace 7
 
-```
+```shell
 docker-compose -p d7 -f docker-compose.yml -f d7.override.yml up -d
 ```
 
-- [http://localhost:8080/spring-rest](http://localhost:8080/spring-rest)
-- [http://localhost:3000](http://localhost:3000)
++++?image=documentation/webinar/win.d7.start.gif
 
++++
+
+### DSpace 7 REST API Back End
+
+-  [http://localhost:8080/spring-rest](http://localhost:8080/spring-rest)
+
++++?image=documentation/webinar/d7.rest.gif
+
++++
+
+### Manually Index DSpace 7 content
+
+```shell
+docker exec dspace //dspace/bin/dspace index-discovery
 ```
+
++++
+### DSpace 7 Angular Front End
+
+  - [http://localhost:3000](http://localhost:3000)
+
++++?image=documentation/webinar/d7.angular.gif
+
++++
+
+### Stopping DSpace 7
+
+```shell
 docker-compose -p d7 -f docker-compose.yml -f d7.override.yml down
 ```
 
-+++
-### Running DSpace 6 with an RDF Triplestore
-
-+++?code=docker-compose-files/dspace-compose/rdf.override.yml&lang=yml
-RDF Override File
-@[5-15](DSpace Config Overrides for RDF)
-@[17-19](RDF Triplestore Image)
-@[20-21](Triplestore Ports)
-@[22-23](Triplestore Password)
-+++
-
-### Running DSpace 6 with RDF
-
-```
-docker-compose -p d6 -f docker-compose.yml -f d6.override.yml -f rdf.override.yml up -d
-```
-
-- [https://dspace-labs.github.io/DSpace-Docker-Images/docker-compose-files/rdf-compose/](RDF instructions)
-
-```
-docker-compose -p d6 -f docker-compose.yml -f d6.override.yml -f rdf.override.yml down
-```
-
-+++
-
-### Future possibilities
-
-- Test fixes for specific bugs
-- Test enhancement code _before_ it is part of a release
++++?image=documentation/webinar/win.d7.down.gif
 
 ---
 
-### Help Needed
+### We need **your** help
 
-- Curating and Assembling [AIP Resources](https://github.com/DSpace-Labs/AIP-Files)
-  - Small bitstreams with good Metadata
-  - License and restriction free for inclusion in many test repositories
+- Try it yourself, give us feedback on the documentation
+  - Join the **#dspace-docker** Slack Channel
+- Help us assemble assets to distribute in AIP files
 
 +++
+
+- Curating and Assembling [AIP Resources](https://github.com/DSpace-Labs/AIP-Files)
+  - Public domain / restriction free  
+  - Real repository content (but not very large)
+    - Small PDFs
+    - Small image
+  - Realistic metadata
+
++++
+
+### What ideas do you have?
+
+---
+
+### Reference Links
+
+- [DSpace Docker Tutorial Overview](https://dspace-labs.github.io/DSpace-Docker-Images/)
+- [Docker Documentation](https://docs.docker.com/engine/reference/commandline/cli/)
+- [Docker Compose Documentation](https://docs.docker.com/compose/reference/overview/)
+- Join the [**#dspace-docker**](https://dspace-org.slack.com/messages/C9YD42PV3/) Slack Channel
+
+
+---
 
 ### Discussion
 
@@ -309,11 +390,13 @@ docker-compose -p d6 -f docker-compose.yml -f d6.override.yml -f rdf.override.ym
 - What would be needed to make this compelling for the repository manager community?
 
 ---
-### Thank You
+
+### Questions?
 
 ---
-### TODO's
-- Ensure that instructions work on Windows, Mac, Linux
-- Ensure that instructions are clear for installation
-  - Docker
-  - Appropriate shell
+### Thank You
+
+- Terry Brady, Georgetown University Library
+- Pascal Becker, The Library Code
+
+@size[18px](https://github.com/DSpace-Labs/DSpace-Docker-Images)

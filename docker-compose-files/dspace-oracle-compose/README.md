@@ -61,12 +61,17 @@ winpty docker exec -it dspace //dspace/bin/dspace version
 
 #### Bash
 ```
-docker exec -it dspacedb psql -U dspace -c "select * from schema_version order by installed_rank desc limit 1"
+docker exec -it dspacedb sqlplus dspace/dspace
 ```
 
 #### Git-Bash Windows
 ```
-winpty docker exec -it dspacedb psql -U dspace -c "select * from schema_version order by installed_rank desc limit 1"
+winpty docker exec -it dspacedb sqlplus dspace/dspace
+```
+
+#### SQL to run
+```
+select * from schema_version order by installed_rank desc limit 1;
 ```
 
 ## 4. Accessing the Command Line

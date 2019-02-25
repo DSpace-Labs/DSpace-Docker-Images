@@ -10,7 +10,7 @@ then
   /dspace-docker-tools/createAdmin.sh
   AIPZIP=${AIPZIP:-https://github.com/DSpace-Labs/AIP-Files/raw/master/dogAndReport.zip}
   ADMIN_EMAIL=${ADMIN_EMAIL:-test@test.edu}
-  if [ ! -z $AIPZIP ]
+  if [ ! -z $AIPZIP -a $SKIPAIP != 'Y' ]
   then
     AIPDIR=/tmp/aip-dir
     rm -rf ${AIPDIR}
