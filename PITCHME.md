@@ -4,9 +4,9 @@
 - Terry Brady, Georgetown University Library
 - Pascal Becker, The Library Code
 
-@size[18px](https://github.com/DSpace-Labs/DSpace-Docker-Images)
+@size[20px](https://github.com/DSpace-Labs/DSpace-Docker-Images)
 
-@size[18px](http://bit.ly/docker4rm)
+http://bit.ly/docker4rm
 
 Note:
 - Kristi presents
@@ -413,6 +413,6 @@ docker-compose -p d7 -f docker-compose.yml -f d7.override.yml down
 - Terry Brady, Georgetown University Library
 - Pascal Becker, The Library Code
 
-@size[18px](https://github.com/DSpace-Labs/DSpace-Docker-Images)
+@size[20px](https://github.com/DSpace-Labs/DSpace-Docker-Images)
 
-@size[18px](http://bit.ly/docker4rm)
+http://bit.ly/docker4rm
