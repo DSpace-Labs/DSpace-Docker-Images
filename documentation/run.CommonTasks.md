@@ -85,7 +85,7 @@ Start DSpace 6 using port 8081
 ```shell
 cd
 cd DSpace-Docker-Images/docker-compose-files/dspace-compose
-docker-compose -p d6 -f docker-compose-8081.yml -f d6.override.yml up -d
+PORT=8081 docker-compose -p d6 -f docker-compose.yml -f d6.override.yml up -d
 ```
 
 ## Building DSpace Code

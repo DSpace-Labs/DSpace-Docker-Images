@@ -29,7 +29,7 @@ services:
       # export SKIPAIP=Y
       - SKIPAIP=${SKIPAIP:-N}
     ports:
-      - 8080:8080
+      - ${PORT:-8080}:8080
     volumes:
       - "assetstore:/dspace/assetstore"
       - "../../add-ons/dspace-docker-tools:/dspace-docker-tools"

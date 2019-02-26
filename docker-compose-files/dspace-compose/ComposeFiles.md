@@ -3,7 +3,6 @@
 | Compose File | Purpose |
 | -- | -- |
 | docker-compose.yml | Base image for DSpace 4, 5, 6, 7.  Ingests content (if needed) and starts tomcat. |
-| docker-compose-8081.yml | Variant base image that runs tomcat on port 8081 to allow 2 DSpace instances to run simultaneously |
 | d4.override.yml | Sets base image for DSpace4x.  <br/>Since Flyway is not supported in DSpace4x, a special 4x postgres image. |
 | d5.override.yml | Sets base image for DSpace5x.  Activates Mirage2. |
 | d6.override.yml | Sets base image for DSpace6x.  Activates Mirage2. |
