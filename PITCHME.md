@@ -5,6 +5,7 @@
 - Pascal Becker, The Library Code
 
 @size[20px](https://github.com/DSpace-Labs/DSpace-Docker-Images)
+@size[20px][Webinar Video](https://duraspace.zoom.us/recording/share/kCDyG4ux5qVbvsYkau2h7_J3eb0nfvlWP9umNwmvVjCwIumekTziMw)
 
 http://bit.ly/docker4rm
 
