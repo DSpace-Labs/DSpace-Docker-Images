@@ -22,6 +22,8 @@ This repository contains the source code for Docker Images for the [DSpace](http
 
 ## Tutorials
 
+- [Webinar: DSpace Docker for Repository Managers: Running Any Version of DSpace from your Desktop](https://gitpitch.com/DSpace-Labs/DSpace-Docker-Images/webinar)
+  - [Webinar Video](https://duraspace.zoom.us/recording/share/kCDyG4ux5qVbvsYkau2h7_J3eb0nfvlWP9umNwmvVjCwIumekTziMw)
 - [Setting Up Docker](documentation/tutorialSetup.md)
 - [Running DSpace with Docker Compose](docker-compose-files/dspace-compose/README.md)
 - [Running DSpace 7 (Angular Only) with Docker Compose](docker-compose-files/angular-compose/README.md)
