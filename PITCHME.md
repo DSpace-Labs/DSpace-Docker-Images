@@ -4,7 +4,9 @@
 - Terry Brady, Georgetown University Library
 - Pascal Becker, The Library Code
 
-@size[18px](https://github.com/DSpace-Labs/DSpace-Docker-Images)
+@size[20px](https://github.com/DSpace-Labs/DSpace-Docker-Images)
+
+http://bit.ly/docker4rm
 
 Note:
 - Kristi presents
@@ -53,11 +55,13 @@ Pascal presents
 
 ### Who You Are (we think)
 
-- Repository Managers who want to preview new DSpace functionality
-- Repository Managers who want to become more involved in DSpace development
-- Repository Managers who want to test certain functionality of DSpace
-- Potential DSpace contributors who want to learn how they can get started with the project
-- Developers who wants to use DSpace within Docker as part of their development environment
+- Repository Managers who want to ...
+  - preview new DSpace functionality
+  - become more involved in DSpace development
+  - test certain functionality of DSpace
+- Developers who want to ...
+  - learn how they can get started with the project
+  - use DSpace within Docker as part of their development environment
 
 +++
 
@@ -89,11 +93,20 @@ cd DSpace-Docker-Images/docker-compose-files/dspace-compose
 
 +++
 
-### Launch DSpace 7
+### Demo: Running DSpace 7
+
+- It takes 2-3 minutes to start up
+- The following command was already run
 
 ```shell
 docker-compose -p d7 -f docker-compose.yml -f d7.override.yml up -d
 ```
+
++++?image=documentation/webinar/win.d7.start.gif
+
++++
+
+### Testing DSpace 7
 
 - http://localhost:8080/spring-rest
 - http://localhost:3000
@@ -115,10 +128,11 @@ Pascal presents
 
 ### Docker Images
 
-- Imagine you could install a complex application with its complete environment with one command
-- Imagine you'd have a possibility to pack a whole environment into one package
+- Imagine you could
+  - install a complex application with its complete environment with one command
+  - pack a whole environment into one package
 
-Docker Images makes that possible.
+Docker Images make that possible.
 
 +++
 
@@ -140,7 +154,7 @@ An Image is
   - Install content from DSpace AIP files on creation
 - DSpace Database
 - DSpace Angular UI
-- Published to https://cloud.docker.com/u/dspace/repository/list
+- Published to https://hub.docker.com/u/dspace
 
 +++
 
@@ -168,7 +182,7 @@ An Image is
 - Can be (re-)used when a container starts
 - Volumes outlive the containers that uses them
 - Like a really small disk drive or network drive
-- All data a container wants to saved must be stored in a volume
+- Data you wish to save must be stored in a volume
 
 +++
 
@@ -368,9 +382,6 @@ docker-compose -p d7 -f docker-compose.yml -f d7.override.yml down
     - Small image
   - Realistic metadata
 
-+++
-
-### What ideas do you have?
 
 ---
 
@@ -391,7 +402,10 @@ docker-compose -p d7 -f docker-compose.yml -f d7.override.yml down
 
 ---
 
-### Questions?
+### Feedback/Questions?
+
+- What ideas do you have?
+- What questions do you have?
 
 ---
 ### Thank You
@@ -399,4 +413,6 @@ docker-compose -p d7 -f docker-compose.yml -f d7.override.yml down
 - Terry Brady, Georgetown University Library
 - Pascal Becker, The Library Code
 
-@size[18px](https://github.com/DSpace-Labs/DSpace-Docker-Images)
+@size[20px](https://github.com/DSpace-Labs/DSpace-Docker-Images)
+
+http://bit.ly/docker4rm

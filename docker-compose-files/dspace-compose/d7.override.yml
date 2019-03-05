@@ -26,6 +26,7 @@ services:
       - DSPACE_REST_NAMESPACE=/
       - DSPACE_REST_PORT=8080
     volumes:
+      # The localhost:port in use by the client js is set in the following file
       - "../../add-ons/angular-tools/environment.dev.js:/app/config/environment.dev.js"
     networks:
       - dspacenet
