@@ -8,6 +8,8 @@
 
 http://bit.ly/docker4rm
 
+[Webinar Video](https://duraspace.zoom.us/recording/share/kCDyG4ux5qVbvsYkau2h7_J3eb0nfvlWP9umNwmvVjCwIumekTziMw)
+
 Note:
 - Kristi presents
 - March 5th, 8am pt, 11am ET, 5pm CET
@@ -416,3 +418,6 @@ docker-compose -p d7 -f docker-compose.yml -f d7.override.yml down
 @size[20px](https://github.com/DSpace-Labs/DSpace-Docker-Images)
 
 http://bit.ly/docker4rm
+
+[Webinar Video](https://duraspace.zoom.us/recording/share/kCDyG4ux5qVbvsYkau2h7_J3eb0nfvlWP9umNwmvVjCwIumekTziMw)
+
