@@ -12,7 +12,7 @@ services:
     stdin_open: true
 
   dspace:
-    image: "dspace/dspace:${DSPACE_VER:-dspace-6_x-jdk8-test}"
+    image: "${DOCKER_OWNER:-dspace}/dspace:${DSPACE_VER:-dspace-6_x-jdk8-test}"
     container_name: dspace
     environment:
       - DSPACE_INSTALL=/dspace
@@ -34,6 +34,7 @@ services:
       - "${ORADRIVER}/ojdbc6.jar:/dspace/webapps/swordv2/WEB-INF/lib/ojdbc6.jar"
       - "${ORADRIVER}/ojdbc6.jar:/dspace/webapps/xmlui/WEB-INF/lib/ojdbc6.jar"
       # Override local.cfg to use the oracle driver
+      # Since this override is to local.cfg, the solution only works for DSpace 6+
       - "./local.cfg.oracle:/dspace/config/local.cfg"
     networks:
       - dspacenet

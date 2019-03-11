@@ -22,8 +22,8 @@ then
     cd ${AIPDIR}
 
     /dspace/bin/dspace packager -r -a -t AIP -e ${ADMIN_EMAIL} -f -u SITE*.zip
-    # touch /dspace/solr/search/conf/reindex.flag
-    echo "Run \n\tdocker exec -it dspacedb /dspace-docker/tools/updateSequences.sql"
+    /dspace/bin/dspace database update-sequences
+    /dspace/bin/dspace index-discovery
   fi
   touch $CHECKFILE
 fi
