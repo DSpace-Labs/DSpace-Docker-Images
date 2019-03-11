@@ -9,30 +9,20 @@ version: "3.7"
 services:
   dspacedb:
     image: atmire/dspace-oracle:11g2
-    container_name: dspacedb
     volumes:
       - oracledata:/u01/app/oracle
-    networks:
-      - dspacenet
-    tty: true
-    stdin_open: true
 
   dspace:
-    image: "${DOCKER_OWNER:-dspace}/dspace:${DSPACE_VER:-dspace-6_x-jdk8-test}"
-    container_name: dspace
     environment:
-      - DSPACE_INSTALL=/dspace
+      - AIPWAIT=120
+      - DBWAIT=15
       - JAVA_OPTS=
         -Ddb.dialect=org.hibernate.dialect.Oracle10gDialect
         -Ddb.schema=dspace
         -Ddb.name=oracle
         -Ddb.driver=oracle.jdbc.OracleDriver
         -Ddb.url=jdbc:oracle:thin:@//dspacedb:1521/XE
-    ports:
-      - 8080:8080
     volumes:
-      - "assetstore:/dspace/assetstore"
-      - "solr:/dspace/solr"
       # export ORADRIVER=<directory containing Oracle JDBC drvier>
       # you must accept the license agreement and download the file from
       # https://www.oracle.com/technetwork/
@@ -45,17 +35,6 @@ services:
       - "${ORADRIVER}/ojdbc6.jar:/dspace/webapps/sword/WEB-INF/lib/ojdbc6.jar"
       - "${ORADRIVER}/ojdbc6.jar:/dspace/webapps/swordv2/WEB-INF/lib/ojdbc6.jar"
       - "${ORADRIVER}/ojdbc6.jar:/dspace/webapps/xmlui/WEB-INF/lib/ojdbc6.jar"
-    networks:
-      - dspacenet
-    depends_on:
-      - dspacedb
-    tty: true
-    stdin_open: true
 
 volumes:
   oracledata:
-  assetstore:
-  solr:
-
-networks:
-  dspacenet:

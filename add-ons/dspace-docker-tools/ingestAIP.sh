@@ -10,6 +10,7 @@ echo ${LOCALCFG3} >> /dspace/config/local.cfg
 if [ ! -f $CHECKFILE ]
 then
   # On the first startup of a new DSpace instance, this script will run the background
+  sleep ${AIPWAIT:-0}
   /dspace-docker-tools/createAdmin.sh
   AIPZIP=${AIPZIP:-https://github.com/DSpace-Labs/AIP-Files/raw/master/dogAndReport.zip}
   ADMIN_EMAIL=${ADMIN_EMAIL:-test@test.edu}
@@ -31,4 +32,5 @@ then
   touch $CHECKFILE
 fi
 
+sleep ${DBWAIT:-0}
 catalina.sh run
