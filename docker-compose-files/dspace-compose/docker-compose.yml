@@ -28,6 +28,12 @@ services:
       - AIPZIP=${AIPZIP:-https://github.com/DSpace-Labs/AIP-Files/raw/master/dogAndReport.zip}
       # export SKIPAIP=Y
       - SKIPAIP=${SKIPAIP:-N}
+      - LOCALCFG1=
+        \n# LOCALCFG1 overrides
+      - LOCALCFG2=
+        \n# LOCALCFG2 overrides
+      - LOCALCFG3=
+        \n# LOCALCFG3 overrides
     ports:
       - ${PORT:-8080}:8080
     volumes:

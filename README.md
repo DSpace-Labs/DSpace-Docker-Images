@@ -25,7 +25,6 @@ This repository contains the source code for Docker Images for the [DSpace](http
 - [Running DSpace with Docker Compose](docker-compose-files/dspace-compose/README.md)
 - [Running DSpace 7 (Angular Only) with Docker Compose](docker-compose-files/angular-compose/README.md)
   - [Testing DSpace 7 Angular Code with Docker Compose](docker-compose-files/angular-dev-compose/README.md)
-- [Running DSpace + Oracle with Docker compose](docker-compose-files/dspace-oracle-compose/README.md)
 - [Creating automated builds for your DSpace contributions](documentation/forkBuild.md)
 
 ---
@@ -53,6 +52,7 @@ The following Docker Compose files can be used to simplify the management of DSp
 - DSpace 5 Compose File: d5.override.yml
 - DSpace 4 Compose File: d4.override.yml
 - DSpace RDF Compose File: rdf.override.yml
+- Oracle Compose File: oracle.override.yml
 - DSpace Local Build Compose File: src.override.yml
 
 ### Special Purpose Compose files
@@ -62,7 +62,6 @@ The following Docker Compose files can be used to simplify the management of DSp
 | [angular-compose](https://github.com/DSpace-Labs/DSpace-Docker-Images/tree/master/docker-compose-files/angular-compose) | | | Compose file to run the DSpace 7 Angular UI with an External REST Service |
 | [angular-dev-compose](https://github.com/DSpace-Labs/DSpace-Docker-Images/tree/master/docker-compose-files/angular-dev-compose) | | | Compose file to develop the DSpace 7 Angular UI with an External REST Service |
 | | dspace-angular | dspace/dspace-angular-bare   | |
-| [dspace-oracle-compose](https://github.com/DSpace-Labs/DSpace-Docker-Images/tree/master/docker-compose-files/dspace-oracle-compose) | | | Compose file for testing DSpace code with Oracle |
 | | dspacedb | atmire/dspace-oracle            | |
 | | dspace   | dspace/dspace                   | ||
 
