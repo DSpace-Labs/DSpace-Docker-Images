@@ -6,7 +6,7 @@ services:
     environment:
       - LOCALCFG3=
         \n# LOCALCFG3 overrides
-        \nrdf.contextPath = http://dspace:8080/rdf
+        \nrdf.contextPath = http://localhost:8080/rdf
         \nrdf.storage.graphstore.endpoint = http://fuseki:3030/dspace/data
         \nrdf.public.sparql.endpoint = http://fuseki:3030/dspace/sparql
         \nrdf.storage.graphstore.authentication = yes
