@@ -3,9 +3,6 @@
 CHECKFILE=/dspace/assetstore/ingest.hasrun.flag
 
 export JAVA_OPTS="${JAVA_OPTS} -Xmx2500m -Dupload.temp.dir=/dspace/upload -Djava.io.tmpdir=/tmp"
-echo ${LOCALCFG1} >> /dspace/config/local.cfg
-echo ${LOCALCFG2} >> /dspace/config/local.cfg
-echo ${LOCALCFG3} >> /dspace/config/local.cfg
 
 if [ ! -f $CHECKFILE ]
 then

@@ -32,12 +32,10 @@ services:
       - AIPWAIT=0
       # Number of sec to wait before attempting to start tomcat
       - DBWAIT=0
-      - LOCALCFG1=
-        \n# LOCALCFG1 overrides
-      - LOCALCFG2=
-        \n# LOCALCFG2 overrides
-      - LOCALCFG3=
-        \n# LOCALCFG3 overrides
+      # Property names containing periods cannot be modified as env variables
+      # Beware of using spaces in values
+      - JAVA_OPTS=
+        -Ddspace.name=DSpace_Started_with_Docker_Compose
     ports:
       - ${PORT:-8080}:8080
     volumes:
