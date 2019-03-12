@@ -3,6 +3,7 @@ version: "3.7"
 # Docker compose will enable DSpace developers without a local Oracle installation to test DSpace changes with an Oracle database.
 # Note: this requires you to download a local copy of Oracle's JDBC client driver file.  That file is not bundled within the DSpace Docker image.
 # This compose file makes use of Atmire's dspace-oracle Docker image.
+
 # Download a copy of the Oracle ojdbc6.jar from https://www.oracle.com/technetwork/
 # export ORADRIVER=<path to your copy of odbc6.jar>
 
@@ -16,6 +17,9 @@ services:
     environment:
       - AIPWAIT=120
       - DBWAIT=15
+      # The following overrides will only apply to DSpace 6+
+      # If you need to test Oracle with DSpace 4 or 5, you should manually insert these Values
+      # into the dspace.cfg file. Consider passing in dspace.cfg as a volume.
       - JAVA_OPTS=
         -Ddb.dialect=org.hibernate.dialect.Oracle10gDialect
         -Ddb.schema=dspace
