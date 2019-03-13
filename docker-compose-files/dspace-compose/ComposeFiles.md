@@ -54,6 +54,19 @@ docker-compose -p d6 -f docker-compose.yml -f d6.override.yml -f src.override.ym
 
 ---
 
+## Running with Oracle (DSpace6 and DSpace7)
+
+Oracle drivers cannot be distributed within a docker image.  Download a copy of the Oracle ojdbc6.jar from https://www.oracle.com/technetwork/ and set the following variable.
+```
+export ORADRIVER=<path to your copy of odbc6.jar>
+```
+
+Add "-f orace.override.yml" to your docker-compose up command.  As a good practice, use a separate project such as `-p d6ora` to keep your volumes unique from your postgres configurations.
+
+The Oracle container will take a bit of time to initialize.  A delay has been added to the startup script to allocate time for this container to start.
+
+---
+
 ## Add the RDF Service (DSpace6 and DSpace7)
 
 Add `-f rdf.override.yml` to add an RDF Triplestore to your DSpace distribution.

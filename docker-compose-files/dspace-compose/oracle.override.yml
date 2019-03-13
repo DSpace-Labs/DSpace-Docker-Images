@@ -1,26 +1,32 @@
-version: "3.3"
+version: "3.7"
+
+# Docker compose will enable DSpace developers without a local Oracle installation to test DSpace changes with an Oracle database.
+# Note: this requires you to download a local copy of Oracle's JDBC client driver file.  That file is not bundled within the DSpace Docker image.
+# This compose file makes use of Atmire's dspace-oracle Docker image.
+
+# Download a copy of the Oracle ojdbc6.jar from https://www.oracle.com/technetwork/
+# export ORADRIVER=<path to your copy of odbc6.jar>
 
 services:
   dspacedb:
     image: atmire/dspace-oracle:11g2
-    container_name: dspacedb
     volumes:
       - oracledata:/u01/app/oracle
-    networks:
-      - dspacenet
-    tty: true
-    stdin_open: true
 
   dspace:
-    image: "${DOCKER_OWNER:-dspace}/dspace:${DSPACE_VER:-dspace-6_x-jdk8-test}"
-    container_name: dspace
     environment:
-      - DSPACE_INSTALL=/dspace
-    ports:
-      - 8080:8080
+      - AIPWAIT=120
+      - DBWAIT=15
+      # The following overrides will only apply to DSpace 6+
+      # If you need to test Oracle with DSpace 4 or 5, you should manually insert these Values
+      # into the dspace.cfg file. Consider passing in dspace.cfg as a volume.
+      - JAVA_OPTS=
+        -Ddb.dialect=org.hibernate.dialect.Oracle10gDialect
+        -Ddb.schema=dspace
+        -Ddb.name=oracle
+        -Ddb.driver=oracle.jdbc.OracleDriver
+        -Ddb.url=jdbc:oracle:thin:@//dspacedb:1521/XE
     volumes:
-      - "assetstore:/dspace/assetstore"
-      - "solr:/dspace/solr"
       # export ORADRIVER=<directory containing Oracle JDBC drvier>
       # you must accept the license agreement and download the file from
       # https://www.oracle.com/technetwork/
@@ -33,20 +39,6 @@ services:
       - "${ORADRIVER}/ojdbc6.jar:/dspace/webapps/sword/WEB-INF/lib/ojdbc6.jar"
       - "${ORADRIVER}/ojdbc6.jar:/dspace/webapps/swordv2/WEB-INF/lib/ojdbc6.jar"
       - "${ORADRIVER}/ojdbc6.jar:/dspace/webapps/xmlui/WEB-INF/lib/ojdbc6.jar"
-      # Override local.cfg to use the oracle driver
-      # Since this override is to local.cfg, the solution only works for DSpace 6+
-      - "./local.cfg.oracle:/dspace/config/local.cfg"
-    networks:
-      - dspacenet
-    depends_on:
-      - dspacedb
-    tty: true
-    stdin_open: true
 
 volumes:
   oracledata:
-  assetstore:
-  solr:
-
-networks:
-  dspacenet:
