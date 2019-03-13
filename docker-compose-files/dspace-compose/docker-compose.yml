@@ -33,7 +33,7 @@ services:
       # Number of sec to wait before attempting to start tomcat
       - DBWAIT=0
       # Double underbars in env names will be replaced with periods for apache commons
-      dspace__name=DSpace Started with Docker Compose
+      - dspace__name=DSpace Started with Docker Compose
     ports:
       - ${PORT:-8080}:8080
     volumes:
