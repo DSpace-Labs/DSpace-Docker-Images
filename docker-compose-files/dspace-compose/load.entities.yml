@@ -1,0 +1,18 @@
+# suitable for DSpace 6 and 7
+version: "3.7"
+
+services:
+  dspace:
+    environment:
+     # Double underbars in env names will be replaced with periods for apache commons
+     - SKIPAIP=Y
+  dspacedb:
+    volumes:
+      # Download and unzip the entities data file.
+      # This file will be provided by the DSpace Entities Working Group
+      #
+      # export LOADSQL=<local path to the sql file>
+      #
+      # docker-compose -p d7ent -f docker-compose.yml -f d7.override.yml -f load.entities.yml up -d
+      - "${LOADSQL}:/tmp/dspace.sql"
+      - "../../add-ons/dspace-docker-tools/loadEntities.sh:/docker-entrypoint-initdb.d/install-pgcrypto.sh"
