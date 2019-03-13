@@ -2,7 +2,7 @@
 # Once this file has been saved to a docker volume, the ingest step will not be re-run
 CHECKFILE=/dspace/assetstore/ingest.hasrun.flag
 
-env | egrep "__.*=" | egrep -v "=.*__" | sed -e s/__/./g > /dspace/config/environment.cfg
+env | egrep "__.*=" | egrep -v "=.*__" | sed -e s/__/./g > /dspace/config/local.cfg
 
 export JAVA_OPTS="${JAVA_OPTS} -Xmx2500m -Dupload.temp.dir=/dspace/upload -Djava.io.tmpdir=/tmp"
 

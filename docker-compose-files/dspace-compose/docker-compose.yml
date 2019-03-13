@@ -32,14 +32,18 @@ services:
       - AIPWAIT=0
       # Number of sec to wait before attempting to start tomcat
       - DBWAIT=0
-      # Double underbars in env names will be replaced with periods for apache commons
+      # Env vars with double underbars in names will be replaced with periods and written to local.cfg
+      # The defaul values for local.cfg will be provided here
+      - dspace__dir=/dspace
+      - db__url=jdbc:postgresql://dspacedb:5432/dspace
+      - dspace__hostname=localhost
+      - dspace__baseUrl=http://localhost:8080
       - dspace__name=DSpace Started with Docker Compose
     ports:
       - ${PORT:-8080}:8080
     volumes:
       - "assetstore:/dspace/assetstore"
       - "../../add-ons/dspace-docker-tools:/dspace-docker-tools"
-      - "./config-definition.xml:/dspace/config/config-definition.xml"
     entrypoint: /dspace-docker-tools/ingestAIP.sh
     networks:
       - dspacenet
