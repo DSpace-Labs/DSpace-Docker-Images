@@ -4,16 +4,16 @@ version: "3.7"
 services:
   dspace:
     environment:
-      - JAVA_OPTS=
-        -Drdf.contextPath=http://localhost:8080/rdf
-        -Drdf.storage.graphstore.endpoint=http://fuseki:3030/dspace/data
-        -Drdf.public.sparql.endpoint=http://fuseki:3030/dspace/sparql
-        -Drdf.storage.graphstore.authentication=yes
-        -Drdf.storage.graphstore.login=admin
-        -Drdf.storage.graphstore.password=dspace
-        -Drdf.storage.sparql.authentication=yes
-        -Drdf.storage.sparql.login=admin
-        -Drdf.storage.sparql.password=dspace
+     # Double underbars in env names will be replaced with periods for apache commons
+     - rdf__contextPath=http://localhost:8080/rdf
+     - rdf__storage__graphstore__endpoint=http://fuseki:3030/dspace/data
+     - rdf__public__sparql__endpoint=http://fuseki:3030/dspace/sparql
+     - rdf__storage__graphstore__authentication=yes
+     - rdf__storage__graphstore__login=admin
+     - rdf__storage__graphstore__password=dspace
+     - rdf__storage__sparql__authentication=yes
+     - rdf__storage__sparql__login=admin
+     - rdf__storage__sparql__password=dspace
   fuseki:
     image: "stain/jena-fuseki"
     container_name: fuseki

@@ -20,12 +20,12 @@ services:
       # The following overrides will only apply to DSpace 6+
       # If you need to test Oracle with DSpace 4 or 5, you should manually insert these Values
       # into the dspace.cfg file. Consider passing in dspace.cfg as a volume.
-      - JAVA_OPTS=
-        -Ddb.dialect=org.hibernate.dialect.Oracle10gDialect
-        -Ddb.schema=dspace
-        -Ddb.name=oracle
-        -Ddb.driver=oracle.jdbc.OracleDriver
-        -Ddb.url=jdbc:oracle:thin:@//dspacedb:1521/XE
+      # Double underbars in env names will be replaced with periods for apache commons
+      - db__dialect=org.hibernate.dialect.Oracle10gDialect
+      - db__schema=dspace
+      - db__name=oracle
+      - db__driver=oracle.jdbc.OracleDriver
+      - db__url=jdbc:oracle:thin:@//dspacedb:1521/XE
     volumes:
       # export ORADRIVER=<directory containing Oracle JDBC drvier>
       # you must accept the license agreement and download the file from

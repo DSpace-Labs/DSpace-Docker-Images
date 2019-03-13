@@ -32,15 +32,14 @@ services:
       - AIPWAIT=0
       # Number of sec to wait before attempting to start tomcat
       - DBWAIT=0
-      # Property names containing periods cannot be modified as env variables
-      # Beware of using spaces in values
-      - JAVA_OPTS=
-        -Ddspace.name=DSpace_Started_with_Docker_Compose
+      # Double underbars in env names will be replaced with periods for apache commons
+      dspace__name=DSpace Started with Docker Compose
     ports:
       - ${PORT:-8080}:8080
     volumes:
       - "assetstore:/dspace/assetstore"
       - "../../add-ons/dspace-docker-tools:/dspace-docker-tools"
+      - "./config-definition.xml:/dspace/config/config-definition.xml"
     entrypoint: /dspace-docker-tools/ingestAIP.sh
     networks:
       - dspacenet
