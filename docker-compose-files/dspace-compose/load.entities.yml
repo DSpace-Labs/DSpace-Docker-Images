@@ -9,6 +9,8 @@ services:
   dspacedb:
     volumes:
       # Download and unzip the entities data file.
+      # - https://www.dropbox.com/s/ovqp394y3vofnwa/entities7-test-db.sql.gz?dl=1
+      #
       # This file will be provided by the DSpace Entities Working Group
       #
       # export LOADSQL=<local path to the sql file>
