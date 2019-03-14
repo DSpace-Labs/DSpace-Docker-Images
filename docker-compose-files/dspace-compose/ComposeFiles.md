@@ -1,4 +1,4 @@
-## Proposed Changes to Docker Compose Startup
+## Docker Compose Startup Options
 
 | Compose File | Purpose |
 | -- | -- |
