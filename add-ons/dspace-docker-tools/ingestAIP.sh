@@ -11,10 +11,13 @@ CHECKFILE=/dspace/assetstore/ingest.hasrun.flag
 #
 # The following script code is designed to provide similar flexibility to earlier
 # versions of DSpace running in docker.
-if [ "$SCRIPTVER" -eq 6 ]
+if [ "$SCRIPTVER" -ge 6 ]
 then
   # Overwrite local.cfg for DSpace 6
+  # __dash__ -> -
+  # __ -> .
   env | egrep "__.*=" | egrep -v "=.*__" | sed -e s/__/./g > /dspace/config/local.cfg
+  sed -e s/\.dash\./-/g -i /dspace/config/local.cfg
 elif [ "$SCRIPTVER" -lt 6 ]
 then
   # Substitute values in dspace.cfg for DSpace 5 and DSpace 4

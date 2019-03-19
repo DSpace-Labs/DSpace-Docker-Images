@@ -1,0 +1,15 @@
+# suitable for DSpace 6 and 7
+version: "3.7"
+
+services:
+  dspace:
+    environment:
+      # Double underbars in env names will be replaced with periods for apache commons
+      # __dash__ -> -
+      # __ -> .
+      - sword__dash__server__enabled=true
+      - swordv2__dash__server__enabled=true
+      - swordv2__dash__server__path=swordv2
+      - swordv2__dash__server__url=http://localhost:8080/swordv2
+      - swordv2__dash__server__collection.url=http://localhost:8080/swordv2/collection
+      - swordv2__dash__server__servicedocument.url=http://localhost:8080/swordv2/servicedocument

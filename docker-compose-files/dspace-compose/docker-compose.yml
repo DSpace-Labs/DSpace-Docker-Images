@@ -35,6 +35,8 @@ services:
       - DBWAIT=0
       # Env vars with double underbars in names will be replaced with periods and written to local.cfg
       # The defaul values for local.cfg will be provided here
+      # __dash__ -> -
+      # __ -> .
       - dspace__dir=/dspace
       - db__url=jdbc:postgresql://dspacedb:5432/dspace
       - dspace__hostname=localhost
