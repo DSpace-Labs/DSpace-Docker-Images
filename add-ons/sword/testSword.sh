@@ -1,8 +1,6 @@
 #!/bin/sh
 
-cd /tmp
-
-curl -o example.zip https://github.com/DSpace/DSpace/blob/dspace-5_x/dspace-sword/example/example.zip
+# Run this in /add-ons/sword from your desktop - not within Docker
 
 curl -i --data-binary "@example.zip" -H "Content-Disposition:filename=example.zip" -H "Content-Type:application/zip" -H "X-Packaging:http://purl.org/net/sword-types/METSDSpaceSIP" -u test@test.edu:admin http://localhost:8080/sword/deposit/123456789/4
 
