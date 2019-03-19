@@ -10,6 +10,7 @@
 | d7solr.override.yml | Adds externalized solr to d7.override.yml <br/> Solr http://localhost:8983 |
 | src.override.yml | Optional add-on to trigger and redeploy and tomcat start. |
 | rdf.override.yml | Optional RDF Add-on for DSpace6x and DSpace7x. <br/>http://localhost:3030 |
+| sword.override.yml | Optional Add-on for enabling and testing the sword and swordv2 services |
 
 ## Basic Startup Commands
 _Note: only one compose file should be running at a given time.  
@@ -96,6 +97,13 @@ winpty docker exec -it dspace //dspace/bin/dspace rdfizer -c -v
 
 ---
 
+## Enable the Sword and Swordv2 Services
+
+Add `-f sword.override.yml` to enable the sword and swordv2 services
+
+See the **add-ons/sword** directory for a sample zip file to deposit and for the command line calls to force a test of these services.
+
+---
 ## Miscellaneous Notes
 
 ### Passing Variables and Properties to DSpace
