@@ -11,7 +11,7 @@ services:
       - "solr_statistics:/dspace/solr/statistics/data"
 
   dspace-angular:
-    image: dspace/dspace-angular
+    image: "${ANGULAR_OWNER:-dspace}/dspace-angular:${ANGULAR_VER:-latest}"
     container_name: dspace-angular
     ports:
       - 3000:3000
