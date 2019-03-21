@@ -5,15 +5,15 @@ services:
   dspace:
     environment:
      # Double underbars in env names will be replaced with periods for apache commons
-     - rdf__contextPath=http://localhost:8080/rdf
-     - rdf__storage__graphstore__endpoint=http://fuseki:3030/dspace/data
-     - rdf__public__sparql__endpoint=http://fuseki:3030/dspace/sparql
-     - rdf__storage__graphstore__authentication=yes
-     - rdf__storage__graphstore__login=admin
-     - rdf__storage__graphstore__password=dspace
-     - rdf__storage__sparql__authentication=yes
-     - rdf__storage__sparql__login=admin
-     - rdf__storage__sparql__password=dspace
+     - rdf__P__contextPath=http://localhost:8080/rdf
+     - rdf__P__storage__P__graphstore__P__endpoint=http://fuseki:3030/dspace/data
+     - rdf__P__public__P__sparql__P__endpoint=http://fuseki:3030/dspace/sparql
+     - rdf__P__storage__P__graphstore__P__authentication=yes
+     - rdf__P__storage__P__graphstore__P__login=admin
+     - rdf__P__storage__P__graphstore__P__password=dspace
+     - rdf__P__storage__P__sparql__P__authentication=yes
+     - rdf__P__storage__P__sparql__P__login=admin
+     - rdf__P__storage__P__sparql__P__password=dspace
   fuseki:
     image: "stain/jena-fuseki"
     container_name: fuseki

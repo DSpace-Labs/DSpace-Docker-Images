@@ -5,11 +5,11 @@ services:
   dspace:
     environment:
       # Double underbars in env names will be replaced with periods for apache commons
-      # __dash__ -> -
-      # __ -> .
-      - sword__dash__server__enabled=true
-      - swordv2__dash__server__enabled=true
-      - swordv2__dash__server__path=swordv2
-      - swordv2__dash__server__url=http://localhost:8080/swordv2
-      - swordv2__dash__server__collection.url=http://localhost:8080/swordv2/collection
-      - swordv2__dash__server__servicedocument.url=http://localhost:8080/swordv2/servicedocument
+      # __D__ -> -
+      # __P__ -> .
+      - sword__D__server__P__enabled=true
+      - swordv2__D__server__P__enabled=true
+      - swordv2__D__server__P__path=swordv2
+      - swordv2__D__server__P__url=http://localhost:8080/swordv2
+      - swordv2__D__server__P__collection__P__url=http://localhost:8080/swordv2/collection
+      - swordv2__D__server__P__servicedocument__P__url=http://localhost:8080/swordv2/servicedocument

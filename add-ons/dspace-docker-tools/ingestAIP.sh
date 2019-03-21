@@ -14,19 +14,18 @@ CHECKFILE=/dspace/assetstore/ingest.hasrun.flag
 if [ "$SCRIPTVER" -ge 6 ]
 then
   # Overwrite local.cfg for DSpace 6
-  # __dash__ -> -
-  # __ -> .
-  env | egrep "__.*=" | egrep -v "=.*__" | sed -e s/__/./g > /dspace/config/local.cfg
-  sed -e s/\.dash\./-/g -i /dspace/config/local.cfg
+  # __D__ -> -
+  # __P__ -> .
+  env | egrep "__.*=" | egrep -v "=.*__" | sed -e s/__P__/\./g | sed -e s/__D__/-/g > /dspace/config/local.cfg
 elif [ "$SCRIPTVER" -lt 6 ]
 then
   # Substitute values in dspace.cfg for DSpace 5 and DSpace 4
-  VARS=`env | egrep "__.*="|cut -f1 -d=` | sed -e "s/__/\./g"
+  VARS=`env | egrep "__.*="|cut -f1 -d=` | sed -e "s/__P__/\./g" | sed -e "s/__D__/-/g"
   for v in $VARS
   do
     grep -v "^${v}=" /dspace/config/dspace.cfg > /dspace/config/dspace.cfg
   done
-  env | egrep "__.*=" | egrep -v "=.*__" | sed -e s/__/./g >> /dspace/config/dspace.cfg
+  env | egrep "__.*=" | egrep -v "=.*__" | sed -e "s/__P__/./g" | sed -e "s/__D__/-/g" >> /dspace/config/dspace.cfg
 fi
 
 export JAVA_OPTS="${JAVA_OPTS} -Xmx2500m -Dupload.temp.dir=/dspace/upload -Djava.io.tmpdir=/tmp"
