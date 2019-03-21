@@ -98,9 +98,62 @@ winpty docker exec -it dspace //dspace/bin/dspace rdfizer -c -v
 
 ---
 
+## Testing DSpace Entities
+
+A test dataset exists to illustrate the functionality of **DSpace Configurable Entities** .
+
+The code for this feature exists in the following branches
+- https://github.com/DSpace/DSpace/tree/configurable_entities
+- https://github.com/DSpace/DSpace-angular/tree/configurable_entities
+
+Docker images for these brances will be automatically built as
+- dspace/dspace:entities
+- dspace/dspace-angular:entities
+
+An optional docker compose file exists to trigger the population of new DSpace containers with this content.
+
+#### Preparing the Entities Dataset
+- Clone this repository
+- Checkout this branch
+- Download and unzip the entities SQL
+  - https://www.dropbox.com/s/ovqp394y3vofnwa/entities7-test-db.sql.gz?dl=1
+- export LOADSQL=<path to the sql file>
+- cd to docker-compose-files/dspace-compose
+
+#### Run docker-compose to initialize the database
+
+```
+DSPACE_VER=entities ANGULAR_VER=entities docker-compose -p d7ent -f docker-compose.yml -f d7.override.yml -f load.entities.yml up -d
+```
+
+#### Index the Content
+Once the services have started up, index the data
+
+```
+docker exec -it dspace //dspace/bin/dspace index-discovery
+```
+
+#### To stop the services
+
+```
+docker-compose -p d7ent -f docker-compose.yml -f d7.override.yml -f load.entities.yml down
+```
+
+#### On subsequent restart, you do not need the load.entities.yml file
+
+```
+DSPACE_VER=entities ANGULAR_VER=entities docker-compose -p d7ent -f docker-compose.yml -f d7.override.yml up -d
+```
+
+Our recommended Docker installation instructions are here: https://dspace-labs.github.io/DSpace-Docker-Images/documentation/tutorialSetup.html.  Be sure to configure Docker with at least 6G of RAM when running this test.
+
+---
+
 ## Miscellaneous Notes
 
 ### Passing Variables and Properties to DSpace
+- _Ongoing Work: Config Property Injection: https://github.com/DSpace-Labs/DSpace-Docker-Images/pull/97 _
+- _Ongoing Work: Sword Config Properties with Dashes: https://github.com/DSpace-Labs/DSpace-Docker-Images/pull/98 _
 
 DSpace uses Apache Commons Config to access runtime properties.  Values can be passed to Apache commons through the dspace.cfg file, the local.cfg file, as system properties (-Ddspace.name=Foo), and as environment variables.
 
