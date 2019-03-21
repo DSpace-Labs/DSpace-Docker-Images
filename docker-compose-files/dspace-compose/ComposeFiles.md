@@ -161,7 +161,6 @@ Our recommended Docker installation instructions are here: https://dspace-labs.g
 
 ### Passing Variables and Properties to DSpace
 - _Ongoing Work: Config Property Injection: https://github.com/DSpace-Labs/DSpace-Docker-Images/pull/97 _
-- _Ongoing Work: Sword Config Properties with Dashes: https://github.com/DSpace-Labs/DSpace-Docker-Images/pull/98 _
 
 DSpace uses Apache Commons Config to access runtime properties.  Values can be passed to Apache commons through the dspace.cfg file, the local.cfg file, as system properties (-Ddspace.name=Foo), and as environment variables.
 
