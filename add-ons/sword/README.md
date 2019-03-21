@@ -1,0 +1,1 @@
+This test file was pulled from https://github.com/DSpace/DSpace/blob/dspace-5_x/dspace-sword/example/example.zip

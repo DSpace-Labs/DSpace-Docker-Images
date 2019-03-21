@@ -35,11 +35,13 @@ services:
       - DBWAIT=0
       # Env vars with double underbars in names will be replaced with periods and written to local.cfg
       # The defaul values for local.cfg will be provided here
-      - dspace__dir=/dspace
-      - db__url=jdbc:postgresql://dspacedb:5432/dspace
-      - dspace__hostname=localhost
-      - dspace__baseUrl=http://localhost:8080
-      - dspace__name=DSpace Started with Docker Compose
+      # __D__ -> -
+      # __P__ -> .
+      - dspace__P__dir=/dspace
+      - db__P__url=jdbc:postgresql://dspacedb:5432/dspace
+      - dspace__P__hostname=localhost
+      - dspace__P__baseUrl=http://localhost:8080
+      - dspace__P__name=DSpace Started with Docker Compose
     ports:
       - ${PORT:-8080}:8080
     volumes:
