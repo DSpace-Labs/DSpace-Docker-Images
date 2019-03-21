@@ -11,6 +11,7 @@
 | src.override.yml | Optional add-on to trigger and redeploy and tomcat start. |
 | rdf.override.yml | Optional RDF Add-on for DSpace6x and DSpace7x. <br/>http://localhost:3030 |
 | oracle.override.yml | Add-on to run DSpace6x and DSpace7x with Oracle. |
+| load.entities.yml | Optional config to load the Entities working group test data into DSpace 7 |
 
 ## Basic Startup Commands
 _Note: only one compose file should be running at a given time.  
