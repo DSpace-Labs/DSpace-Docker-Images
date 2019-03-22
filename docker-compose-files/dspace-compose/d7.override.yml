@@ -1,14 +1,12 @@
 version: "3.7"
 
+# This file adds an externalized Solr service.
+# Once the following PR is merged, this file will replace d7.override.yml
+# https://github.com/DSpace/DSpace/pull/2058/files
+
 services:
   dspace:
     image: "${DOCKER_OWNER:-dspace}/dspace:${DSPACE_VER:-dspace-7_x-jdk8-test}"
-    volumes:
-      # Eventually, these volumes will be moved to an external solr container
-      - "solr_authority:/dspace/solr/authority/data"
-      - "solr_oai:/dspace/solr/oai/data"
-      - "solr_search:/dspace/solr/search/data"
-      - "solr_statistics:/dspace/solr/statistics/data"
 
   dspace-angular:
     image: "${ANGULAR_OWNER:-dspace}/dspace-angular:${ANGULAR_VER:-latest}"
@@ -32,5 +30,20 @@ services:
       - dspacenet
     depends_on:
       - dspace
+    tty: true
+    stdin_open: true
+
+  dspacesolr:
+    image: dspace/dspace-solr
+    container_name: dspacesolr
+    ports:
+     - "8983:8983"
+    networks:
+      - dspacenet
+    volumes:
+      - "solr_authority:/opt/solr/server/solr/authority/data"
+      - "solr_oai:/opt/solr/server/solr/oai/data"
+      - "solr_search:/opt/solr/server/solr/search/data"
+      - "solr_statistics:/opt/solr/server/solr/statistics/data"
     tty: true
     stdin_open: true
