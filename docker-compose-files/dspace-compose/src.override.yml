@@ -12,6 +12,3 @@ services:
     build:
       context: ${DSPACE_SRC}
       dockerfile: Dockerfile.jdk8-test
-#    volumes:
-#      - "${DSPACE_SRC}:/dspace-src"
-#    entrypoint: /dspace-docker-tools/redeploy.sh

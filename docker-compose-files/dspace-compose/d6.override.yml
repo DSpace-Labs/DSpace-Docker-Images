@@ -9,3 +9,5 @@ services:
       - "solr_oai:/dspace/solr/oai/data"
       - "solr_search:/dspace/solr/search/data"
       - "solr_statistics:/dspace/solr/statistics/data"
+    environment:
+      - SCRIPTVER=6

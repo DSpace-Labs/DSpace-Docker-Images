@@ -20,6 +20,7 @@ services:
     image: "${DOCKER_OWNER:-dspace}/dspace:${DSPACE_VER:-dspace-6_x-jdk8-test}"
     container_name: dspace
     environment:
+      - SCRIPTVER=6
       - DSPACE_INSTALL=/dspace
       - ADMIN_EMAIL=${ADMIN_EMAIL:-test@test.edu}
       - ADMIN_PASS=${ADMIN_PASS:-admin}
@@ -32,10 +33,15 @@ services:
       - AIPWAIT=0
       # Number of sec to wait before attempting to start tomcat
       - DBWAIT=0
-      # Property names containing periods cannot be modified as env variables
-      # Beware of using spaces in values
-      - JAVA_OPTS=
-        -Ddspace.name=DSpace_Started_with_Docker_Compose
+      # Env vars with double underbars in names will be replaced with periods and written to local.cfg
+      # The defaul values for local.cfg will be provided here
+      # __D__ -> -
+      # __P__ -> .
+      - dspace__P__dir=/dspace
+      - db__P__url=jdbc:postgresql://dspacedb:5432/dspace
+      - dspace__P__hostname=localhost
+      - dspace__P__baseUrl=http://localhost:8080
+      - dspace__P__name=DSpace Started with Docker Compose
     ports:
       - ${PORT:-8080}:8080
     volumes:
