@@ -5,6 +5,7 @@ services:
   dspace:
     environment:
      # Double underbars in env names will be replaced with periods for apache commons
+     - rdf__P__enabled=true
      - rdf__P__contextPath=http://localhost:8080/rdf
      - rdf__P__storage__P__graphstore__P__endpoint=http://fuseki:3030/dspace/data
      - rdf__P__public__P__sparql__P__endpoint=http://fuseki:3030/dspace/sparql
