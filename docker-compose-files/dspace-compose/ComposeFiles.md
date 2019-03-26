@@ -10,6 +10,7 @@
 | d7solr.override.yml | Adds externalized solr to d7.override.yml <br/> Solr http://localhost:8983 |
 | src.override.yml | Optional add-on to trigger and redeploy and tomcat start. |
 | rdf.override.yml | Optional RDF Add-on for DSpace6x and DSpace7x. <br/>http://localhost:3030 |
+| sword.override.yml | Optional Add-on for enabling and testing the sword and swordv2 services |
 | oracle.override.yml | Add-on to run DSpace6x and DSpace7x with Oracle. |
 | load.entities.yml | Optional config to load the Entities working group test data into DSpace 7 |
 
@@ -103,9 +104,9 @@ winpty docker exec -it dspace //dspace/bin/dspace rdfizer -c -v
 
 ---
 
-## Test the Sword and Swordv2 Services
+## Enable the Sword and Swordv2 Services
 
-_These services are enabled by default._
+Add `-f sword.override.yml` to enable the sword and swordv2 services
 
 See the **tools/sword** directory for a sample zip file to deposit and for the command line calls to force a test of these services.
 
