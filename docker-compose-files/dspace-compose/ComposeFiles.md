@@ -74,7 +74,12 @@ The Oracle container will take a bit of time to initialize.  A delay has been ad
 
 Add `-f rdf.override.yml` to add an RDF Triplestore to your DSpace distribution.
 
+
 #### Create Dataset in the RDF Triplestore (fuseki)
+
+_The initialization script should build the RDF Dataset automatically. _
+_The instructions indicate how to build it manually._
+
 - http://localhost:3030
 - user: admin
 - password: dspace
@@ -93,7 +98,7 @@ Git-Bash Windows
 winpty docker exec -it dspace //dspace/bin/dspace rdfizer -c -v
 ```
 
-#### View Metadata via the RDF service
+### View Metadata via the RDF service
 
 - http://localhost:8080/rdf/handle/123456789/1/rdf?text=true
 
@@ -103,7 +108,7 @@ winpty docker exec -it dspace //dspace/bin/dspace rdfizer -c -v
 
 Add `-f sword.override.yml` to enable the sword and swordv2 services
 
-See the **add-ons/sword** directory for a sample zip file to deposit and for the command line calls to force a test of these services.
+See the **tools/sword** directory for a sample zip file to deposit and for the command line calls to force a test of these services.
 
 ---
 ## Testing DSpace Entities
