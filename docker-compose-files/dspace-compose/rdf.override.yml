@@ -19,6 +19,8 @@ services:
     container_name: fuseki
     ports:
       - 3030:3030
+    volumes:
+      - "../../add-ons/rdf/dspace.ttl:/fuseki/configuration/dspace.ttl"
     environment:
       - ADMIN_PASSWORD=dspace
     networks:

@@ -61,6 +61,13 @@ then
       /dspace/bin/dspace database update-sequences
       /dspace/bin/dspace index-discovery
     fi
+
+    /dspace/bin/dspace oai import
+    /dspace/bin/dspace oai clean-cache
+    if [ $rdf__P__enabled = true ]
+    then
+      /dspace/bin/dspace rdfizer -c -v
+    fi
   fi
   touch $CHECKFILE
 fi
