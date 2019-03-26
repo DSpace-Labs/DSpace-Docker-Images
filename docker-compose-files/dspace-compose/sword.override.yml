@@ -4,12 +4,11 @@ version: "3.7"
 services:
   dspace:
     environment:
-      # Double underbars in env names will be replaced with periods for apache commons
       # __D__ -> -
       # __P__ -> .
       - sword__D__server__P__enabled=true
       - swordv2__D__server__P__enabled=true
       - swordv2__D__server__P__path=swordv2
-      - swordv2__D__server__P__url=http://localhost:8080/swordv2
-      - swordv2__D__server__P__collection__P__url=http://localhost:8080/swordv2/collection
-      - swordv2__D__server__P__servicedocument__P__url=http://localhost:8080/swordv2/servicedocument
+      - swordv2__D__server__P__url=http://localhost:8080/spring-rest/swordv2
+      - swordv2__D__server__P__collection__P__url=http://localhost:8080/spring-rest/swordv2/collection
+      - swordv2__D__server__P__servicedocument__P__url=http://localhost:8080/swordv2/spring-rest/servicedocument
