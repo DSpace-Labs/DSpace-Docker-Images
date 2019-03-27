@@ -7,4 +7,3 @@ services:
       # __D__ -> -
       # __P__ -> .
      - oai__P__enabled=true
-     - oai__P__path=oai

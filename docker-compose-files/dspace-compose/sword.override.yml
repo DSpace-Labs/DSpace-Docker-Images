@@ -7,8 +7,13 @@ services:
       # __D__ -> -
       # __P__ -> .
       - sword__D__server__P__enabled=true
+      - sword__D__server__P__path=sword
+      - sword__D__server__P__url=http://localhost:8080${BASEROOT:-/spring-rest}/sword
+      - sword__D__server__P__collection__P__url=http://localhost:8080${BASEROOT:-/spring-rest}/sword/collection
+      - sword__D__server__P__servicedocument__P__url=http://localhost:8080/sword${BASEROOT:-/spring-rest}/servicedocument
+      #
       - swordv2__D__server__P__enabled=true
       - swordv2__D__server__P__path=swordv2
-      - swordv2__D__server__P__url=http://localhost:8080/spring-rest/swordv2
-      - swordv2__D__server__P__collection__P__url=http://localhost:8080/spring-rest/swordv2/collection
-      - swordv2__D__server__P__servicedocument__P__url=http://localhost:8080/swordv2/spring-rest/servicedocument
+      - swordv2__D__server__P__url=http://localhost:8080${BASEROOT:-/spring-rest}/swordv2
+      - swordv2__D__server__P__collection__P__url=http://localhost:8080${BASEROOT:-/spring-rest}/swordv2/collection
+      - swordv2__D__server__P__servicedocument__P__url=http://localhost:8080${BASEROOT:-/spring-rest}/swordv2/servicedocument
