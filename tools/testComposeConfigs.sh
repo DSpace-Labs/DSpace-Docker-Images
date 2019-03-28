@@ -18,16 +18,16 @@ function checkUrl {
   checkOutput $EXPECTED $NAME
 }
 
-BR=${BASEROOT:-/spring-rest}
+BR=${BASEROOT:-http://localhost:8080/spring-rest}
 BASE=http://localhost
 TOM=${BASE}:8080
 SOLR=${BASE}:8983/solr
 checkUrl "Tomcat" $TOM 200
-checkUrl "Spring-Rest" ${TOM}${BR} 200
+checkUrl "Spring-Rest" ${BR} 200
 checkUrl "Angular" ${BASE}:3000 200
 checkUrl "Legacy-Rest" ${TOM}/rest 200
-checkUrl "OAI" ${TOM}${BR}/oai/request?verb=Identify 200
-checkUrl "RDF" ${TOM}${BR}/rdf/handle/123456789/1/rdf?text=true 200
+checkUrl "OAI" ${BR}/oai/request?verb=Identify 200
+checkUrl "RDF" ${BR}/rdf/handle/123456789/1/rdf?text=true 200
 checkUrl "Triplestore" ${BASE}:3030 200
 # checkUrl "SOLR-Embedded" ${TOM}/solr 200
 checkUrl "SOLR-External" ${SOLR} 200
@@ -36,10 +36,10 @@ checkUrl "SOLR-External" ${SOLR} 200
 # checkUrl "SOLR-Search" ${SOLR}/authority/select?q=*%3A* 200
 # checkUrl "SOLR-Statistics" ${SOLR}/authority/select?q=*%3A* 200
 
-echo "  ---> Sword v1"
-curl -i --data-binary "@sword/example.zip" -H "Content-Disposition:filename=sword/example.zip" -H "Content-Type:application/zip" -H "X-Packaging:http://purl.org/net/sword-types/METSDSpaceSIP" -u test@test.edu:admin http://localhost:8080${BR}/sword/deposit/123456789/4 2>&1 | grep "^HTTP" > /tmp/out.txt
+echo "  ---> Sword v1 ${BR}/sword/deposit/123456789/3"
+curl -i --data-binary "@sword/example.zip" -H "Content-Disposition:filename=sword/example.zip" -H "Content-Type:application/zip" -H "X-Packaging:http://purl.org/net/sword-types/METSDSpaceSIP" -u test@test.edu:admin ${BR}/sword/deposit/123456789/4 2>&1 | grep "^HTTP" > /tmp/out.txt
 checkOutput 201 "Sword v1"
 
-echo "  ---> Sword v2"
-curl -i --data-binary "@sword/example.zip" -H "Content-Disposition:attachment; filename=sword/example.zip" -H "Content-Type:application/zip" -H "Packaging:http://purl.org/net/sword/package/METSDSpaceSIP" -u test@test.edu:admin -X POST http://localhost:8080${BR}/swordv2/collection/123456789/3 2>&1 | grep "^HTTP" > /tmp/out.txt
+echo "  ---> Sword v2 ${BR}/swordv2/collection/123456789/3"
+curl -i --data-binary "@sword/example.zip" -H "Content-Disposition:attachment; filename=sword/example.zip" -H "Content-Type:application/zip" -H "Packaging:http://purl.org/net/sword/package/METSDSpaceSIP" -u test@test.edu:admin -X POST ${BR}/swordv2/collection/123456789/3 2>&1 | grep "^HTTP" > /tmp/out.txt
 checkOutput 201 "Sword v2"
