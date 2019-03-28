@@ -10,7 +10,8 @@
 | d7solr.override.yml | Adds externalized solr to d7.override.yml <br/> Solr http://localhost:8983 |
 | src.override.yml | Optional add-on to trigger and redeploy and tomcat start. |
 | rdf.override.yml | Optional RDF Add-on for DSpace6x and DSpace7x. <br/>http://localhost:3030 |
-| sword.override.yml | Optional Add-on for enabling and testing the sword and swordv2 services |
+| sword.override.yml | One Webapp: Optional Add-on for enabling and testing the sword and swordv2 services |
+| oai.override.yml | One Webapp: Optional Add-on for enabling OAI Service |
 | oracle.override.yml | Add-on to run DSpace6x and DSpace7x with Oracle. |
 | load.entities.yml | Optional config to load the Entities working group test data into DSpace 7 |
 
@@ -74,7 +75,12 @@ The Oracle container will take a bit of time to initialize.  A delay has been ad
 
 Add `-f rdf.override.yml` to add an RDF Triplestore to your DSpace distribution.
 
+
 #### Create Dataset in the RDF Triplestore (fuseki)
+
+_The initialization script should build the RDF Dataset automatically. _
+_The instructions indicate how to build it manually._
+
 - http://localhost:3030
 - user: admin
 - password: dspace
@@ -93,17 +99,24 @@ Git-Bash Windows
 winpty docker exec -it dspace //dspace/bin/dspace rdfizer -c -v
 ```
 
-#### View Metadata via the RDF service
+### View Metadata via the RDF service
 
 - http://localhost:8080/rdf/handle/123456789/1/rdf?text=true
 
 ---
+## Test the Sword and Swordv2 Services
 
-## Enable the Sword and Swordv2 Services
+See the **tools/sword** directory for a sample zip file to deposit and for the command line calls to force a test of these services.
+
+## Enable the Sword and Swordv2 Services -- [One Webapp PR](https://github.com/DSpace/DSpace/pull/2265)
 
 Add `-f sword.override.yml` to enable the sword and swordv2 services
 
-See the **add-ons/sword** directory for a sample zip file to deposit and for the command line calls to force a test of these services.
+See the **tools/sword** directory for a sample zip file to deposit and for the command line calls to force a test of these services.
+
+## Enable the OAI Service -- [One Webapp PR](https://github.com/DSpace/DSpace/pull/2265)
+
+Add `-f oai.override.yml` to enable the OAI service
 
 ---
 ## Testing DSpace Entities

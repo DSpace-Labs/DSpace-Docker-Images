@@ -1,0 +1,9 @@
+# suitable for DSpace 6 and 7
+version: "3.7"
+
+services:
+  dspace:
+    environment:
+      # __D__ -> -
+      # __P__ -> .
+     - oai__P__enabled=true

@@ -61,8 +61,18 @@ then
       /dspace/bin/dspace database update-sequences
       /dspace/bin/dspace index-discovery
     fi
+
+    /dspace/bin/dspace oai import
+    /dspace/bin/dspace oai clean-cache
   fi
   touch $CHECKFILE
+fi
+
+# RDF is implemented in memory in our docker compose files.
+# If RDF is enabled, rdfize the repo on startup
+if [ $rdf__P__enabled = true ]
+then
+  /dspace/bin/dspace rdfizer -c -v
 fi
 
 sleep ${DBWAIT:-0}

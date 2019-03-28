@@ -4,21 +4,25 @@ version: "3.7"
 services:
   dspace:
     environment:
-     # Double underbars in env names will be replaced with periods for apache commons
-     - rdf__P__contextPath=http://localhost:8080/rdf
-     - rdf__P__storage__P__graphstore__P__endpoint=http://fuseki:3030/dspace/data
-     - rdf__P__public__P__sparql__P__endpoint=http://fuseki:3030/dspace/sparql
-     - rdf__P__storage__P__graphstore__P__authentication=yes
-     - rdf__P__storage__P__graphstore__P__login=admin
-     - rdf__P__storage__P__graphstore__P__password=dspace
-     - rdf__P__storage__P__sparql__P__authentication=yes
-     - rdf__P__storage__P__sparql__P__login=admin
-     - rdf__P__storage__P__sparql__P__password=dspace
+    # __D__ -> -
+    # __P__ -> .
+    - rdf__P__enabled=true
+    - rdf__P__contextPath=${BASEROOT:-http://localhost:8080}/rdf
+    - rdf__P__storage__P__graphstore__P__endpoint=http://fuseki:3030/dspace/data
+    - rdf__P__public__P__sparql__P__endpoint=http://fuseki:3030/dspace/sparql
+    - rdf__P__storage__P__graphstore__P__authentication=yes
+    - rdf__P__storage__P__graphstore__P__login=admin
+    - rdf__P__storage__P__graphstore__P__password=dspace
+    - rdf__P__storage__P__sparql__P__authentication=yes
+    - rdf__P__storage__P__sparql__P__login=admin
+    - rdf__P__storage__P__sparql__P__password=dspace
   fuseki:
     image: "stain/jena-fuseki"
     container_name: fuseki
     ports:
       - 3030:3030
+    volumes:
+      - "../../add-ons/rdf/dspace.ttl:/fuseki/configuration/dspace.ttl"
     environment:
       - ADMIN_PASSWORD=dspace
     networks:

@@ -8,7 +8,8 @@ services:
   dspace:
     image: "${DOCKER_OWNER:-dspace}/dspace:${DSPACE_VER:-dspace-7_x-jdk8-test}"
     environment:
-      - SCRIPTVER=7
+    - SCRIPTVER=7
+    - dspace__P__baseUrl=${BASEROOT:-http://localhost:8080}
 
   dspace-angular:
     image: "${ANGULAR_OWNER:-dspace}/dspace-angular:${ANGULAR_VER:-latest}"
