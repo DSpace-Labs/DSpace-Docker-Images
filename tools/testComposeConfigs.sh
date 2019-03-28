@@ -36,8 +36,8 @@ checkUrl "SOLR-External" ${SOLR} 200
 # checkUrl "SOLR-Search" ${SOLR}/authority/select?q=*%3A* 200
 # checkUrl "SOLR-Statistics" ${SOLR}/authority/select?q=*%3A* 200
 
-echo "  ---> Sword v1 ${BR}/sword/deposit/123456789/3"
-curl -i --data-binary "@sword/example.zip" -H "Content-Disposition:filename=sword/example.zip" -H "Content-Type:application/zip" -H "X-Packaging:http://purl.org/net/sword-types/METSDSpaceSIP" -u test@test.edu:admin ${BR}/sword/deposit/123456789/4 2>&1 | grep "^HTTP" > /tmp/out.txt
+echo "  ---> Sword v1 ${BR}/sword/deposit/123456789/4"
+curl -i --data-binary "@sword/example.zip" -H "Content-Disposition:filename=sword/example.zip" -H "Content-Type:application/zip" -H "X-Packaging:http://purl.org/net/sword-types/METSDSpaceSIP" -u test@test.edu:admin -X POST ${BR}/sword/deposit/123456789/4 2>&1 | grep "^HTTP" > /tmp/out.txt
 checkOutput 201 "Sword v1"
 
 echo "  ---> Sword v2 ${BR}/swordv2/collection/123456789/3"

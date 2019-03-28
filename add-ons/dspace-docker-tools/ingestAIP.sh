@@ -64,12 +64,15 @@ then
 
     /dspace/bin/dspace oai import
     /dspace/bin/dspace oai clean-cache
-    if [ $rdf__P__enabled = true ]
-    then
-      /dspace/bin/dspace rdfizer -c -v
-    fi
   fi
   touch $CHECKFILE
+fi
+
+# RDF is implemented in memory in our docker compose files.
+# If RDF is enabled, rdfize the repo on startup
+if [ $rdf__P__enabled = true ]
+then
+  /dspace/bin/dspace rdfizer -c -v
 fi
 
 sleep ${DBWAIT:-0}
