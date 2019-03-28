@@ -18,7 +18,7 @@ function checkUrl {
   checkOutput $EXPECTED $NAME
 }
 
-BR=${BASEROOT:-http://localhost:8080/spring-rest}
+BR=${BASEROOT:-http://localhost:8080}
 BASE=http://localhost
 TOM=${BASE}:8080
 SOLR=${BASE}:8983/solr
