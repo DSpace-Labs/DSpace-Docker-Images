@@ -2,6 +2,11 @@
 # Once this file has been saved to a docker volume, the ingest step will not be re-run
 CHECKFILE=/dspace/assetstore/ingest.hasrun.flag
 
+# The following variable allows a default memory allocation to be set independently of other
+# JAVA_OPT Options
+JAVA_MEM=${JAVA_MEM:--Xmx2500m}
+export JAVA_OPTS="${JAVA_OPTS} ${JAVA_MEM} -Dupload.temp.dir=/dspace/upload -Djava.io.tmpdir=/tmp"
+
 # Shell scripts are unable to pass environment variables containing a period.
 # By DSPACE convention, a double underbar will be used to set such variables.
 #
@@ -27,9 +32,6 @@ then
   done
   env | egrep "__.*=" | egrep -v "=.*__" | sed -e "s/__P__/./g" | sed -e "s/__D__/-/g" >> /dspace/config/dspace.cfg
 fi
-
-JAVA_MEM=${JAVA_MEM:--Xmx2500m}
-export JAVA_OPTS="${JAVA_OPTS} ${JAVA_MEM} -Dupload.temp.dir=/dspace/upload -Djava.io.tmpdir=/tmp"
 
 if [ ! -f $CHECKFILE ]
 then
