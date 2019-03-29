@@ -28,6 +28,16 @@ cd DSpace-Docker-Images/docker-compose-files/dspace-compose
 - When referencing a the root directory of a docker container, use `//` instead of `/`.  
   - Example use `//dspace/bin/dspace` for `/dspace/bin/dspace`
 
+### Verify your memory allocation for Docker
+
+_Note: DSpace Docker requires a minimum of 5-6G of RAM allocated to Docker in order to run._  
+
+Run the following command to verify your memory allocation for Docker.
+
+`docker info | grep Memory`
+
+If less that 5G has been allocated to Docker, you can [configure memory for Docker](setup.Memory.md).
+
 ### Start using DSpace-Docker
 
 - [Run DSpace 6](run.DSpace6.md)
