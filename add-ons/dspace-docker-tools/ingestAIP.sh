@@ -28,7 +28,8 @@ then
   env | egrep "__.*=" | egrep -v "=.*__" | sed -e "s/__P__/./g" | sed -e "s/__D__/-/g" >> /dspace/config/dspace.cfg
 fi
 
-export JAVA_OPTS="${JAVA_OPTS} -Xmx2500m -Dupload.temp.dir=/dspace/upload -Djava.io.tmpdir=/tmp"
+JAVA_MEM=${JAVA_MEM:--Xmx2500m}
+export JAVA_OPTS="${JAVA_OPTS} ${JAVA_MEM} -Dupload.temp.dir=/dspace/upload -Djava.io.tmpdir=/tmp"
 
 if [ ! -f $CHECKFILE ]
 then
