@@ -20,6 +20,9 @@ services:
     image: "${DOCKER_OWNER:-dspace}/dspace:${DSPACE_VER:-dspace-6_x-jdk8-test}"
     container_name: dspace
     environment:
+      # - JAVA_OPTS=
+      # The following memory allocation will be appended to any JAVA_OPTS settings
+      # - JAVA_MEM=-Xmx2500m
       - SCRIPTVER=6
       - DSPACE_INSTALL=/dspace
       - ADMIN_EMAIL=${ADMIN_EMAIL:-test@test.edu}

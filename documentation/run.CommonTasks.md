@@ -88,6 +88,22 @@ cd DSpace-Docker-Images/docker-compose-files/dspace-compose
 PORT=8081 docker-compose -p d6 -f docker-compose.yml -f d6.override.yml up -d
 ```
 
+## Configuring Memory for DSpace Docker
+
+### Tomcat memory
+
+The JAVA_OPTS variable provided to tomcat is set in the initialization script.  By default, the variable JAVA_MEM is prepended to JAVA_OPTS.
+
+To change the default allocation of `-Xmx2500m`, pass a setting such as `JAVA_MEM=-Xmx4000m` to the dspace container.
+
+### Command line Tasks
+
+The dspace dockerfile is built with a default value `JAVA_OPTS=-Xmx2000m`.  This value will be used when running `docker exec` tasks.
+
+You can override this setting using the following syntax.
+
+`docker exec -it -e JAVA_OPTS=500m dspace /dspace/bin/dspace ...`
+
 ## Building DSpace Code
 
 _These instructions are for users who are interested in testing code under active development._
