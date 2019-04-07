@@ -1,2 +1,2 @@
 #!/bin/sh
-psql -U dspace -f /dspace-docker-tools/udateSequences.sql
+psql -U dspace -f /dspace-docker-tools/updateSequences.sql
