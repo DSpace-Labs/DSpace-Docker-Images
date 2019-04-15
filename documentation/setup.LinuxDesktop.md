@@ -28,7 +28,8 @@ sudo dnf install git
 - [CentOS](https://docs.docker.com/install/linux/docker-ce/centos/)
 - [Debian](https://docs.docker.com/install/linux/docker-ce/debian/)
 - [Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
-- [Fedora](https://docs.docker.com/install/linux/docker-ce/fedora/) Warring: current docker-compose file are not compatible with selinux. We recomand to temportaly disable selinux for testing.
+- [Fedora](https://docs.docker.com/install/linux/docker-ce/fedora/) 
+  - Note: current docker-compose file are not compatible with selinux. Consider disabling selinux for testing.
 
 ### Download DSpace Docker Compose Files
 
