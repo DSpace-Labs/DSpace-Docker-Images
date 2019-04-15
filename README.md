@@ -89,6 +89,7 @@ This table lists docker images that have been optimized for DSpace software deve
 
 
 ## More information
-For more information, join our [#dspace-docker Slack channel](https://dspace-org.slack.com/messages/C9YD42PV3).
+For more information, join our [#dspace-docker channel](https://dspace-org.slack.com/messages/C9YD42PV3) on 
+[Dspace Slack](https://wiki.duraspace.org/display/DSPACE/Slack).
 
 [DSpace Docker Wiki Page](https://wiki.duraspace.org/display/DSPACE/DSpace+and+Docker)
