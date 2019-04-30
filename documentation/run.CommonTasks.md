@@ -17,12 +17,12 @@ _Note that a default admin is configured when the DSpace instance started._
 
 MacOS/Linux
 ```shell
-docker exec dspace /dspace/bin/dspace create-administrator
+docker exec -it dspace /dspace/bin/dspace create-administrator
 ```
 
 Windows
 ```shell
-winpty docker exec dspace //dspace/bin/dspace create-administrator
+winpty docker exec -it dspace //dspace/bin/dspace create-administrator
 ```
 
 ### Filter Media
