@@ -4,8 +4,6 @@
 - Terry Brady, Georgetown University Library
 - Pascal Becker, The Library Code
 
-@size[20px](https://github.com/DSpace-Labs/DSpace-Docker-Images)
-
 http://bit.ly/dspace4docker
 
 ---
@@ -33,9 +31,6 @@ Terry presents
 - Senior Software Developer at Technische Universität Berlin
 - DSpace Committer
 - https://www.the-library-code.de/
-
-Note:
-Pascal presents
 
 ---
 
@@ -206,9 +201,6 @@ An Image is
 - Install Docker Desktop
 - Install a terminal for running docker
 - Download DSpace Docker Compose files
-
-Note:
-Terry presents
 
 +++
 
@@ -407,7 +399,5 @@ docker-compose -p d7 -f docker-compose.yml -f d7.override.yml down
 
 - Terry Brady, Georgetown University Library
 - Pascal Becker, The Library Code
-
-@size[20px](https://github.com/DSpace-Labs/DSpace-Docker-Images)
 
 http://bit.ly/dspace4docker
