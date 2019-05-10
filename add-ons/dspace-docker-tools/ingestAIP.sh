@@ -79,7 +79,7 @@ fi
 
 # RDF is implemented in memory in our docker compose files.
 # If RDF is enabled, rdfize the repo on startup
-if [ $rdf__P__enabled = true ]
+if [ ${rdf__P__enabled:-false} = true ]
 then
   /dspace/bin/dspace rdfizer -c -v
 fi
