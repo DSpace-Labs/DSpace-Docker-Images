@@ -1,0 +1,14 @@
+version: "3.7"
+
+# This file adds an externalized Solr service.
+# Once the following PR is merged, this file will replace d7.override.yml
+# https://github.com/DSpace/DSpace/pull/2058/files
+
+services:
+  dspace:
+    # TODO: change to static image after preview release is tagged
+    image: "dspace/dspace:dspace-7_x-jdk8-test"
+
+  dspace-angular:
+    # TODO: change to static image after preview release is tagged
+    image: "dspace/dspace-angular:entities"
