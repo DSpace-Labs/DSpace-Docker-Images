@@ -1,5 +1,5 @@
-#### DSpace Docker for Repository Managers
-##### Running Any Version of DSpace from your Desktop
+#### Docker for DSpace – Lowering the Barrier of Entry for New Contributors
+##### OR 2019
 
 - Terry Brady, Georgetown University Library
 - Pascal Becker, The Library Code
