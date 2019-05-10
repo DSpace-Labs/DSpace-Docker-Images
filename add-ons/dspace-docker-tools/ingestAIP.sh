@@ -46,6 +46,10 @@ then
     curl ${LOADASSETS} -L -s --output /tmp/assetstore.tar.gz
     cd /dspace
     tar xvfz /tmp/assetstore.tar.gz
+
+    /dspace/bin/dspace index-discovery
+    /dspace/bin/dspace oai import
+    /dspace/bin/dspace oai clean-cache
   elif [ ! -z $AIPZIP -a $SKIPAIP != 'Y' ]
   then
     AIPDIR=/tmp/aip-dir
