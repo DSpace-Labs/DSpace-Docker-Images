@@ -1,5 +1,5 @@
-#### DSpace Docker for Repository Managers
-##### Running Any Version of DSpace from your Desktop
+#### Docker for DSpace – Lowering the Barrier of Entry for New Contributors
+##### OR 2019
 
 - Terry Brady, Georgetown University Library
 - Pascal Becker, The Library Code
@@ -420,4 +420,3 @@ docker-compose -p d7 -f docker-compose.yml -f d7.override.yml down
 http://bit.ly/docker4rm
 
 [Webinar Video](https://duraspace.zoom.us/recording/share/kCDyG4ux5qVbvsYkau2h7_J3eb0nfvlWP9umNwmvVjCwIumekTziMw)
-
