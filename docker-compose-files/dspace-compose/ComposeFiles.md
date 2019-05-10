@@ -20,12 +20,27 @@
 _Note: only one compose file should be running at a given time.  
 Because each version of DSpace reuses the same ports and container names, you must run `docker-compose -p dX down` to stop one instance before starting another.  Each instance will persist data in a separate volume._
 
+The `docker-compose ... pull` command will ensure that you have the latest version of each Docker image.
+
+The `docker-compose ... up -d` command will start your containers.
+
 ```
+docker-compose -p d7 -f docker-compose.yml -f d7.override.yml pull
 docker-compose -p d7 -f docker-compose.yml -f d7.override.yml up -d
+
+docker-compose -p d6 -f docker-compose.yml -f d6.override.yml pull
 docker-compose -p d6 -f docker-compose.yml -f d6.override.yml up -d
+
+docker-compose -p d5 -f docker-compose.yml -f d5.override.yml pull
 docker-compose -p d5 -f docker-compose.yml -f d5.override.yml up -d
+
+docker-compose -p d4 -f docker-compose.yml -f d4.override.yml pull
 docker-compose -p d4 -f docker-compose.yml -f d4.override.yml up -d
 ```
+
+The following command can be used to view the output from a container.  You can specify the container to track.
+
+`docker logs -f dspace`
 
 ---
 
@@ -144,13 +159,6 @@ An optional docker compose file exists to trigger the population of new DSpace c
 docker-compose -p d7ent -f docker-compose.yml -f d7.override.yml -f d7.preview.yml -f load.entities.yml up -d
 ```
 
-#### Index the Content
-Once the services have started up, index the data
-
-```
-docker exec -it dspace //dspace/bin/dspace index-discovery
-```
-
 #### To stop the services
 
 ```
@@ -170,7 +178,6 @@ Our recommended Docker installation instructions are here: https://dspace-labs.g
 ## Miscellaneous Notes
 
 ### Passing Variables and Properties to DSpace
-- _Ongoing Work: Config Property Injection: https://github.com/DSpace-Labs/DSpace-Docker-Images/pull/97 _
 
 DSpace uses Apache Commons Config to access runtime properties.  Values can be passed to Apache commons through the dspace.cfg file, the local.cfg file, as system properties (-Ddspace.name=Foo), and as environment variables.
 
