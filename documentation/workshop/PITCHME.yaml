@@ -1,0 +1,5 @@
+slide-number: true
+
+background-size : contain
+
+theme-override : PITCHME.css
