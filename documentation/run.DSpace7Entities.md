@@ -62,6 +62,7 @@ docker-compose -p d7ent -f docker-compose.yml -f d7.override.yml up -d
 ### Testing the entities functionality
 
 #### Test User credentials
+
 | e-mail | password |
 | ------ | -------- |
 | dspacedemo+submit@gmail.com | dspace |
