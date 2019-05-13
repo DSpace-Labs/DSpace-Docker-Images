@@ -4,17 +4,12 @@ version: "3.7"
 services:
   dspace:
     environment:
-     # Double underbars in env names will be replaced with periods for apache commons
-     - SKIPAIP=Y
+      # Double underbars in env names will be replaced with periods for apache commons
+      - SKIPAIP=Y
+      - DBWAIT=20
+      - LOADASSETS=https://www.dropbox.com/s/zv7lj8j2lp3egjs/assetstore.tar.gz?dl=1
   dspacedb:
-    volumes:
-      # Download and unzip the entities data file.
-      # - https://www.dropbox.com/s/ovqp394y3vofnwa/entities7-test-db.sql.gz?dl=1
-      #
-      # This file will be provided by the DSpace Entities Working Group
-      #
-      # export LOADSQL=<local path to the sql file>
-      #
-      # docker-compose -p d7ent -f docker-compose.yml -f d7.override.yml -f load.entities.yml up -d
-      - "${LOADSQL}:/tmp/dspace.sql"
-      - "../../add-ons/dspace-docker-tools/loadEntities.sh:/docker-entrypoint-initdb.d/install-pgcrypto.sh"
+    image: dspace/dspace-postgres-pgcrypto:loadsql
+    environment:
+      # Double underbars in env names will be replaced with periods for apache commons
+      - LOADSQL=https://www.dropbox.com/s/xh3ack0vg0922p2/configurable-entities-2019-05-08.sql?dl=1

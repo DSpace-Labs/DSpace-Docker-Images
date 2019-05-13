@@ -9,6 +9,7 @@ cd DSpace-Docker-Images/docker-compose-files/dspace-compose
 ### Start DSpace 7
 
 ```shell
+docker-compose -p d7 -f docker-compose.yml -f d7.override.yml pull
 docker-compose -p d7 -f docker-compose.yml -f d7.override.yml up -d
 ```
 

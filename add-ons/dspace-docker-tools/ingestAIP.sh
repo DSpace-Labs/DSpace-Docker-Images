@@ -40,7 +40,16 @@ then
   /dspace-docker-tools/createAdmin.sh
   AIPZIP=${AIPZIP:-https://github.com/DSpace-Labs/AIP-Files/raw/master/dogAndReport.zip}
   ADMIN_EMAIL=${ADMIN_EMAIL:-test@test.edu}
-  if [ ! -z $AIPZIP -a $SKIPAIP != 'Y' ]
+
+  if [ ! -z ${LOADASSETS} ]
+  then
+    curl ${LOADASSETS} -L -s --output /tmp/assetstore.tar.gz
+    cd /dspace
+    tar xvfz /tmp/assetstore.tar.gz
+
+    # Trigger discovery indexing on startup
+    touch /dspace/solr/search/conf/reindex.flag
+  elif [ ! -z $AIPZIP -a $SKIPAIP != 'Y' ]
   then
     AIPDIR=/tmp/aip-dir
     rm -rf ${AIPDIR}
@@ -73,7 +82,7 @@ fi
 
 # RDF is implemented in memory in our docker compose files.
 # If RDF is enabled, rdfize the repo on startup
-if [ $rdf__P__enabled = true ]
+if [ ${rdf__P__enabled:-false} = true ]
 then
   /dspace/bin/dspace rdfizer -c -v
 fi
