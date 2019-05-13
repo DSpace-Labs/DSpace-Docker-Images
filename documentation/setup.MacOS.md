@@ -1,3 +1,4 @@
+{% include nav.html %}
 ## MacOS setup for Docker DSpace
 
 ### Install Docker Desktop

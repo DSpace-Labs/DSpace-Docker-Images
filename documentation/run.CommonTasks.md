@@ -1,3 +1,4 @@
+{% include nav.html %}
 ## Tasks for running DSpace instances
 
 ### Index Content

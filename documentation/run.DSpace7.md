@@ -1,3 +1,4 @@
+{% include nav.html %}
 ## Running DSpace 7
 
 ### Go to the Docker Compose Directory

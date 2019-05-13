@@ -1,3 +1,4 @@
+{% include nav.html %}
 ## Linux Desktop setup for Docker DSpace
 
 

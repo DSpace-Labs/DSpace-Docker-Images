@@ -1,3 +1,4 @@
+{% include nav.html %}
 ## Running DSpace 7 With Entities
 
 Our recommended Docker installation instructions are [here](https://dspace-labs.github.io/DSpace-Docker-Images/documentation/tutorialSetup.html).  Be sure to configure Docker with at least 6G of RAM when running this test.

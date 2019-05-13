@@ -1,3 +1,4 @@
+{% include nav.html %}
 ## Allocate Memory for Docker DSpace
 
 _Note: DSpace Docker requires a minimum of 5-6G of RAM allocated to Docker in order to run._  
