@@ -47,6 +47,7 @@ then
     cd /dspace
     tar xvfz /tmp/assetstore.tar.gz
 
+    # Trigger discovery indexing on startup
     touch /dspace/solr/search/conf/reindex.flag
   elif [ ! -z $AIPZIP -a $SKIPAIP != 'Y' ]
   then
