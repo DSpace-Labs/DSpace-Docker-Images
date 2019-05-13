@@ -12,8 +12,15 @@ cd
 cd DSpace-Docker-Images/docker-compose-files/dspace-compose
 ```
 
-### Ingest the Entities Test Dataset and  Start DSpace 7
+### Ingest the Entities Test Dataset and Start DSpace 7
 
+To run the __DSpace 7 Preview Release__ images.
+```shell
+docker-compose -p d7 -f docker-compose.yml -f d7.override.yml -f d7.preview.yml -f load.entities.yml pull
+docker-compose -p d7 -f docker-compose.yml -f d7.override.yml -f d7.preview.yml -f load.entities.yml up -d
+```
+
+To run the __latest DSpace 7__ images.
 ```shell
 docker-compose -p d7 -f docker-compose.yml -f d7.override.yml -f load.entities.yml pull
 docker-compose -p d7 -f docker-compose.yml -f d7.override.yml -f load.entities.yml up -d
@@ -41,8 +48,14 @@ docker ps
 
 #### On subsequent restart, you do not need the load.entities.yml file
 
+To run the __DSpace 7 Preview Release__ images.
 ```
 docker-compose -p d7ent -f docker-compose.yml -f d7.override.yml -f d7.preview.yml up -d
+```
+
+To run the __latest DSpace 7__ images.
+```
+docker-compose -p d7ent -f docker-compose.yml -f d7.override.yml up -d
 ```
 
 ### Testing the entities functionality
