@@ -7,6 +7,7 @@
 | d5.override.yml | Sets base image for DSpace5x.  Activates Mirage2. |
 | d6.override.yml | Sets base image for DSpace6x.  Activates Mirage2. |
 | d7.override.yml | Sets base image for DSpace7x.  <br/>Adds Angular UI to replace XMLUI and JSPUI. <br/> REST: http://localhost:8080/spring-rest <br/> Angular UI: http://localhost:3000 |
+| d7.preview.yml  | Sets image name to stable images for the preview release |
 | d7solr.override.yml | Adds externalized solr to d7.override.yml <br/> Solr http://localhost:8983 |
 | src.override.yml | Optional add-on to trigger and redeploy and tomcat start. |
 | rdf.override.yml | Optional RDF Add-on for DSpace6x and DSpace7x. <br/>http://localhost:3030 |
@@ -19,12 +20,27 @@
 _Note: only one compose file should be running at a given time.  
 Because each version of DSpace reuses the same ports and container names, you must run `docker-compose -p dX down` to stop one instance before starting another.  Each instance will persist data in a separate volume._
 
+The `docker-compose ... pull` command will ensure that you have the latest version of each Docker image.
+
+The `docker-compose ... up -d` command will start your containers.
+
 ```
+docker-compose -p d7 -f docker-compose.yml -f d7.override.yml pull
 docker-compose -p d7 -f docker-compose.yml -f d7.override.yml up -d
+
+docker-compose -p d6 -f docker-compose.yml -f d6.override.yml pull
 docker-compose -p d6 -f docker-compose.yml -f d6.override.yml up -d
+
+docker-compose -p d5 -f docker-compose.yml -f d5.override.yml pull
 docker-compose -p d5 -f docker-compose.yml -f d5.override.yml up -d
+
+docker-compose -p d4 -f docker-compose.yml -f d4.override.yml pull
 docker-compose -p d4 -f docker-compose.yml -f d4.override.yml up -d
 ```
+
+The following command can be used to view the output from a container.  You can specify the container to track.
+
+`docker logs -f dspace`
 
 ---
 
@@ -123,57 +139,13 @@ Add `-f oai.override.yml` to enable the OAI service
 
 A test dataset exists to illustrate the functionality of **DSpace Configurable Entities** .
 
-The code for this feature exists in the following branches
-- https://github.com/DSpace/DSpace/tree/configurable_entities
-- https://github.com/DSpace/DSpace-angular/tree/configurable_entities
-
-Docker images for these brances will be automatically built as
-- dspace/dspace:entities
-- dspace/dspace-angular:entities
-
-An optional docker compose file exists to trigger the population of new DSpace containers with this content.
-
-#### Preparing the Entities Dataset
-- Clone this repository
-- Checkout this branch
-- Download and unzip the entities SQL
-  - https://www.dropbox.com/s/ovqp394y3vofnwa/entities7-test-db.sql.gz?dl=1
-- export LOADSQL=<path to the sql file>
-- cd to docker-compose-files/dspace-compose
-
-#### Run docker-compose to initialize the database
-
-```
-DSPACE_VER=entities ANGULAR_VER=entities docker-compose -p d7ent -f docker-compose.yml -f d7.override.yml -f load.entities.yml up -d
-```
-
-#### Index the Content
-Once the services have started up, index the data
-
-```
-docker exec -it dspace //dspace/bin/dspace index-discovery
-```
-
-#### To stop the services
-
-```
-docker-compose -p d7ent -f docker-compose.yml -f d7.override.yml -f load.entities.yml down
-```
-
-#### On subsequent restart, you do not need the load.entities.yml file
-
-```
-DSPACE_VER=entities ANGULAR_VER=entities docker-compose -p d7ent -f docker-compose.yml -f d7.override.yml up -d
-```
-
-Our recommended Docker installation instructions are here: https://dspace-labs.github.io/DSpace-Docker-Images/documentation/tutorialSetup.html.  Be sure to configure Docker with at least 6G of RAM when running this test.
+[Tutorial Instructions](https://dspace-labs.github.io/DSpace-Docker-Images/documentation/runDSpace7Entities.html)
 
 ---
 
 ## Miscellaneous Notes
 
 ### Passing Variables and Properties to DSpace
-- _Ongoing Work: Config Property Injection: https://github.com/DSpace-Labs/DSpace-Docker-Images/pull/97 _
 
 DSpace uses Apache Commons Config to access runtime properties.  Values can be passed to Apache commons through the dspace.cfg file, the local.cfg file, as system properties (-Ddspace.name=Foo), and as environment variables.
 

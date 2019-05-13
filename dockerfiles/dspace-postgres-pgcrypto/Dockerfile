@@ -1,4 +1,4 @@
-# From https://github.com/DSpace-Labs/dspace-dev-docker/tree/master/postgres
+# This will be deployed as dspace/dspace-postgres-pgcrpyto:latest
 FROM postgres
 
 ENV POSTGRES_DB dspace
