@@ -82,8 +82,6 @@ The following URL's will illustrate key Configurable Entities features.
 
 See [Common Tasks](run.CommonTasks.md) for additional actions you can take with your DSpace instance.
 
-Note: In DSpace 7, content does not yet automatically index on startup.  See the link above to index the content.
-
 ### Delete docker Volumes
 _This will allow you to build a fresh installation with new data._
 

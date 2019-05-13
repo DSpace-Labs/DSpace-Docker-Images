@@ -39,8 +39,6 @@ docker exec dspace //dspace/bin/dspace index-discovery
 
 See [Common Tasks](run.CommonTasks.md) for additional actions you can take with your DSpace instance.
 
-Note: In DSpace 7, content does not yet automatically index on startup.  See the link above to index the content.
-
 ### Stop DSpace 7
 _This option will pause your container and free up any ports in use.  The container can be restarted._
 
