@@ -11,4 +11,4 @@ services:
 
   dspace-angular:
     # TODO: change to static image after preview release is tagged
-    image: "dspace/dspace-angular:entities"
+    image: "dspace/dspace-angular:latest"
