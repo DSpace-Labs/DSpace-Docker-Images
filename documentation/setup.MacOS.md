@@ -37,3 +37,4 @@ If less that 5G has been allocated to Docker, you can [configure memory for Dock
 
 - [Run DSpace 6](run.DSpace6.md)
 - [Run DSpace 7](run.DSpace7.md)
+- [Run DSpace 7 with Configurable Entities Data](run.DSpace7Entities.md)
