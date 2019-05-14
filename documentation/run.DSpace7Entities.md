@@ -75,6 +75,7 @@ docker-compose -p d7ent -f docker-compose.yml -f d7.override.yml up -d
 
 After the applications have started, discovery reindexing will start. This will require approximately 5 minutes as well. You can view the status [here](http://localhost:8080/spring-rest/#http://localhost:8080/spring-rest/api/discover/search/objects). Once complete, the index should contain 462 totalElements.
 
+![Search Results](searchRes.png)
 
 #### Collections of interest
 
