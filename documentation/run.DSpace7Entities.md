@@ -71,12 +71,16 @@ docker-compose -p d7ent -f docker-compose.yml -f d7.override.yml up -d
 | dspacedemo+acceptrejectedit@gmail.com | dspace |
 | dspacedemo+edit@gmail.com | dspace |
 
+#### Note about indexing
+
+After the applications have started, discovery reindexing will start. This will require approximately 5 minutes as well. You can view the status [here](http://localhost:8080/spring-rest/#http://localhost:8080/spring-rest/api/discover/search/objects). Once complete, the index should contain 462 totalElements.
+
+
 #### Collections of interest
 
-The following URL's will illustrate key Configurable Entities features.
-
-- [View Journal Volume](http://localhost:3000/items/f9b89a11-b44e-4a64-a3b4-ab24a33553c7)
-- Additional recommendations needed
+- [Journal Example](http://localhost:3000/items/a23eae5a-7857-4ef9-8e52-989436ad2955) represents a journal with journal volumes, issues and articles, as detailed in [the Configurable Entities Design](https://docs.google.com/document/d/1X0XsppZYOtPtbmq7yXwmu7FbMAfLxxOCONbw0_rl7jY/edit#heading=h.p5ja9m7zrpks).
+- [Publications Example](http://localhost:3000/collections/dd1240ae-d7dd-405c-bdc3-d6c960609433) contains publications which contain a combination of plain-text authors and related author entities. It also contains relations to Research Projects and Organizational Units, as detailed in [the Configurable Entities design](https://docs.google.com/document/d/1X0XsppZYOtPtbmq7yXwmu7FbMAfLxxOCONbw0_rl7jY/edit#heading=h.x0m096abh8pu). Navigating to e.g. a Person will reveal their relations to Publications, Research Projects and Organizational Units.
+- The submission can be verified in one of the collections in [this community](http://localhost:3000/communities/c0e4de93-f506-4990-a840-d406f6f2ada7) where the workflow is enabled. You can use the accounts mentioned above to perform the submission and workflow steps. The admin account can perform the submission and all workflow steps as well.
 
 ### Next steps
 
