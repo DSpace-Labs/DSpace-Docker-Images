@@ -68,10 +68,20 @@ then
 
     /dspace/bin/dspace packager -r -a -t AIP -e ${ADMIN_EMAIL} -f -u SITE*.zip
 
-    if [ "$SCRIPTVER" -ne 4 ]
+    if [ "$SCRIPTVER" -eq 5 ]
+    then
+      # PR not yet merged
+      # /dspace/bin/dspace database update-sequences
+      touch /dspace/solr/search/conf/reindex.flag
+    elif [ "$SCRIPTVER" -eq 6 ]
+    then
+      # PR not yet merged
+      # /dspace/bin/dspace database update-sequences
+      touch /dspace/solr/search/conf/reindex.flag
+    elif [ "$SCRIPTVER" -eq 7 ]
     then
       /dspace/bin/dspace database update-sequences
-      /dspace/bin/dspace index-discovery
+      touch /dspace/solr/search/conf/reindex.flag
     fi
 
     /dspace/bin/dspace oai import
