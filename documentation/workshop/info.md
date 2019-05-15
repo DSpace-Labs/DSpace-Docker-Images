@@ -10,7 +10,6 @@
 - Terry Brady, Georgetown University Library
 - Pascal Becker, The Library Code
 
-
 ## Logistics
   - Monday June 10, 2019 - 1:30 - 5:00PM
   - Location: ESA-E-123
@@ -19,7 +18,8 @@
     - [Part 2: 3:30-5:00](https://www.conftool.net/or2019/index.php?page=browseSessions&form_session=421)
 
 ## Session Links
-- [Session Slides](https://gitpitch.com/DSpace-Labs/DSpace-Docker-Images/workshop?p=documentation/workshop#/)
+- [Session Slides](https://gitpitch.com/DSpace-Labs/DSpace-Docker-Images?p=documentation/workshop#/)
+- [Session Slides -- workshop branch](https://gitpitch.com/DSpace-Labs/DSpace-Docker-Images/workshop?p=documentation/workshop#/)
 
 ## Exercises
 - [Exercise 1: Verify Installation](exercise1.md)
