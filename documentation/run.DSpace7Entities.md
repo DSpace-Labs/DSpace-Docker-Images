@@ -62,7 +62,6 @@ docker-compose -p d7ent -f docker-compose.yml -f d7.override.yml up -d
 ### Testing the entities functionality
 
 #### Test User credentials
-
 | e-mail | password |
 | ------ | -------- |
 | dspacedemo+submit@gmail.com | dspace |
@@ -86,6 +85,8 @@ After the applications have started, discovery reindexing will start. This will 
 ### Next steps
 
 See [Common Tasks](run.CommonTasks.md) for additional actions you can take with your DSpace instance.
+
+Note: In DSpace 7, content does not yet automatically index on startup.  See the link above to index the content.
 
 ### Delete docker Volumes
 _This will allow you to build a fresh installation with new data._
