@@ -4,7 +4,7 @@
 - Terry Brady, Georgetown University Library
 - Pascal Becker, The Library Code
 
-http://bit.ly/dspace4docker
+http://bit.ly/dspace-docker
 
 _Please complete the Pre-work (Docker Install), if you have not already done so._
 
@@ -444,4 +444,4 @@ docker-compose -p d7 -f docker-compose.yml -f d7.override.yml down
 - Terry Brady, Georgetown University Library
 - Pascal Becker, The Library Code
 
-http://bit.ly/dspace4docker
+http://bit.ly/dspace-docker

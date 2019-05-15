@@ -1,7 +1,7 @@
 {% include nav.html %}
 # Exercise 3: Running DSpace 6 with Docker-Compose
 
-http://bit.ly/dspace4docker
+http://bit.ly/dspace-docker
 
 - Run DSpace 6
 - Run command line tasks (create admin, create user)
