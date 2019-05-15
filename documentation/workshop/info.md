@@ -1,7 +1,7 @@
 {% include nav.html %}
 ## Docker for DSpace – Lowering the Barrier of Entry for New Contributors
 
-# http://bit.ly/dspace4docker
+# http://bit.ly/dspace-docker
 
 ## Pre-work
 - [Pre-work](pre-work.md) - _This link will be mailed to all registered session attendees_
