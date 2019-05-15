@@ -1,0 +1,7 @@
+slide-number: true
+
+background-size : contain
+
+theme-override : PITCHME.css
+
+footnote: http://bit.ly/dspace4docker
