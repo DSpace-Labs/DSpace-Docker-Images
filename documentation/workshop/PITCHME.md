@@ -6,6 +6,8 @@
 
 http://bit.ly/dspace4docker
 
+_Please complete the Pre-work (Docker Install), if you have not already done so._
+
 ---
 
 ### Who We Are
@@ -55,7 +57,7 @@ Terry presents
 
 +++
 
-### Webinar Objectives
+### Workshop Objectives
 
 - What is a *Docker image* and what are *Containers*
 - What Docker images have been published for DSpace
@@ -103,7 +105,60 @@ docker-compose -p d7 -f docker-compose.yml -f d7.override.yml up -d
 
 ---
 
-### 5 Quick Docker Concepts
+### Install Instructions (Recap)
+_Most attendees will have completed this step already_
+
+- Install Docker Desktop
+- Install a terminal for running docker
+- Download DSpace Docker Compose files
+
++++
+
+### Installation instructions
+
+- @gitlink[Windows 10 Setup](documentation/setup.Windows10.md)
+- @gitlink[MacOS Setup](documentation/setup.MacOS.md)
+- @gitlink[Linux Desktop Setup](documentation/setup.LinuxDesktop.md)
+
+---
+
+### Step by Step Demonstration
+
++++
+
+### Verify Installs
+
+```shell
+git version
+```
+```shell
+docker version
+```
+```shell
+docker-compose version
+```
+
++++?image=documentation/webinar/win.versions.gif
+
++++
+
+### Download DSpace Docker Compose Files
+
+```shell
+cd
+git clone https://github.com/DSpace-Labs/DSpace-Docker-Images.git
+cd DSpace-Docker-Images/docker-compose-files/dspace-compose
+```
+
++++?image=documentation/webinar/win.clone.gif
+
+---
+### Exercise 1: Verify Installation
+- [Exercise 1: Verify Installation](exercise1.md)
+
+---
+
+### Docker Concepts
 
 - Docker Images
 - DSpace Docker Images
@@ -113,6 +168,8 @@ docker-compose -p d7 -f docker-compose.yml -f d7.override.yml up -d
 
 Note:
 Pascal presents
+
+Pascal, do you have any slides from https://wiki.duraspace.org/display/DSPACE/Dev+Show+and+Tell+-+Using+Docker+in+Development+-+May+15%2C+2018+-+1500UTC that would be helpful to add?
 
 +++
 
@@ -174,7 +231,13 @@ An Image is
 - Like a really small disk drive or network drive
 - Data you wish to save must be stored in a volume
 
-+++
+---
+
+### Exercise 2: Docker Images and Containers
+
+- [Exercise 2: Docker Images and Containers](exercise2.md)
+
+---
 
 ### docker-compose
 
@@ -183,6 +246,10 @@ An Image is
   - DSpace Web Server
   - Angular UI (for DSpace 7)
 - Build, start, stop, ... all necessary containers for a service or application
+
++++
+
+### TODO: Add more Docker Compose Concepts here...
 
 ---
 
@@ -194,53 +261,6 @@ An Image is
 - Verify a bug fix **before** it is released
 - Onboard new developers and repository managers to the project
 
----
-
-### Install Instructions
-
-- Install Docker Desktop
-- Install a terminal for running docker
-- Download DSpace Docker Compose files
-
-+++
-
-### Installation instructions
-
-- @gitlink[Windows 10 Setup](documentation/setup.Windows10.md)
-- @gitlink[MacOS Setup](documentation/setup.MacOS.md)
-- @gitlink[Linux Desktop Setup](documentation/setup.LinuxDesktop.md)
-
----
-
-### Step by Step Demonstration
-
-+++
-
-### Verify Installs
-
-```shell
-git version
-```
-```shell
-docker version
-```
-```shell
-docker-compose version
-```
-
-+++?image=documentation/webinar/win.versions.gif
-
-+++
-
-### Download DSpace Docker Compose Files
-
-```shell
-cd
-git clone https://github.com/DSpace-Labs/DSpace-Docker-Images.git
-cd DSpace-Docker-Images/docker-compose-files/dspace-compose
-```
-
-+++?image=documentation/webinar/win.clone.gif
 
 +++
 
@@ -298,7 +318,12 @@ docker-compose -p d6 -f docker-compose.yml -f d6.override.yml down
 
 +++?image=documentation/webinar/win.d6.down.gif
 
-+++
+---
+### Exercise 3: Running DSpace 6 with Docker-Compose
+
+- [Exercise 3: Running DSpace 6 with Docker-Compose](exercise3.md)
+
+---
 
 ### A quick peek at the DSpace 7 compose files
 
@@ -351,6 +376,25 @@ docker-compose -p d7 -f docker-compose.yml -f d7.override.yml down
 ```
 
 +++?image=documentation/webinar/win.d7.down.gif
+
+---
+### Exercise 4: Running DSpace 7 with Docker-Compose
+
+- [Exercise 4: Running DSpace 7 with Docker-Compose](exercise4.md)
+
+---
+### Advanced Topics
+
+- Our ideas
+  - Building code changes with Docker Composse
+  - Running DSpace 6 and DSpace 7 on different ports
+- Your ideas
+  - Anything specific you would like us to cover?
+
+---
+### Exercise 5: Advanced Topics
+
+- [Exercise 5: Advanced Topics](exercise5.md)
 
 ---
 
