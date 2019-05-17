@@ -7,8 +7,8 @@ version: "3.7"
 services:
   dspace:
     # TODO: change to static image after preview release is tagged
-    image: "dspace/dspace:dspace-7_x-jdk8-test"
+    image: "dspace/dspace:dspace-7.0-preview-1"
 
   dspace-angular:
     # TODO: change to static image after preview release is tagged
-    image: "dspace/dspace-angular:latest"
+    image: "dspace/dspace-angular:dspace-7.0-preview-1"
