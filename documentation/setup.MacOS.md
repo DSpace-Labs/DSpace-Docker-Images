@@ -16,12 +16,39 @@ In your terminal, type the following command. If git is not yet installed, you w
 git version
 ```
 
+### Verify Running Docker from your Terminal
+
+```shell
+docker run -it --rm ubuntu /bin/bash
+```
+
+Enter `echo hello` then enter `exit`
+
+```
+root@653eeaeb274b:/# echo hello
+hello
+root@653eeaeb274b:/# exit
+exit
+```
+
 ### Download DSpace Docker Compose Files
 
 ```shell
 cd
 git clone https://github.com/DSpace-Labs/DSpace-Docker-Images.git
 cd DSpace-Docker-Images/docker-compose-files/dspace-compose
+```
+
+### Verify Docker Compose
+
+```
+docker-compose version
+```
+
+Check your download of DSpace Compose Files
+
+```
+docker-compose config | grep container_name
 ```
 
 ### Verify your memory allocation for Docker

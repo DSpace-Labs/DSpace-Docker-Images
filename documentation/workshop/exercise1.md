@@ -22,40 +22,14 @@ docker-compose version
 ## Check terminal access to a Docker image
 _We will explain these commands in more detail later. Please run each step to verify that your configuration is ready for the later exercises._
 
-```shell
-docker run --rm -d --name test tomcat
-```
-
-Check that the container is running
-
-```shell
-docker ps
-```
-
-Connect to the container
-
 Linux or MacOS
 ```shell
-docker exec -it test echo Hello
-docker exec -it test ls /
+docker run -it --rm ubuntu /bin/bash
 ```
 
-Windows Git Bash
+Windows
 ```shell
-winpty docker exec -it test echo Hello
-winpty docker exec -it test ls //
-```
-
-Check that the container is running
-
-```shell
-docker stop test
-```
-
-Check that the container is no longer running
-
-```shell
-docker ps
+winpty docker run -it --rm ubuntu //bin/bash
 ```
 
 ## Verify that you have DSpace Docker Resources Locally
@@ -63,7 +37,13 @@ docker ps
 ```shell
 cd
 cd DSpace-Docker-Images/docker-compose-files/dspace-compose
-docker-compose config 
+ls
+```
+
+Several files should be present.  If you do not see them, revisit the [setup](../tutorialSetup.md) page.
+
+```shell
+docker-compose config | grep container_name
 ```
 
 This will output a screenful of information.  To simplify this output, run the following command.
@@ -78,3 +58,6 @@ You should see the following output
     container_name: dspace
     container_name: dspacedb
 ```
+
+These are the default (DSpace 6 containers that will be started in Docker.)
+

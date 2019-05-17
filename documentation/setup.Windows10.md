@@ -15,6 +15,27 @@ Run the following command to verify your install
   git version
 ```
 
+### Note for Windows users running docker commands
+
+- When running a DSpace command that requires terminal interaction, prefix your docker command with `winpty`
+- When referencing a the root directory of a docker container, use `//` instead of `/`.  
+  - Example use `//dspace/bin/dspace` for `/dspace/bin/dspace`
+
+### Verify Running Docker from your Terminal
+
+```shell
+winpty docker run -it --rm ubuntu //bin/bash
+```
+
+Enter `echo hello` then enter `exit`
+
+```
+root@653eeaeb274b:/# echo hello
+hello
+root@653eeaeb274b:/# exit
+exit
+```
+
 ### Download DSpace Docker Compose Files
 
 ```shell
@@ -23,11 +44,17 @@ git clone https://github.com/DSpace-Labs/DSpace-Docker-Images.git
 cd DSpace-Docker-Images/docker-compose-files/dspace-compose
 ```
 
-### Note for Windows users running docker commands
+### Verify Docker Compose
 
-- When running a DSpace command that requires terminal interaction, prefix your docker command with `winpty`
-- When referencing a the root directory of a docker container, use `//` instead of `/`.  
-  - Example use `//dspace/bin/dspace` for `/dspace/bin/dspace`
+```
+docker-compose version
+```
+
+Check your download of DSpace Compose Files
+
+```
+docker-compose config | grep container_name
+```
 
 ### Verify your memory allocation for Docker
 
