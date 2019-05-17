@@ -33,7 +33,7 @@ services:
       # export SKIPAIP=Y
       - SKIPAIP=${SKIPAIP:-N}
       # Number of sec to wait before attempting AIP ingest
-      - AIPWAIT=0
+      - AIPWAIT=5
       # Number of sec to wait before attempting to start tomcat
       - DBWAIT=0
       # Env vars with double underbars in names will be replaced with periods and written to local.cfg
