@@ -66,9 +66,26 @@ DSPACE_VER=or2019-workshop-6x docker-compose -p d6 -f docker-compose.yml -f d6.o
 Open [XMLUI](http://localhost:8080/xmlui) and notice the change to the welcome page.
 
 ### Pass params via compose
-TODO: XMLUI - show/hide items on search screen
+
+Browse the Dog Photos Collection.  Note that thumbnail images __do not__ appear beside the list of items.
+
+Print Config Value - MacOS/Linux
+```shell
+docker exec -it /dspace/bin/dspace dsprop -p xmlui.theme.mirage.item-list.emphasis
+```
+
+Print Config Value - Windows
+```shell
+winpty docker exec -it //dspace/bin/dspace dsprop -p xmlui.theme.mirage.item-list.emphasis
+```
+
+```shell
+docker-compose -p d6 -f docker-compose.yml -f d6.override.yml down
+```
 
 Create local.override.yml
+
+_Note that periods and dashes are replaced with special characters_
 ```
 # suitable for DSpace 6 and 7
 version: "3.7"
@@ -80,6 +97,15 @@ services:
       # __P__ -> .
       - xmlui__P__theme__P__mirage__P__item__D__list__P__emphasis=file
 ```
+
+```shell
+docker-compose -p d6 -f docker-compose.yml -f d6.override.yml -f local.override.yml
+```
+
+Verify the change in the property value (see above)
+
+Browse the Dog Photos Collection.  Note that thumbnail images __do appear__ beside the list of items.
+
 
 ### Pass in files via docker-compose
 Mirage vs Mirage2
