@@ -94,6 +94,13 @@ cd DSpace-Docker-Images/docker-compose-files/dspace-compose
 docker-compose -p d7 -f docker-compose.yml -f d7.override.yml up -d
 ```
 
+Note:
+Pre-install entities data into the d7 volumes.
+
+```shell
+docker-compose -p d7 -f docker-compose.yml -f d7.override.yml -f d7.preview.yml -f load.entities.yml up -d
+```
+
 +++?image=documentation/webinar/win.d7.start.gif
 
 +++
@@ -319,9 +326,14 @@ docker-compose -p d6 -f docker-compose.yml -f d6.override.yml down
 +++?image=documentation/webinar/win.d6.down.gif
 
 ---
-### Exercise 3: Running DSpace 6 with Docker-Compose
+### Exercise 3A: Understanding Docker Compose
 
-- [Exercise 3: Running DSpace 6 with Docker-Compose](exercise3.md)
+- [Exercise 3A: Understanding Docker Compose](exercise3A.md)
+
++++
+### Exercise 3B: Running DSpace 6 with Docker-Compose
+
+- [Exercise 3B: Running DSpace 6 with Docker-Compose](exercise3B.md)
 
 ---
 

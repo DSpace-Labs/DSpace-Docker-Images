@@ -1,5 +1,5 @@
 {% include nav.html %}
-# Exercise 3: Running DSpace 6 with Docker-Compose
+# Exercise 3B: Running DSpace 6 with Docker-Compose
 
 http://bit.ly/dspace-docker
 
@@ -11,3 +11,5 @@ http://bit.ly/dspace-docker
 - Volume management
   - empty images
   - change aip images
+
+## Running DSpace 6
