@@ -23,8 +23,8 @@ docker-compose -p d7 -f docker-compose.yml -f d7.override.yml -f d7.preview.yml 
 
 To run the __latest DSpace 7__ images.
 ```shell
-docker-compose -p d7 -f docker-compose.yml -f d7.override.yml -f d7.preview.yml pull
-docker-compose -p d7 -f docker-compose.yml -f d7.override.yml -f d7.preview.yml up -d
+docker-compose -p d7 -f docker-compose.yml -f d7.override.yml -f load.entities.yml pull
+docker-compose -p d7 -f docker-compose.yml -f d7.override.yml -f load.entities.yml up -d
 ```
 
 Verify that DSpace is Running
