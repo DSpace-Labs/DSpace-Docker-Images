@@ -18,9 +18,13 @@ This repository contains the source code for Docker Images for the [DSpace](http
 - To simplify the management of applicaiton dependencies for DSpace 7 (database, REST API, Angular UI) on a user's desktop
 -  __Note: These images are intended for DSpace development purposes and are not appropriate for production use.__
 
+## Workshops
+
+  - [DuraSpace Webinar: DSpace Docker for Repository Managers: Running Any Version of DSpace from your Desktop](documentation/webinar/webinar.md)
+  - [Open Repositories 2019: Docker for DSpace – Lowering the Barrier of Entry for New Contributors](documentation/workshop/info.md)
+
 ## Tutorials
 
-- [DuraSpace Webinar: DSpace Docker for Repository Managers: Running Any Version of DSpace from your Desktop](documentation/webinar/webinar.md)
 - [Setting Up Docker](documentation/tutorialSetup.md)
   - [Common Tasks after Start Up](documentation/run.CommonTasks.md)
 - [Running DSpace with Docker Compose](docker-compose-files/dspace-compose/README.md)
