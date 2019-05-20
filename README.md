@@ -33,6 +33,9 @@ This repository contains the source code for Docker Images for the [DSpace](http
   - [Testing DSpace 7 Angular Code with Docker Compose](docker-compose-files/angular-dev-compose/README.md)
 - [Creating automated builds for your DSpace contributions](documentation/forkBuild.md)
 
+## References
+- [DSpace 7 Preview Release Setup](documentation/run.DSpace7Entities.md)
+
 ---
 
 ## Published Images

@@ -13,7 +13,7 @@ cd
 cd DSpace-Docker-Images/docker-compose-files/dspace-compose
 ```
 
-### Ingest the Entities Test Dataset and Start DSpace 7
+### Ingest the Entities Test Dataset and Start DSpace 7 (localhost setup)
 
 To run the __DSpace 7 Preview Release__ images.
 ```shell
@@ -35,6 +35,25 @@ It will take approximately 5 minutes for the services to start completely.  Once
 
 - [http://localhost:8080/spring-rest](http://localhost:8080/spring-rest)
 - [http://localhost:3000](http://localhost:3000)
+
+### Ingest the Entities Test Dataset and Start DSpace 7 (Server Setup)
+
+Edit [Angular environment.dev.js](../add-ons/angular-tool/environment.dev.js) on your server.  
+Replace __locahost__ with your server's hostname.
+
+To run the __DSpace 7 Preview Release__ images.
+```shell
+export BASEROOT=http://<server-dns>
+docker-compose -p d7 -f docker-compose.yml -f d7.override.yml -f d7.preview.yml -f load.entities.yml pull
+docker-compose -p d7 -f docker-compose.yml -f d7.override.yml -f d7.preview.yml -f load.entities.yml up -d
+```
+
+To run the __latest DSpace 7__ images.
+```shell
+export BASEROOT=http://<server-dns>
+docker-compose -p d7 -f docker-compose.yml -f d7.override.yml -f load.entities.yml pull
+docker-compose -p d7 -f docker-compose.yml -f d7.override.yml -f load.entities.yml up -d
+```
 
 #### To stop the services
 
