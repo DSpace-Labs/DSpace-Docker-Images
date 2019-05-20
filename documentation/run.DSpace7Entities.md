@@ -38,7 +38,7 @@ It will take approximately 5 minutes for the services to start completely.  Once
 
 ### Ingest the Entities Test Dataset and Start DSpace 7 (Server Setup)
 
-Edit [Angular environment.dev.js](../add-ons/angular-tool/environment.dev.js) on your server.  
+Edit [Angular environment.dev.js](../add-ons/angular-tools/environment.dev.js) on your server.  
 Replace __locahost__ with your server's hostname.
 
 To run the __DSpace 7 Preview Release__ images.
