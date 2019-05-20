@@ -3,7 +3,7 @@
 
 ### Install Docker Desktop
 
-https://docs.docker.com/docker-for-mac/install/
+[https://docs.docker.com/docker-for-mac/install/](https://docs.docker.com/docker-for-mac/install/)
 
 ### Open a terminal
 
