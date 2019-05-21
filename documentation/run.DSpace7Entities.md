@@ -15,6 +15,9 @@ cd DSpace-Docker-Images/docker-compose-files/dspace-compose
 
 ### Ingest the Entities Test Dataset and Start DSpace 7 (localhost setup)
 
+_These instructions describe how to run DSpace in Docker on your local PC, Mac or Linux desktop.
+This is the most common deployment option.  This option is suitable for personal testing of DSpace._
+
 To run the __DSpace 7 Preview Release__ images.
 ```shell
 docker-compose -p d7 -f docker-compose.yml -f d7.override.yml -f d7.preview.yml -f load.entities.yml pull
@@ -37,6 +40,10 @@ It will take approximately 5 minutes for the services to start completely.  Once
 - [http://localhost:3000](http://localhost:3000)
 
 ### Ingest the Entities Test Dataset and Start DSpace 7 (Server Setup)
+
+_These instructions describe how to run DSpace in Docker on a remote server or cloud server.
+This option is most suitable for sharing a DSpace instance with your colleagues._
+
 
 Edit [Angular environment.dev.js](../add-ons/angular-tools/environment.dev.js) on your server.  
 Replace __locahost__ with your server's hostname.
