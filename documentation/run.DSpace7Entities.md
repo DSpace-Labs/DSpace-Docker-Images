@@ -43,14 +43,14 @@ Replace __locahost__ with your server's hostname.
 
 To run the __DSpace 7 Preview Release__ images.
 ```shell
-export BASEROOT=http://<server-dns>
+export BASEROOT=http://<server-dns>:8080
 docker-compose -p d7 -f docker-compose.yml -f d7.override.yml -f d7.preview.yml -f load.entities.yml pull
 docker-compose -p d7 -f docker-compose.yml -f d7.override.yml -f d7.preview.yml -f load.entities.yml up -d
 ```
 
 To run the __latest DSpace 7__ images.
 ```shell
-export BASEROOT=http://<server-dns>
+export BASEROOT=http://<server-dns>:8080
 docker-compose -p d7 -f docker-compose.yml -f d7.override.yml -f load.entities.yml pull
 docker-compose -p d7 -f docker-compose.yml -f d7.override.yml -f load.entities.yml up -d
 ```
