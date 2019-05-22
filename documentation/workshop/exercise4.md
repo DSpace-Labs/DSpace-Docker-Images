@@ -77,8 +77,8 @@ DSPACE_VER=or2019-workshop-7x docker-compose -p d7 -f docker-compose.yml -f d7.o
 Run the following commands to start DSpace with this image.
 
 ```shell
-DSPACE_VER=or2019-workshop-7x docker-compose -p d7 -f docker-compose.yml -f d6.override.yml pull
-DSPACE_VER=or2019-workshop-7x docker-compose -p d7 -f docker-compose.yml -f d6.override.yml up -d
+DSPACE_VER=or2019-workshop-7x docker-compose -p d7 -f docker-compose.yml -f d7.override.yml pull
+DSPACE_VER=or2019-workshop-7x docker-compose -p d7 -f docker-compose.yml -f d7.override.yml up -d
 ```
 
 Open [the REST HAL Browser](http://localhost:8080/spring-rest) and notice the change listed in the Properties Section.
@@ -86,3 +86,28 @@ Open [the REST HAL Browser](http://localhost:8080/spring-rest) and notice the ch
 ![HAL Browser Screenshot](rest-comment.png)
 
 ### TODO: Override Angular Image
+
+Shutdown your running copy of DSpace
+```shell
+docker-compose -p d7 -f docker-compose.yml -f d7.override.yml down
+```
+
+For this test, we are going to use a tagged version of the DSpace image.  
+- Open [https://hub.docker.com/r/dspace/dspace-angular/tags](https://hub.docker.com/r/dspace/dspace-angular/tags) to explore the available images
+  - Look for __or2019-workshop-7x__
+  - [Pull Request Used to Create This Image](https://github.com/DSpace/dspace-angular/pull/406/files)
+
+Set the variable ANGULAR_VER to select a different image.
+
+```shell
+ANGULAR_VER=or2019-workshop-7x docker-compose -p d7 -f docker-compose.yml -f d7.override.yml config | grep image:
+```
+
+Run the following commands to start DSpace with this image.
+
+```shell
+ANGULAR_VER=or2019-workshop-7x docker-compose -p d7 -f docker-compose.yml -f d7.override.yml pull
+ANGULAR_VER=or2019-workshop-7x docker-compose -p d7 -f docker-compose.yml -f d7.override.yml up -d
+```
+
+Open [the Angular UI](http://localhost:3000) and notice the change in the text color.
