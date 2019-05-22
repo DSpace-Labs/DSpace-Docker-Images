@@ -84,3 +84,5 @@ DSPACE_VER=or2019-workshop-7x docker-compose -p d7 -f docker-compose.yml -f d6.o
 Open [the REST HAL Browser](http://localhost:8080/spring-rest) and notice the change listed in the Properties Section.
 
 ![HAL Browser Screenshot](rest-comment.png)
+
+### TODO: Override Angular Image

@@ -1,0 +1,12 @@
+version: "3.7"
+
+# To build changes
+# docker-compose -p d7 -f docker-compose.yml -f d7.override.yml -f ang-src.override.yml build
+# docker-compose -p d7 -f docker-compose.yml -f d7.override.yml -f ang-src.override.yml up -d
+
+services:
+  dspace-angular:
+    image: dspace/dspace-angular:local-build
+    build:
+      context: ${ANGULAR_SRC}
+      dockerfile: Dockerfile
