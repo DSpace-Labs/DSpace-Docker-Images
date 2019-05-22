@@ -106,10 +106,67 @@ Verify the change in the property value (see above)
 
 Browse the Dog Photos Collection.  Note that thumbnail images __do appear__ beside the list of items.
 
-
 ### Pass in files via docker-compose
-Mirage vs Mirage2
+Within a Docker Compose file, you can override files within your docker containers.
+
+In [../../docker-compose-files/dspace-compose/d6.override.yml](../../docker-compose-files/dspace-compose/d6.override.yml) comment out the line as follows.
+```
+      - "../../add-ons/mirage2/xmlui.xconf:/dspace/config/xmlui.xconf"
+```
+
+Insert a # as follows
+```
+      # - "../../add-ons/mirage2/xmlui.xconf:/dspace/config/xmlui.xconf"
+```
+
+Look for the following line in [../../add-ons/mirage2/xmlui.xconf](../../add-ons/mirage2/xmlui.xconf).  This sets the theme to "Mirage2"
+```
+<theme name="Atmire Mirage Theme" regex=".*" path="Mirage2/" />
+```
+
+Stop and restart DSpace.  Open XMLUI and note the change in the appearance of the site.
+
+```shell
+docker-compose -p d6 -f docker-compose.yml -f d6.override.yml down
+docker-compose -p d6 -f docker-compose.yml -f d6.override.yml up -d
+```
+
 
 ### Volume management
-  - empty images
-  - change aip images
+
+Docker will can save your content to a __docker volume__.
+
+Run the following command to display your volumes.
+
+```
+docker volume ls
+```
+
+Stop DSpace and run the following command to wipe out your database volume.
+
+```
+docker-compose -p d6 -f docker-compose.yml -f d6.override.yml down
+docker volume rm d6_pgdata
+```
+
+Restart DSpace.  
+
+```shell
+docker-compose -p d6 -f docker-compose.yml -f d6.override.yml up -d
+```
+Open XMLUI and note that no items exist in your database.
+
+Stop DSpace and delete all of your docker volumes with the following command.
+
+```
+docker-compose -p d6 -f docker-compose.yml -f d6.override.yml down
+docker volume rm d6_pgdata d6_assetstore d6_solr_authority d6_solr_oai d6_solr_search d6_solr_statistics
+```
+
+Restart DSpace.  
+
+```shell
+docker-compose -p d6 -f docker-compose.yml -f d6.override.yml up -d
+```
+
+The Docker Compose file will treat this as a new installation and will reload content from AIP files.  Open XMLUI and note that items exist in your database.

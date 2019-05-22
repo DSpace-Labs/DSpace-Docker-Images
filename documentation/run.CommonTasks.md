@@ -144,6 +144,24 @@ cd DSpace-Docker-Images/docker-compose-files/dspace-compose
 docker-compose -p d6 -f docker-compose.yml -f d6.override.yml -f src.override.yml up -d
 ```
 
+### Build DSpace-angular Code
+
+Ensure that ANGULAR_SRC is set to your local DSpace-angular clone.
+
+```shell
+cd
+cd DSpace-Docker-Images/docker-compose-files/dspace-compose
+docker-compose -p d7 -f docker-compose.yml -f d7.override.yml -f ang-src.override.yml build
+```
+
+The build will take several minutes to complete.  Once it has completed, start DSpace.
+
+```shell
+cd
+cd DSpace-Docker-Images/docker-compose-files/dspace-compose
+docker-compose -p d7 -f docker-compose.yml -f d7.override.yml -f ang-src.override.yml up -d
+```
+
 ### Create a DSpace instance from a DSpace pull request
 
 You need 2 pieces of information
