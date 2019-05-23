@@ -1,7 +1,5 @@
-{% include nav.html %}
+{% include nav.wkshop.html %}
 # Exercise 5: Advanced Topics
-
-[http://bit.ly/dspace-docker](http://bit.ly/dspace-docker)
 
 If this workshop inspires you to contribute code to DSpace, please see the following [Git Instructions on the DSpace Wiki](https://wiki.duraspace.org/display/DSPACE/Development+with+Git).
 
@@ -225,7 +223,7 @@ Start DSpace 6 as normal
 docker-compose -p d6 -f docker-compose.yml -f d6.override.yml up -d
 ```
 
-Open [XMLUI](http://localhost:8080/xmlui) to verify the instance.  Consider logging in as the administrator and opening the control panel to verify the version.
+Open [XMLUI on Port 8080](http://localhost:8080/xmlui) to verify the instance.  Consider logging in as the administrator and opening the control panel to verify the version.
 
 Start DSpace 5 on port 8081
 ```

@@ -1,7 +1,5 @@
-{% include nav.html %}
+{% include nav.wkshop.html %}
 # Exercise 2:  Docker Images and Containers
-
-[http://bit.ly/dspace-docker](http://bit.ly/dspace-docker)
 
 ### Run Simple Command Line Tasks in Docker
 

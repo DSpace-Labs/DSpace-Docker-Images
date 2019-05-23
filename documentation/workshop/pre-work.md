@@ -1,4 +1,4 @@
-{% include nav.html %}
+{% include nav.wkshop.html %}
 ## Pre-work: Docker for DSpace – Lowering the Barrier of Entry for New Contributors
 
 This workshop will be a hands-on experience.  Participants are encouraged to bring a laptop to the session.

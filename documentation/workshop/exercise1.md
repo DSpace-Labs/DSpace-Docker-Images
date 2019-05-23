@@ -1,7 +1,5 @@
-{% include nav.html %}
-# Exercise 1: Verify Instalation
-
-[http://bit.ly/dspace-docker](http://bit.ly/dspace-docker)
+{% include nav.wkshop.html %}
+# Exercise 1: Verify Installation
 
 ## Verify Git Install
 ```shell
