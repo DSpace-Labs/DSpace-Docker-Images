@@ -1,7 +1,5 @@
-{% include nav.html %}
+{% include nav.wkshop.html %}
 # Exercise 4: Running DSpace 7 with Docker-Compose
-
-[http://bit.ly/dspace-docker](http://bit.ly/dspace-docker)
 
 - Running DSpace 7
 - Running DSpace 7 with entities
@@ -85,7 +83,7 @@ Open [the REST HAL Browser](http://localhost:8080/spring-rest) and notice the ch
 
 ![HAL Browser Screenshot](rest-comment.png)
 
-### TODO: Override Angular Image
+### Override Angular Image
 
 Shutdown your running copy of DSpace
 ```shell

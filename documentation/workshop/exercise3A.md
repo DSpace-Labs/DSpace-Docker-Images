@@ -1,7 +1,5 @@
-{% include nav.html %}
+{% include nav.wkshop.html %}
 # Exercise 3A: Understanding Docker Compose 
-
-[http://bit.ly/dspace-docker](http://bit.ly/dspace-docker)
 
 ## Understanding the DSpace 6 Configuration
 ```shell
@@ -82,4 +80,5 @@ Output:
     image: dspace/dspace:dspace-7.0-preview-1
     image: dspace/dspace-angular:dspace-7.0-preview-1
     image: dspace/dspace-postgres-pgcrypto
-    image: dspace/dspace-solr```
+    image: dspace/dspace-solr
+```
