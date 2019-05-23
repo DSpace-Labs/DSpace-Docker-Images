@@ -1,0 +1,13 @@
+--- a/src/styles/_variables.scss
++++ b/src/styles/_variables.scss
+@@ -2,4 +2,8 @@
+ @import '../../node_modules/bootstrap/scss/functions.scss';
+ @import 'bootstrap_variables.scss';
+ @import '../../node_modules/bootstrap/scss/variables.scss';
+-@import 'custom_variables.scss';
+\ No newline at end of file
++@import 'custom_variables.scss';
++
++body {
++  color: red;
++}
