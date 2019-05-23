@@ -161,7 +161,7 @@ cd DSpace-Docker-Images/docker-compose-files/dspace-compose
 
 ---
 ### Exercise 1: Verify Installation
-- [Exercise 1: Verify Installation](exercise1.md)
+- [Exercise 1: Verify Installation](https://dspace-labs.github.io/DSpace-Docker-Images/documentation/workshop/exercise1.html)
 
 ---
 
@@ -242,7 +242,7 @@ An Image is
 
 ### Exercise 2: Docker Images and Containers
 
-- [Exercise 2: Docker Images and Containers](exercise2.md)
+- [Exercise 2: Docker Images and Containers](https://dspace-labs.github.io/DSpace-Docker-Images/documentation/workshop/exercise2.html)
 
 ---
 
@@ -328,12 +328,12 @@ docker-compose -p d6 -f docker-compose.yml -f d6.override.yml down
 ---
 ### Exercise 3A: Understanding Docker Compose
 
-- [Exercise 3A: Understanding Docker Compose](exercise3A.md)
+- [Exercise 3A: Understanding Docker Compose](https://dspace-labs.github.io/DSpace-Docker-Images/documentation/workshop/exercise3A.html)
 
 +++
 ### Exercise 3B: Running DSpace 6 with Docker-Compose
 
-- [Exercise 3B: Running DSpace 6 with Docker-Compose](exercise3B.md)
+- [Exercise 3B: Running DSpace 6 with Docker-Compose](https://dspace-labs.github.io/DSpace-Docker-Images/documentation/workshop/exercise3B.html)
 
 ---
 
@@ -392,7 +392,7 @@ docker-compose -p d7 -f docker-compose.yml -f d7.override.yml down
 ---
 ### Exercise 4: Running DSpace 7 with Docker-Compose
 
-- [Exercise 4: Running DSpace 7 with Docker-Compose](exercise4.md)
+- [Exercise 4: Running DSpace 7 with Docker-Compose](https://dspace-labs.github.io/DSpace-Docker-Images/documentation/workshop/exercise4.html)
 
 ---
 ### Advanced Topics
@@ -406,7 +406,7 @@ docker-compose -p d7 -f docker-compose.yml -f d7.override.yml down
 ---
 ### Exercise 5: Advanced Topics
 
-- [Exercise 5: Advanced Topics](exercise5.md)
+- [Exercise 5: Advanced Topics](https://dspace-labs.github.io/DSpace-Docker-Images/documentation/workshop/exercise5.html)
 
 ---
 
