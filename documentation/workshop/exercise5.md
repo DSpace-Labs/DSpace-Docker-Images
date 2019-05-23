@@ -1,8 +1,7 @@
 {% include nav.html %}
 # Exercise 5: Advanced Topics
 
-http://bit.ly/dspace-docker
-
+[http://bit.ly/dspace-docker](http://bit.ly/dspace-docker)
 
 If this workshop inspires you to contribute code to DSpace, please see the following [Git Instructions on the DSpace Wiki](https://wiki.duraspace.org/display/DSPACE/Development+with+Git).
 

@@ -1,7 +1,7 @@
 {% include nav.html %}
 # Exercise 3B: Running DSpace 6 with Docker-Compose
 
-http://bit.ly/dspace-docker
+[http://bit.ly/dspace-docker](http://bit.ly/dspace-docker)
 
 
 ### Start DSpace 6

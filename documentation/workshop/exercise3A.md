@@ -1,7 +1,7 @@
 {% include nav.html %}
 # Exercise 3A: Understanding Docker Compose 
 
-http://bit.ly/dspace-docker
+[http://bit.ly/dspace-docker](http://bit.ly/dspace-docker)
 
 ## Understanding the DSpace 6 Configuration
 ```shell
@@ -76,11 +76,10 @@ View the images that will be used
 docker-compose -p d7 -f docker-compose.yml -f d7.override.yml -f d7.preview.yml config | grep image:
 ```
 
-Output: _There will be a difference_
+Output: 
 
 ```
-    image: dspace/dspace:dspace-7_x-jdk8-test
-    image: dspace/dspace-angular:latest
+    image: dspace/dspace:dspace-7.0-preview-1
+    image: dspace/dspace-angular:dspace-7.0-preview-1
     image: dspace/dspace-postgres-pgcrypto
-    image: dspace/dspace-solr
-```
+    image: dspace/dspace-solr```
