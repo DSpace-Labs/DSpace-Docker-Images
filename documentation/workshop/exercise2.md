@@ -31,7 +31,8 @@ We will run a web server with a sample application used for a library inventory.
 
 
 Run the application on port 80 (web server).
-``
+
+```
 docker run --rm -p 80:80 terrywbrady/alma-inventory-php
 ```
 
@@ -44,9 +45,11 @@ Open [http://localhost/barcodeReport.html](http://localhost/barcodeReport.html) 
 Hit __Ctrl-C__ to stop the application.
 
 Run the application on port 8080.
-``
+
+```
 docker run --rm -p 8080:80 terrywbrady/alma-inventory-php
 ```
+
 - The `-p 8080:80` option says to map port 8080 on your desktop to port 80 in the container.  
 
 Open [http://localhost:8080/barcodeReport.html](http://localhost:8080/barcodeReport.html) to view the report.
@@ -54,9 +57,11 @@ Open [http://localhost:8080/barcodeReport.html](http://localhost:8080/barcodeRep
 Hit __Ctrl-C__ to stop the application.
 
 Run the application in the background.
+
 ```
 docker run --rm -p 80:80 -d --name myapp terrywbrady/alma-inventory-php
 ```
+
 - The `-d` option says to run the application in the background
 - The `--name myapp` option says to give the container the name `myapp`
 
