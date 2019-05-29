@@ -6,6 +6,8 @@ This workshop will be a hands-on experience.  Participants are encouraged to bri
 In preparation for the workshop, please install the Docker desktop client for your laptop.
 - [Setting Up Docker](../tutorialSetup.md)
 
+Choose the appropriate installation page for your operating system (Windows 10 or MacOS).  Follow the instructions through the section titled "Verify Docker Compose".
+
 If you need assistance with the installation, please post to the [#dspace-docker channel](https://dspace-org.slack.com/messages/C9YD42PV3) on
 [Dspace Slack](https://wiki.duraspace.org/display/DSPACE/Slack).
 
