@@ -179,7 +179,6 @@ cd DSpace-Docker-Images/docker-compose-files/dspace-compose
 - Docker Containers
 - Docker vs. virtualization
 - Docker Volumes
-- Docker compose
 
 Note:
 Pascal presents
@@ -256,31 +255,6 @@ An Image is
 - Like a really small disk drive or network drive
 - Data you wish to save must be stored in a volume
 
-+++
-
-### Docker compose
-
-- An image defines a service and its environment
-- But how is it run?
-  - Which ports does it uses?
-  - How many replicas does it need to have enough resources?
-  - Should CPU and/or memory resources be limited?
-  - How is the network architecture looking like?
-  - Which services depend on each other?
-  - ...
-
-+++
-
-### Docker compose (Continued)
-
-- docker-compose build docker commands for you
-- can be used to describe complex setups
-- describes furhter information that is needed to actually run an image
-  - volumes, ports, network structure, limits
-  - dependencies between containers
-  - environment variables
-  - ...
-- docker-compose therefore uses yaml files
 
 ---
 
@@ -290,17 +264,93 @@ An Image is
 
 ---
 
-### docker-compose
+### Docker compose
 
-- Docker compose is a command to control environments of multiple containers that work together
-  - DSpace Database
-  - DSpace Web Server
-  - Angular UI (for DSpace 7)
-- Build, start, stop, ... all necessary containers for a service or application
+
+- An image defines a service and its environment
+- Today's applications are composed out of multiple services
+- We need information about how to run an application
+  - Is it composed out of multiple services?
+  - How do they depend on each other?
+  - Which ports are used?
+  - How to start and stop it all together?
 
 +++
 
-### TODO: Add more Docker Compose Concepts here...
+### docker-compose.yaml
+
+- Docker Compose is a command to control environments of multiple containers that work together
+- Docker Compose defines information within configuration files about how to run an application
+- Docker Compose builds complex docker commands for you to get up multiple services in the right order
+
++++
+
+### Posibilities of docker-compose
+
+- Docker Compose can describe complex setups
+  - Defines Which services to run in which order
+  - Configures volumes, ports, network structure, limits, environment variables, ...
+  - Can apply limits regarding CPU and/or RAM usage
+  - ...
+- docker-compose contains shortcuts to interact with containers started with it
+
++++
+
+### Docker Compose and DSpace
+
+- The DSpace project heavily uses docker compose
+- We have several docker-compose files that can be used together
+- Some parts of a docker compose file gets overridden by another docker-compose file
+- That allows us to easily tweak the instance of DSpace you're running
+
++++
+
+### Running DSpace 6 with docker-compose
+
+```shell
+docker-compose -p d6 -f docker-compose.yml -f d6.override.yml up -d
+```
+
+```shell
+docker-compose -p d6 -f docker-compose.yml -f d6.override.yml down
+```
+
++++?code=docker-compose-files/dspace-compose/docker-compose.yml&lang=yml
+Docker Compose File
+@[4-8](DSpace Database Image Name)
+@[19-21](DSpace Image Definition)
+@[28-31](Default Administrator Credentials)
+@[32](AIP Files to ingest on initial startup)
+
++++
+
+### Overriding with docker-compose
+
+@snap[text-left]
+command to start DSpace 5:
+@snapend
+
+```shell
+docker-compose -p d5 -f docker-compose.yml -f d5.override.yml pull
+```
+
+@snap[text-left]
+DSpace's default image:
+@snapend
+
+```yml
+dspace:
+  image: "${DOCKER_OWNER:-dspace}/dspace:${DSPACE_VER:-dspace-6_x-jdk8-test}"
+```
+
+@snap[text-left]
+d5.override.yaml:
+@snapend
+
+```yml
+dspace:
+  image: "${DOCKER_OWNER:-dspace}/dspace:${DSPACE_VER:-dspace-5_x-jdk8-test}"`
+```
 
 ---
 
@@ -321,23 +371,9 @@ An Image is
 
 ### A quick peek at the DSpace 6 compose files
 
-+++?code=docker-compose-files/dspace-compose/docker-compose.yml&lang=yml
-Docker Compose File
-@[4-8](DSpace Database Image Name)
-@[19-21](DSpace Image Definition)
-@[24-27](Default Administrator Credentials)
-@[28](AIP Files to ingest on initial startup)
-+++?code=docker-compose-files/dspace-compose/d6.override.yml&lang=yml
-DSpace 6 Overrides
-@[5](Default DSpace 6 Image)
 
 +++
 
-### Running DSpace 6
-
-```shell
-docker-compose -p d6 -f docker-compose.yml -f d6.override.yml up -d
-```
 
 +++?image=documentation/webinar/win.d6.start.gif
 
@@ -363,9 +399,6 @@ docker-compose -p d6 -f docker-compose.yml -f d6.override.yml up -d
 
 ### Stop DSpace 6
 
-```shell
-docker-compose -p d6 -f docker-compose.yml -f d6.override.yml down
-```
 
 +++?image=documentation/webinar/win.d6.down.gif
 
