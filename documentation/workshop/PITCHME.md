@@ -29,10 +29,15 @@ Terry presents
 
 ### Pascal Becker
 
-- CEO and founder of The Library Code
-- Senior Software Developer at Technische Universität Berlin
+- CEO and founder of The Library Code GmbH
 - DSpace Committer
+- Member of DSpace's Leadership and Steering Groups
 - https://www.the-library-code.de/
+
+![](https://www.the-library-code.de/the-library-code.png)
+
+Note:
+Pascal presents
 
 ---
 
