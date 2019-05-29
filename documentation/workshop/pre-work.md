@@ -4,7 +4,7 @@
 This workshop will be a hands-on experience.  Participants are encouraged to bring a laptop to the session.
 
 In preparation for the workshop, please install the Docker desktop client for your laptop.
-- [Setting Up Docker](https://github.com/DSpace-Labs/DSpace-Docker-Images/blob/master/documentation/tutorialSetup.md)
+- [Setting Up Docker](../tutorialSetup.md)
 
 If you need assistance with the installation, please post to the [#dspace-docker channel](https://dspace-org.slack.com/messages/C9YD42PV3) on
 [Dspace Slack](https://wiki.duraspace.org/display/DSPACE/Slack).
