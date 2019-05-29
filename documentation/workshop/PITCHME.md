@@ -173,38 +173,47 @@ cd DSpace-Docker-Images/docker-compose-files/dspace-compose
 
 ### Docker Concepts
 
+- Basic idea of Docker
 - Docker Images
 - DSpace Docker Images
 - Docker Containers
+- Docker vs. virtualization
 - Docker Volumes
 - Docker compose
 
 Note:
 Pascal presents
 
-Pascal, do you have any slides from https://wiki.duraspace.org/display/DSPACE/Dev+Show+and+Tell+-+Using+Docker+in+Development+-+May+15%2C+2018+-+1500UTC that would be helpful to add?
++++
+
+### Basic idea of docker
+
+Imagine you could pack an application's complete environment into one package easily.
+
+  - Write a script that setups up your service / application
+  - Use this script to easily spin up instances
+  - Share the script and reuse other's scripts
+  - Use one script per service and combine services
 
 +++
 
 ### Docker Images
 
-- Imagine you could
-  - install a complex application with its complete environment with one command
-  - pack a whole environment into one package
-
-Docker Images make that possible.
+@quote[ An image is an executable package that includes everything needed to run an application - the code, a runtime, libraries, environment variables, and configuration files.](Docker Documentation, Get started with Docker, Part 1 Orientation)
 
 +++
 
 ### Docker Images (continued)
 
+@snap[text-left]
 An Image is
+@snapend
 
 - A snapshot of an application and its complete environment
-- Published Online
-  - On [docker hub](https://hub.docker.com/)
-  - Or in a private repository
 - Can be shared and downloaded
+- Can be published
+  - Online on [docker hub](https://hub.docker.com/)
+  - Or in a private repository
 
 +++
 
@@ -231,18 +240,47 @@ An Image is
 
 ### A container's lifetime
 
-- Images package a complete environment needed to run an application
-- Containers can be deleted when they are stopped
-- A container can be thrown away and recreated easily as the image defines it well
+- Images package a complete environment
+- Start a new container from an image is very easy
+- A Container is just like a running version of an image
+- Delete containers when they stop
+- Create a new container everytime a service starts
 
 +++
 
 ### Docker Volumes
 
-- Can be (re-)used when a container starts
+- If you delete a container when it stops, how do you persist data?
+- Volumes can be (re-)used when a container starts
 - Volumes outlive the containers that uses them
 - Like a really small disk drive or network drive
 - Data you wish to save must be stored in a volume
+
++++
+
+### Docker compose
+
+- An image defines a service and its environment
+- But how is it run?
+  - Which ports does it uses?
+  - How many replicas does it need to have enough resources?
+  - Should CPU and/or memory resources be limited?
+  - How is the network architecture looking like?
+  - Which services depend on each other?
+  - ...
+
++++
+
+### Docker compose (Continued)
+
+- docker-compose build docker commands for you
+- can be used to describe complex setups
+- describes furhter information that is needed to actually run an image
+  - volumes, ports, network structure, limits
+  - dependencies between containers
+  - environment variables
+  - ...
+- docker-compose therefore uses yaml files
 
 ---
 
