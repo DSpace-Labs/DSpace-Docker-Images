@@ -44,31 +44,32 @@ Pascal presents
 ### Background
 
 - 2018 the DSpace for Docker was created
-- Possible to start any version of DSpace from your desktop
+- Start any version of DSpace from your desktop
   - (Windows 10, MacOS, Linux)
-- Great potential for repository managers
+- Helps newcomers to get a test system running quickly
+- Helps developers to easily spin up development environments
 
 +++
 
 ### Who You Are (we think)
 
-- Repository Managers who want to ...
-  - preview new DSpace functionality
-  - become more involved in DSpace development
-  - test certain functionality of DSpace
-- Developers who want to ...
-  - learn how they can get started with the project
-  - use DSpace within Docker as part of their development environment
+- People who want to ...
+  - get a sneak peak on DSpace 7
+  - get started with Docker
+  - know if Docker can help them with their development environment
+  - learn how they can get started with DSpace
+  - become more involved in the DSpace project
 
 +++
 
 ### Workshop Objectives
 
-- What is a *Docker image* and what are *Containers*
+- Understand basics of Docker (Images, Containers, Volumes, ...)
 - What Docker images have been published for DSpace
 - How to install Docker
 - How to launch DSpace 6 and DSpace 7 using Docker
 - How to participate in DSpace testing using Docker
+- Exchanging tips and ideas about DSpace and Docker
 
 ---
 
