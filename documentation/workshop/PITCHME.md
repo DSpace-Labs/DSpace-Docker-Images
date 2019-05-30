@@ -114,7 +114,7 @@ docker-compose -p d7 -f docker-compose.yml -f d7.override.yml -f d7.preview.yml 
 _Most attendees will have completed this step already_
 
 - Install Docker Desktop
-- Install a terminal for running docker
+- Install a terminal for running docker (Windows only)
 - Download DSpace Docker Compose files
 
 +++
@@ -127,37 +127,6 @@ _Most attendees will have completed this step already_
 
 ---
 
-### Step by Step Demonstration
-
-+++
-
-### Verify Installs
-
-```shell
-git version
-```
-```shell
-docker version
-```
-```shell
-docker-compose version
-```
-
-+++?image=documentation/webinar/win.versions.gif
-
-+++
-
-### Download DSpace Docker Compose Files
-
-```shell
-cd
-git clone https://github.com/DSpace-Labs/DSpace-Docker-Images.git
-cd DSpace-Docker-Images/docker-compose-files/dspace-compose
-```
-
-+++?image=documentation/webinar/win.clone.gif
-
----
 ### Exercise 1: Verify Installation
 - [Exercise 1: Verify Installation](https://dspace-labs.github.io/DSpace-Docker-Images/documentation/workshop/exercise1.html)
 
@@ -246,7 +215,6 @@ An Image is
 - Volumes outlive the containers that uses them
 - Like a really small disk drive or network drive
 - Data you wish to save must be stored in a volume
-
 
 ---
 
