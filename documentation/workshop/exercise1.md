@@ -41,7 +41,7 @@ ls
 Several files should be present.  If you do not see them, revisit the [setup](../tutorialSetup.md) page.
 
 ```shell
-docker-compose config | grep container_name
+docker-compose config 
 ```
 
 This will output a screenful of information.  To simplify this output, run the following command.
@@ -58,4 +58,3 @@ You should see the following output
 ```
 
 These are the default (DSpace 6 containers that will be started in Docker.)
-
