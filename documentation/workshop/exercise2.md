@@ -27,8 +27,11 @@ docker run -h my_host ubuntu hostname
 
 We will run a web server with a sample application used for a library inventory.  We will pull [the application from DockerHub](https://hub.docker.com/r/terrywbrady/alma-inventory-php).
 
+Note: port 80 is the default port for a web server.
 
-Run the application on port 80 (web server).
+#### Run the application on port 80 (web server).
+
+_Note: if your desktop already has an application running on port 80, this step might fail.  If you encounter an error, skip to the next step of the exercise._
 
 ```
 docker run --rm -p 80:80 terrywbrady/alma-inventory-php
@@ -37,12 +40,13 @@ docker run --rm -p 80:80 terrywbrady/alma-inventory-php
 - The `--rm` option says to delete the container once it is stopped.  
 - The `-p 80:80` option says to map port 80 on your desktop to port 80 in the container.  
 
-
 Open [http://localhost/barcodeReport.html](http://localhost/barcodeReport.html) to view the report.
+
+- Note that we use __localhost__ to indicate that we are accessing a local application.
 
 Hit __Ctrl-C__ to stop the application.
 
-Run the application on port 8080.
+#### Run the application on port 8080.
 
 ```
 docker run --rm -p 8080:80 terrywbrady/alma-inventory-php
@@ -52,12 +56,14 @@ docker run --rm -p 8080:80 terrywbrady/alma-inventory-php
 
 Open [http://localhost:8080/barcodeReport.html](http://localhost:8080/barcodeReport.html) to view the report.
 
+- Note that we specify __port 8080__ in the URL.
+
 Hit __Ctrl-C__ to stop the application.
 
 Run the application in the background.
 
 ```
-docker run --rm -p 80:80 -d --name myapp terrywbrady/alma-inventory-php
+docker run --rm -p 8080:80 -d --name myapp terrywbrady/alma-inventory-php
 ```
 
 - The `-d` option says to run the application in the background
@@ -83,7 +89,7 @@ docker ps
 
 Remove the `--rm` option and note the difference
 ```
-docker run -p 80:80 -d --name myapp terrywbrady/alma-inventory-php
+docker run -p 8080:80 -d --name myapp terrywbrady/alma-inventory-php
 ```
 
 ```

@@ -43,6 +43,9 @@ Pascal presents
 
 ### About this workshop
 
+Note:
+Terry presents
+
 +++
 
 ### Background
@@ -79,9 +82,6 @@ Pascal presents
 
 ### Motivation
 
-Note:
-Terry presents
-
 +++
 
 ### Imagine you could...
@@ -101,13 +101,8 @@ docker-compose -p d7 -f docker-compose.yml -f d7.override.yml -f d7.preview.yml 
 ```
 
 +++?image=documentation/webinar/win.d7.start.gif
-
-+++
-
-### The only thing left for you: start your browser
-
-- http://localhost:8080/spring-rest
-- http://localhost:3000
++++?image=documentation/webinar/d7.rest.gif
++++?image=documentation/webinar/d7.angular.gif
 
 +++
 
@@ -177,18 +172,20 @@ Pascal presents
 
 +++
 
-### Basic idea of Docker
+### Why Docker?
 
 _Imagine you could pack an application's complete environment into one package easily._
 
 +++
 
-### Basic idea of Docker
+### Why Docker?
 
-  - Write a script that setups up your service / application
-  - Use this script to easily spin up instances
-  - Share the script and reuse other's scripts
-  - Use one script per service and combine services
+  - One _script_ to start up your service / application
+    - All necessary services are started at once (database, web server)
+  - Runs identically on __any__ desktop or server that supports Docker
+    - Windows, MacOS or Linux!
+  - Replicable process
+    - Destroy and recreate your service easily
 
 +++
 
@@ -251,6 +248,9 @@ An Image is
 
 ### docker-compose
 
+Note:
+Terry presents
+
 +++
 
 ### Docker Compose
@@ -269,18 +269,17 @@ An Image is
 
 - Docker Compose is a command to control environments of multiple containers that work together
 - Docker Compose defines information within configuration files about how to run an application
-- Docker Compose builds complex docker commands for you to get up multiple services in the right order
+- Docker Compose builds complex docker commands for you to start up multiple services in the right order
 
 +++
 
-### Posibilities of docker-compose
+### Possibilities of docker-compose
 
 - Docker Compose can describe complex setups
-  - Defines Which services to run in which order
+  - Defines which services to run in which order
   - Configures volumes, ports, network structure, limits, environment variables, ...
   - Can apply limits regarding CPU and/or RAM usage
-  - ...
-- docker-compose contains shortcuts to interact with containers started with it
+- docker-compose contains shortcuts to interact with the containers it started
 
 +++
 
@@ -337,7 +336,7 @@ d5.override.yaml:
 
 ```yml
 dspace:
-  image: "${DOCKER_OWNER:-dspace}/dspace:${DSPACE_VER:-dspace-5_x-jdk8-test}"`
+  image: "${DOCKER_OWNER:-dspace}/dspace:${DSPACE_VER:-dspace-5_x-jdk8-test}"
 ```
 
 ---
