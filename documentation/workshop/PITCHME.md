@@ -97,7 +97,7 @@ Terry presents
 - It takes 2-3 minutes to start up
 
 ```shell
-docker-compose -p d7 -f docker-compose.yml -f d7.override.yml -f d7.preview.yml -f load.entities.yml up -d
+docker-compose -p d7 -f docker-compose.yml -f d7.override.yml up -d
 ```
 
 +++?image=documentation/webinar/win.d7.start.gif
