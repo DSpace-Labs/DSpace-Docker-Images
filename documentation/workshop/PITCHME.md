@@ -85,6 +85,7 @@ Terry presents
 +++
 
 ### Imagine you could...
+
 - ...create a DSpace installation with one single command
 - ...install and start a new instance of any version of DSpace in under 3 minutes
 - ...wouldn't need to have to think about database versions, operating systems, ordering virtual hosts, and further more.
@@ -146,9 +147,13 @@ Pascal presents
 
 +++
 
-### Basic idea of docker
+### Basic idea of Docker
 
-Imagine you could pack an application's complete environment into one package easily.
+_Imagine you could pack an application's complete environment into one package easily._
+
++++
+
+### Basic idea of Docker
 
   - Write a script that setups up your service / application
   - Use this script to easily spin up instances
