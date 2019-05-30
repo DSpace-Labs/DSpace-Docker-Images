@@ -367,7 +367,8 @@ dspace:
 - Your ideas
   - Anything specific you would like us to cover?
 
----
++++
+
 ### Exercise 5: Advanced Topics
 
 - [Exercise 5: Advanced Topics](https://dspace-labs.github.io/DSpace-Docker-Images/documentation/workshop/exercise5.html)
@@ -382,23 +383,14 @@ dspace:
 
 +++
 
+### What we need
+
 - Curating and Assembling [AIP Resources](https://github.com/DSpace-Labs/AIP-Files)
   - Public domain / restriction free  
   - Real repository content (but not very large)
     - Small PDFs
     - Small image
   - Realistic metadata
-
-
----
-
-### Reference Links
-
-- [DSpace Docker Tutorial Overview](https://dspace-labs.github.io/DSpace-Docker-Images/)
-- [Docker Documentation](https://docs.docker.com/engine/reference/commandline/cli/)
-- [Docker Compose Documentation](https://docs.docker.com/compose/reference/overview/)
-- Join the [**#dspace-docker**](https://dspace-org.slack.com/messages/C9YD42PV3/) Slack Channel
-
 
 ---
 
@@ -407,14 +399,24 @@ dspace:
 - Could you imagine using this capability?
 - What would be needed to make this compelling for the repository manager community?
 
----
++++
 
 ### Feedback/Questions?
 
 - What ideas do you have?
 - What questions do you have?
 
++++
+
+### Reference Links
+
+- [DSpace Docker Tutorial Overview](https://dspace-labs.github.io/DSpace-Docker-Images/)
+- [Docker Documentation](https://docs.docker.com/engine/reference/commandline/cli/)
+- [Docker Compose Documentation](https://docs.docker.com/compose/reference/overview/)
+- Join the [**#dspace-docker**](https://dspace-org.slack.com/messages/C9YD42PV3/) Slack Channel
+
 ---
+
 ### Thank You
 
 - Terry Brady, Georgetown University Library
