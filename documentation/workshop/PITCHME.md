@@ -79,37 +79,21 @@ Pascal presents
 
 ### Motivation
 
-+++
-
-### Motivation
-
-In our first demo, we want to show you how easy it is to get DSpace 7 runing. For this demo, we have already
-- Installed Docker
-- Installed a command line tool
-- Downloaded some code to help us start DSpace
-
 Note:
 Terry presents
 
-```shell
-cd
-git clone https://github.com/DSpace-Labs/DSpace-Docker-Images.git
-cd DSpace-Docker-Images/docker-compose-files/dspace-compose
-```
++++
+
+### Imagine you could...
+- ...create a DSpace installation with one single command
+- ...install and start a new instance of any version of DSpace in under 3 minutes
+- ...wouldn't need to have to think about database versions, operating systems, ordering virtual hosts, and further more.
 
 +++
 
 ### Demo: Running DSpace 7
 
 - It takes 2-3 minutes to start up
-- The following command was already run
-
-```shell
-docker-compose -p d7 -f docker-compose.yml -f d7.override.yml up -d
-```
-
-Note:
-Pre-install entities data into the d7 volumes.
 
 ```shell
 docker-compose -p d7 -f docker-compose.yml -f d7.override.yml -f d7.preview.yml -f load.entities.yml up -d
@@ -119,7 +103,7 @@ docker-compose -p d7 -f docker-compose.yml -f d7.override.yml -f d7.preview.yml 
 
 +++
 
-### Testing DSpace 7
+### The only thing left for you: start your browser
 
 - http://localhost:8080/spring-rest
 - http://localhost:3000
