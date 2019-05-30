@@ -228,7 +228,7 @@ An Image is
 
 +++
 
-### Docker compose
+### Docker Compose
 
 - An image defines a service and its environment
 - Today's applications are composed out of multiple services
