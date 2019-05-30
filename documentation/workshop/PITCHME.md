@@ -41,6 +41,10 @@ Pascal presents
 
 ---
 
+### About this workshop
+
++++
+
 ### Background
 
 - 2018 the DSpace for Docker was created
@@ -75,33 +79,22 @@ Pascal presents
 
 ### Motivation
 
-In our first demo, we want to show you how easy it is to get DSpace 7 runing. For this demo, we have already
-- Installed Docker
-- Installed a command line tool
-- Downloaded some code to help us start DSpace
-
 Note:
 Terry presents
 
-```shell
-cd
-git clone https://github.com/DSpace-Labs/DSpace-Docker-Images.git
-cd DSpace-Docker-Images/docker-compose-files/dspace-compose
-```
++++
+
+### Imagine you could...
+
+- ...create a DSpace installation with one single command
+- ...install and start a new instance of any version of DSpace in under 3 minutes
+- ...wouldn't need to have to think about database versions, operating systems, ordering virtual hosts, and further more.
 
 +++
 
 ### Demo: Running DSpace 7
 
 - It takes 2-3 minutes to start up
-- The following command was already run
-
-```shell
-docker-compose -p d7 -f docker-compose.yml -f d7.override.yml up -d
-```
-
-Note:
-Pre-install entities data into the d7 volumes.
 
 ```shell
 docker-compose -p d7 -f docker-compose.yml -f d7.override.yml -f d7.preview.yml -f load.entities.yml up -d
@@ -111,10 +104,41 @@ docker-compose -p d7 -f docker-compose.yml -f d7.override.yml -f d7.preview.yml 
 
 +++
 
-### Testing DSpace 7
+### The only thing left for you: start your browser
 
 - http://localhost:8080/spring-rest
 - http://localhost:3000
+
++++
+
+### What is possible with DSpace and Docker?
+
+- Try out a DSpace feature without impacting your existing instance
+- Preview an enhancement or new version
+- Give input on the implementation
+- Verify a bug fix **before** it is released
+- Onboard new developers and repository managers to the project
+- and so much more...
+
++++
+
+### DSpace Docker Images
+
+- DSpace 7x, DSpace 6x, DSpace 5x, DSpace 4x
+  - Install content from DSpace AIP files on creation
+- DSpace Database
+- DSpace Angular UI
+- Published to https://hub.docker.com/u/dspace
+- See [DSpace Docker Tutorial Overview](https://dspace-labs.github.io/DSpace-Docker-Images/)
+
++++
+
+### Can I use your images in production?
+
+- Not yet!
+- Current images focus on testing and development
+- We want to gain more experience on our own
+- Do you want to help to create images for production? Contact us on slack!
 
 ---
 
@@ -122,7 +146,7 @@ docker-compose -p d7 -f docker-compose.yml -f d7.override.yml -f d7.preview.yml 
 _Most attendees will have completed this step already_
 
 - Install Docker Desktop
-- Install a terminal for running docker
+- Install a terminal for running docker (Windows only)
 - Download DSpace Docker Compose files
 
 +++
@@ -135,37 +159,6 @@ _Most attendees will have completed this step already_
 
 ---
 
-### Step by Step Demonstration
-
-+++
-
-### Verify Installs
-
-```shell
-git version
-```
-```shell
-docker version
-```
-```shell
-docker-compose version
-```
-
-+++?image=documentation/webinar/win.versions.gif
-
-+++
-
-### Download DSpace Docker Compose Files
-
-```shell
-cd
-git clone https://github.com/DSpace-Labs/DSpace-Docker-Images.git
-cd DSpace-Docker-Images/docker-compose-files/dspace-compose
-```
-
-+++?image=documentation/webinar/win.clone.gif
-
----
 ### Exercise 1: Verify Installation
 - [Exercise 1: Verify Installation](https://dspace-labs.github.io/DSpace-Docker-Images/documentation/workshop/exercise1.html)
 
@@ -175,20 +168,22 @@ cd DSpace-Docker-Images/docker-compose-files/dspace-compose
 
 - Basic idea of Docker
 - Docker Images
-- DSpace Docker Images
 - Docker Containers
 - Docker vs. virtualization
 - Docker Volumes
-- Docker compose
 
 Note:
 Pascal presents
 
 +++
 
-### Basic idea of docker
+### Basic idea of Docker
 
-Imagine you could pack an application's complete environment into one package easily.
+_Imagine you could pack an application's complete environment into one package easily._
+
++++
+
+### Basic idea of Docker
 
   - Write a script that setups up your service / application
   - Use this script to easily spin up instances
@@ -214,16 +209,6 @@ An Image is
 - Can be published
   - Online on [docker hub](https://hub.docker.com/)
   - Or in a private repository
-
-+++
-
-### DSpace Docker Images
-
-- DSpace 7x, DSpace 6x, DSpace 5x, DSpace 4x
-  - Install content from DSpace AIP files on creation
-- DSpace Database
-- DSpace Angular UI
-- Published to https://hub.docker.com/u/dspace
 
 +++
 
@@ -256,32 +241,6 @@ An Image is
 - Like a really small disk drive or network drive
 - Data you wish to save must be stored in a volume
 
-+++
-
-### Docker compose
-
-- An image defines a service and its environment
-- But how is it run?
-  - Which ports does it uses?
-  - How many replicas does it need to have enough resources?
-  - Should CPU and/or memory resources be limited?
-  - How is the network architecture looking like?
-  - Which services depend on each other?
-  - ...
-
-+++
-
-### Docker compose (Continued)
-
-- docker-compose build docker commands for you
-- can be used to describe complex setups
-- describes furhter information that is needed to actually run an image
-  - volumes, ports, network structure, limits
-  - dependencies between containers
-  - environment variables
-  - ...
-- docker-compose therefore uses yaml files
-
 ---
 
 ### Exercise 2: Docker Images and Containers
@@ -292,148 +251,109 @@ An Image is
 
 ### docker-compose
 
-- Docker compose is a command to control environments of multiple containers that work together
-  - DSpace Database
-  - DSpace Web Server
-  - Angular UI (for DSpace 7)
-- Build, start, stop, ... all necessary containers for a service or application
++++
+
+### Docker Compose
+
+- An image defines a service and its environment
+- Today's applications are composed out of multiple services
+- We need information about how to run an application
+  - Is it composed out of multiple services?
+  - How do they depend on each other?
+  - Which ports are used?
+  - How to start and stop it all together?
 
 +++
 
-### TODO: Add more Docker Compose Concepts here...
+### docker-compose.yaml
 
----
-
-### What is possible with DSpace and Docker?
-
-- Try out a DSpace feature without impacting your existing instance
-- Preview an enhancement or new version
-- Give input on the implementation
-- Verify a bug fix **before** it is released
-- Onboard new developers and repository managers to the project
-
+- Docker Compose is a command to control environments of multiple containers that work together
+- Docker Compose defines information within configuration files about how to run an application
+- Docker Compose builds complex docker commands for you to get up multiple services in the right order
 
 +++
 
-## Running DSpace
+### Posibilities of docker-compose
+
+- Docker Compose can describe complex setups
+  - Defines Which services to run in which order
+  - Configures volumes, ports, network structure, limits, environment variables, ...
+  - Can apply limits regarding CPU and/or RAM usage
+  - ...
+- docker-compose contains shortcuts to interact with containers started with it
 
 +++
 
-### A quick peek at the DSpace 6 compose files
+### Docker Compose and DSpace
 
-+++?code=docker-compose-files/dspace-compose/docker-compose.yml&lang=yml
-Docker Compose File
-@[4-8](DSpace Database Image Name)
-@[19-21](DSpace Image Definition)
-@[24-27](Default Administrator Credentials)
-@[28](AIP Files to ingest on initial startup)
-+++?code=docker-compose-files/dspace-compose/d6.override.yml&lang=yml
-DSpace 6 Overrides
-@[5](Default DSpace 6 Image)
+- The DSpace project heavily uses docker compose
+- We have several docker-compose files that can be used together
+- Some parts of a docker compose file gets overridden by another docker-compose file
+- That allows us to easily tweak the instance of DSpace you're running
 
 +++
 
-### Running DSpace 6
+### Running DSpace 6 with docker-compose
 
 ```shell
 docker-compose -p d6 -f docker-compose.yml -f d6.override.yml up -d
 ```
 
-+++?image=documentation/webinar/win.d6.start.gif
-
-+++
-
-### Running a DSpace command line task
-- dspace version
-- dspace index-discovery
-- dspace filter-media
-- dspace oai import
-
-+++?image=documentation/webinar/win.d6version.gif
-
-+++
-
-### Test DSpace 6
-
-- [http://localhost:8080/xmlui](http://localhost:8080/xmlui)
-
-+++?image=documentation/webinar/d6.web.gif
-
-+++
-
-### Stop DSpace 6
-
 ```shell
 docker-compose -p d6 -f docker-compose.yml -f d6.override.yml down
 ```
 
-+++?image=documentation/webinar/win.d6.down.gif
++++?code=docker-compose-files/dspace-compose/docker-compose.yml&lang=yml
+Docker Compose File
+@[4-8](DSpace Database Image Name)
+@[19-21](DSpace Image Definition)
+@[28-31](Default Administrator Credentials)
+@[32](AIP Files to ingest on initial startup)
+
++++
+
+### Overriding with docker-compose
+
+@snap[text-left]
+command to start DSpace 5:
+@snapend
+
+```shell
+docker-compose -p d5 -f docker-compose.yml -f d5.override.yml pull
+```
+
+@snap[text-left]
+DSpace's default image:
+@snapend
+
+```yml
+dspace:
+  image: "${DOCKER_OWNER:-dspace}/dspace:${DSPACE_VER:-dspace-6_x-jdk8-test}"
+```
+
+@snap[text-left]
+d5.override.yaml:
+@snapend
+
+```yml
+dspace:
+  image: "${DOCKER_OWNER:-dspace}/dspace:${DSPACE_VER:-dspace-5_x-jdk8-test}"`
+```
 
 ---
+
 ### Exercise 3A: Understanding Docker Compose
 
 - [Exercise 3A: Understanding Docker Compose](https://dspace-labs.github.io/DSpace-Docker-Images/documentation/workshop/exercise3A.html)
 
 +++
+
 ### Exercise 3B: Running DSpace 6 with Docker-Compose
 
 - [Exercise 3B: Running DSpace 6 with Docker-Compose](https://dspace-labs.github.io/DSpace-Docker-Images/documentation/workshop/exercise3B.html)
 
 ---
 
-### A quick peek at the DSpace 7 compose files
-
-+++?code=docker-compose-files/dspace-compose/d7.override.yml&lang=yml
-DSpace 7 Overrides
-@[5](Default DSpace 7 Image)
-@[13-15](DSpace Angular Image)
-@[16-18](Ports for Angular)
-@[23-26](Location of the DSpace REST API)
-
-+++
-
-### Running DSpace 7
-
-```shell
-docker-compose -p d7 -f docker-compose.yml -f d7.override.yml up -d
-```
-
-+++?image=documentation/webinar/win.d7.start.gif
-
-+++
-
-### DSpace 7 REST API Back End
-
--  [http://localhost:8080/spring-rest](http://localhost:8080/spring-rest)
-
-+++?image=documentation/webinar/d7.rest.gif
-
-+++
-
-### Manually Index DSpace 7 content
-
-```shell
-docker exec dspace //dspace/bin/dspace index-discovery
-```
-
-+++
-### DSpace 7 Angular Front End
-
-  - [http://localhost:3000](http://localhost:3000)
-
-+++?image=documentation/webinar/d7.angular.gif
-
-+++
-
-### Stopping DSpace 7
-
-```shell
-docker-compose -p d7 -f docker-compose.yml -f d7.override.yml down
-```
-
-+++?image=documentation/webinar/win.d7.down.gif
-
----
 ### Exercise 4: Running DSpace 7 with Docker-Compose
 
 - [Exercise 4: Running DSpace 7 with Docker-Compose](https://dspace-labs.github.io/DSpace-Docker-Images/documentation/workshop/exercise4.html)
@@ -447,7 +367,8 @@ docker-compose -p d7 -f docker-compose.yml -f d7.override.yml down
 - Your ideas
   - Anything specific you would like us to cover?
 
----
++++
+
 ### Exercise 5: Advanced Topics
 
 - [Exercise 5: Advanced Topics](https://dspace-labs.github.io/DSpace-Docker-Images/documentation/workshop/exercise5.html)
@@ -462,23 +383,14 @@ docker-compose -p d7 -f docker-compose.yml -f d7.override.yml down
 
 +++
 
+### What we need
+
 - Curating and Assembling [AIP Resources](https://github.com/DSpace-Labs/AIP-Files)
   - Public domain / restriction free  
   - Real repository content (but not very large)
     - Small PDFs
     - Small image
   - Realistic metadata
-
-
----
-
-### Reference Links
-
-- [DSpace Docker Tutorial Overview](https://dspace-labs.github.io/DSpace-Docker-Images/)
-- [Docker Documentation](https://docs.docker.com/engine/reference/commandline/cli/)
-- [Docker Compose Documentation](https://docs.docker.com/compose/reference/overview/)
-- Join the [**#dspace-docker**](https://dspace-org.slack.com/messages/C9YD42PV3/) Slack Channel
-
 
 ---
 
@@ -487,14 +399,24 @@ docker-compose -p d7 -f docker-compose.yml -f d7.override.yml down
 - Could you imagine using this capability?
 - What would be needed to make this compelling for the repository manager community?
 
----
++++
 
 ### Feedback/Questions?
 
 - What ideas do you have?
 - What questions do you have?
 
++++
+
+### Reference Links
+
+- [DSpace Docker Tutorial Overview](https://dspace-labs.github.io/DSpace-Docker-Images/)
+- [Docker Documentation](https://docs.docker.com/engine/reference/commandline/cli/)
+- [Docker Compose Documentation](https://docs.docker.com/compose/reference/overview/)
+- Join the [**#dspace-docker**](https://dspace-org.slack.com/messages/C9YD42PV3/) Slack Channel
+
 ---
+
 ### Thank You
 
 - Terry Brady, Georgetown University Library
