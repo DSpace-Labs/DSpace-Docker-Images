@@ -343,51 +343,14 @@ dspace:
 - Want to gain more experience on our own
 - Do you want to help to create images for production? Contact us on slack!
 
-+++
-
-## Running DSpace
-
-+++
-
-### A quick peek at the DSpace 6 compose files
-
-
-+++
-
-
-+++?image=documentation/webinar/win.d6.start.gif
-
-+++
-
-### Running a DSpace command line task
-- dspace version
-- dspace index-discovery
-- dspace filter-media
-- dspace oai import
-
-+++?image=documentation/webinar/win.d6version.gif
-
-+++
-
-### Test DSpace 6
-
-- [http://localhost:8080/xmlui](http://localhost:8080/xmlui)
-
-+++?image=documentation/webinar/d6.web.gif
-
-+++
-
-### Stop DSpace 6
-
-
-+++?image=documentation/webinar/win.d6.down.gif
-
 ---
+
 ### Exercise 3A: Understanding Docker Compose
 
 - [Exercise 3A: Understanding Docker Compose](https://dspace-labs.github.io/DSpace-Docker-Images/documentation/workshop/exercise3A.html)
 
 +++
+
 ### Exercise 3B: Running DSpace 6 with Docker-Compose
 
 - [Exercise 3B: Running DSpace 6 with Docker-Compose](https://dspace-labs.github.io/DSpace-Docker-Images/documentation/workshop/exercise3B.html)
