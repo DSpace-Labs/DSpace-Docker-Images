@@ -109,6 +109,37 @@ docker-compose -p d7 -f docker-compose.yml -f d7.override.yml -f d7.preview.yml 
 - http://localhost:8080/spring-rest
 - http://localhost:3000
 
++++
+
+### What is possible with DSpace and Docker?
+
+- Try out a DSpace feature without impacting your existing instance
+- Preview an enhancement or new version
+- Give input on the implementation
+- Verify a bug fix **before** it is released
+- Onboard new developers and repository managers to the project
+- and so much more...
+
++++
+
+### DSpace Docker Images
+
+- DSpace 7x, DSpace 6x, DSpace 5x, DSpace 4x
+  - Install content from DSpace AIP files on creation
+- DSpace Database
+- DSpace Angular UI
+- Published to https://hub.docker.com/u/dspace
+- See [DSpace Docker Tutorial Overview](https://dspace-labs.github.io/DSpace-Docker-Images/)
+
++++
+
+### Can I use your images in production?
+
+- Not yet!
+- Current images focus on testing and development
+- We want to gain more experience on our own
+- Do you want to help to create images for production? Contact us on slack!
+
 ---
 
 ### Install Instructions (Recap)
@@ -137,7 +168,6 @@ _Most attendees will have completed this step already_
 
 - Basic idea of Docker
 - Docker Images
-- DSpace Docker Images
 - Docker Containers
 - Docker vs. virtualization
 - Docker Volumes
@@ -179,16 +209,6 @@ An Image is
 - Can be published
   - Online on [docker hub](https://hub.docker.com/)
   - Or in a private repository
-
-+++
-
-### DSpace Docker Images
-
-- DSpace 7x, DSpace 6x, DSpace 5x, DSpace 4x
-  - Install content from DSpace AIP files on creation
-- DSpace Database
-- DSpace Angular UI
-- Published to https://hub.docker.com/u/dspace
 
 +++
 
@@ -319,29 +339,6 @@ d5.override.yaml:
 dspace:
   image: "${DOCKER_OWNER:-dspace}/dspace:${DSPACE_VER:-dspace-5_x-jdk8-test}"`
 ```
-
----
-
-### DSpace-Docker
-
-+++
-
-### What is possible with DSpace and Docker?
-
-- Try out a DSpace feature without impacting your existing instance
-- Preview an enhancement or new version
-- Give input on the implementation
-- Verify a bug fix **before** it is released
-- Onboard new developers and repository managers to the project
-
-+++
-
-### Can I use your images in production?
-
-- Not yet!
-- Current images focus on testing and development
-- Want to gain more experience on our own
-- Do you want to help to create images for production? Contact us on slack!
 
 ---
 
