@@ -41,6 +41,10 @@ Pascal presents
 
 ---
 
+### About this workshop
+
++++
+
 ### Background
 
 - 2018 the DSpace for Docker was created
@@ -72,6 +76,10 @@ Pascal presents
 - Exchanging tips and ideas about DSpace and Docker
 
 ---
+
+### Motivation
+
++++
 
 ### Motivation
 
@@ -264,8 +272,11 @@ An Image is
 
 ---
 
-### Docker compose
+### docker-compose
 
++++
+
+### Docker compose
 
 - An image defines a service and its environment
 - Today's applications are composed out of multiple services
@@ -354,6 +365,10 @@ dspace:
 
 ---
 
+### DSpace-Docker
+
++++
+
 ### What is possible with DSpace and Docker?
 
 - Try out a DSpace feature without impacting your existing instance
@@ -362,6 +377,14 @@ dspace:
 - Verify a bug fix **before** it is released
 - Onboard new developers and repository managers to the project
 
++++
+
+### Can I use your images in production?
+
+- Not yet!
+- Current images focus on testing and development
+- Want to gain more experience on our own
+- Do you want to help to create images for production? Contact us on slack!
 
 +++
 
