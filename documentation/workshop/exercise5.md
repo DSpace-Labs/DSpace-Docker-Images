@@ -231,21 +231,5 @@ Verify your changes in the Angular UI.
 Once you are done, stop DSpace
 
 ```
-docker-compose -p d7 -f docker-compose.yml -f d7.override.yml -f ang-src.override.yml up -d
+docker-compose -p d7 -f docker-compose.yml -f d7.override.yml -f ang-src.override.yml down
 ```
-
-### Running DSpace 5 and DSpace 6 on separate ports
-
-Start DSpace 6 as normal
-```
-docker-compose -p d6 -f docker-compose.yml -f d6.override.yml up -d
-```
-
-Open [XMLUI on Port 8080](http://localhost:8080/xmlui) to verify the instance.  Consider logging in as the administrator and opening the control panel to verify the version.
-
-Start DSpace 5 on port 8081
-```
-PORT=8081 docker-compose -p d5 -f docker-compose.yml -f d5.override.yml up -d
-```
-
-Open [XMLUI on Port 8081](http://localhost:8081/xmlui) to verify the instance.  Consider logging in as the administrator and opening the control panel to verify the version.
