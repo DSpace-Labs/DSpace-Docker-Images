@@ -73,7 +73,7 @@ Verify your changes in [XMLUI](http://localhost:8080/xmlui).
 Once you are done, stop DSpace
 
 ```
-docker-compose -p d6 -f docker-compose.yml -f d6.override.yml -f src.override.yml up -d
+docker-compose -p d6 -f docker-compose.yml -f d6.override.yml -f src.override.yml down
 ```
 
 ### Test a code change to DSpace 7
@@ -156,7 +156,7 @@ In your __code terminal__, discard your prior changes.
 git stash
 ```
 
-Clone the DSpace-angular code to your desktop. 
+Clone the DSpace-angular code to your desktop.
 
 ```
 cd
@@ -231,4 +231,3 @@ PORT=8081 docker-compose -p d5 -f docker-compose.yml -f d5.override.yml up -d
 ```
 
 Open [XMLUI on Port 8081](http://localhost:8081/xmlui) to verify the instance.  Consider logging in as the administrator and opening the control panel to verify the version.
-
