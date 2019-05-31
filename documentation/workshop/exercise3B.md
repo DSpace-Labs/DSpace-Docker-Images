@@ -192,7 +192,7 @@ docker logs -f dspace
 
 The Docker Compose file will treat this as a new installation and will reload content from AIP files.  Open XMLUI and note that items exist in your database.
 
-Hit __Ctrl-C__ to stop the application output.
+Hit __Ctrl-C__ to exit the application output.
 
 Stop DSpace with the following command
 ```
