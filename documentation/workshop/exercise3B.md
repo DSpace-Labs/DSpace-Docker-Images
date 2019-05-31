@@ -60,7 +60,23 @@ DSPACE_VER=or2019-workshop-6x docker-compose -p d6 -f docker-compose.yml -f d6.o
 DSPACE_VER=or2019-workshop-6x docker-compose -p d6 -f docker-compose.yml -f d6.override.yml up -d
 ```
 
-Open [XMLUI](http://localhost:8080/xmlui) and notice the change to the welcome page.
+Open [XMLUI](http://localhost:8080/xmlui) and notice the change to the welcome page.  You might need to clear your cache to force the background color change to load.
+
+### Verify DSpace Configuration Values
+
+There is a command line tool that allows you to verify DSpace configuration properties.  This can be called inside your container using the following command.
+
+Print Config Value - MacOS/Linux
+```shell
+docker exec -it dspace /dspace/bin/dspace dsprop -p dspace.name
+docker exec -it dspace /dspace/bin/dspace dsprop -p dspace.url
+```
+
+Print Config Value - Windows
+```shell
+winpty docker exec -it dspace //dspace/bin/dspace dsprop -p dspace.name
+winpty docker exec -it dspace //dspace/bin/dspace dsprop -p dspace.url
+```
 
 ### Pass params via compose
 
@@ -68,13 +84,15 @@ Browse the Dog Photos Collection.  Note that thumbnail images __do not__ appear 
 
 Print Config Value - MacOS/Linux
 ```shell
-docker exec -it /dspace/bin/dspace dsprop -p xmlui.theme.mirage.item-list.emphasis
+docker exec -it dspace /dspace/bin/dspace dsprop -p xmlui.theme.mirage.item-list.emphasis
 ```
 
 Print Config Value - Windows
 ```shell
-winpty docker exec -it //dspace/bin/dspace dsprop -p xmlui.theme.mirage.item-list.emphasis
+winpty docker exec -it dspace //dspace/bin/dspace dsprop -p xmlui.theme.mirage.item-list.emphasis
 ```
+
+The output will be blank.
 
 ```shell
 docker-compose -p d6 -f docker-compose.yml -f d6.override.yml down
@@ -96,7 +114,7 @@ services:
 ```
 
 ```shell
-docker-compose -p d6 -f docker-compose.yml -f d6.override.yml -f local.override.yml
+docker-compose -p d6 -f docker-compose.yml -f d6.override.yml -f local.override.yml up -d
 ```
 
 Verify the change in the property value (see above)
@@ -166,4 +184,17 @@ Restart DSpace.
 docker-compose -p d6 -f docker-compose.yml -f d6.override.yml up -d
 ```
 
+You can track the restart and reload with the following command.
+
+```
+docker logs -f dspace
+```
+
 The Docker Compose file will treat this as a new installation and will reload content from AIP files.  Open XMLUI and note that items exist in your database.
+
+Hit __Ctrl-C__ to stop the application output.
+
+Stop DSpace with the following command
+```
+docker-compose -p d6 -f docker-compose.yml -f d6.override.yml down
+```

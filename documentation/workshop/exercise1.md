@@ -30,18 +30,21 @@ Windows
 winpty docker run -it --rm ubuntu //bin/bash
 ```
 
+You will see a different shell prompt in your terminal.  Enter `exit` to exit the shell.
+
 ## Verify that you have DSpace Docker Resources Locally
 
 ```shell
 cd
 cd DSpace-Docker-Images/docker-compose-files/dspace-compose
+git pull
 ls
 ```
 
 Several files should be present.  If you do not see them, revisit the [setup](../tutorialSetup.md) page.
 
 ```shell
-docker-compose config 
+docker-compose config
 ```
 
 This will output a screenful of information.  To simplify this output, run the following command.
