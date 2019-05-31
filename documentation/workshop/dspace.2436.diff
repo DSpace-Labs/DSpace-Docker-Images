@@ -10,4 +10,4 @@
 +
      public String getType() {
          return NAME;
-     } 
+     }
