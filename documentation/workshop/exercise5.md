@@ -36,7 +36,13 @@ Using a text editor or code editor, modify the files as shown in the pull reques
 git apply ~/DSpace-Docker-Images/documentation/workshop/dspace.2431.diff
 ```
 
-The following variable will tell docker where to find your source code.
+You can view the changes that were applied with the following command.
+
+```
+git diff
+```
+
+The following get the path to find your source code.
 
 ```
 pwd
@@ -105,7 +111,13 @@ Using a text editor or code editor, modify the files as shown in the pull reques
 git apply ~/DSpace-Docker-Images/documentation/workshop/dspace.2436.diff
 ```
 
-The following variable will tell docker where to find your source code.
+You can view the changes that were applied with the following command.
+
+```
+git diff
+```
+
+The following get the path to find your source code.
 
 ```
 pwd
@@ -142,7 +154,7 @@ Verify your changes in the [HAL Browser](http://localhost:8080/spring-rest).
 Once you are done, stop DSpace
 
 ```
-docker-compose -p d7 -f docker-compose.yml -f d7.override.yml -f src.override.yml up -d
+docker-compose -p d7 -f docker-compose.yml -f d7.override.yml -f src.override.yml down
 ```
 ### Test a code change to DSpace 7 Angular
 
@@ -176,7 +188,13 @@ Using a text editor or code editor, modify the files as shown in the pull reques
 git apply ~/DSpace-Docker-Images/documentation/workshop/dspace-angular.406.diff
 ```
 
-The following variable will tell docker where to find your source code.
+You can view the changes that were applied with the following command.
+
+```
+git diff
+```
+
+The following get the path to find your source code.
 
 ```
 pwd
