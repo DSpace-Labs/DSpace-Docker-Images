@@ -16,7 +16,15 @@ Verify that DSpace is Running
 docker ps
 ```
 
-It will take 3-5 minutes for the services to start completely.  Once they have started, you can view them on the web.
+It will take 3-5 minutes for the services to start completely.  
+
+You can track the startup with the following command.  Hit __Ctrl-C__ to exit the log output.
+
+```
+docker logs -f dspace
+```
+
+Once the services have started, you can view them on the web.
 The first time you start DSpace, it will load some default AIP content.  This process takes an additional 3-5 minutes.
 - [REST API: http://localhost:8080/spring-rest](http://localhost:8080/spring-rest)
 - [Angular UI: http://localhost:3000](http://localhost:3000)
@@ -24,7 +32,7 @@ The first time you start DSpace, it will load some default AIP content.  This pr
 Explore the HAL Browser and the Angular UI.
 
 ```shell
-docker-compose -p d7 -f docker-compose.yml -f d7.override.yml stop
+docker-compose -p d7 -f docker-compose.yml -f d7.override.yml down
 ```
 
 ### Start the DSpace 7 Preview Release with the Entities Dataset
@@ -41,6 +49,12 @@ Verify that DSpace is Running
 docker ps
 ```
 
+You can track the startup with the following command.  Hit __Ctrl-C__ to exit the log output.
+
+```
+docker logs -f dspace
+```
+
 It will take 3-5 minutes for the services to start completely.  Once they have started, you can view them on the web.
 The first time you start DSpace, it will load some default AIP content.  This process takes an additional 3-5 minutes.
 - [REST API: http://localhost:8080/spring-rest](http://localhost:8080/spring-rest)
@@ -48,18 +62,13 @@ The first time you start DSpace, it will load some default AIP content.  This pr
 
 Explore the HAL Browser and the Angular UI.  See [Testing Entities Data](../run.DSpace7Entities.html#testing-the-entities-functionality) for additional testing notes.
 
-Stop DSpace 7.
+Shutdown DSpace 7.
 
 ```shell
-docker-compose -p d7ent -f docker-compose.yml -f d7.override.yml -f d7.preview.yml -f load.entities.yml stop
+docker-compose -p d7ent -f docker-compose.yml -f d7.override.yml -f d7.preview.yml -f load.entities.yml down
 ```
 
 ### Run DSpace 7 with a modified (published image)
-
-Shutdown your running copy of DSpace
-```shell
-docker-compose -p d7 -f docker-compose.yml -f d7.override.yml down
-```
 
 For this test, we are going to use a tagged version of the DSpace image.  
 - Open [https://hub.docker.com/r/dspace/dspace/tags](https://hub.docker.com/r/dspace/dspace/tags) to explore the available images

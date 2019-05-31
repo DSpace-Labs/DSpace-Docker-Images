@@ -19,7 +19,6 @@
 
 ## Session Links
 - [Session Slides](https://gitpitch.com/DSpace-Labs/DSpace-Docker-Images?p=documentation/workshop#/)
-- [Session Slides -- workshop branch](https://gitpitch.com/DSpace-Labs/DSpace-Docker-Images/workshop?p=documentation/workshop#/)
 
 ## Exercises
 - [Exercise 1: Verify Installation](exercise1.md)
