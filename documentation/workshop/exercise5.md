@@ -36,7 +36,13 @@ Using a text editor or code editor, modify the files as shown in the pull reques
 git apply ~/DSpace-Docker-Images/documentation/workshop/dspace.2431.diff
 ```
 
-The following variable will tell docker where to find your source code.
+You can view the changes that were applied with the following command.
+
+```
+git diff
+```
+
+The following get the path to find your source code.
 
 ```
 pwd
@@ -73,7 +79,7 @@ Verify your changes in [XMLUI](http://localhost:8080/xmlui).
 Once you are done, stop DSpace
 
 ```
-docker-compose -p d6 -f docker-compose.yml -f d6.override.yml -f src.override.yml up -d
+docker-compose -p d6 -f docker-compose.yml -f d6.override.yml -f src.override.yml down
 ```
 
 ### Test a code change to DSpace 7
@@ -105,7 +111,13 @@ Using a text editor or code editor, modify the files as shown in the pull reques
 git apply ~/DSpace-Docker-Images/documentation/workshop/dspace.2436.diff
 ```
 
-The following variable will tell docker where to find your source code.
+You can view the changes that were applied with the following command.
+
+```
+git diff
+```
+
+The following get the path to find your source code.
 
 ```
 pwd
@@ -142,7 +154,7 @@ Verify your changes in the [HAL Browser](http://localhost:8080/spring-rest).
 Once you are done, stop DSpace
 
 ```
-docker-compose -p d7 -f docker-compose.yml -f d7.override.yml -f src.override.yml up -d
+docker-compose -p d7 -f docker-compose.yml -f d7.override.yml -f src.override.yml down
 ```
 ### Test a code change to DSpace 7 Angular
 
@@ -156,7 +168,7 @@ In your __code terminal__, discard your prior changes.
 git stash
 ```
 
-Clone the DSpace-angular code to your desktop. 
+Clone the DSpace-angular code to your desktop.
 
 ```
 cd
@@ -176,7 +188,13 @@ Using a text editor or code editor, modify the files as shown in the pull reques
 git apply ~/DSpace-Docker-Images/documentation/workshop/dspace-angular.406.diff
 ```
 
-The following variable will tell docker where to find your source code.
+You can view the changes that were applied with the following command.
+
+```
+git diff
+```
+
+The following get the path to find your source code.
 
 ```
 pwd
@@ -213,22 +231,5 @@ Verify your changes in the Angular UI.
 Once you are done, stop DSpace
 
 ```
-docker-compose -p d7 -f docker-compose.yml -f d7.override.yml -f ang-src.override.yml up -d
+docker-compose -p d7 -f docker-compose.yml -f d7.override.yml -f ang-src.override.yml down
 ```
-
-### Running DSpace 5 and DSpace 6 on separate ports
-
-Start DSpace 6 as normal
-```
-docker-compose -p d6 -f docker-compose.yml -f d6.override.yml up -d
-```
-
-Open [XMLUI on Port 8080](http://localhost:8080/xmlui) to verify the instance.  Consider logging in as the administrator and opening the control panel to verify the version.
-
-Start DSpace 5 on port 8081
-```
-PORT=8081 docker-compose -p d5 -f docker-compose.yml -f d5.override.yml up -d
-```
-
-Open [XMLUI on Port 8081](http://localhost:8081/xmlui) to verify the instance.  Consider logging in as the administrator and opening the control panel to verify the version.
-

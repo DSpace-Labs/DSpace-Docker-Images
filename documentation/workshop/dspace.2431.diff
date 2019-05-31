@@ -1,7 +1,7 @@
 --- a/dspace-xmlui-mirage2/src/main/webapp/styles/classic_mirage_color_scheme/_utils.scss
 +++ b/dspace-xmlui-mirage2/src/main/webapp/styles/classic_mirage_color_scheme/_utils.scss
 @@ -35,4 +35,8 @@
- 
+
  .justify {
      text-align: justify;
 +}
