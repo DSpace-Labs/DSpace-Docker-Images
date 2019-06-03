@@ -10,3 +10,8 @@ services:
     build:
       context: ${ANGULAR_SRC}
       dockerfile: Dockerfile
+    volumes:
+      # Watch the local source directory for changes, and sync to /app on container
+      - "${ANGULAR_SRC}:/app"
+      # However, ensure /app/node_modules on container is NOT synced (from local source)
+      - "/app/node_modules"
