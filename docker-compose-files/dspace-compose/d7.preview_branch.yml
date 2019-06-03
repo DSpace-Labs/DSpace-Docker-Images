@@ -1,0 +1,10 @@
+version: "3.7"
+
+services:
+  dspace:
+    # This image changes every time the backend "preview" branch is updated
+    image: "dspace/dspace:preview"
+
+  dspace-angular:
+    # This image changes every time the frontend "preview" branch is updated
+    image: "dspace/dspace-angular:preview"
