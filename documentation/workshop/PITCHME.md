@@ -123,7 +123,7 @@ docker-compose -p d7 -f docker-compose.yml -f d7.override.yml up -d
   - Install content from DSpace AIP files on creation
 - DSpace Database
 - DSpace Angular UI
-- Published to https://hub.docker.com/u/dspace
+- Published to https://hub.docker.com/r/dspace/dspace
 - See [DSpace Docker Tutorial Overview](https://dspace-labs.github.io/DSpace-Docker-Images/)
 
 +++

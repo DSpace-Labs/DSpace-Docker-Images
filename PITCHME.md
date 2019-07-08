@@ -156,7 +156,7 @@ An Image is
   - Install content from DSpace AIP files on creation
 - DSpace Database
 - DSpace Angular UI
-- Published to https://hub.docker.com/u/dspace
+- Published to https://hub.docker.com/r/dspace/dspace
 
 +++
 
