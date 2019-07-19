@@ -1,0 +1,34 @@
+## Running DSpace in Kubernetes
+
+### Resources
+- [Kuberenetes Up and Running](http://shop.oreilly.com/product/0636920043874.do)
+
+### Options for running Kubernetes
+- Kubernetes bundled with Docker Desktop
+  - I do not fully understand what is possible here
+- Minikube
+  - https://kubernetes.io/docs/tasks/tools/install-minikube/
+- Google Cloud
+  - https://cloud.google.com/kubernetes-engine/docs/quickstart
+  - This has been the most reliable option for me so far, but it does have a cost.
+
+### Recipes
+
+#### Create
+
+_Using lessons from Chapter 3 of Kubernetes Up and Running_
+```
+gcloud config set compute/zone us-west1-a
+gcloud container clusters create dspace-cluster
+gcloud auth application-default login
+
+kubectl apply -f dspace.yaml
+kubectl port-forward kuard 8080:8080
+```
+
+#### Delete
+
+```
+kubectl delete -f dspace.yaml
+gcloud container clusters delete kuar-cluster
+```
