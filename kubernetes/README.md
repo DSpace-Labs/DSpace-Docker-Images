@@ -5,7 +5,8 @@
 
 ### Options for running Kubernetes
 - Kubernetes bundled with Docker Desktop
-  - I do not fully understand what is possible here
+  - Enable kubernetes in Docker Desktop
+  - Use kubectl in Docker Desktop
 - Minikube
   - https://kubernetes.io/docs/tasks/tools/install-minikube/
 - Google Cloud
@@ -14,7 +15,16 @@
 
 ### Recipes
 
-#### Create
+#### Docker Desktop
+
+```
+kubectl apply -f dspace.yaml
+kubectl get pods
+kubectl port-forward kuard 8080:8080
+```
+
+
+#### Google Cloud
 
 _Using lessons from Chapter 3 of Kubernetes Up and Running_
 ```
