@@ -20,8 +20,8 @@
 ```
 kubectl apply -f dspace.k8.yaml
 kubectl get pods
-kubectl logs dspace-pod dspace
-winpty kubectl exec -it dspace-pod -c dspacedb -- //bin/bash
+kubectl logs dspace-pod -c dspace
+winpty kubectl exec -it dspace-pod -c dspace -- //bin/bash
 kubectl port-forward dspace-pod 8080:8080
 kubectl delete -f dspace.k8.yaml
 ```
