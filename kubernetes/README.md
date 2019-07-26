@@ -18,11 +18,13 @@
 #### Docker Desktop
 
 ```
-kubectl apply -f dspace.yaml
+kubectl apply -f dspace.k8.yaml
 kubectl get pods
-kubectl port-forward kuard 8080:8080
+kubectl logs dspace-pod dspace
+winpty kubectl exec -it dspace-pod -c dspacedb -- //bin/bash
+kubectl port-forward dspace-pod 8080:8080
+kubectl delete -f dspace.k8.yaml
 ```
-
 
 #### Google Cloud
 
@@ -33,7 +35,7 @@ gcloud container clusters create dspace-cluster
 gcloud auth application-default login
 
 kubectl apply -f dspace.yaml
-kubectl port-forward kuard 8080:8080
+kubectl port-forward dspace-pod 8080:8080
 ```
 
 #### Delete

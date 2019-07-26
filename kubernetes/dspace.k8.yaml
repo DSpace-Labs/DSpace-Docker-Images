@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: kuard
+  name: dspace-pod
 spec:
   containers:
   - image: dspace/dspace:dspace-6_x
