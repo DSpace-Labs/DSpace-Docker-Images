@@ -7,6 +7,23 @@ spec:
   - name: "assetstore"
     hostPath:
       path: "/c/temp/vols/assetstore"
+  #- name: "pgdata-vol"
+  #  emptyDir: {}
+  #  hostPath:
+  #    path: "/c/temp/vols/pgdata"
+  #    type: DirectoryOrCreate
+  - name: "pgdata-vol"
+    type: PersistentVolume
+    local:
+      path: "/c/temp/vols/pgdata"
+    nodeAffinity:
+      required:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: kubernetes.io/hostname
+            operator: In
+            values:
+            - node1
   - name: "local-cfg"
     hostPath:
       path: "/c/users/twb27/Documents/GitHub/DSpace-Docker-Images/kubernetes/k8.cfg"
@@ -18,13 +35,10 @@ spec:
     - containerPort: 8080
       name: http
       protocol: TCP
-    env:
-    - name: db.url
-      value: jdbc:postgresql://localhost:5432/dspace
     volumeMounts:
     - mountPath: "/dspace/assetstore"
       name: "assetstore"
-    - mountPath: "/dspace/config/local.cfg"
+    - mountPath: "/dspace/config"
       name: "local-cfg"
     #resources:
     #  requests:
@@ -37,6 +51,12 @@ spec:
     - containerPort: 5432
       name: http
       protocol: TCP
+    volumeMounts:
+    - mountPath: "/pgdata"
+      name: "pgdata-vol"
+    env:
+    - name: PGDATA
+      value: /pgdata
     #resources:
     #  requests:
     #    cpu: "500m"

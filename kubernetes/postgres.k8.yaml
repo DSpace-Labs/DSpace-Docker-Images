@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pg-pod
+spec:
+  volumes:
+  - name: "pgdata-vol"
+    emptyDir: {}
+    #hostPath:
+    #  path: /c/temp/vols/pgdata
+  containers:
+  - image: postgres
+    name: db
+    ports:
+    - containerPort: 5432
+      name: http
+      protocol: TCP
+    volumeMounts:
+    - mountPath: "/pgdata"
+      name: "pgdata-vol"
+    env:
+    - name: PGDATA
+      value: /pgdata

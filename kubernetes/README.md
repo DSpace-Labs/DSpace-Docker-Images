@@ -26,6 +26,11 @@ kubectl port-forward dspace-pod 8080:8080
 kubectl delete -f dspace.k8.yaml
 ```
 
+#### Local Volume Notes
+- https://vocon-it.com/2018/12/20/kubernetes-local-persistent-volumes/
+- https://stackoverflow.com/questions/57227990/kubernetes-in-docker-for-windows-volume-configuration-for-postgres
+- https://learning.oreilly.com/library/view/kubernetes-cookbook/9781491979679/ch08.html#ch_volumes_config
+
 #### Google Cloud
 
 _Using lessons from Chapter 3 of Kubernetes Up and Running_
