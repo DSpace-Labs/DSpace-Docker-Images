@@ -21,10 +21,16 @@
 kubectl apply -f dspace.k8.yaml
 kubectl get pods
 kubectl logs dspace-pod -c dspace
+kubectl describe pods dspace-pod
 winpty kubectl exec -it dspace-pod -c dspace -- //bin/bash
 kubectl port-forward dspace-pod 8080:8080
 kubectl delete -f dspace.k8.yaml
 ```
+
+### TODOs
+- figure out the best way to run create-administrator
+- attempt to create a "job" that contains dspace CLI without running tomcat (or a separate image)
+- fix hostname references
 
 #### Local Volume Notes
 - https://vocon-it.com/2018/12/20/kubernetes-local-persistent-volumes/

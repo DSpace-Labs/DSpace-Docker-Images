@@ -4,26 +4,21 @@ metadata:
   name: dspace-pod
 spec:
   volumes:
-  - name: "assetstore"
-    hostPath:
-      path: "/c/temp/vols/assetstore"
-  #- name: "pgdata-vol"
-  #  emptyDir: {}
-  #  hostPath:
-  #    path: "/c/temp/vols/pgdata"
-  #    type: DirectoryOrCreate
   - name: "pgdata-vol"
-    type: PersistentVolume
-    local:
-      path: "/c/temp/vols/pgdata"
-    nodeAffinity:
-      required:
-        nodeSelectorTerms:
-        - matchExpressions:
-          - key: kubernetes.io/hostname
-            operator: In
-            values:
-            - node1
+  # The postgres PGDATA volume cannot be persisted on Windows.  On Windows, use emptyDir.
+  # See https://stackoverflow.com/questions/57227990/kubernetes-in-docker-for-windows-volume-configuration-for-postgres
+    emptyDir: {}
+  #  The following hostPath configuration
+  #  hostPath:
+  #    path: /tmp/vols/pgdata
+  #
+  - name: "assetstore"
+  # This volume behaves properly on on Windows, but it does not make sense to persist the assetstore
+  # if the database cannot be persisted.
+    emptyDir: {}
+  #  hostPath:
+  #    path: "/tmp/vols/assetstore"
+  #
   - name: "local-cfg"
     hostPath:
       path: "/c/users/twb27/Documents/GitHub/DSpace-Docker-Images/kubernetes/k8.cfg"
@@ -38,12 +33,9 @@ spec:
     volumeMounts:
     - mountPath: "/dspace/assetstore"
       name: "assetstore"
-    - mountPath: "/dspace/config"
+    - mountPath: "/dspace/config/local.cfg"
       name: "local-cfg"
-    #resources:
-    #  requests:
-    #    cpu: "1000m"
-    #    memory: "4Gi"
+  #
   - image: dspace/dspace-postgres-pgcrypto
     name: dspacedb
     #container_name: dspacedb
@@ -57,7 +49,3 @@ spec:
     env:
     - name: PGDATA
       value: /pgdata
-    #resources:
-    #  requests:
-    #    cpu: "500m"
-    #    memory: "1Gi"

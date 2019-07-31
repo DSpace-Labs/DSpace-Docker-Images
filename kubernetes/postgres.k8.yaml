@@ -5,9 +5,12 @@ metadata:
 spec:
   volumes:
   - name: "pgdata-vol"
+  # The postgres PGDATA volume cannot be persisted on Windows.  On Windows, use emptyDir.
+  # See https://stackoverflow.com/questions/57227990/kubernetes-in-docker-for-windows-volume-configuration-for-postgres
     emptyDir: {}
-    #hostPath:
-    #  path: /c/temp/vols/pgdata
+  #  The following hostPath configuration
+  #  hostPath:
+  #    path: /tmp/vols/pgdata
   containers:
   - image: postgres
     name: db

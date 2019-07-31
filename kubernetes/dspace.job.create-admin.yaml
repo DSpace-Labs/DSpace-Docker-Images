@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: dspace-create-admin
+spec:
+  template:
+    spec:
+      containers:
+      - name: dspace
+        image: dspace/dspace:dspace-6_x
+        command: [
+          "/dspace/bin/dspace",
+          "create-administrator",
+          "-e", "test@test.edu",
+          "-f", "test",
+          "-l", "admin",
+          "-p", "admin",
+          "-c", "en"
+        ]
+      restartPolicy: Never
