@@ -19,9 +19,9 @@ spec:
   #  hostPath:
   #    path: "/tmp/vols/assetstore"
   #
-  - name: "local-cfg"
-    hostPath:
-      path: "/c/users/twb27/Documents/GitHub/DSpace-Docker-Images/kubernetes/k8.cfg"
+  - name: my-local-config-map
+    configMap:
+      name: local-config-map
   containers:
   - image: dspace/dspace:dspace-6_x
     name: dspace
@@ -34,7 +34,8 @@ spec:
     - mountPath: "/dspace/assetstore"
       name: "assetstore"
     - mountPath: "/dspace/config/local.cfg"
-      name: "local-cfg"
+      name: "my-local-config-map"
+      subPath: local.cfg
   #
   - image: dspace/dspace-postgres-pgcrypto
     name: dspacedb
