@@ -11,7 +11,7 @@ data:
   # example of a complex property defined using --from-file
   local.cfg: |-
     dspace.dir = /dspace
-    db.url = jdbc:postgresql://dspacedb:5432/dspace
-    dspace.hostname = dspace
-    dspace.baseUrl = http://dspace:8080
-    solr.server=http://dspace:8080/solr
+    db.url = jdbc:postgresql://dspace-pod:5432/dspace
+    dspace.hostname = dspace-pod
+    dspace.baseUrl = http://dspace-pod:8080
+    solr.server=http://dspace-pod:8080/solr

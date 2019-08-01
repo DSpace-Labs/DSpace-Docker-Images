@@ -1,13 +1,25 @@
 apiVersion: batch/v1
 kind: Job
+#https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
 metadata:
   name: dspace-create-admin
 spec:
   template:
     spec:
+      volumes:
+      - name: "assetstore"
+      # This volume behaves properly on on Windows, but it does not make sense to persist the assetstore
+      # if the database cannot be persisted.
+        emptyDir: {}
+      #  hostPath:
+      #    path: "/tmp/vols/assetstore"
+      #
+      - name: my-local-config-map
+        configMap:
+          name: local-config-map
       containers:
-      - name: dspace
-        image: dspace/dspace:dspace-6_x
+      - name: dspace-cli
+        image: dspace/dspace-cli:dspace-6_x
         command: [
           "/dspace/bin/dspace",
           "create-administrator",
@@ -17,4 +29,10 @@ spec:
           "-p", "admin",
           "-c", "en"
         ]
+        volumeMounts:
+        - mountPath: "/dspace/assetstore"
+          name: "assetstore"
+        - mountPath: "/dspace/config/local.cfg"
+          name: "my-local-config-map"
+          subPath: local.cfg
       restartPolicy: Never

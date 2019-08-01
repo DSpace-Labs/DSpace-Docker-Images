@@ -25,7 +25,6 @@ spec:
   containers:
   - image: dspace/dspace:dspace-6_x
     name: dspace
-    #container_name: dspace
     ports:
     - containerPort: 8080
       name: http
@@ -39,7 +38,6 @@ spec:
   #
   - image: dspace/dspace-postgres-pgcrypto
     name: dspacedb
-    #container_name: dspacedb
     ports:
     - containerPort: 5432
       name: http
