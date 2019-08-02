@@ -17,14 +17,26 @@
 
 #### Docker Desktop
 
+The following describes my attempts to get this running
+https://stackoverflow.com/questions/57317501/kubernetes-modeling-jobs-cron-tasks-for-postgres-tomcat-application
+
 ```
-kubectl apply -f dspace.k8.yaml
-kubectl get pods
-kubectl logs dspace-pod -c dspace
-kubectl describe pods dspace-pod
-winpty kubectl exec -it dspace-pod -c dspace -- //bin/bash
-kubectl port-forward dspace-pod 8080:8080
-kubectl delete -f dspace.k8.yaml
+kubectl apply -f dspace.deploy.v6.yaml
+kubectl get pods -o wide
+# pod names will vary
+kubectl logs dspace-deploy-c59b77bb8-mr47k
+winpty kubectl exec -it dspace-deploy-c59b77bb8-mr47k -- //bin/bash
+
+kubectl get services -o wide
+kubectl port-forward service/dspace-service 8080:8080
+
+kubectl apply -f dpace.job.create-admin.yaml
+
+kubectl get pods -o wide
+# manually delete job pod
+kubectl delete pod dspace-create-admin-kl6wd
+
+kubectl delete -f dspace.deploy.v6.yaml
 ```
 
 ### TODOs

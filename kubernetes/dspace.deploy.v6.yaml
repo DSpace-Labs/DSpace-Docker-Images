@@ -1,0 +1,122 @@
+# kubectl apply -f dspace.deploy.v6.yaml
+# kubectl get pods -o wide
+# kubectl get services -o wide
+# kubectl port-forward service/dspace-service 8080:8080
+# kubectl apply -f dpace.job.create-admin.yaml
+# kubectl delete -f dspace.deploy.v6.yaml
+# https://stackoverflow.com/questions/57317501/kubernetes-modeling-jobs-cron-tasks-for-postgres-tomcat-application
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  creationTimestamp: 2016-02-18T19:14:38Z
+  name: local-config-map
+  namespace: default
+data:
+  # example of a simple property defined using --from-literal
+  #example.property.1: hello
+  #example.property.2: world
+  # example of a complex property defined using --from-file
+  local.cfg: |-
+    dspace.dir = /dspace
+    db.url = jdbc:postgresql://dspacedb-service:5432/dspace
+    dspace.hostname = dspace-service
+    dspace.baseUrl = http://dspace-service:8080
+    solr.server=http://dspace-service:8080/solr
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dspacedb-service
+  labels:
+    app: dspacedb-app
+spec:
+  type: NodePort
+  selector:
+    app: dspacedb-app
+  ports:
+  - protocol: TCP
+    port: 5432
+  #  targetPort: 5432
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dspacedb-deploy
+  labels:
+    app: dspacedb-app
+spec:
+  selector:
+    matchLabels:
+      app: dspacedb-app
+  template:
+    metadata:
+      labels:
+        app: dspacedb-app
+    spec:
+      volumes:
+      - name: "pgdata-vol"
+        emptyDir: {}
+      containers:
+      - image: dspace/dspace-postgres-pgcrypto
+        name: dspacedb
+        ports:
+        - containerPort: 5432
+          name: http
+          protocol: TCP
+        volumeMounts:
+        - mountPath: "/pgdata"
+          name: "pgdata-vol"
+        env:
+        - name: PGDATA
+          value: /pgdata
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dspace-service
+  labels:
+    app: dspace-app
+spec:
+  type: NodePort
+  selector:
+    app: dspace-app
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 8080
+    name: http
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dspace-deploy
+  labels:
+    app: dspace-app
+spec:
+  selector:
+    matchLabels:
+      app: dspace-app
+  template:
+    metadata:
+      labels:
+        app: dspace-app
+    spec:
+      volumes:
+      - name: "assetstore"
+        emptyDir: {}
+      - name: my-local-config-map
+        configMap:
+          name: local-config-map
+      containers:
+      - image: dspace/dspace:dspace-6_x
+        name: dspace
+        ports:
+        - containerPort: 8080
+          name: http
+          protocol: TCP
+        volumeMounts:
+        - mountPath: "/dspace/assetstore"
+          name: "assetstore"
+        - mountPath: "/dspace/config/local.cfg"
+          name: "my-local-config-map"
+          subPath: local.cfg
