@@ -92,7 +92,7 @@ spec:
     configMap:
       name: local-config-map
   containers:
-  - image: dspace/dspace:dspace-6_x
+  - image: dspace/dspace:dspace-6_x-jdk8-test
     name: dspace
     ports:
     - containerPort: 8080

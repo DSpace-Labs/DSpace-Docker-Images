@@ -33,8 +33,7 @@ kubectl port-forward service/dspace-service 8080:8080
 kubectl apply -f dpace.job.create-admin.yaml
 
 kubectl get pods -o wide
-# manually delete job pod
-kubectl delete pod dspace-create-admin-kl6wd
+kubectl delete -f dpace.job.create-admin.yaml
 
 kubectl delete -f dspace.deploy.v6.yaml
 ```
