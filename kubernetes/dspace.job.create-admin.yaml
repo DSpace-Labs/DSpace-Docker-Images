@@ -8,12 +8,8 @@ spec:
     spec:
       volumes:
       - name: "assetstore"
-      # This volume behaves properly on on Windows, but it does not make sense to persist the assetstore
-      # if the database cannot be persisted.
-        emptyDir: {}
-      #  hostPath:
-      #    path: "/tmp/vols/assetstore"
-      #
+        hostPath:
+          path: "/tmp/vols/assetstore"
       - name: my-local-config-map
         configMap:
           name: local-config-map

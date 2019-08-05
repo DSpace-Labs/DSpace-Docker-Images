@@ -55,6 +55,8 @@ spec:
     spec:
       volumes:
       - name: "pgdata-vol"
+        # There is an outstanding bug that prevents PGDATA from being persisted on Windows.
+        # On MacOS or other platforms, a hostPath could be used.
         emptyDir: {}
       containers:
       - image: dspace/dspace-postgres-pgcrypto
@@ -103,7 +105,8 @@ spec:
     spec:
       volumes:
       - name: "assetstore"
-        emptyDir: {}
+        hostPath:
+          path: "/tmp/vols/assetstore"
       - name: my-local-config-map
         configMap:
           name: local-config-map
