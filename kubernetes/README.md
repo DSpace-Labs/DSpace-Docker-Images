@@ -74,3 +74,10 @@ kubectl port-forward dspace-deploy... 8080:8080
 kubectl delete -f dspace.yaml
 gcloud container clusters delete dspace-cluster
 ```
+
+### AWS
+
+- create cluster "dspace"
+- install AWS kubectl
+- aws eks --region region update-kubeconfig --name dspace
+- try https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html
