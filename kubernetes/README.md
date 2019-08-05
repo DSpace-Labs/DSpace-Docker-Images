@@ -35,6 +35,8 @@ kubectl apply -f dpace.job.create-admin.yaml
 kubectl get pods -o wide
 kubectl delete -f dpace.job.create-admin.yaml
 
+kubectl apply -f dpace.job.ingest.v6.yaml
+
 kubectl delete -f dspace.deploy.v6.yaml
 ```
 
@@ -53,16 +55,22 @@ kubectl delete -f dspace.deploy.v6.yaml
 _Using lessons from Chapter 3 of Kubernetes Up and Running_
 ```
 gcloud config set compute/zone us-west1-a
-gcloud container clusters create dspace-cluster
+gcloud container clusters create --num-nodes 1 dspace-cluster
 gcloud auth application-default login
 
-kubectl apply -f dspace.yaml
-kubectl port-forward dspace-pod 8080:8080
+kubectl apply -f dspace.deploy.v6.yaml
+kubectl apply -f dspace.job.create-admin.yaml
+kubectl apply -f dspace.job.ingest.v6.yaml
+
+kubectl port-forward dspace-deploy... 8080:8080
+# TODO: figure out how to expose a GKE service to the internet
+# See https://cloud.google.com/kubernetes-engine/docs/how-to/exposing-apps
+
 ```
 
 #### Delete
 
 ```
 kubectl delete -f dspace.yaml
-gcloud container clusters delete kuar-cluster
+gcloud container clusters delete dspace-cluster
 ```
