@@ -1,0 +1,250 @@
+# kubectl apply -f dspace.deploy.v6.yaml
+# kubectl get pods -o wide
+# kubectl get services -o wide
+# kubectl port-forward service/dspace-service 8080:8080
+# kubectl apply -f dpace.job.create-admin.yaml
+# kubectl delete -f dspace.deploy.v6.yaml
+# https://stackoverflow.com/questions/57317501/kubernetes-modeling-jobs-cron-tasks-for-postgres-tomcat-application
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  creationTimestamp: 2016-02-18T19:14:38Z
+  name: local-config-map
+  namespace: default
+data:
+  # example of a simple property defined using --from-literal
+  #example.property.1: hello
+  #example.property.2: world
+  # example of a complex property defined using --from-file
+  local.cfg: |-
+    dspace.dir = /dspace
+    db.url = jdbc:postgresql://dspacedb-service:5432/dspace
+    dspace.hostname = dspace-service
+    dspace.baseUrl = http://dspace-service:8080
+    solr.server=http://dspace-solr-service:8983
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dspacedb-service
+  labels:
+    app: dspacedb-app
+spec:
+  type: NodePort
+  selector:
+    app: dspacedb-app
+  ports:
+  - protocol: TCP
+    port: 5432
+  #  targetPort: 5432
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dspacedb-deploy
+  labels:
+    app: dspacedb-app
+spec:
+  selector:
+    matchLabels:
+      app: dspacedb-app
+  template:
+    metadata:
+      labels:
+        app: dspacedb-app
+    spec:
+      volumes:
+      - name: "pgdata-vol"
+        # There is an outstanding bug that prevents PGDATA from being persisted on Windows.
+        # On MacOS or other platforms, a hostPath could be used.
+        emptyDir: {}
+      containers:
+      - image: dspace/dspace-postgres-pgcrypto
+        name: dspacedb
+        ports:
+        - containerPort: 5432
+          name: http
+          protocol: TCP
+        volumeMounts:
+        - mountPath: "/pgdata"
+          name: "pgdata-vol"
+        env:
+        - name: PGDATA
+          value: /pgdata
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dspace-service
+  labels:
+    app: dspace-app
+spec:
+  type: NodePort
+  selector:
+    app: dspace-app
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 8080
+    name: http
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dspace-deploy
+  labels:
+    app: dspace-app
+spec:
+  selector:
+    matchLabels:
+      app: dspace-app
+  template:
+    metadata:
+      labels:
+        app: dspace-app
+    spec:
+      volumes:
+      - name: "assetstore"
+        hostPath:
+          path: "/c/temp/vols/assetstore"
+      - name: my-local-config-map
+        configMap:
+          name: local-config-map
+      containers:
+      - image: dspace/dspace:dspace-7_x-jdk8-test
+        name: dspace
+        ports:
+        - containerPort: 8080
+          name: http
+          protocol: TCP
+        volumeMounts:
+        - mountPath: "/dspace/assetstore"
+          name: "assetstore"
+        - mountPath: "/dspace/config/local.cfg"
+          name: "my-local-config-map"
+          subPath: local.cfg
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dspace-solr-service
+  labels:
+    app: dspace-solr-app
+spec:
+  type: NodePort
+  selector:
+    app: dspace-solr-app
+  ports:
+  - protocol: TCP
+    port: 8983
+    targetPort: 8983
+    name: http
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dspace-solr-deploy
+  labels:
+    app: dspace-solr-app
+spec:
+  selector:
+    matchLabels:
+      app: dspace-solr-app
+  template:
+    metadata:
+      labels:
+        app: dspace-solr-app
+    spec:
+      volumes:
+      - name: "solr-authority"
+        hostPath:
+          path: "/c/temp/vols/solr-authority"
+      - name: "solr-oai"
+        hostPath:
+          path: "/c/temp/vols/solr-oai"
+      - name: "solr-search"
+        hostPath:
+          path: "/c/temp/vols/solr-search"
+      - name: "solr-statistics"
+        hostPath:
+          path: "/c/temp/vols/solr-statistics"
+      containers:
+      - image: dspace/dspace-solr
+        name: dspace-solr
+        ports:
+        - containerPort: 8080
+          name: http
+          protocol: TCP
+        volumeMounts:
+        - name: "solr-authority"
+          mountPath: "/opt/solr/server/solr/authority/data"
+        - name: "solr-oai"
+          mountPath: "/opt/solr/server/solr/oai/data"
+        - name: "solr-search"
+          mountPath: "/opt/solr/server/solr/search/data"
+        - name: "solr-statistics"
+          mountPath: "/opt/solr/server/solr/statistics/data"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dspace-angular-service
+  labels:
+    app: dspace-angular-app
+spec:
+  type: NodePort
+  selector:
+    app: dspace-angular-app
+  ports:
+  - protocol: TCP
+    port: 3000
+    targetPort: 3000
+    name: http
+  - protocol: TCP
+    port: 9876
+    targetPort: 9876
+    name: portx
+---
+#TODO: create environment.dev.js in configMap
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dspace-angular-deploy
+  labels:
+    app: dspace-angular-app
+spec:
+  selector:
+    matchLabels:
+      app: dspace-angular-app
+  template:
+    metadata:
+      labels:
+        app: dspace-angular-app
+    spec:
+      containers:
+      - image: dspace/dspace-angular:latest
+        name: dspace-angular
+        ports:
+        - containerPort: 3000
+          name: http
+          protocol: TCP
+        - containerPort: 9876
+          name: portx
+          protocol: TCP
+        env:
+        - name: DSPACE_SSL
+          value: "false"
+        - name: DSPACE_HOST
+          value: "dspace-angular-service"
+        - name: DSPACE_PORT
+          value: "3000"
+        - name: DSPACE_NAMESPACE
+          value: "/"
+        - name: DSPACE_REST_HOST
+          value: "dspace-service"
+        - name: DSPACE_REST_SSL
+          value: "false"
+        - name: DSPACE_REST_NAMESPACE
+          value: "/"
+        - name: DSPACE_REST_PORT
+          value: "8080"
