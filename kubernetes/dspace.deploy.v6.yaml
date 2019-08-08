@@ -73,6 +73,17 @@ spec:
         env:
         - name: PGDATA
           value: /pgdata
+        readinessProbe:
+          exec:
+            command: ["psql", "-U", "dspace", "-c", "SELECT 1"]
+          initialDelaySeconds: 10
+          timeoutSeconds: 2
+        livenessProbe:
+          exec:
+            command: ["psql", "-U", "dspace", "-c", "SELECT 1"]
+          initialDelaySeconds: 60
+          periodSeconds: 60
+          timeoutSeconds: 2
 ---
 apiVersion: v1
 kind: Service
@@ -145,3 +156,16 @@ spec:
           mountPath: "/opt/solr/server/solr/search/data"
         - name: "solr-statistics"
           mountPath: "/opt/solr/server/solr/statistics/data"
+        readinessProbe:
+          httpGet:
+            path: /xmlui/contact
+            port: 8080
+          initialDelaySeconds: 30
+          timeoutSeconds: 30
+        livenessProbe:
+          httpGet:
+            path: /xmlui/contact
+            port: 8080
+          initialDelaySeconds: 180
+          timeoutSeconds: 5
+          periodSeconds: 120
