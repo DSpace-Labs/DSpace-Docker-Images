@@ -57,7 +57,9 @@ spec:
       - name: "pgdata-vol"
         # There is an outstanding bug that prevents PGDATA from being persisted on Windows.
         # On MacOS or other platforms, a hostPath could be used.
-        emptyDir: {}
+        #emptyDir: {}
+        hostPath:
+          path: "/tmp/vols/pgdata"
       containers:
       - image: dspace/dspace-postgres-pgcrypto
         name: dspacedb
@@ -110,6 +112,18 @@ spec:
       - name: my-local-config-map
         configMap:
           name: local-config-map
+      - name: "solr-authority"
+        hostPath:
+          path: "/tmp/vols/solr-authority"
+      - name: "solr-oai"
+        hostPath:
+          path: "/tmp/vols/solr-oai"
+      - name: "solr-search"
+        hostPath:
+          path: "/tmp/vols/solr-search"
+      - name: "solr-statistics"
+        hostPath:
+          path: "/tmp/vols/solr-statistics"
       containers:
       - image: dspace/dspace:dspace-6_x-jdk8-test
         name: dspace
@@ -123,3 +137,11 @@ spec:
         - mountPath: "/dspace/config/local.cfg"
           name: "my-local-config-map"
           subPath: local.cfg
+        - name: "solr-authority"
+          mountPath: "/opt/solr/server/solr/authority/data"
+        - name: "solr-oai"
+          mountPath: "/opt/solr/server/solr/oai/data"
+        - name: "solr-search"
+          mountPath: "/opt/solr/server/solr/search/data"
+        - name: "solr-statistics"
+          mountPath: "/opt/solr/server/solr/statistics/data"

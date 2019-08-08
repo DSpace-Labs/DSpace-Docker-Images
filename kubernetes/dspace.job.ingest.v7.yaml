@@ -7,39 +7,33 @@ metadata:
 data:
   ingest.sh: |-
     #!/bin/sh
-    # Once this file has been saved to a docker volume, the ingest step will not be re-run
-    CHECKFILE=/dspace/assetstore/ingest.hasrun.flag
 
     # The following variable allows a default memory allocation to be set independently of other
     # JAVA_OPT Options
     JAVA_MEM=${JAVA_MEM:--Xmx2500m}
     export JAVA_OPTS="${JAVA_OPTS} ${JAVA_MEM} -Dupload.temp.dir=/dspace/upload -Djava.io.tmpdir=/tmp"
 
-    if [ ! -f $CHECKFILE ]
-    then
-      AIPZIP=${AIPZIP:-https://github.com/DSpace-Labs/AIP-Files/raw/master/dogAndReport.zip}
-      ADMIN_EMAIL=${ADMIN_EMAIL:-test@test.edu}
+    AIPZIP=${AIPZIP:-https://github.com/DSpace-Labs/AIP-Files/raw/master/dogAndReport.zip}
+    ADMIN_EMAIL=${ADMIN_EMAIL:-test@test.edu}
 
-      AIPDIR=/tmp/aip-dir
-      rm -rf ${AIPDIR}
-      mkdir ${AIPDIR} /dspace/upload
-      cd ${AIPDIR}
-      pwd
-      curl ${AIPZIP} -L -s --output aip.zip
-      unzip aip.zip
-      cd ${AIPDIR}
+    AIPDIR=/tmp/aip-dir
+    rm -rf ${AIPDIR}
+    mkdir ${AIPDIR} /dspace/upload
+    cd ${AIPDIR}
+    pwd
+    curl ${AIPZIP} -L -s --output aip.zip
+    unzip aip.zip
+    cd ${AIPDIR}
 
-      /dspace/bin/dspace packager -r -a -t AIP -e ${ADMIN_EMAIL} -f -u SITE*.zip
+    /dspace/bin/dspace packager -r -a -t AIP -e ${ADMIN_EMAIL} -f -u SITE*.zip
 
-      # PR not yet merged
-      /dspace/bin/dspace database update-sequences
-      touch /dspace/solr/search/conf/reindex.flag
+    # PR not yet merged
+    /dspace/bin/dspace database update-sequences
+    touch /dspace/solr/search/conf/reindex.flag
 
-      /dspace/bin/dspace oai import
-      /dspace/bin/dspace oai clean-cache
+    /dspace/bin/dspace oai import
+    /dspace/bin/dspace oai clean-cache
 
-      touch $CHECKFILE
-    fi
 ---
 apiVersion: batch/v1
 kind: Job
@@ -52,7 +46,7 @@ spec:
       volumes:
       - name: "assetstore"
         hostPath:
-          path: "/c/temp/vols/assetstore"
+          path: "/tmp/vols/assetstore"
       - name: my-local-config-map
         configMap:
           name: local-config-map

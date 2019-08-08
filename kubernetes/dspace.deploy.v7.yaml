@@ -106,7 +106,7 @@ spec:
       volumes:
       - name: "assetstore"
         hostPath:
-          path: "/c/temp/vols/assetstore"
+          path: "/tmp/vols/assetstore"
       - name: my-local-config-map
         configMap:
           name: local-config-map
@@ -158,16 +158,16 @@ spec:
       volumes:
       - name: "solr-authority"
         hostPath:
-          path: "/c/temp/vols/solr-authority"
+          path: "/tmp/vols/solr-authority"
       - name: "solr-oai"
         hostPath:
-          path: "/c/temp/vols/solr-oai"
+          path: "/tmp/vols/solr-oai"
       - name: "solr-search"
         hostPath:
-          path: "/c/temp/vols/solr-search"
+          path: "/tmp/vols/solr-search"
       - name: "solr-statistics"
         hostPath:
-          path: "/c/temp/vols/solr-statistics"
+          path: "/tmp/vols/solr-statistics"
       containers:
       - image: dspace/dspace-solr
         name: dspace-solr

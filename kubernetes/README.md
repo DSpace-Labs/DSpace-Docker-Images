@@ -71,7 +71,9 @@ kubectl port-forward dspace-deploy... 8080:8080
 #### Delete
 
 ```
-kubectl delete -f dspace.yaml
+kubectl delete -f dspace.deploy.v6.yaml
+kubectl delete -f dspace.job.create-admin.yaml
+kubectl delete -f dspace.job.ingest.v6.yaml
 gcloud container clusters delete dspace-cluster
 ```
 
