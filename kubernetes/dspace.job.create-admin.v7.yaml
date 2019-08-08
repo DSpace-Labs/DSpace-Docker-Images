@@ -9,7 +9,7 @@ spec:
       volumes:
       - name: "assetstore"
         hostPath:
-          path: "/tmp/vols/assetstore"
+          path: "/tmp/v7vols/assetstore"
       - name: my-local-config-map
         configMap:
           name: local-config-map
