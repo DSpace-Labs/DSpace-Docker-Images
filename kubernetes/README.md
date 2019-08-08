@@ -129,7 +129,7 @@ gcloud container clusters delete dspace-cluster
 ```
 
 TODO: figure out how to expose a GKE service to the internet
-# See https://cloud.google.com/kubernetes-engine/docs/how-to/exposing-apps
+- See https://cloud.google.com/kubernetes-engine/docs/how-to/exposing-apps
 
 ## Misc Notes
 
