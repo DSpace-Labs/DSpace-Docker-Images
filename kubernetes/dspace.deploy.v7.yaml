@@ -22,6 +22,16 @@ data:
     dspace.hostname = dspace-service
     dspace.baseUrl = http://dspace-service:8080
     solr.server=http://dspace-solr-service:8983
+  environment.dev.js: |-
+    module.exports = {
+      rest: {
+        ssl: false,
+        host: 'dspace-service',
+        port: 8080,
+        // NOTE: Space is capitalized because 'namespace' is a reserved string in TypeScript
+        nameSpace: '/server/api'
+      }
+    };
 ---
 apiVersion: v1
 kind: Service
@@ -265,6 +275,10 @@ spec:
       labels:
         app: dspace-angular-app
     spec:
+      volumes:
+      - name: my-local-config-map
+        configMap:
+          name: local-config-map
       containers:
       - image: dspace/dspace-angular:latest
         name: dspace-angular
@@ -292,3 +306,7 @@ spec:
           value: "/"
         - name: DSPACE_REST_PORT
           value: "8080"
+        volumeMounts:
+        - name: my-local-config-map
+          mountPath: /app/config/environment.dev.js
+          subPath: environment.dev.js
