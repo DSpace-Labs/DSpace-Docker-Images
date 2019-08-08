@@ -4,7 +4,7 @@
 - [Kuberenetes Up and Running](http://shop.oreilly.com/product/0636920043874.do)
 
 ### Options for running Kubernetes
-- Kubernetes bundled with Docker Desktop
+- Kubernetes bundled with Docker Desktop (Recommended)
   - Enable kubernetes in Docker Desktop
   - Use kubectl in Docker Desktop
 - Minikube
@@ -12,72 +12,136 @@
 - Google Cloud
   - https://cloud.google.com/kubernetes-engine/docs/quickstart
   - This has been the most reliable option for me so far, but it does have a cost.
+- AWS Elastic Kubernetes service
+  - I did not have much luck with this
 
-### Recipes
+## Run DSpace 6 in Docker Desktop + Kubernetes
 
-#### Docker Desktop
-
-The following describes my attempts to get this running
-https://stackoverflow.com/questions/57317501/kubernetes-modeling-jobs-cron-tasks-for-postgres-tomcat-application
-
+Start DSpace 6
 ```
 kubectl apply -f dspace.deploy.v6.yaml
+```
+
+Check Status of pods (pods contain containers)
+```
 kubectl get pods -o wide
+
 # pod names will vary
 kubectl logs dspace-deploy-c59b77bb8-mr47k
 winpty kubectl exec -it dspace-deploy-c59b77bb8-mr47k -- //bin/bash
 
 kubectl get services -o wide
-kubectl port-forward service/dspace-service 8080:8080
-
-kubectl apply -f dpace.job.create-admin.yaml
-
-kubectl get pods -o wide
-kubectl delete -f dpace.job.create-admin.yaml
-
-kubectl apply -f dpace.job.ingest.v6.yaml
-
-kubectl delete -f dspace.deploy.v6.yaml
 ```
 
-### TODOs
-- figure out the best way to run create-administrator
-- attempt to create a "job" that contains dspace CLI without running tomcat (or a separate image)
-- fix hostname references
+Make tomcat accessible to localhost
+```
+kubectl port-forward service/dspace-service 8080:8080
+```
 
-#### Local Volume Notes
-- https://vocon-it.com/2018/12/20/kubernetes-local-persistent-volumes/
-- https://stackoverflow.com/questions/57227990/kubernetes-in-docker-for-windows-volume-configuration-for-postgres
-- https://learning.oreilly.com/library/view/kubernetes-cookbook/9781491979679/ch08.html#ch_volumes_config
+Access Site
+- http://localhost:8080/xmlui
 
-#### Google Cloud
+Create administrator and ingest content
+```
+kubectl apply -f dpace.job.create-admin.v6.yaml
+kubectl apply -f dpace.job.ingest.v6.yaml
+
+kubectl get pods -o wide
+```
+
+Cleanup
+```
+kubectl delete -f dpace.job.create-admin.v6.yaml
+kubectl delete -f dpace.job.ingest.v6.yaml
+kubectl delete -f dspace.deploy.v6.yaml
+
+kubectl get pods -o wide
+```
+
+## Run DSpace 7 in Docker Desktop + Kubernetes
+
+Start DSpace 7
+```
+kubectl apply -f dspace.deploy.v7.yaml
+```
+
+Check Status of pods (pods contain containers)
+```
+kubectl get pods -o wide
+
+# pod names will vary
+kubectl logs dspace-deploy-c59b77bb8-mr47k
+winpty kubectl exec -it dspace-deploy-c59b77bb8-mr47k -- //bin/bash
+
+kubectl get services -o wide
+```
+
+Make tomcat accessible to localhost
+```
+kubectl port-forward service/dspace-service 8080:8080
+```
+
+Access REST
+- http://localhost:8080/
+
+Make angular accessible to localhost
+```
+kubectl port-forward service/dspace-angular-service 3000:3000
+```
+
+Access Angular
+- http://localhost:3000/
+
+Create administrator and ingest content
+```
+kubectl apply -f dpace.job.create-admin.v7.yaml
+kubectl apply -f dpace.job.ingest.v7.yaml
+
+kubectl get pods -o wide
+```
+
+Cleanup
+```
+kubectl delete -f dpace.job.create-admin.v7.yaml
+kubectl delete -f dpace.job.ingest.v7.yaml
+kubectl delete -f dspace.deploy.v7.yaml
+
+kubectl get pods -o wide
+```
+
+## Google Cloud
+
+__These resources will incur a cost until you delete them__
 
 _Using lessons from Chapter 3 of Kubernetes Up and Running_
 ```
 gcloud config set compute/zone us-west1-a
 gcloud container clusters create --num-nodes 1 dspace-cluster
 gcloud auth application-default login
+```
 
-kubectl apply -f dspace.deploy.v6.yaml
-kubectl apply -f dspace.job.create-admin.yaml
-kubectl apply -f dspace.job.ingest.v6.yaml
+Run the same commands as listed above for Docker Desktop
 
-kubectl port-forward dspace-deploy... 8080:8080
-# TODO: figure out how to expose a GKE service to the internet
+Cleanup Google Cloud Resources
+
+```
+gcloud container clusters delete dspace-cluster
+```
+
+TODO: figure out how to expose a GKE service to the internet
 # See https://cloud.google.com/kubernetes-engine/docs/how-to/exposing-apps
 
 ```
 
-#### Delete
+## Misc Notes
 
-```
-kubectl delete -f dspace.deploy.v6.yaml
-kubectl delete -f dspace.job.create-admin.yaml
-kubectl delete -f dspace.job.ingest.v6.yaml
-gcloud container clusters delete dspace-cluster
-```
+Local Volume Notes
+- https://vocon-it.com/2018/12/20/kubernetes-local-persistent-volumes/
+- https://stackoverflow.com/questions/57227990/kubernetes-in-docker-for-windows-volume-configuration-for-postgres
+- https://learning.oreilly.com/library/view/kubernetes-cookbook/9781491979679/ch08.html#ch_volumes_config
 
-#### Log
+
+## Log -- Google Cloud
 
 ```
 C:\Users\twb27\Documents\GitHub\DSpace-Docker-Images\kubernetes>gcloud container clusters create --num-nodes 1 dspace-cluster
@@ -159,13 +223,14 @@ Deleted [https://container.googleapis.com/v1/projects/terry-1/zones/us-west1-a/c
 
 ```
 
-### AWS
+## AWS -- Log
 
 - create cluster "dspace"
 - install AWS kubectl
 - aws eks --region region update-kubeconfig --name dspace
 - try https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html
 
+```
 eksctl create cluster \
 --name dspace \
 --version 1.13 \
@@ -175,8 +240,9 @@ eksctl create cluster \
 --nodes-min 1 \
 --nodes-max 1 \
 --node-ami auto
+```
 
-#### Log
+Output
 ```
 :/tmp $ eksctl create cluster --name dspace2 --version 1.13 --nodegroup-name standard-workers --node-type t3.medium --nodes 1 --nodes-min 1 --nodes-max 1 --node-ami auto   
 [ℹ]  using region us-west-2
