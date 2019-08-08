@@ -56,7 +56,7 @@ spec:
       volumes:
       - name: "pgdata-vol"
         # There is an outstanding bug that prevents PGDATA from being persisted on Windows.
-        # On MacOS or other platforms, a hostPath could be used.
+        # But, if a linux hostPath is provided, the data will persist while Docker Desktop is running
         #emptyDir: {}
         hostPath:
           path: "/tmp/vols/pgdata"
@@ -169,3 +169,4 @@ spec:
           initialDelaySeconds: 180
           timeoutSeconds: 5
           periodSeconds: 120
+        command: ['sh', '-c', '/dspace/bin/dspace database migrate; catalina.sh run']
