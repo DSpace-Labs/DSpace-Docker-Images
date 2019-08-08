@@ -15,6 +15,14 @@
 - AWS Elastic Kubernetes service
   - I did not have much luck with this
 
+## Planned enhancements/next steps
+- fix angular container startup issue
+- add livenessProbe and readinessProbe to angular service
+- figure out how to expose kubernetes services in google cloud to the internet
+- explore persistent volume service options in kubernetes
+- explore how to simulate persistent volume service options when running with Docker Desktop
+- make the call to "database migrate" on startup of the dspace-deploy more intelligent - only run it once
+
 ## Run DSpace 6 in Docker Desktop + Kubernetes
 
 Start DSpace 6
