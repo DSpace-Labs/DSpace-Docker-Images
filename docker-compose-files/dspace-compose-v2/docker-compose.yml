@@ -1,0 +1,45 @@
+version: "3.7"
+
+services:
+
+  dspacedb:
+    image: dspace/dspace-postgres-pgcrypto
+    # Note that a separate image exists for DSpace 4x
+    # image: dspace/dspace-postgres-4x
+    container_name: dspacedb
+    environment:
+      - PGDATA=/pgdata
+    volumes:
+      - pgdata:/pgdata
+    networks:
+      - dspacenet
+    tty: true
+    stdin_open: true
+
+  dspace:
+    image: "${DOCKER_OWNER:-dspace}/dspace:${DSPACE_VER:-dspace-6_x-jdk8-test}"
+    container_name: dspace
+    #environment:
+    ports:
+      - ${PORT:-8080}:8080
+    volumes:
+      - "assetstore:/dspace/assetstore"
+      - "./local.cfg:/dspace/config/local.cfg"
+    networks:
+      - dspacenet
+    depends_on:
+      - dspacedb
+    tty: true
+    stdin_open: true
+
+volumes:
+  pgdata:
+  assetstore:
+  # The Solr volumes will be defined in one of the dX.override.yml files
+  solr_authority:
+  solr_oai:
+  solr_search:
+  solr_statistics:
+
+networks:
+  dspacenet:

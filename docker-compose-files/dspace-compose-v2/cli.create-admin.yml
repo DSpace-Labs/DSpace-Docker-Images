@@ -1,0 +1,5 @@
+version: "3.7"
+
+services:
+  dspace-cli:
+    command: create-administrator -e test@test.edu -f admin -l user -p admin -c en
