@@ -24,10 +24,20 @@ winpty docker-compose -p d6job -f d6.cli.yml -f cli.create-admin.yml run --rm ds
 winpty docker-compose -p d6job -f d6.cli.yml -f cli.ingest.yml run --rm dspace-cli
 ```
 
+Alternate approach for invoking dspace CLI commands
+```
+winpty docker-compose -p d6job -f d6.cli.yml run --rm dspace-cli create-administrator
+```
+
 ## Run DSpace 7x
 
 ```
 winpty docker-compose -p d7job -f docker-compose.yml -f d7.override.yml up -d
 winpty docker-compose -p d7job -f d7.cli.yml -f cli.create-admin.yml run --rm dspace-cli
 winpty docker-compose -p d7job -f d7.cli.yml -f cli.ingest.yml run --rm dspace-cli
+```
+
+Alternate approach for invoking dspace CLI commands
+```
+winpty docker-compose -p d7job -f d7.cli.yml run --rm dspace-cli create-administrator
 ```
