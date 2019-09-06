@@ -24,7 +24,6 @@ services:
       - ${PORT:-8080}:8080
     volumes:
       - "assetstore:/dspace/assetstore"
-      - "./local.cfg:/dspace/config/local.cfg"
     networks:
       - dspacenet
     depends_on:
