@@ -1,0 +1,52 @@
+version: "3.7"
+
+# This file adds an externalized Solr service.
+# Once the following PR is merged, this file will replace d7.override.yml
+# https://github.com/DSpace/DSpace/pull/2058/files
+
+services:
+  dspace:
+    image: "${DOCKER_OWNER:-dspace}/dspace:${DSPACE_VER:-dspace-7_x-jdk8-test}"
+    volumes:
+    - "./d7.local.cfg:/dspace/config/local.cfg"
+
+  dspace-angular:
+    image: "${ANGULAR_OWNER:-dspace}/dspace-angular:${ANGULAR_VER:-latest}"
+    container_name: dspace-angular
+    ports:
+      - 3000:3000
+      - 9876:9876
+    environment:
+      - DSPACE_SSL=false
+      - DSPACE_HOST=dspace-angular
+      - DSPACE_PORT=3000
+      - DSPACE_NAMESPACE=/
+      - DSPACE_REST_HOST=dspace
+      - DSPACE_REST_SSL=false
+      - DSPACE_REST_NAMESPACE=/
+      - DSPACE_REST_PORT=8080
+
+    volumes:
+      # The localhost:port in use by the client js is set in the following file
+      - "../../add-ons/angular-tools/environment.dev.js:/app/config/environment.dev.js"
+    networks:
+      - dspacenet
+    depends_on:
+      - dspace
+    tty: true
+    stdin_open: true
+
+  dspacesolr:
+    image: dspace/dspace-solr
+    container_name: dspacesolr
+    ports:
+     - "8983:8983"
+    networks:
+      - dspacenet
+    volumes:
+      - "solr_authority:/opt/solr/server/solr/authority/data"
+      - "solr_oai:/opt/solr/server/solr/oai/data"
+      - "solr_search:/opt/solr/server/solr/search/data"
+      - "solr_statistics:/opt/solr/server/solr/statistics/data"
+    tty: true
+    stdin_open: true

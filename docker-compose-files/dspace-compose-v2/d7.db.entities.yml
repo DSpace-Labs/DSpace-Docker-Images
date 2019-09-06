@@ -1,0 +1,9 @@
+# suitable for DSpace 6 and 7
+version: "3.7"
+
+services:
+  dspacedb:
+    image: dspace/dspace-postgres-pgcrypto:loadsql
+    environment:
+      # Double underbars in env names will be replaced with periods for apache commons
+      - LOADSQL=https://www.dropbox.com/s/xh3ack0vg0922p2/configurable-entities-2019-05-08.sql?dl=1

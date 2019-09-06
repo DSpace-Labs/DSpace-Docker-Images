@@ -1,0 +1,12 @@
+version: "3.7"
+
+services:
+  dspace-cli:
+    entrypoint:
+      - /bin/bash
+      - '-c'
+      - |
+          die() { echo "$$*" 1>&2 ; exit 1; }
+          /dspace/bin/dspace database test || die "databse not ready"
+          curl -Is http://dspace:8080/xmlui/ | head -1 | grep 200 || die "restapi not ready"
+          curl -Is http://dspace:8080/solr/  | head -1 | grep 200 || die "solr not ready"
