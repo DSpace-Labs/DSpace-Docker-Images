@@ -7,9 +7,9 @@ version: "3.7"
 # docker-compose -p d7job -f d7.cli.yml -f cli-src.override.yml build
 #
 # To run
-# winpty docker-compose -p d6job -f d6.cli.yml -f cli-src.override.yml -f ... run --rm dspace-cli
+# docker-compose -p d6job -f d6.cli.yml -f cli-src.override.yml run --rm dspace-cli
 # Or
-# winpty docker-compose -p d7job -f d7.cli.yml -f cli-src.override.yml -f ... run --rm dspace-cli
+# docker-compose -p d7job -f d7.cli.yml -f cli-src.override.yml run --rm dspace-cli
 
 services:
   dspace-cli:
