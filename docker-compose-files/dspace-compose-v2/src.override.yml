@@ -1,0 +1,19 @@
+version: "3.7"
+
+# To build changes
+# export DSPACE_SRC=...
+# docker-compose -p d6job -f docker-compose.yml -f d6.override.yml -f src.override.yml build
+# Or
+# docker-compose -p d7job -f docker-compose.yml -f d7.override.yml -f src.override.yml build
+#
+# To run
+# docker-compose -p d6job -f docker-compose.yml -f d6.override.yml -f src.override.yml up -d
+# Or
+# docker-compose -p d7job -f docker-compose.yml -f d7.override.yml -f src.override.yml up -d
+
+services:
+  dspace:
+    image: dspace/dspace:local-build
+    build:
+      context: ${DSPACE_SRC}
+      dockerfile: Dockerfile.jdk8-test

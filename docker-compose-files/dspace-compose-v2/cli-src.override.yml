@@ -1,0 +1,19 @@
+version: "3.7"
+
+# To build changes
+# export DSPACE_SRC=...
+# docker-compose -p d6job -f d6.cli.yml -f cli-src.override.yml build
+# Or
+# docker-compose -p d7job -f d7.cli.yml -f cli-src.override.yml build
+#
+# To run
+# docker-compose -p d6job -f d6.cli.yml -f cli-src.override.yml run --rm dspace-cli
+# Or
+# docker-compose -p d7job -f d7.cli.yml -f cli-src.override.yml run --rm dspace-cli
+
+services:
+  dspace-cli:
+    image: dspace/dspace-cli:local-build
+    build:
+      context: ${DSPACE_SRC}
+      dockerfile: Dockerfile.cli.jdk8
