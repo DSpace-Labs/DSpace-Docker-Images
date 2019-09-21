@@ -12,7 +12,7 @@ version: "3.7"
 # winpty docker-compose -p d7job -f d7.cli.yml -f cli-src.override.yml -f ... run --rm dspace-cli
 
 services:
-  dspace:
+  dspace-cli:
     image: dspace/dspace-cli:local-build
     build:
       context: ${DSPACE_SRC}
