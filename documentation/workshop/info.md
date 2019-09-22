@@ -19,6 +19,7 @@
 
 ## Session Links
 - [Session Slides](https://gitpitch.com/DSpace-Labs/DSpace-Docker-Images?p=documentation/workshop#/)
+  - [Exported Slides](PITCHME.pptx)
 
 ## Exercises
 - [Exercise 1: Verify Installation](exercise1.md)
