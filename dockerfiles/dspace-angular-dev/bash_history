@@ -1,4 +1,0 @@
-yarn run clean
-yarn install
-yarn run watch
-yarn run clean && yarn install && yarn run watch
