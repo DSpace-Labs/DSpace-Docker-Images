@@ -34,8 +34,6 @@ References
   - [Common Tasks after Start Up](documentation/run.CommonTasks.md)
 - [Running DSpace with Docker Compose](docker-compose-files/dspace-compose/README.md)
   - [Docker Compose Configuration Options for Optional DSpace Services](docker-compose-files/dspace-compose/ComposeFiles.md)
-- [Running DSpace 7 (Angular Only) with Docker Compose](docker-compose-files/angular-compose/README.md)
-  - [Testing DSpace 7 Angular Code with Docker Compose](docker-compose-files/angular-dev-compose/README.md)
 - [Creating automated builds for your DSpace contributions](documentation/forkBuild.md)
 
 ## References
@@ -43,20 +41,46 @@ References
 
 ---
 
-## Published Images
+## Docker Images
 This table lists the special purpose docker images supported by the DSpace project.  
 
-| Image Name | Status | DockerHub | Sample Labels | Comments |
-| ---------- | ------ | --------- | ------------- | -------- |
-| [dspace-postgres-4x](https://github.com/DSpace-Labs/DSpace-Docker-Images/tree/master/dockerfiles/dspace-postgres-4x) | Published |  [dspace/dspace-postgres-4x](https://hub.docker.com/r/dspace/dspace-postgres-4x/) | latest | Postgres image for DSpace 4x containing a pre-loaded DSpace 4x schema.|
+| Image Name | Repo | Dockerfile | Branches | Comments |
+| ---------- | ---- | ---------- | -------- | -------- |
+| dspace/dspace-dependencies | DSpace/DSpace | 4-7 | Dockerfile.dependencies | Base image that optimizes the build of DSpace images by caching maven downloads |
+| dspace/dspace | DSpace/DSpace | Dockerfile.* | 4-7 |Docker web app container |
+| dspace/dspace-cli | DSpace/DSpace | Dockerfile.cli.* | 6-7 |Docker CLI container |
+| dspace/dspace-postgres-pgcrypto:latest | DSpace/DSpace | 5-7 | dspace/src/main/docker/dspace-postgres-pgcrypto/Dockefile | Database container |
+| dspace/dspace-postgres-pgcrypto:loadsql | DSpace/DSpace | 5-7 | dspace/src/main/docker/dspace-postgres-pgcrypto-curl/Dockefile | Database container that downloads and ingests a SQL dump |
+| dspace/dspace-postgres-4x | DSpace-Labs/DSpace-Docker-Images | 4 | dockerfiles/dspace-postgres-4x/Dockefile | Database container |
+| dspace/dspace-solr | DSpace/DSpace | dspace/src/main/docker/solr/Dockerfile | 7 | Standalone SOLR instance with DSpace schemas loaded |
+| dspace/dspace-angular | DSpace/DSpace-angular | Dockerfile | 7 | Angular UI |
 
 ## Compose files
 The following Docker Compose files can be used to simplify the management of DSpace components allowing a user to run an end-to-end DSpace instance from their desktop.
 
+| Version | Scenario | Repo | Command line | Comments |
+| ------- | -------- | ---- | ------------ | -------- |
+| 7x REST    | Run published images | DSpace/DSpace | `docker-compose -p d7 up -d` | |
+| 7x REST    | Build REST | DSpace/DSpace | `docker-compose -p d7 up -d --build` | |
+| 7x UI+REST | Run published images | DSpace/DSpace | `docker-compose -p d7 -f docker-compose.yml -f dspace/src/main/docker-compose/docker-compose-angular.yml up -d` | Can be run from DSpace or DSpace-angular |
+| 7x UI+REST | Run published images | DSpace/DSpace-angular | `docker-compose -p d7 -f docker-compose.yml -f docker/docker-compose-rest.yml up -d` | Can be run from DSpace or DSpace-angular |
+| 7x UI+REST | Build REST | DSpace/DSpace | `docker-compose -p d7 -f docker-compose.yml -f dspace/src/main/docker-compose/docker-compose-angular.yml up -d` |  |
+| 7x UI+REST | Build Angular | DSpace/DSpace-angular | `docker-compose -p d7 -f docker-compose.yml -f docker/docker-compose-rest.yml up -d --build` |  |
+| 7x UI+REST | Build REST Angular | DSpace/DSpace| `docker-compose -p d7 up -d --build` | 2 step process |
+|            |                    | DSpace/DSpace-angular | `docker-compose -p d7 up -d --build` | 2 step process |
+| 6x         | Run published images | DSpace/DSpace | `docker-compose -p d6 up -d` | |
+| 6x         | Build images | DSpace/DSpace | `docker-compose -p d6 up -d --build` | |
+| 5x         | Run published images | DSpace-Labs/DSpace-Docker-Images : docker-compose-files/dspace-compose | `docker-compose -p d5 -f docker-compose.yml -f d5.override.yml up -d` | |
+| 5x         | Build images | DSpace-Labs/DSpace-Docker-Images : docker-compose-files/dspace-compose | `docker-compose -p d5 -f docker-compose.yml -f d5.override.yml -f src.override.yml up -d --build` | |
+| 4x         | Run published images | DSpace-Labs/DSpace-Docker-Images : docker-compose-files/dspace-compose | `docker-compose -p d4 -f docker-compose.yml -f d4.override.yml up -d` | |
+| 4x         | Build images | DSpace-Labs/DSpace-Docker-Images : docker-compose-files/dspace-compose | `docker-compose -p d4 -f docker-compose.yml -f d4.override.yml -f src.override.yml up -d --build` | |
+| Other | Special Cases | DSpace-Labs/DSpace-Docker-Images : docker-compose-files/dspace-compose | See [Special Cases](docker-compose-files/dspace-compose/ComposeFiles.md) | |
+
+
 ### Main DSpace Compose Files
 [DSpace Compose Files](docker-compose-files/dspace-compose/ComposeFiles.md)
 - Base DSpace Compose File: docker-compose.yml
-- DSpace 7 Compose File: d7.override.yml (d7solr.override.yml - until PR 2058 is merged)
+- DSpace 7 Compose File: d7.override.yml
 - DSpace 6 Compose File: d6.override.yml
 - DSpace 5 Compose File: d5.override.yml
 - DSpace 4 Compose File: d4.override.yml
@@ -68,8 +92,6 @@ The following Docker Compose files can be used to simplify the management of DSp
 
 | Compose File | Host  | Image | Notes |
 | ------------ | ----- | ----- | ----- |
-| [angular-compose](https://github.com/DSpace-Labs/DSpace-Docker-Images/tree/master/docker-compose-files/angular-compose) | | | Compose file to run the DSpace 7 Angular UI with an External REST Service |
-| [angular-dev-compose](https://github.com/DSpace-Labs/DSpace-Docker-Images/tree/master/docker-compose-files/angular-dev-compose) | | | Compose file to develop the DSpace 7 Angular UI with an External REST Service |
 | | dspace-angular | dspace/dspace-angular-bare   | |
 | | dspacedb | atmire/dspace-oracle            | |
 | | dspace   | dspace/dspace                   | ||
