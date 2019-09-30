@@ -46,12 +46,12 @@ This table lists the special purpose docker images supported by the DSpace proje
 
 | Image Name | Repo | Dockerfile | Branches | Comments |
 | ---------- | ---- | ---------- | -------- | -------- |
-| dspace/dspace-dependencies | DSpace/DSpace | 4-7 | Dockerfile.dependencies | Base image that optimizes the build of DSpace images by caching maven downloads |
+| dspace/dspace-dependencies | DSpace/DSpace | Dockerfile.dependencies | 4-7 | Base image that optimizes the build of DSpace images by caching maven downloads |
 | dspace/dspace | DSpace/DSpace | Dockerfile.* | 4-7 |Docker web app container |
 | dspace/dspace-cli | DSpace/DSpace | Dockerfile.cli.* | 6-7 |Docker CLI container |
-| dspace/dspace-postgres-pgcrypto:latest | DSpace/DSpace | 5-7 | dspace/src/main/docker/dspace-postgres-pgcrypto/Dockefile | Database container |
-| dspace/dspace-postgres-pgcrypto:loadsql | DSpace/DSpace | 5-7 | dspace/src/main/docker/dspace-postgres-pgcrypto-curl/Dockefile | Database container that downloads and ingests a SQL dump |
-| dspace/dspace-postgres-4x | DSpace-Labs/DSpace-Docker-Images | 4 | dockerfiles/dspace-postgres-4x/Dockefile | Database container |
+| dspace/dspace-postgres-pgcrypto:latest | DSpace/DSpace |dspace/src/main/docker/dspace-postgres-pgcrypto/Dockefile | 5-7 |  Database container |
+| dspace/dspace-postgres-pgcrypto:loadsql | DSpace/DSpace | dspace/src/main/docker/dspace-postgres-pgcrypto-curl/Dockefile | 5-7 | Database container that downloads and ingests a SQL dump |
+| dspace/dspace-postgres-4x | DSpace-Labs/DSpace-Docker-Images | dockerfiles/dspace-postgres-4x/Dockefile | 4 | Database container |
 | dspace/dspace-solr | DSpace/DSpace | dspace/src/main/docker/solr/Dockerfile | 7 | Standalone SOLR instance with DSpace schemas loaded |
 | dspace/dspace-angular | DSpace/DSpace-angular | Dockerfile | 7 | Angular UI |
 
@@ -66,7 +66,7 @@ The following Docker Compose files can be used to simplify the management of DSp
 | 7x UI+REST | Run published images | DSpace/DSpace-angular | `docker-compose -p d7 -f docker-compose.yml -f docker/docker-compose-rest.yml up -d` | Can be run from DSpace or DSpace-angular |
 | 7x UI+REST | Build REST | DSpace/DSpace | `docker-compose -p d7 -f docker-compose.yml -f dspace/src/main/docker-compose/docker-compose-angular.yml up -d` |  |
 | 7x UI+REST | Build Angular | DSpace/DSpace-angular | `docker-compose -p d7 -f docker-compose.yml -f docker/docker-compose-rest.yml up -d --build` |  |
-| 7x UI+REST | Build REST Angular | DSpace/DSpace| `docker-compose -p d7 up -d --build` | 2 step process |
+| 7x UI+REST | Build REST & Angular | DSpace/DSpace| `docker-compose -p d7 up -d --build` | 2 step process |
 |            |                    | DSpace/DSpace-angular | `docker-compose -p d7 up -d --build` | 2 step process |
 | 6x         | Run published images | DSpace/DSpace | `docker-compose -p d6 up -d` | |
 | 6x         | Build images | DSpace/DSpace | `docker-compose -p d6 up -d --build` | |
