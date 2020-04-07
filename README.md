@@ -1,7 +1,14 @@
 # DSpace-Docker-Images
 
+***
+:warning: **DEPRECATED**. This repository of Docker resources is ONLY valid for running DSpace 4.x and/or 5.x in a Docker-based development environment.  DSpace 6.x and 7.x Docker compose files have been moved into the main https://github.com/DSpace/DSpace codebase (_any old 6.x or 7.x compose files in this repository are unsupported & unmaintained_)
+
+* DSpace 6.x Docker Compose files: https://github.com/DSpace/DSpace/tree/dspace-6_x/dspace/src/main/docker-compose
+* DSpace 7.x Docker Compose files: https://github.com/DSpace/DSpace/tree/master/dspace/src/main/docker-compose
+****
+
 This repository contains docker resources for the [DSpace](https://dspace.org) project.
-- Docker Compose files for DSpace 4x and 5x
+- Docker Compose files for DSpace 4x and 5x ONLY
 - Special purpose Docker Compose and Dockerfiles for DSpace
 - Tutorials for running DSpace with Docker and Docker Compose
 
