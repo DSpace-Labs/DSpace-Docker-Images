@@ -18,8 +18,9 @@
     - [Part 2: 3:30-5:00](https://www.conftool.net/or2019/index.php?page=browseSessions&form_session=421)
 
 ## Session Links
-- [Session Slides](https://gitpitch.com/DSpace-Labs/DSpace-Docker-Images?p=documentation/workshop#/)
+- Session Slides previously hosted at https://gitpitch.com/DSpace-Labs/DSpace-Docker-Images?p=documentation/workshop#/
   - [Exported Slides](PITCHME.pptx)
+  - [Markdown Presentation Source](https://github.com/DSpace-Labs/DSpace-Docker-Images/blob/master/documentation/workshop/PITCHME.md)
 
 ## Exercises
 - [Exercise 1: Verify Installation](exercise1.md)
